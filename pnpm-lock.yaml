@@ -58,7 +58,7 @@ importers:
         specifier: ^3.3.3
         version: 3.3.3(prettier@3.5.1)(svelte@5.20.1)
       svelte:
-        specifier: ^5.0.0
+        specifier: ^5.5.0
         version: 5.20.1
       vite:
         specifier: ^6.0.0

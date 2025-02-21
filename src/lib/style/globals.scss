@@ -1,0 +1,243 @@
+@use './reset';
+
+html[data-theme='Night'] {
+	color-scheme: dark;
+
+	--appDark: #2e2c32;
+	--appMain: #07241d;
+	--appGradient: linear-gradient(315deg, var(--appMain) 0%, var(--appDark) 74%);
+	--appAction: #5f5b5f;
+	// --appFig: #715f58;
+	--appFig: #373d3a;
+	--textFig: #efe5e5;
+	--textFigHead: #fefefe;
+	--textLt: #e0e9e5b1;
+	--textMain: #e0e9e5;
+	--textHead: #fefefe;
+	// --textMain: #c8c8c8;
+	// --textHead: #ffffff;
+
+	--accentGradient: linear-gradient(to right, #e37b48, #c35393, #34bd82);
+	--accentGradientTab: linear-gradient(to right, #e37b48, #c35393, #34bd82);
+	--accentGradientLight: linear-gradient(to right, #e48a5d, #d36da7, #5dd7a2);
+	--accentGradient2: -webkit-linear-gradient(to right, #e37b48, #c35393, #34bd82);
+	--accentGradientLight2: -webkit-linear-gradient(to right, #e48a5d, #d36da7, #5dd7a2);
+
+	--hltSnip: #dd59a4bf;
+	--hltByte: #50c9b188;
+	--textSelect: #020a08;
+	--appTranslucent: #c8c8c83e;
+	--appTranslucenter: #c8c8c84f;
+	--appOpaque: #364c47;
+	--appOpaque2: #214c42;
+	--appCodebar: #4b6a4bcd;
+	--shadowClr1: rgba(27, 27, 26, 0.716);
+	--shadowClr2: rgba(21, 20, 20, 0.727);
+	--shadowClr3: rgba(46, 44, 44, 0.305);
+
+	--accentMain: #eb824d;
+	--accentMainLt: #ef9b71;
+	// --accentBio: #c35354;
+	--accentBio: #eb7a50;
+	--accentWorks: #cc5c54;
+	--accentSnip: #c35393;
+	--accentByte: #34bda2;
+	--accentWorksLt: #e87f78;
+	--accentSnipLt: #eb7aba;
+	--accentByteLt: #57d7bb;
+
+	--bxClr1: rgba(0, 0, 0, 0.16);
+	--bxClr2: rgba(0, 0, 0, 0.24);
+
+	--tsnip_bg: #e7dcca;
+	--tsnip_brdr: #ceb285;
+	--textConstLight: #adb3b383;
+
+	--inputSnip: #c3539310;
+	--inputSnipActive: #c353932f;
+	--inputByte: #34bda20b;
+	--inputByteActive: #34bda229;
+
+	--bgSvgC: #062427;
+	// --bgSvg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Crect stroke='%2307241D' stroke-width='0.7' width='1' height='1' id='s'/%3E%3Cpattern id='a' width='3' height='3' patternUnits='userSpaceOnUse' patternTransform='scale(12.15) translate(-917.7 -688.27)'%3E%3Cuse fill='%2325332e' href='%23s' y='2'/%3E%3Cuse fill='%2325332e' href='%23s' x='1' y='2'/%3E%3Cuse fill='%23333e3a' href='%23s' x='2' y='2'/%3E%3Cuse fill='%23333e3a' href='%23s'/%3E%3Cuse fill='%233f4844' href='%23s' x='2'/%3E%3Cuse fill='%233f4844' href='%23s' x='1' y='1'/%3E%3C/pattern%3E%3Cpattern id='b' width='7' height='11' patternUnits='userSpaceOnUse' patternTransform='scale(12.15) translate(-917.7 -688.27)'%3E%3Cg fill='%2348504d'%3E%3Cuse href='%23s'/%3E%3Cuse href='%23s' y='5' /%3E%3Cuse href='%23s' x='1' y='10'/%3E%3Cuse href='%23s' x='2' y='1'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='8'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='5' y='2'/%3E%3Cuse href='%23s' x='5' y='6'/%3E%3Cuse href='%23s' x='6' y='9'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='h' width='5' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(12.15) translate(-917.7 -688.27)'%3E%3Cg fill='%2348504d'%3E%3Cuse href='%23s' y='5'/%3E%3Cuse href='%23s' y='8'/%3E%3Cuse href='%23s' x='1' y='1'/%3E%3Cuse href='%23s' x='1' y='9'/%3E%3Cuse href='%23s' x='1' y='12'/%3E%3Cuse href='%23s' x='2'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='2'/%3E%3Cuse href='%23s' x='3' y='6'/%3E%3Cuse href='%23s' x='3' y='11'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='4' y='10'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='c' width='17' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(12.15) translate(-917.7 -688.27)'%3E%3Cg fill='%23515855'%3E%3Cuse href='%23s' y='11'/%3E%3Cuse href='%23s' x='2' y='9'/%3E%3Cuse href='%23s' x='5' y='12'/%3E%3Cuse href='%23s' x='9' y='4'/%3E%3Cuse href='%23s' x='12' y='1'/%3E%3Cuse href='%23s' x='16' y='6'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='d' width='19' height='17' patternUnits='userSpaceOnUse' patternTransform='scale(12.15) translate(-917.7 -688.27)'%3E%3Cg fill='%2307241D'%3E%3Cuse href='%23s' y='9'/%3E%3Cuse href='%23s' x='16' y='5'/%3E%3Cuse href='%23s' x='14' y='2'/%3E%3Cuse href='%23s' x='11' y='11'/%3E%3Cuse href='%23s' x='6' y='14'/%3E%3C/g%3E%3Cg fill='%23595f5c'%3E%3Cuse href='%23s' x='3' y='13'/%3E%3Cuse href='%23s' x='9' y='7'/%3E%3Cuse href='%23s' x='13' y='10'/%3E%3Cuse href='%23s' x='15' y='4'/%3E%3Cuse href='%23s' x='18' y='1'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='e' width='47' height='53' patternUnits='userSpaceOnUse' patternTransform='scale(12.15) translate(-917.7 -688.27)'%3E%3Cg fill='%23F59214'%3E%3Cuse href='%23s' x='2' y='5'/%3E%3Cuse href='%23s' x='16' y='38'/%3E%3Cuse href='%23s' x='46' y='42'/%3E%3Cuse href='%23s' x='29' y='20'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='f' width='59' height='71' patternUnits='userSpaceOnUse' patternTransform='scale(12.15) translate(-917.7 -688.27)'%3E%3Cg fill='%23F59214'%3E%3Cuse href='%23s' x='33' y='13'/%3E%3Cuse href='%23s' x='27' y='54'/%3E%3Cuse href='%23s' x='55' y='55'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='g' width='139' height='97' patternUnits='userSpaceOnUse' patternTransform='scale(12.15) translate(-917.7 -688.27)'%3E%3Cg fill='%23F59214'%3E%3Cuse href='%23s' x='11' y='8'/%3E%3Cuse href='%23s' x='51' y='13'/%3E%3Cuse href='%23s' x='17' y='73'/%3E%3Cuse href='%23s' x='99' y='57'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23b)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23h)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23c)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23d)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23e)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23f)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23g)' width='100%25' height='100%25'/%3E%3C/svg%3E");
+	--bgSvg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Crect stroke='%2307241D' stroke-width='0.8' width='1' height='1' id='s'/%3E%3Cpattern id='a' width='3' height='3' patternUnits='userSpaceOnUse' patternTransform='scale(12.15) translate(-917.7 -688.27)'%3E%3Cuse fill='%2325332e' href='%23s' y='2'/%3E%3Cuse fill='%2325332e' href='%23s' x='1' y='2'/%3E%3Cuse fill='%23333e3a' href='%23s' x='2' y='2'/%3E%3Cuse fill='%23333e3a' href='%23s'/%3E%3Cuse fill='%233f4844' href='%23s' x='2'/%3E%3Cuse fill='%233f4844' href='%23s' x='1' y='1'/%3E%3C/pattern%3E%3Cpattern id='b' width='7' height='11' patternUnits='userSpaceOnUse' patternTransform='scale(12.15) translate(-917.7 -688.27)'%3E%3Cg fill='%2348504d'%3E%3Cuse href='%23s'/%3E%3Cuse href='%23s' y='5' /%3E%3Cuse href='%23s' x='1' y='10'/%3E%3Cuse href='%23s' x='2' y='1'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='8'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='5' y='2'/%3E%3Cuse href='%23s' x='5' y='6'/%3E%3Cuse href='%23s' x='6' y='9'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='h' width='5' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(12.15) translate(-917.7 -688.27)'%3E%3Cg fill='%2348504d'%3E%3Cuse href='%23s' y='5'/%3E%3Cuse href='%23s' y='8'/%3E%3Cuse href='%23s' x='1' y='1'/%3E%3Cuse href='%23s' x='1' y='9'/%3E%3Cuse href='%23s' x='1' y='12'/%3E%3Cuse href='%23s' x='2'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='2'/%3E%3Cuse href='%23s' x='3' y='6'/%3E%3Cuse href='%23s' x='3' y='11'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='4' y='10'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='c' width='17' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(12.15) translate(-917.7 -688.27)'%3E%3Cg fill='%23515855'%3E%3Cuse href='%23s' y='11'/%3E%3Cuse href='%23s' x='2' y='9'/%3E%3Cuse href='%23s' x='5' y='12'/%3E%3Cuse href='%23s' x='9' y='4'/%3E%3Cuse href='%23s' x='12' y='1'/%3E%3Cuse href='%23s' x='16' y='6'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='d' width='19' height='17' patternUnits='userSpaceOnUse' patternTransform='scale(12.15) translate(-917.7 -688.27)'%3E%3Cg fill='%2307241D'%3E%3Cuse href='%23s' y='9'/%3E%3Cuse href='%23s' x='16' y='5'/%3E%3Cuse href='%23s' x='14' y='2'/%3E%3Cuse href='%23s' x='11' y='11'/%3E%3Cuse href='%23s' x='6' y='14'/%3E%3C/g%3E%3Cg fill='%23595f5c'%3E%3Cuse href='%23s' x='3' y='13'/%3E%3Cuse href='%23s' x='9' y='7'/%3E%3Cuse href='%23s' x='13' y='10'/%3E%3Cuse href='%23s' x='15' y='4'/%3E%3Cuse href='%23s' x='18' y='1'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='e' width='47' height='53' patternUnits='userSpaceOnUse' patternTransform='scale(12.15) translate(-917.7 -688.27)'%3E%3Cg fill='%23F59214'%3E%3Cuse href='%23s' x='2' y='5'/%3E%3Cuse href='%23s' x='16' y='38'/%3E%3Cuse href='%23s' x='46' y='42'/%3E%3Cuse href='%23s' x='29' y='20'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='f' width='59' height='71' patternUnits='userSpaceOnUse' patternTransform='scale(12.15) translate(-917.7 -688.27)'%3E%3Cg fill='%23F59214'%3E%3Cuse href='%23s' x='33' y='13'/%3E%3Cuse href='%23s' x='27' y='54'/%3E%3Cuse href='%23s' x='55' y='55'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='g' width='139' height='97' patternUnits='userSpaceOnUse' patternTransform='scale(12.15) translate(-917.7 -688.27)'%3E%3Cg fill='%23F59214'%3E%3Cuse href='%23s' x='11' y='8'/%3E%3Cuse href='%23s' x='51' y='13'/%3E%3Cuse href='%23s' x='17' y='73'/%3E%3Cuse href='%23s' x='99' y='57'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23b)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23h)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23c)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23d)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23e)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23f)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23g)' width='100%25' height='100%25'/%3E%3C/svg%3E");
+
+	--bgSvgC: #072d31;
+	--bgSvg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Crect stroke='%23072D31' stroke-width='0.8' width='1' height='1' id='s'/%3E%3Cpattern id='a' width='3' height='3' patternUnits='userSpaceOnUse' patternTransform='scale(11.2) translate(-910.71 -683.04)'%3E%3Cuse fill='%2325393c' href='%23s' y='2'/%3E%3Cuse fill='%2325393c' href='%23s' x='1' y='2'/%3E%3Cuse fill='%23334346' href='%23s' x='2' y='2'/%3E%3Cuse fill='%23334346' href='%23s'/%3E%3Cuse fill='%233f4c4e' href='%23s' x='2'/%3E%3Cuse fill='%233f4c4e' href='%23s' x='1' y='1'/%3E%3C/pattern%3E%3Cpattern id='b' width='7' height='11' patternUnits='userSpaceOnUse' patternTransform='scale(11.2) translate(-910.71 -683.04)'%3E%3Cg fill='%23485456'%3E%3Cuse href='%23s'/%3E%3Cuse href='%23s' y='5' /%3E%3Cuse href='%23s' x='1' y='10'/%3E%3Cuse href='%23s' x='2' y='1'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='8'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='5' y='2'/%3E%3Cuse href='%23s' x='5' y='6'/%3E%3Cuse href='%23s' x='6' y='9'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='h' width='5' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(11.2) translate(-910.71 -683.04)'%3E%3Cg fill='%23485456'%3E%3Cuse href='%23s' y='5'/%3E%3Cuse href='%23s' y='8'/%3E%3Cuse href='%23s' x='1' y='1'/%3E%3Cuse href='%23s' x='1' y='9'/%3E%3Cuse href='%23s' x='1' y='12'/%3E%3Cuse href='%23s' x='2'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='2'/%3E%3Cuse href='%23s' x='3' y='6'/%3E%3Cuse href='%23s' x='3' y='11'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='4' y='10'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='c' width='17' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(11.2) translate(-910.71 -683.04)'%3E%3Cg fill='%23515b5d'%3E%3Cuse href='%23s' y='11'/%3E%3Cuse href='%23s' x='2' y='9'/%3E%3Cuse href='%23s' x='5' y='12'/%3E%3Cuse href='%23s' x='9' y='4'/%3E%3Cuse href='%23s' x='12' y='1'/%3E%3Cuse href='%23s' x='16' y='6'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='d' width='19' height='17' patternUnits='userSpaceOnUse' patternTransform='scale(11.2) translate(-910.71 -683.04)'%3E%3Cg fill='%23072D31'%3E%3Cuse href='%23s' y='9'/%3E%3Cuse href='%23s' x='16' y='5'/%3E%3Cuse href='%23s' x='14' y='2'/%3E%3Cuse href='%23s' x='11' y='11'/%3E%3Cuse href='%23s' x='6' y='14'/%3E%3C/g%3E%3Cg fill='%23596264'%3E%3Cuse href='%23s' x='3' y='13'/%3E%3Cuse href='%23s' x='9' y='7'/%3E%3Cuse href='%23s' x='13' y='10'/%3E%3Cuse href='%23s' x='15' y='4'/%3E%3Cuse href='%23s' x='18' y='1'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='e' width='47' height='53' patternUnits='userSpaceOnUse' patternTransform='scale(11.2) translate(-910.71 -683.04)'%3E%3Cg fill='%23DE7B49'%3E%3Cuse href='%23s' x='2' y='5'/%3E%3Cuse href='%23s' x='16' y='38'/%3E%3Cuse href='%23s' x='46' y='42'/%3E%3Cuse href='%23s' x='29' y='20'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='f' width='59' height='71' patternUnits='userSpaceOnUse' patternTransform='scale(11.2) translate(-910.71 -683.04)'%3E%3Cg fill='%23DE7B49'%3E%3Cuse href='%23s' x='33' y='13'/%3E%3Cuse href='%23s' x='27' y='54'/%3E%3Cuse href='%23s' x='55' y='55'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='g' width='139' height='97' patternUnits='userSpaceOnUse' patternTransform='scale(11.2) translate(-910.71 -683.04)'%3E%3Cg fill='%23DE7B49'%3E%3Cuse href='%23s' x='11' y='8'/%3E%3Cuse href='%23s' x='51' y='13'/%3E%3Cuse href='%23s' x='17' y='73'/%3E%3Cuse href='%23s' x='99' y='57'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23b)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23h)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23c)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23d)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23e)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23f)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23g)' width='100%25' height='100%25'/%3E%3C/svg%3E");
+
+	.c0 {
+		filter: sepia(0.15) contrast(120%) brightness(100%) hue-rotate(140deg);
+	}
+	.c1 {
+		filter: sepia(0.2) hue-rotate(300deg);
+	}
+	.c2 {
+		filter: sepia(0.2) hue-rotate(45deg);
+	}
+	.c3 {
+		filter: sepia(0.1) hue-rotate(330deg);
+	}
+}
+html[data-theme='Day'] {
+	color-scheme: light;
+
+	--appMain: #f2f1e9;
+	--appDark: #ededeb;
+	--appGradient: linear-gradient(315deg, var(--appMain) 0%, var(--appDark) 74%);
+	--appAction: #5f5b5f;
+	--appFig: #37393b;
+	--textFig: #c8c8c8;
+	--textFigHead: #f2f1e9;
+	--textLt: #37393bda;
+	--textMain: #37393b;
+	--textHead: #232527;
+
+	--accentGradient: linear-gradient(to left, #feac5e, #c779d0, #4bc8b1);
+	--accentGradientTab: linear-gradient(to left, #fccb9e, #edbcf2, #87e2d2);
+	--accentGradientLight: linear-gradient(to left, #fccb9e, #edbcf2, #87e2d2);
+	--accentGradient2: -webkit-linear-gradient(to left, #feac5e, #c779d0, #4bc8b1);
+	--accentGradientLight2: -webkit-linear-gradient(to left, #fac089, #df9de6, #59d7c0);
+
+	--accentMain: #f59214;
+	--accentMainLt: #fdd199;
+	--accentBio: #87e2d2;
+	--accentWorks: #4bc8b1;
+	--accentSnip: #a079d0;
+	--accentByte: #c35393;
+	--accentWorksLt: #87e2d2;
+	--accentSnipLt: #e4b9fd;
+	--accentByteLt: #f4b1d7;
+
+	--hltSnip: #a279cd85;
+	--hltByte: #eb63b060;
+	--textSelect: #37393b;
+	--appTranslucent: #07241d44;
+	--appTranslucenter: #07241d20;
+	--appOpaque: #b3bbb3;
+	--appOpaque2: #307363;
+	--appCodebar: #07241d44;
+	--shadowClr1: rgba(0, 0, 0, 0.576);
+	--shadowClr2: rgba(18, 17, 17, 0.905);
+	--shadowClr3: rgba(0, 0, 0, 0.12);
+
+	--bxClr1: rgba(0, 0, 0, 0.16);
+	--bxClr2: rgba(0, 0, 0, 0.24);
+
+	--inputSnip: #a279cd07;
+	--inputSnipActive: #956bc123;
+	--inputByte: #c3539308;
+	--inputByteActive: #c353932c;
+
+	--tsnip_bg: #f6f0e6;
+	--tsnip_brdr: #e0d0b7;
+	--textConstLight: #4b5762b8;
+
+	// --bgSvgC: #f2f1e9;
+	// --bgSvg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Crect stroke='%23F2F1E9' stroke-width='0.6' width='1' height='1' id='s'/%3E%3Cpattern id='a' width='3' height='3' patternUnits='userSpaceOnUse' patternTransform='scale(9.4) translate(-893.62 -670.21)'%3E%3Cuse fill='%23f0efe7' href='%23s' y='2'/%3E%3Cuse fill='%23f0efe7' href='%23s' x='1' y='2'/%3E%3Cuse fill='%23edece4' href='%23s' x='2' y='2'/%3E%3Cuse fill='%23edece4' href='%23s'/%3E%3Cuse fill='%23ebeae2' href='%23s' x='2'/%3E%3Cuse fill='%23ebeae2' href='%23s' x='1' y='1'/%3E%3C/pattern%3E%3Cpattern id='b' width='7' height='11' patternUnits='userSpaceOnUse' patternTransform='scale(9.4) translate(-893.62 -670.21)'%3E%3Cg fill='%23e8e7df'%3E%3Cuse href='%23s'/%3E%3Cuse href='%23s' y='5' /%3E%3Cuse href='%23s' x='1' y='10'/%3E%3Cuse href='%23s' x='2' y='1'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='8'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='5' y='2'/%3E%3Cuse href='%23s' x='5' y='6'/%3E%3Cuse href='%23s' x='6' y='9'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='h' width='5' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(9.4) translate(-893.62 -670.21)'%3E%3Cg fill='%23e8e7df'%3E%3Cuse href='%23s' y='5'/%3E%3Cuse href='%23s' y='8'/%3E%3Cuse href='%23s' x='1' y='1'/%3E%3Cuse href='%23s' x='1' y='9'/%3E%3Cuse href='%23s' x='1' y='12'/%3E%3Cuse href='%23s' x='2'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='2'/%3E%3Cuse href='%23s' x='3' y='6'/%3E%3Cuse href='%23s' x='3' y='11'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='4' y='10'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='c' width='17' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(9.4) translate(-893.62 -670.21)'%3E%3Cg fill='%23e6e5dd'%3E%3Cuse href='%23s' y='11'/%3E%3Cuse href='%23s' x='2' y='9'/%3E%3Cuse href='%23s' x='5' y='12'/%3E%3Cuse href='%23s' x='9' y='4'/%3E%3Cuse href='%23s' x='12' y='1'/%3E%3Cuse href='%23s' x='16' y='6'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='d' width='19' height='17' patternUnits='userSpaceOnUse' patternTransform='scale(9.4) translate(-893.62 -670.21)'%3E%3Cg fill='%23F2F1E9'%3E%3Cuse href='%23s' y='9'/%3E%3Cuse href='%23s' x='16' y='5'/%3E%3Cuse href='%23s' x='14' y='2'/%3E%3Cuse href='%23s' x='11' y='11'/%3E%3Cuse href='%23s' x='6' y='14'/%3E%3C/g%3E%3Cg fill='%23e3e2db'%3E%3Cuse href='%23s' x='3' y='13'/%3E%3Cuse href='%23s' x='9' y='7'/%3E%3Cuse href='%23s' x='13' y='10'/%3E%3Cuse href='%23s' x='15' y='4'/%3E%3Cuse href='%23s' x='18' y='1'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='e' width='47' height='53' patternUnits='userSpaceOnUse' patternTransform='scale(9.4) translate(-893.62 -670.21)'%3E%3Cg fill='%23F59214'%3E%3Cuse href='%23s' x='2' y='5'/%3E%3Cuse href='%23s' x='16' y='38'/%3E%3Cuse href='%23s' x='46' y='42'/%3E%3Cuse href='%23s' x='29' y='20'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='f' width='59' height='71' patternUnits='userSpaceOnUse' patternTransform='scale(9.4) translate(-893.62 -670.21)'%3E%3Cg fill='%23F59214'%3E%3Cuse href='%23s' x='33' y='13'/%3E%3Cuse href='%23s' x='27' y='54'/%3E%3Cuse href='%23s' x='55' y='55'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='g' width='139' height='97' patternUnits='userSpaceOnUse' patternTransform='scale(9.4) translate(-893.62 -670.21)'%3E%3Cg fill='%23F59214'%3E%3Cuse href='%23s' x='11' y='8'/%3E%3Cuse href='%23s' x='51' y='13'/%3E%3Cuse href='%23s' x='17' y='73'/%3E%3Cuse href='%23s' x='99' y='57'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23b)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23h)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23c)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23d)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23e)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23f)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23g)' width='100%25' height='100%25'/%3E%3C/svg%3E");
+	--bgSvgC: #dce8e7;
+	// 	background-color: #d2d8d6;
+	// background-image: linear-gradient(315deg, #d2d8d6 0%, #dce8e0 74%);
+	// linear-gradient(315deg, #d2d8d6 0%, #dce8e0 74%)
+	// --bgSvg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Crect stroke='%23F2F1E9' stroke-width='0.8' width='1' height='1' id='s'/%3E%3Cpattern id='a' width='3' height='3' patternUnits='userSpaceOnUse' patternTransform='scale(11.55) translate(-913.42 -685.06)'%3E%3Cuse fill='%23f0efe7' href='%23s' y='2'/%3E%3Cuse fill='%23f0efe7' href='%23s' x='1' y='2'/%3E%3Cuse fill='%23edece4' href='%23s' x='2' y='2'/%3E%3Cuse fill='%23edece4' href='%23s'/%3E%3Cuse fill='%23ebeae2' href='%23s' x='2'/%3E%3Cuse fill='%23ebeae2' href='%23s' x='1' y='1'/%3E%3C/pattern%3E%3Cpattern id='b' width='7' height='11' patternUnits='userSpaceOnUse' patternTransform='scale(11.55) translate(-913.42 -685.06)'%3E%3Cg fill='%23e8e7df'%3E%3Cuse href='%23s'/%3E%3Cuse href='%23s' y='5' /%3E%3Cuse href='%23s' x='1' y='10'/%3E%3Cuse href='%23s' x='2' y='1'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='8'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='5' y='2'/%3E%3Cuse href='%23s' x='5' y='6'/%3E%3Cuse href='%23s' x='6' y='9'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='h' width='5' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(11.55) translate(-913.42 -685.06)'%3E%3Cg fill='%23e8e7df'%3E%3Cuse href='%23s' y='5'/%3E%3Cuse href='%23s' y='8'/%3E%3Cuse href='%23s' x='1' y='1'/%3E%3Cuse href='%23s' x='1' y='9'/%3E%3Cuse href='%23s' x='1' y='12'/%3E%3Cuse href='%23s' x='2'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='2'/%3E%3Cuse href='%23s' x='3' y='6'/%3E%3Cuse href='%23s' x='3' y='11'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='4' y='10'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='c' width='17' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(11.55) translate(-913.42 -685.06)'%3E%3Cg fill='%23e6e5dd'%3E%3Cuse href='%23s' y='11'/%3E%3Cuse href='%23s' x='2' y='9'/%3E%3Cuse href='%23s' x='5' y='12'/%3E%3Cuse href='%23s' x='9' y='4'/%3E%3Cuse href='%23s' x='12' y='1'/%3E%3Cuse href='%23s' x='16' y='6'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='d' width='19' height='17' patternUnits='userSpaceOnUse' patternTransform='scale(11.55) translate(-913.42 -685.06)'%3E%3Cg fill='%23F2F1E9'%3E%3Cuse href='%23s' y='9'/%3E%3Cuse href='%23s' x='16' y='5'/%3E%3Cuse href='%23s' x='14' y='2'/%3E%3Cuse href='%23s' x='11' y='11'/%3E%3Cuse href='%23s' x='6' y='14'/%3E%3C/g%3E%3Cg fill='%23e3e2db'%3E%3Cuse href='%23s' x='3' y='13'/%3E%3Cuse href='%23s' x='9' y='7'/%3E%3Cuse href='%23s' x='13' y='10'/%3E%3Cuse href='%23s' x='15' y='4'/%3E%3Cuse href='%23s' x='18' y='1'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='e' width='47' height='53' patternUnits='userSpaceOnUse' patternTransform='scale(11.55) translate(-913.42 -685.06)'%3E%3Cg fill='%23F59214'%3E%3Cuse href='%23s' x='2' y='5'/%3E%3Cuse href='%23s' x='16' y='38'/%3E%3Cuse href='%23s' x='46' y='42'/%3E%3Cuse href='%23s' x='29' y='20'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='f' width='59' height='71' patternUnits='userSpaceOnUse' patternTransform='scale(11.55) translate(-913.42 -685.06)'%3E%3Cg fill='%23F59214'%3E%3Cuse href='%23s' x='33' y='13'/%3E%3Cuse href='%23s' x='27' y='54'/%3E%3Cuse href='%23s' x='55' y='55'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='g' width='139' height='97' patternUnits='userSpaceOnUse' patternTransform='scale(11.55) translate(-913.42 -685.06)'%3E%3Cg fill='%23F59214'%3E%3Cuse href='%23s' x='11' y='8'/%3E%3Cuse href='%23s' x='51' y='13'/%3E%3Cuse href='%23s' x='17' y='73'/%3E%3Cuse href='%23s' x='99' y='57'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23b)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23h)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23c)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23d)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23e)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23f)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23g)' width='100%25' height='100%25'/%3E%3C/svg%3E");
+	// --bgSvg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Crect stroke='%23F2F1E9' stroke-width='0.6' width='1' height='1' id='s'/%3E%3Cpattern id='a' width='3' height='3' patternUnits='userSpaceOnUse' patternTransform='scale(6.1) translate(-836.07 -627.05)'%3E%3Cuse fill='%23f0efe7' href='%23s' y='2'/%3E%3Cuse fill='%23f0efe7' href='%23s' x='1' y='2'/%3E%3Cuse fill='%23edece4' href='%23s' x='2' y='2'/%3E%3Cuse fill='%23edece4' href='%23s'/%3E%3Cuse fill='%23ebeae2' href='%23s' x='2'/%3E%3Cuse fill='%23ebeae2' href='%23s' x='1' y='1'/%3E%3C/pattern%3E%3Cpattern id='b' width='7' height='11' patternUnits='userSpaceOnUse' patternTransform='scale(6.1) translate(-836.07 -627.05)'%3E%3Cg fill='%23e8e7df'%3E%3Cuse href='%23s'/%3E%3Cuse href='%23s' y='5' /%3E%3Cuse href='%23s' x='1' y='10'/%3E%3Cuse href='%23s' x='2' y='1'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='8'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='5' y='2'/%3E%3Cuse href='%23s' x='5' y='6'/%3E%3Cuse href='%23s' x='6' y='9'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='h' width='5' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(6.1) translate(-836.07 -627.05)'%3E%3Cg fill='%23e8e7df'%3E%3Cuse href='%23s' y='5'/%3E%3Cuse href='%23s' y='8'/%3E%3Cuse href='%23s' x='1' y='1'/%3E%3Cuse href='%23s' x='1' y='9'/%3E%3Cuse href='%23s' x='1' y='12'/%3E%3Cuse href='%23s' x='2'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='2'/%3E%3Cuse href='%23s' x='3' y='6'/%3E%3Cuse href='%23s' x='3' y='11'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='4' y='10'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='c' width='17' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(6.1) translate(-836.07 -627.05)'%3E%3Cg fill='%23e6e5dd'%3E%3Cuse href='%23s' y='11'/%3E%3Cuse href='%23s' x='2' y='9'/%3E%3Cuse href='%23s' x='5' y='12'/%3E%3Cuse href='%23s' x='9' y='4'/%3E%3Cuse href='%23s' x='12' y='1'/%3E%3Cuse href='%23s' x='16' y='6'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='d' width='19' height='17' patternUnits='userSpaceOnUse' patternTransform='scale(6.1) translate(-836.07 -627.05)'%3E%3Cg fill='%23F2F1E9'%3E%3Cuse href='%23s' y='9'/%3E%3Cuse href='%23s' x='16' y='5'/%3E%3Cuse href='%23s' x='14' y='2'/%3E%3Cuse href='%23s' x='11' y='11'/%3E%3Cuse href='%23s' x='6' y='14'/%3E%3C/g%3E%3Cg fill='%23e3e2db'%3E%3Cuse href='%23s' x='3' y='13'/%3E%3Cuse href='%23s' x='9' y='7'/%3E%3Cuse href='%23s' x='13' y='10'/%3E%3Cuse href='%23s' x='15' y='4'/%3E%3Cuse href='%23s' x='18' y='1'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='e' width='47' height='53' patternUnits='userSpaceOnUse' patternTransform='scale(6.1) translate(-836.07 -627.05)'%3E%3Cg fill='%23F59214'%3E%3Cuse href='%23s' x='2' y='5'/%3E%3Cuse href='%23s' x='16' y='38'/%3E%3Cuse href='%23s' x='46' y='42'/%3E%3Cuse href='%23s' x='29' y='20'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='f' width='59' height='71' patternUnits='userSpaceOnUse' patternTransform='scale(6.1) translate(-836.07 -627.05)'%3E%3Cg fill='%23F59214'%3E%3Cuse href='%23s' x='33' y='13'/%3E%3Cuse href='%23s' x='27' y='54'/%3E%3Cuse href='%23s' x='55' y='55'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='g' width='139' height='97' patternUnits='userSpaceOnUse' patternTransform='scale(6.1) translate(-836.07 -627.05)'%3E%3Cg fill='%23F59214'%3E%3Cuse href='%23s' x='11' y='8'/%3E%3Cuse href='%23s' x='51' y='13'/%3E%3Cuse href='%23s' x='17' y='73'/%3E%3Cuse href='%23s' x='99' y='57'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23b)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23h)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23c)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23d)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23e)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23f)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23g)' width='100%25' height='100%25'/%3E%3C/svg%3E");
+	// background-color: #F2F1E9;
+	--bgSvg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Crect stroke='%23F2F1E9' stroke-width='0.8' width='1' height='1' id='s'/%3E%3Cpattern id='a' width='3' height='3' patternUnits='userSpaceOnUse' patternTransform='scale(13.35) translate(-925.09 -693.82)'%3E%3Cuse fill='%23f0efe7' href='%23s' y='2'/%3E%3Cuse fill='%23f0efe7' href='%23s' x='1' y='2'/%3E%3Cuse fill='%23edece4' href='%23s' x='2' y='2'/%3E%3Cuse fill='%23edece4' href='%23s'/%3E%3Cuse fill='%23ebeae2' href='%23s' x='2'/%3E%3Cuse fill='%23ebeae2' href='%23s' x='1' y='1'/%3E%3C/pattern%3E%3Cpattern id='b' width='7' height='11' patternUnits='userSpaceOnUse' patternTransform='scale(13.35) translate(-925.09 -693.82)'%3E%3Cg fill='%23e8e7df'%3E%3Cuse href='%23s'/%3E%3Cuse href='%23s' y='5' /%3E%3Cuse href='%23s' x='1' y='10'/%3E%3Cuse href='%23s' x='2' y='1'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='8'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='5' y='2'/%3E%3Cuse href='%23s' x='5' y='6'/%3E%3Cuse href='%23s' x='6' y='9'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='h' width='5' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(13.35) translate(-925.09 -693.82)'%3E%3Cg fill='%23e8e7df'%3E%3Cuse href='%23s' y='5'/%3E%3Cuse href='%23s' y='8'/%3E%3Cuse href='%23s' x='1' y='1'/%3E%3Cuse href='%23s' x='1' y='9'/%3E%3Cuse href='%23s' x='1' y='12'/%3E%3Cuse href='%23s' x='2'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='2'/%3E%3Cuse href='%23s' x='3' y='6'/%3E%3Cuse href='%23s' x='3' y='11'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='4' y='10'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='c' width='17' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(13.35) translate(-925.09 -693.82)'%3E%3Cg fill='%23e6e5dd'%3E%3Cuse href='%23s' y='11'/%3E%3Cuse href='%23s' x='2' y='9'/%3E%3Cuse href='%23s' x='5' y='12'/%3E%3Cuse href='%23s' x='9' y='4'/%3E%3Cuse href='%23s' x='12' y='1'/%3E%3Cuse href='%23s' x='16' y='6'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='d' width='19' height='17' patternUnits='userSpaceOnUse' patternTransform='scale(13.35) translate(-925.09 -693.82)'%3E%3Cg fill='%23F2F1E9'%3E%3Cuse href='%23s' y='9'/%3E%3Cuse href='%23s' x='16' y='5'/%3E%3Cuse href='%23s' x='14' y='2'/%3E%3Cuse href='%23s' x='11' y='11'/%3E%3Cuse href='%23s' x='6' y='14'/%3E%3C/g%3E%3Cg fill='%23e3e2db'%3E%3Cuse href='%23s' x='3' y='13'/%3E%3Cuse href='%23s' x='9' y='7'/%3E%3Cuse href='%23s' x='13' y='10'/%3E%3Cuse href='%23s' x='15' y='4'/%3E%3Cuse href='%23s' x='18' y='1'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='e' width='47' height='53' patternUnits='userSpaceOnUse' patternTransform='scale(13.35) translate(-925.09 -693.82)'%3E%3Cg fill='%23F59214'%3E%3Cuse href='%23s' x='2' y='5'/%3E%3Cuse href='%23s' x='16' y='38'/%3E%3Cuse href='%23s' x='46' y='42'/%3E%3Cuse href='%23s' x='29' y='20'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='f' width='59' height='71' patternUnits='userSpaceOnUse' patternTransform='scale(13.35) translate(-925.09 -693.82)'%3E%3Cg fill='%23F59214'%3E%3Cuse href='%23s' x='33' y='13'/%3E%3Cuse href='%23s' x='27' y='54'/%3E%3Cuse href='%23s' x='55' y='55'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='g' width='139' height='97' patternUnits='userSpaceOnUse' patternTransform='scale(13.35) translate(-925.09 -693.82)'%3E%3Cg fill='%23F59214'%3E%3Cuse href='%23s' x='11' y='8'/%3E%3Cuse href='%23s' x='51' y='13'/%3E%3Cuse href='%23s' x='17' y='73'/%3E%3Cuse href='%23s' x='99' y='57'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23b)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23h)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23c)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23d)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23e)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23f)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23g)' width='100%25' height='100%25'/%3E%3C/svg%3E");
+	// --bgSvgC: #ecd1a7;
+	// --bgSvg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3CradialGradient id='a' cx='0' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23f0b9b6'/%3E%3Cstop offset='1' stop-color='%23f0b9b6' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='1200' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23cef1bf'/%3E%3Cstop offset='1' stop-color='%23cef1bf' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='c' cx='600' cy='0' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23d4cff4'/%3E%3Cstop offset='1' stop-color='%23d4cff4' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='d' cx='600' cy='800' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23ECD1A7'/%3E%3Cstop offset='1' stop-color='%23ECD1A7' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='e' cx='0' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23F3C6DD'/%3E%3Cstop offset='1' stop-color='%23F3C6DD' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='f' cx='1200' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23D7F6F0'/%3E%3Cstop offset='1' stop-color='%23D7F6F0' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='1200' height='800'/%3E%3Crect fill='url(%23b)' width='1200' height='800'/%3E%3Crect fill='url(%23c)' width='1200' height='800'/%3E%3Crect fill='url(%23d)' width='1200' height='800'/%3E%3Crect fill='url(%23e)' width='1200' height='800'/%3E%3Crect fill='url(%23f)' width='1200' height='800'/%3E%3C/svg%3E");
+	// background-attachment: fixed;
+	// background-size: cover;
+}
+// background: #fbf4e7; // Light paper-like background color
+// border: 1px solid #e0d0b7; // A darker border for the paper
+
+html {
+	--null: rgba(0, 0, 0, 0);
+	--appConst: #ededeb;
+	--appConstLow: #ededebe2;
+	--textConst: #37393b;
+	background-color: var(--bgSvgC);
+	background-image: var(--bgSvg);
+	background-attachment: fixed;
+	background-size: cover;
+	background-attachment: fixed;
+	background-size: cover;
+	color: var(--textMain);
+	--insetShadow: inset 0 0 10px var(--shadowClr1);
+	--insetShadow2: inset 0 0 10px var(--shadowClr2);
+	--shadow1: 0 3px 6px var(--bxClr1), 0 3px 6px var(--bxClr2);
+	--shadow2: 0 3px 6px var(--bxClr1), 0 3px 6px var(--bxClr2);
+	--shadow3: 0 1px 3px var(--bxClr1), 0 1px 3px var(--bxClr2);
+	--shadowTop: 0 -2px 3px var(--bxClr1), 0 -2px 3px var(--bxClr2);
+	--shadowBtm: 0 4px 6px var(--bxClr1), 0 4px 6px var(--bxClr2);
+	// 0px -4px 6px rgba(0, 0, 0, 0.2);
+	// color: var(--textFooter);
+	scroll-behavior: smooth;
+	// *SVGs, target path/g fills
+	// .target_stroke {
+	// 	stroke: var(--textNav);
+	// }
+	// .target_fill {
+	// 	fill: var(--textNav);
+	// }
+	// .target_both {
+	// 	fill: var(--textNav);
+	// 	stroke: var(--textNav);
+	// }
+	// .target_fill_head {
+	// 	fill: var(--textHeading);
+	// }
+	button {
+		background-color: var(--appMain);
+		color: var(--textMain);
+		border: 1px solid var(--textLt);
+	}
+	img {
+		border-radius: 0.25rem;
+	}
+	button:focus,
+	a:focus {
+		outline: 2px solid var(--accentMain); /* Change outline color and width */
+		outline-offset: 2px; /* Space between the element and the outline */
+	}
+	.target_stroke {
+		stroke: var(--textMain);
+	}
+	.target_fill {
+		fill: var(--textMain);
+	}
+	.target_fill_lt {
+		fill: #fefefe;
+	}
+	.target_both {
+		fill: var(--textMain);
+		stroke: var(--textMain);
+	}
+	.target_fill_head {
+		fill: var(--textMain);
+	}
+	.scroll_btn {
+		.target_fill {
+			fill: var(--textHead);
+		}
+	}
+	.redacted,
+	.redacted::selection {
+		display: inline-block;
+		background: var(--appFig);
+		color: var(--appFig);
+		margin: 0.25rem 0.1rem;
+	}
+
+	.c0 {
+		filter: sepia(0.05) contrast(105%) brightness(107%);
+	}
+	.c1 {
+		filter: sepia(0.2) hue-rotate(350deg);
+	}
+	.c2 {
+		filter: sepia(0.2) hue-rotate(20deg);
+	}
+	.c3 {
+		filter: sepia(0.1) hue-rotate(20deg);
+	}
+}
