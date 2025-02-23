@@ -1,11 +1,10 @@
 <script>
 	import Disclosure from '$lib/components/content/Disclosure.svelte';
+	import { main } from '$lib/store/main.svelte';
 	// your script goes here
-
-	import { accordion } from '$lib/snippets/PgSnips.svelte';
 </script>
 
-<h1>Welcome to SvelteKit</h1>
+<h1>Solomon Zelenko</h1>
 
 <!-- <details>
 	<summary>Artist Statement</summary>
@@ -17,12 +16,25 @@
 		</p>
 	</div>
 </details> -->
+<!-- {main.theme} -->
+<button onclick={() => main.setTheme()}>theme</button>
+<!--  
+tabs snippet
+timestamp snippet
+calednar snippet
+figure/video/code-copy snippet 
+carousel
+modal snippet
+grid/table 
+tree view snippet?
+tooltip snippet
+breadcrumpb
+-->
 
-<!-- {@render accordion()} -->
 <h2>Disclosure Component</h2>
-<Disclosure>
+<Disclosure isOpen="true">
 	{#snippet accH()}
-		What is a disclosure component?
+		What is a disclosure component? (open)
 	{/snippet}
 	{#snippet accC()}
 		<p>
@@ -30,5 +42,17 @@
 			report the problem. We will note and approve your alternate location and will investigate the
 			cause of the shortage in your assigned facility.
 		</p>
+	{/snippet}
+</Disclosure>
+<Disclosure>
+	{#snippet accH()}
+		Lorem is great (closed by default)
+	{/snippet}
+	{#snippet accC()}
+		<p>Here's how you lorem</p>
+		<figure>
+			<img src="https://picsum.photos/200/300" alt="" />
+			<figcaption>This allows you to ipsum</figcaption>
+		</figure>
 	{/snippet}
 </Disclosure>

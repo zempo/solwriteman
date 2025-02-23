@@ -1,6 +1,6 @@
 <script>
-	let isOpen = $state(false);
-	let { accH, accC } = $props();
+	// let isOpen = $state(false);
+	let { accH, accC, isOpen = false } = $props();
 </script>
 
 <div class="content_disclosure">
