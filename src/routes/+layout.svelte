@@ -8,6 +8,7 @@
 	$: main.currentPage = data.path;
 </script>
 
+<PgNav>{#snippet topBar()}{/snippet}</PgNav>
 <PgNav>{#snippet mainNav()}{/snippet}</PgNav>
 {#key data.path}
 	<PgMain>

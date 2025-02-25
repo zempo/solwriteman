@@ -1,8 +1,11 @@
 <script>
 	import { navData } from '$lib/config';
 	import { main } from '$lib/store/main.svelte';
+	import { logoFull } from '../static/svg/brand';
+	import SiteSettings from '../static/tools/SiteSettings.svelte';
+	import { getRouteClass } from '../static/utils/nav';
 
-	let { mainNav, socialNav, footMain, footSocial } = $props();
+	let { topBar, mainNav, socialNav, footMain, footSocial } = $props();
 </script>
 
 {#snippet navItem(L)}
@@ -16,6 +19,15 @@
 		{/if}
 	</li>
 {/snippet}
+
+{#if topBar}
+	<header class={`app_header ${getRouteClass(main.currentPage)}`}>
+		<div class="header_logo">
+			<a href="/" aria-label="Home link" title="Home">{@html logoFull}</a>
+		</div>
+		<SiteSettings />
+	</header>
+{/if}
 
 <!-- *goes inside modal dialog -->
 {#if mainNav}

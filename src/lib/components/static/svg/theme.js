@@ -165,3 +165,5 @@ export const moonIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="30" heig
   ><animateMotion fill="freeze" calcMode="linear" dur="0.6s" path="M0 0v-22" /></path
 ></svg
 >`;
+
+export const scrollIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8"><path fill="currentColor" class="target_fill" d="M4 2L0 6h8z"/></svg>`;
