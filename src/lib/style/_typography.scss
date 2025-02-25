@@ -1,0 +1,513 @@
+@use 'sass:map';
+
+@font-face {
+	font-family: 'OpenDyslexic';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url('/fonts/openDyslexic/OpenDyslexic-Regular.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'OpenDyslexic Mono';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url('/fonts/openDyslexic/OpenDyslexic-Bold.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'OpenDyslexic';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url('/fonts/openDyslexic/OpenDyslexicMono-Regular.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Crimson Pro Variable';
+	font-style: normal;
+	font-display: swap;
+	font-weight: 200 900;
+	src: url(@fontsource-variable/crimson-pro/files/crimson-pro-latin-wght-normal.woff2)
+		format('woff2-variations');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+		U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* nunito-latin-wght-normal */
+@font-face {
+	font-family: 'Nunito Variable';
+	font-style: normal;
+	font-display: swap;
+	font-weight: 200 1000;
+	src: url(@fontsource-variable/nunito/files/nunito-latin-wght-normal.woff2)
+		format('woff2-variations');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+		U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* inter-latin-wght-normal */
+@font-face {
+	font-family: 'Inter Variable';
+	font-style: normal;
+	font-display: swap;
+	font-weight: 100 900;
+	src: url(@fontsource-variable/inter/files/inter-latin-wght-normal.woff2)
+		format('woff2-variations');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+		U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+$fontHead: 'Inter Variable', sans-serif;
+$fontAction: 'Nunito Variable', sans-serif;
+$fontBody: 'Crimson Pro Variable', Garamond, serif;
+
+// ?============================================================================
+$breakpoints: (
+	'phone-small': 350px,
+	'phone': 400px,
+	'phone-wide': 480px,
+	'phablet': 560px,
+	'tablet-small': 640px,
+	'tablet': 768px,
+	'tablet-med': 900px,
+	'tablet-wide': 1024px,
+	'desktop-small': 1150px,
+	'desktop': 1248px,
+	'desktop-wide': 1440px,
+	'ultra-wide': 2000px
+);
+
+$logo_font_sizes: (
+	null: calc(5rem + 0.25vw),
+	map.get($breakpoints, 'phone-wide'): calc(3.3rem + 0.25vw),
+	map.get($breakpoints, 'phablet'): calc(3rem + 0.25vw),
+	map.get($breakpoints, 'tablet'): calc(3.75rem + 0.25vw),
+	map.get($breakpoints, 'desktop'): calc(4.15rem + 0.25vw),
+	map.get($breakpoints, 'ultra-wide'): calc(4.15rem + 0.25vw)
+);
+
+$bigh_font_sizes: (
+	null: calc(2.5rem + 0.25vw),
+	map.get($breakpoints, 'phone-wide'): calc(3rem + 0.25vw),
+	map.get($breakpoints, 'phablet'): calc(3.3rem + 0.25vw),
+	map.get($breakpoints, 'tablet'): calc(3.6rem + 0.25vw),
+	map.get($breakpoints, 'desktop'): calc(4rem + 0.25vw),
+	map.get($breakpoints, 'ultra-wide'): calc(4.2rem + 0.25vw)
+);
+
+$h1_font_sizes: (
+	null: calc(1.9rem + 0.25vw),
+	map.get($breakpoints, 'phone-wide'): calc(2rem + 0.25vw),
+	map.get($breakpoints, 'phablet'): calc(2.4rem + 0.25vw),
+	map.get($breakpoints, 'tablet'): calc(2.8rem + 0.25vw),
+	map.get($breakpoints, 'desktop'): calc(3rem + 0.25vw),
+	map.get($breakpoints, 'ultra-wide'): calc(3rem + 0.25vw)
+);
+
+$hmid_font_sizes: (
+	null: calc(1.6rem + 0.2vw),
+	map.get($breakpoints, 'phone-wide'): calc(1.7rem + 0.2vw),
+	map.get($breakpoints, 'phablet'): calc(1.8rem + 0.2vw),
+	map.get($breakpoints, 'tablet'): calc(1.9rem + 0.2vw),
+	map.get($breakpoints, 'desktop'): calc(2rem + 0.2vw),
+	map.get($breakpoints, 'ultra-wide'): calc(2.3rem + 0.2vw)
+);
+
+$h2_font_sizes: (
+	null: calc(1.4rem + 0.2vw),
+	map.get($breakpoints, 'phone-wide'): calc(1.5rem + 0.2vw),
+	map.get($breakpoints, 'phablet'): calc(1.6rem + 0.2vw),
+	map.get($breakpoints, 'tablet'): calc(1.7rem + 0.2vw),
+	map.get($breakpoints, 'desktop'): calc(1.9rem + 0.2vw),
+	map.get($breakpoints, 'ultra-wide'): calc(2.5rem + 0.2vw)
+);
+
+$h3_font_sizes: (
+	null: calc(1.15rem + 0.15vw),
+	map.get($breakpoints, 'phablet'): calc(1.35rem + 0.15vw),
+	map.get($breakpoints, 'tablet'): calc(1.45rem + 0.15vw),
+	map.get($breakpoints, 'desktop'): calc(1.65rem + 0.15vw),
+	map.get($breakpoints, 'ultra-wide'): calc(1.75rem + 0.15vw)
+);
+// $h3_font_sizes: (
+// 	null: calc(1.3rem + 0.15vw),
+// 	map.get($breakpoints, 'phablet'): calc(1.5rem + 0.15vw),
+// 	map.get($breakpoints, 'tablet'): calc(1.6rem + 0.15vw),
+// 	map.get($breakpoints, 'desktop'): calc(1.9rem + 0.15vw),
+// 	map.get($breakpoints, 'ultra-wide'): calc(1.9rem + 0.15vw)
+// );
+
+$bigp_font_sizes: (
+	null: calc(1.05rem + 0.15vw),
+	map.get($breakpoints, 'phablet'): calc(1.3rem + 0.15vw),
+	map.get($breakpoints, 'tablet'): calc(1.4rem + 0.15vw),
+	map.get($breakpoints, 'desktop'): calc(1.6rem + 0.15vw),
+	map.get($breakpoints, 'ultra-wide'): calc(1.7rem + 0.15vw)
+);
+
+$p_font_sizes: (
+	null: calc(1rem + 0.15vw),
+	map.get($breakpoints, 'phablet'): calc(1.2rem + 0.15vw),
+	map.get($breakpoints, 'tablet'): calc(1.3rem + 0.15vw),
+	map.get($breakpoints, 'desktop'): calc(1.4rem + 0.15vw),
+	map.get($breakpoints, 'ultra-wide'): calc(1.6rem + 0.15vw)
+);
+
+$sub_font_sizes: (
+	null: calc(1rem + 0.1vw),
+	map.get($breakpoints, 'phablet'): calc(1rem + 0.1vw),
+	map.get($breakpoints, 'tablet'): calc(1rem + 0.1vw),
+	map.get($breakpoints, 'desktop'): calc(1.3rem + 0.1vw),
+	map.get($breakpoints, 'ultra-wide'): calc(1.3rem + 0.1vw)
+);
+
+$sub_sub_font_sizes: (
+	null: calc(0.9rem + 0.1vw),
+	map.get($breakpoints, 'phablet'): calc(1rem + 0.1vw),
+	map.get($breakpoints, 'tablet'): calc(1rem + 0.1vw),
+	map.get($breakpoints, 'desktop'): calc(1rem + 0.1vw),
+	map.get($breakpoints, 'ultra-wide'): calc(1.1rem + 0.1vw)
+);
+
+@mixin font-size($fs-map) {
+	@each $fs-breakpoint, $fs-font-size in $fs-map {
+		@if $fs-breakpoint == null {
+			font-size: $fs-font-size;
+		} @else {
+			@media screen and (min-width: $fs-breakpoint) {
+				font-size: $fs-font-size;
+			}
+		}
+	}
+}
+// for svgs accompanying fonts
+@mixin icon-size($fs-map) {
+	@each $fs-breakpoint, $fs-font-size in $fs-map {
+		@if $fs-breakpoint == null {
+			height: $fs-font-size;
+			width: $fs-font-size;
+		} @else {
+			@media screen and (min-width: $fs-breakpoint) {
+				height: $fs-font-size;
+				width: $fs-font-size;
+			}
+		}
+	}
+}
+@mixin icon-size-logo($fs-map) {
+	@each $fs-breakpoint, $fs-font-size in $fs-map {
+		@if $fs-breakpoint == null {
+			height: $fs-font-size;
+			width: calc($fs-font-size * 3.25);
+		} @else {
+			@media screen and (min-width: $fs-breakpoint) {
+				height: $fs-font-size;
+				width: calc($fs-font-size * 3.25);
+			}
+		}
+	}
+}
+// font size multiplier
+@mixin font-size-multiplier($fs-map) {
+	@each $fs-breakpoint, $fs-font-size in $fs-map {
+		@if $fs-breakpoint == null {
+			font-size: calc($fs-font-size * var(--readSize));
+		} @else {
+			@media screen and (min-width: $fs-breakpoint) {
+				font-size: calc($fs-font-size * var(--readSize));
+			}
+		}
+	}
+}
+
+// for svgs accompanying fonts
+@mixin home-icon-size($fs-map) {
+	@each $fs-breakpoint, $fs-font-size in $fs-map {
+		@if $fs-breakpoint == null {
+			height: $fs-font-size;
+			width: calc($fs-font-size * 3.251);
+		} @else {
+			@media screen and (min-width: $fs-breakpoint) {
+				height: $fs-font-size;
+				width: calc($fs-font-size * 3.251);
+			}
+		}
+	}
+}
+
+@mixin mq($width, $type: min) {
+	@if map.has-key($breakpoints, $width) {
+		$width: map.get($breakpoints, $width);
+		@if $type == max {
+			$width: $width - 1px;
+		}
+		@media only screen and (#{$type}-width: $width) {
+			@content;
+		}
+	}
+}
+
+// ?============================================================================
+// *Families / Weight
+h1,
+h2,
+h3,
+th {
+	font-family: $fontHead;
+	color: var(--textHead);
+}
+.home_on_hero {
+	.sub_title {
+		font-family: $fontHead;
+	}
+}
+header {
+	nav a {
+		font-weight: 900;
+	}
+}
+nav {
+	a,
+	button {
+		font-family: $fontAction;
+		text-transform: uppercase;
+	}
+}
+footer {
+	nav {
+		a,
+		button {
+			font-family: $fontHead;
+			text-transform: uppercase;
+		}
+	}
+}
+p {
+	font-family: $fontBody;
+	font-weight: normal;
+}
+.search_form {
+	input {
+		font-family: $fontAction;
+	}
+}
+.tsnip {
+	h3 {
+		font-family: $fontBody;
+	}
+}
+th {
+	font-family: $fontHead;
+}
+td {
+	font-family: $fontBody;
+}
+figcaption {
+	font-family: $fontBody;
+}
+.tabs,
+.subsec {
+	button,
+	.contact_link {
+		font-family: $fontHead;
+		font-weight: bold;
+		// text-transform: uppercase;
+		@include font-size($bigp_font_sizes);
+		@include mq('phablet', 'min') {
+			@include font-size($bigp_font_sizes);
+		}
+	}
+}
+.em_text {
+	font-family: $fontHead;
+	color: var(--textHead);
+	font-weight: bold;
+}
+.app_section {
+	a {
+		font-weight: bold;
+		// font-style: italic;
+	}
+	&.bio_on_section {
+		a {
+			font-weight: bold;
+			font-style: italic;
+		}
+	}
+}
+// *Sizes
+.app_header {
+	.header_tagline p {
+		@include font-size($h2_font_sizes);
+		@include mq('phablet', 'min') {
+			@include font-size($p_font_sizes);
+		}
+	}
+}
+.nav_list .nav_link {
+	@include font-size($sub_font_sizes);
+	@include mq('phablet', 'min') {
+		@include font-size($sub_font_sizes);
+	}
+}
+
+h1 {
+	@include font-size($h1_font_sizes);
+	@include mq('phablet', 'min') {
+		@include font-size($h1_font_sizes);
+	}
+}
+
+h2 {
+	@include font-size($h2_font_sizes);
+	@include mq('phablet', 'min') {
+		@include font-size($h2_font_sizes);
+	}
+}
+h3,
+th,
+.use_h3 {
+	@include font-size($h3_font_sizes);
+	@include mq('phablet', 'min') {
+		@include font-size($h3_font_sizes);
+	}
+}
+p,
+figcaption {
+	@include font-size($bigp_font_sizes);
+	@include mq('phablet', 'min') {
+		@include font-size($p_font_sizes);
+	}
+}
+
+td {
+	@include font-size($bigp_font_sizes);
+	@include mq('phablet', 'min') {
+		@include font-size($p_font_sizes);
+	}
+}
+.topic_btn {
+	@include font-size($p_font_sizes);
+	@include mq('phablet', 'min') {
+		@include font-size($p_font_sizes);
+	}
+}
+.search_form input {
+	@include font-size($sub_font_sizes);
+	@include mq('phablet', 'min') {
+		@include font-size($sub_font_sizes);
+	}
+}
+
+.snip_article,
+.byte_article {
+	a {
+		font-family: $fontBody;
+		@include font-size($bigp_font_sizes);
+		@include mq('phablet', 'min') {
+			@include font-size($p_font_sizes);
+		}
+	}
+}
+
+html {
+	.app_pg {
+		.contact_link {
+			display: inline-block;
+			background: var(--appOpaque2);
+			border-radius: 0.25rem;
+			padding: 0.5rem 1rem;
+			margin: 1.5rem 0 0;
+			text-decoration: none;
+			font-style: normal;
+			color: var(--appConst);
+			border: 2px solid #0f3632;
+			box-shadow: var(--shadow3);
+			opacity: 0.95;
+			@include font-size($p_font_sizes);
+			&:hover,
+			&:focus {
+				border: 2px solid var(--appConst);
+				opacity: 1;
+			}
+		}
+	}
+}
+
+// ?=========================================================================
+
+.aria_text {
+	visibility: hidden;
+	font-size: 0;
+	border: 0;
+	overflow: hidden;
+	position: absolute;
+	margin: -1px;
+	padding: 0;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+
+.scroll_btn {
+	font-family: $fontAction;
+}
+
+.app_header {
+	.header_logo {
+		svg {
+			width: 85%;
+			max-width: 450px;
+			height: auto;
+			@include mq('phablet', 'min') {
+				@include icon-size-logo($logo_font_sizes);
+			}
+		}
+	}
+	.nav_controls {
+		svg {
+			@include icon-size($bigp_font_sizes);
+		}
+	}
+}
+
+.search_form {
+	svg {
+		@include icon-size($p_font_sizes);
+	}
+}
+
+.scene_btns {
+	button svg {
+		@include icon-size($h1_font_sizes);
+		@include mq('tablet', 'min') {
+			@include icon-size($h2_font_sizes);
+		}
+	}
+}
+
+html[data-font='dyslexic'] header .header_tagline p {
+	font-family: var(--fontDyslexic) !important;
+	@include font-size($bigp_font_sizes);
+	@include mq('phablet', 'min') {
+		@include font-size($sub_font_sizes);
+	}
+}
+html[data-font='dyslexic'] .app_pg,
+html[data-font='dyslexic'] header,
+html[data-font='dyslexic'] footer {
+	h1,
+	h2,
+	h3,
+	p,
+	figcaption,
+	button,
+	a,
+	time {
+		font-family: var(--fontDyslexic) !important;
+	}
+}

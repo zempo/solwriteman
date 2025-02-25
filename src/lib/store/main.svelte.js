@@ -1,11 +1,13 @@
 import { browser } from '$app/environment';
 
 class Main {
-	selectedTheme = $state('light');
+	currentPage = $state('');
+
 	themes = $state({
 		dark: { name: 'dark', toolTip: 'Use Light Mode', icon: 'sun icon' },
 		light: { name: 'light', toolTip: 'Use Dark Mode', icon: 'moon icon' }
 	});
+	selectedTheme = $state(this.themes.light);
 
 	click() {
 		const click = new Audio('/sounds/click.mp3');
@@ -37,12 +39,20 @@ class Main {
 	setTheme() {
 		this.click();
 		// let selectedTheme
-		console.log(this.selectedTheme, this.themes);
+		console.log(this.selectedTheme.name, this.themes);
+		if (this.selectedTheme.name === 'light') {
+			this.selectedTheme = this.themes['dark'];
+			// svgClr1.set('#b3b3b3');
+			// svgClr2.set('#b3b3b3');
+		} else {
+			this.selectedTheme = this.themes['light'];
+			// svgClr1.set('#222f39');
+			// svgClr2.set('#222f39');
+		}
+		const htmlEl = document.documentElement;
+		htmlEl.dataset.theme = this.selectedTheme.name;
+		localStorage.theme = this.selectedTheme.name;
 	}
 }
 
 export const main = new Main();
-
-export const themeState = $state({
-	theme: 'light'
-});

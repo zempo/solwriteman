@@ -18,35 +18,34 @@
  * */
 export const siteURL = `https://solomonzelenko.dev`;
 export const siteImg = `https://i.imgur.com/erk5C9H.png`;
-export const siteAlt = `Solomon reads poetry at open mic`;
-export const desc = `🍊 OC-Based Digital Storyteller: On Mic, On Paper, Online.`;
+export const siteAlt = `Solomon performs poetry at open mic`;
+export const desc = `🍊 OC-Based Digital Storyteller & Artist.`;
 
 export const navData = {
-	taglines: {
-		books: `Storytold in a Nerdy Niche.`,
-		bytes: `Keep Calm, And Debug On™`,
-		snippets: `From Notes App to Table.`,
-		socials: `Well, Hello There!` // 🐋, hello there
-	},
 	pages: [
 		{
+			// ?? main shader slideshow, and about
 			href: `/`,
 			title: `Main`
 			// *add [/] box
 		},
 		{
+			// ?? book read/buy links
 			href: `/books`,
 			title: `Books`
 		},
 		{
+			// ?? cool art bytes
 			href: `/bytes`,
 			title: `Bytes`
 		},
 		{
+			// ?? site articles
 			href: `/snippets`,
 			title: `Snippets`
 		},
 		{
+			// ?? link to shops, youtube, etc
 			href: `/socials`,
 			title: `Socials`
 		}
@@ -79,4 +78,43 @@ export const navData = {
 			title: `GitHub`
 		}
 	]
+};
+
+export const defaultSEO = {
+	img: siteImg,
+	alt: siteAlt,
+	type: 'website'
+};
+export const taglines = {
+	books: `Storytold in a Nerdy Niche.`,
+	bytes: `Keep Calm And Debug On™`,
+	snippets: `From Notes App to Table.`,
+	socials: `🐋, Hello There! Let's Connect.` // 🐋, hello there
+};
+export const seoData = {
+	main: {
+		title: `Solomon Z • On Paper, On Mic, Online`,
+		desc,
+		...defaultSEO
+	},
+	books: {
+		title: `@SolWriteMan • eBooks, Chapbooks, & Zines`,
+		desc: taglines.books,
+		...defaultSEO
+	},
+	bytes: {
+		title: `@Zempo • Procedural Art Bytes`,
+		desc: taglines.bytes,
+		...defaultSEO
+	},
+	snippets: {
+		title: `@SolWriteMan • Select Pieces & Performances`,
+		desc: taglines.snippets,
+		...defaultSEO
+	},
+	socials: {
+		title: `Solomon Zelenko • All My Links`,
+		desc: taglines.socials,
+		...defaultSEO
+	}
 };

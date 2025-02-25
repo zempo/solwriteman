@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="Day">
+<html lang="en" data-theme="light">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="/icon/favicon.ico" />
@@ -14,7 +14,7 @@
 		<link rel="manifest" href="/icon/manifest.json" />
 		<script>
 			const htmlElement = document.documentElement;
-			const userTheme = localStorage.theme ?? 'Day';
+			const userTheme = localStorage.theme ?? 'light';
 			const userFont = localStorage.font;
 
 			// check if the user set a dyslexic font
@@ -27,15 +27,15 @@
 				htmlElement.dataset.theme = userTheme;
 			}
 
-			if (userTheme === 'Day') {
-				htmlElement.dataset.theme = 'Day';
-				localStorage.theme = 'Day';
+			if (userTheme === 'light') {
+				htmlElement.dataset.theme = 'light';
+				localStorage.theme = 'light';
 			}
 
 			// if nothing is set default to light mode
 			if (!userTheme) {
-				htmlElement.dataset.theme = 'Day';
-				localStorage.theme = 'Day';
+				htmlElement.dataset.theme = 'light';
+				localStorage.theme = 'light';
 			}
 		</script>
 		%sveltekit.head%

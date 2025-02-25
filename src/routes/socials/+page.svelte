@@ -3,4 +3,4 @@
 	import { seoData } from '$lib/config';
 </script>
 
-<PgHead pgData={seoData.bytes} />
+<PgHead pgData={seoData.socials} />

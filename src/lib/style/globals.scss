@@ -1,6 +1,10 @@
+@use './content';
+@use './layout';
+@use './typography';
+@use './vars';
 @use './reset';
 
-html[data-theme='Night'] {
+html[data-theme='dark'] {
 	color-scheme: dark;
 
 	--appDark: #2e2c32;
@@ -78,7 +82,7 @@ html[data-theme='Night'] {
 		filter: sepia(0.1) hue-rotate(330deg);
 	}
 }
-html[data-theme='Day'] {
+html[data-theme='light'] {
 	color-scheme: light;
 
 	--appMain: #f2f1e9;

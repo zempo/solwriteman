@@ -1,8 +1,16 @@
 <script>
 	import Disclosure from '$lib/components/content/Disclosure.svelte';
+	import PgHead from '$lib/components/layout/PgHead.svelte';
+	import { seoData } from '$lib/config';
 	import { main } from '$lib/store/main.svelte';
+	import { onMount } from 'svelte';
 	// your script goes here
+	onMount(() => {
+		main.selectedTheme = main.getTheme();
+	});
 </script>
+
+<PgHead pgData={seoData.main} />
 
 <h1>Solomon Zelenko</h1>
 
