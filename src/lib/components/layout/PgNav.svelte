@@ -2,10 +2,11 @@
 	import { navData } from '$lib/config';
 	import { main } from '$lib/store/main.svelte';
 	import { logoFull } from '../static/svg/brand';
-	import SiteSettings from '../static/tools/SiteSettings.svelte';
 	import { getRouteClass } from '../static/utils/nav';
+	import SiteSettings from '../static/tools/SiteSettings.svelte';
+	import Modal from '../static/tools/Modal.svelte';
 
-	let { topBar, mainNav, socialNav, footMain, footSocial } = $props();
+	let { topBar, btmBar, dialog, mainNav, socialNav, footMain, footSocial } = $props();
 </script>
 
 {#snippet navItem(L)}
@@ -22,11 +23,41 @@
 
 {#if topBar}
 	<header class={`app_header ${getRouteClass(main.currentPage)}`}>
-		<div class="header_logo">
-			<a href="/" aria-label="Home link" title="Home">{@html logoFull}</a>
+		<div class="topbar">
+			<div class="header_logo">
+				<a href="/" aria-label="Home link" title="Home">{@html logoFull}</a>
+			</div>
+			<SiteSettings />
 		</div>
-		<SiteSettings />
+		{@render topBar()}
 	</header>
+{/if}
+
+{#if btmBar}
+	<nav class="app_bar" aria-label="Primary Navigation">
+		<button class="nav_btn nav_btn_prev" aria-label={`Go to page`}>←</button>
+		<button
+			id="menu-button"
+			aria-haspopup="dialog"
+			aria-controls="site-menu"
+			onclick={() => main.setModalOpen(2)}
+		>
+			Open Menu
+		</button>
+		<button class="nav_btn nav_btn_next" aria-label={`Go to page`}>→</button>
+	</nav>
+	{main.modalOpen}
+	{#if main.modalOpen}
+		<Modal close={() => main.setModalOpen(0)}>
+			<nav class="main_nav" aria-label="Site Menu">
+				<ul class="nav_list_main nav_list">
+					{#each navData.pages as P}
+						{@render navItem(P)}
+					{/each}
+				</ul>
+			</nav>
+		</Modal>
+	{/if}
 {/if}
 
 <!-- *goes inside modal dialog -->

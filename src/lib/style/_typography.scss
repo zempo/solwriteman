@@ -464,7 +464,7 @@ html {
 			max-width: 450px;
 			height: auto;
 			@include mq('phablet', 'min') {
-				@include icon-size-logo($logo_font_sizes);
+				@include icon-size-logo($h1_font_sizes);
 			}
 		}
 	}

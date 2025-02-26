@@ -1,6 +1,8 @@
 import { browser } from '$app/environment';
 
 class Main {
+	modalOpen = $state(false);
+
 	currentPage = $state('');
 
 	themes = $state({
@@ -13,6 +15,17 @@ class Main {
 		const click = new Audio('/sounds/click.mp3');
 		click.volume = 1;
 		click.play();
+	}
+
+	setModalOpen(type) {
+		this.click();
+		if (type == 0) {
+			this.modalOpen = false;
+		} else if (type == 1) {
+			this.modalOpen = true;
+		} else {
+			this.modalOpen = !this.modalOpen;
+		}
 	}
 
 	getTheme() {
