@@ -114,8 +114,8 @@ $hmid_font_sizes: (
 	map.get($breakpoints, 'phone-wide'): calc(1.7rem + 0.2vw),
 	map.get($breakpoints, 'phablet'): calc(1.8rem + 0.2vw),
 	map.get($breakpoints, 'tablet'): calc(1.9rem + 0.2vw),
-	map.get($breakpoints, 'desktop'): calc(2rem + 0.2vw),
-	map.get($breakpoints, 'ultra-wide'): calc(2.3rem + 0.2vw)
+	map.get($breakpoints, 'desktop'): calc(2.1rem + 0.2vw),
+	map.get($breakpoints, 'ultra-wide'): calc(2.6rem + 0.2vw)
 );
 
 $h2_font_sizes: (
@@ -460,17 +460,25 @@ html {
 .app_header {
 	.header_logo {
 		svg {
-			width: 85%;
-			max-width: 450px;
+			// width: 85%;
+			// max-width: 450px;
 			height: auto;
-			@include mq('phablet', 'min') {
-				@include icon-size-logo($h1_font_sizes);
-			}
+			@include icon-size-logo($hmid_font_sizes);
+			// @include mq('phablet', 'min') {
+			// }
 		}
 	}
 	.site_controls {
 		svg {
 			@include icon-size($bigp_font_sizes);
+		}
+	}
+}
+.app_bar {
+	svg {
+		@include icon-size($h1_font_sizes);
+		@include mq('tablet', 'min') {
+			@include icon-size($h2_font_sizes);
 		}
 	}
 }

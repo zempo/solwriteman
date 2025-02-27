@@ -52,7 +52,7 @@ class Main {
 	setTheme() {
 		this.click();
 		// let selectedTheme
-		console.log(this.selectedTheme.name, this.themes);
+		// console.log(this.selectedTheme.name, this.themes);
 		if (this.selectedTheme.name === 'light') {
 			this.selectedTheme = this.themes['dark'];
 			// svgClr1.set('#b3b3b3');

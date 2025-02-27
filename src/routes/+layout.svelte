@@ -50,7 +50,7 @@
 	.header_clr {
 		display: inline-block;
 		width: 100%;
-		height: 0.5rem;
+		height: 0.35rem;
 		position: relative;
 		top: 0rem;
 		line-height: 0;

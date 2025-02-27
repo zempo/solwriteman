@@ -5,6 +5,7 @@
 	import { getRouteClass } from '../static/utils/nav';
 	import SiteSettings from '../static/tools/SiteSettings.svelte';
 	import Modal from '../static/tools/Modal.svelte';
+	import { arwL, arwR, menuIcon } from '../static/svg/nav';
 
 	let { topBar, btmBar, dialog, mainNav, socialNav, footMain, footSocial } = $props();
 </script>
@@ -35,16 +36,17 @@
 
 {#if btmBar}
 	<nav class="app_bar" aria-label="Primary Navigation">
-		<button class="nav_btn nav_btn_prev" aria-label={`Go to page`}>←</button>
+		<button class="nav_btn nav_btn_prev" aria-label={`Go to page`}>{@html arwL}</button>
 		<button
+			class="nav_btn nav_btn_menu"
 			id="menu-button"
 			aria-haspopup="dialog"
 			aria-controls="site-menu"
 			onclick={() => main.setModalOpen(2)}
 		>
-			Open Menu
+			{@html menuIcon}
 		</button>
-		<button class="nav_btn nav_btn_next" aria-label={`Go to page`}>→</button>
+		<button class="nav_btn nav_btn_next" aria-label={`Go to page`}>{@html arwR}</button>
 	</nav>
 	{main.modalOpen}
 	{#if main.modalOpen}

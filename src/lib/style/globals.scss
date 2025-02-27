@@ -9,6 +9,7 @@ html[data-theme='dark'] {
 
 	--appDark: #2e2c32;
 	--appMain: #07241d;
+	--appBar: #23272f;
 	--appGradient: linear-gradient(315deg, var(--appMain) 0%, var(--appDark) 74%);
 	--appAction: #5f5b5f;
 	// --appFig: #715f58;
@@ -52,6 +53,8 @@ html[data-theme='dark'] {
 
 	--bxClr1: rgba(0, 0, 0, 0.16);
 	--bxClr2: rgba(0, 0, 0, 0.24);
+	--bxClr1b: rgba(37, 37, 37, 0.16);
+	--bxClr2b: rgba(37, 37, 37, 0.24);
 
 	--tsnip_bg: #e7dcca;
 	--tsnip_brdr: #ceb285;
@@ -87,6 +90,9 @@ html[data-theme='light'] {
 
 	--appMain: #f2f1e9;
 	--appDark: #ededeb;
+	// --appBar: #fdfdfd;
+	// --appBar: #dde8e6;
+	--appBar: #e6e5e5;
 	--appGradient: linear-gradient(315deg, var(--appMain) 0%, var(--appDark) 74%);
 	--appAction: #5f5b5f;
 	--appFig: #37393b;
@@ -126,6 +132,8 @@ html[data-theme='light'] {
 
 	--bxClr1: rgba(0, 0, 0, 0.16);
 	--bxClr2: rgba(0, 0, 0, 0.24);
+	--bxClr1b: rgba(67, 65, 65, 0.16);
+	--bxClr2b: rgba(71, 69, 69, 0.24);
 
 	--inputSnip: #a279cd07;
 	--inputSnipActive: #956bc123;
@@ -171,7 +179,8 @@ html {
 	--shadow1: 0 3px 6px var(--bxClr1), 0 3px 6px var(--bxClr2);
 	--shadow2: 0 3px 6px var(--bxClr1), 0 3px 6px var(--bxClr2);
 	--shadow3: 0 1px 3px var(--bxClr1), 0 1px 3px var(--bxClr2);
-	--shadowTop: 0 -2px 3px var(--bxClr1), 0 -2px 3px var(--bxClr2);
+	--shadow4: 0 1px 2px var(--bxClr1b), 0 1px 2px var(--bxClr2b);
+	--shadowTop: 0 -2px 2px var(--bxClr1b), 0 -2px 2px var(--bxClr2b);
 	--shadowBtm: 0 4px 6px var(--bxClr1), 0 4px 6px var(--bxClr2);
 	// 0px -4px 6px rgba(0, 0, 0, 0.2);
 	// color: var(--textFooter);
@@ -194,6 +203,7 @@ html {
 		background-color: var(--appMain);
 		color: var(--textMain);
 		border: 1px solid var(--textLt);
+		cursor: pointer;
 	}
 	img {
 		border-radius: 0.25rem;
@@ -243,5 +253,9 @@ html {
 	}
 	.c3 {
 		filter: sepia(0.1) hue-rotate(20deg);
+	}
+	.spacer {
+		height: 50vh;
+		border: 1px solid var(--textMain);
 	}
 }

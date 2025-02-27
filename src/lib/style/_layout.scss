@@ -1,29 +1,102 @@
+@use 'sass:map';
+
+$breakpoints: (
+	'p_med': 560px,
+	'p_wide': 650px,
+	't_min': 1200px,
+	'd_min': 1600px
+);
+
+@mixin mq($width, $type: min) {
+	@if map.has-key($breakpoints, $width) {
+		$width: map.get($breakpoints, $width);
+		@if $type == max {
+			$width: $width - 1px;
+		}
+		@media only screen and (#{$type}-width: $width) {
+			@content;
+		}
+	}
+}
+
+@mixin transition($property: all, $duration: 0.3s, $timing: ease, $delay: 0s) {
+	-webkit-transition: $property $duration $timing $delay;
+	-moz-transition: $property $duration $timing $delay;
+	-ms-transition: $property $duration $timing $delay;
+	-o-transition: $property $duration $timing $delay;
+	transition: $property $duration $timing $delay;
+}
+
 .app_header {
 	// border: 1px solid black;
+	background: var(--appBar);
 	line-height: 0;
+	position: fixed;
+	width: 100%;
 	.topbar {
 		display: flex;
 		justify-content: space-between;
 		line-height: 1;
-		padding: 0.75rem 1rem 0;
+		padding: 0.75rem 1rem 0.5rem;
 		.site_controls {
 			list-style-type: none;
+			margin: 0;
 			padding: 0;
 			display: flex;
-			width: 300px;
-			border: 1px solid red;
+			justify-content: flex-end;
+			gap: 0.5rem;
+			// width: 300px;
+			// border: 1px solid red;
+			button {
+				border: 1px solid var(--appTranslucent);
+				box-shadow: var(--shadow4);
+				background: none;
+				line-height: 1;
+				// margin-top: 0.1rem;
+			}
+		}
+	}
+	@include mq('p_wide', 'min') {
+		.topbar {
+			padding: 0.75rem 2rem 0.5rem;
 		}
 	}
 }
 
 .app_bar {
 	position: fixed;
+	background: var(--appBar);
 	bottom: 0;
 	left: 0;
 	width: 100%;
 	z-index: 2;
-	background: white;
-	padding: 0.5rem 2rem;
+	// box-shadow: var(--shadowTop);
+	// background: white;
 	display: flex;
 	justify-content: center;
+	padding: 0.5rem 1rem;
+	border-top: 1px solid var(--appTranslucent);
+	// &::after {
+	// 	position: absolute;
+	// 	content: '';
+	// 	top: -3px;
+	// 	left: 0;
+	// 	height: 4px;
+	// 	width: 100%;
+	// 	background: linear-gradient(#00000024, #0000);
+	// }
+	.nav_btn {
+		line-height: 0;
+		border: 1px solid var(--appTranslucent);
+		box-shadow: var(--shadow4);
+		background: none;
+		margin: 0 0.25rem;
+	}
+	@include mq('p_wide', 'min') {
+		padding: 0.5rem 2rem;
+	}
+}
+
+.app_main {
+	padding: 2rem 1rem 3rem;
 }

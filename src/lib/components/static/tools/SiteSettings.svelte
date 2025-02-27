@@ -1,15 +1,31 @@
 <script>
-	import { moonIcon, scrollIcon, sunIcon } from '../svg/theme';
+	import { main } from '$lib/store/main.svelte';
+	import { onMount } from 'svelte';
+	import { fontIcon, moonIcon, scrollIcon, sunIcon } from '../svg/theme';
+
+	onMount(() => {
+		main.selectedTheme = main.getTheme();
+	});
 </script>
 
 <ul class="site_controls" aria-label="Toggle Site settings">
 	<li>
-		{@html sunIcon}
+		<button class="ctrl_btn" onclick={() => main.setTheme()}>
+			{#if main.selectedTheme.name == 'light'}
+				{@html moonIcon}
+			{:else}
+				{@html sunIcon}
+			{/if}
+		</button>
 	</li>
 	<li>
-		{@html moonIcon}
+		<button class="settings_btn font_btn">
+			{@html fontIcon}
+		</button>
 	</li>
 	<li>
-		{@html scrollIcon}
+		<button class="settings_btn scrll_btn">
+			{@html scrollIcon}
+		</button>
 	</li>
 </ul>

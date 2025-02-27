@@ -167,3 +167,5 @@ export const moonIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="30" heig
 >`;
 
 export const scrollIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8"><path fill="currentColor" class="target_fill" d="M4 2L0 6h8z"/></svg>`;
+export const fontIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path class="target_fill" fill="#222f39" d="M17 8h3v12h1v1h-4v-1h1v-3h-4l-1.5 3H14v1h-4v-1h1zm1 1l-3.5 7H18zM5 3h5c1.11 0 2 .89 2 2v11H9v-5H6v5H3V5c0-1.11.89-2 2-2m1 2v4h3V5z"/></svg>`;
+export const fontIconOn = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" transform="scale(-1, 1)" viewBox="0 0 24 24"><path class="target_fill" fill="#222f39" d="M17 8h3v12h1v1h-4v-1h1v-3h-4l-1.5 3H14v1h-4v-1h1zm1 1l-3.5 7H18zM5 3h5c1.11 0 2 .89 2 2v11H9v-5H6v5H3V5c0-1.11.89-2 2-2m1 2v4h3V5z"></path></svg>`;
