@@ -22,6 +22,7 @@ export const siteAlt = `Solomon performs poetry at open mic`;
 export const desc = `🍊 OC-Based Digital Storyteller & Artist.`;
 
 export const navData = {
+	hrefs: ['/', '/books', '/bytes', '/snippets', '/socials'],
 	pages: [
 		{
 			// ?? main shader slideshow, and about

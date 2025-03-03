@@ -1,4 +1,5 @@
 import { browser } from '$app/environment';
+import { navData } from '$lib/config';
 
 class Main {
 	modalOpen = $state(false);
@@ -66,6 +67,15 @@ class Main {
 		htmlEl.dataset.theme = this.selectedTheme.name;
 		localStorage.theme = this.selectedTheme.name;
 	}
+
+	getNextPg() {
+		console.log(this.currentPage);
+		let links = navData.hrefs;
+		let len = links.length - 1;
+		let i_match = -1;
+	}
+
+	getLabel() {}
 }
 
 export const main = new Main();

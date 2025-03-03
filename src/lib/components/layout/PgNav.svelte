@@ -6,6 +6,7 @@
 	import SiteSettings from '../static/tools/SiteSettings.svelte';
 	import Modal from '../static/tools/Modal.svelte';
 	import { arwL, arwR, menuIcon } from '../static/svg/nav';
+	import MainBtns from '../static/tools/MainBtns.svelte';
 
 	let { topBar, btmBar, dialog, mainNav, socialNav, footMain, footSocial } = $props();
 </script>
@@ -36,7 +37,7 @@
 
 {#if btmBar}
 	<nav class="app_bar" aria-label="Primary Navigation">
-		<button class="nav_btn nav_btn_prev" aria-label={`Go to page`}>{@html arwL}</button>
+		<MainBtns />
 		<button
 			class="nav_btn nav_btn_menu"
 			id="menu-button"
@@ -46,7 +47,7 @@
 		>
 			{@html menuIcon}
 		</button>
-		<button class="nav_btn nav_btn_next" aria-label={`Go to page`}>{@html arwR}</button>
+		<MainBtns dir="1" />
 	</nav>
 	{main.modalOpen}
 	{#if main.modalOpen}
