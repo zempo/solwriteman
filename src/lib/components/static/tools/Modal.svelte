@@ -73,7 +73,7 @@
 	}
 
 	.modal {
-		background: white;
+		background: var(--appDark);
 		padding: 1.5rem;
 		border-radius: 8px;
 		box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);

@@ -3,7 +3,7 @@
 	import { main } from '$lib/store/main.svelte';
 	// import { currentPage } from '$lib/js/store';
 	export let pgData;
-	$: console.log(pgData);
+	// $: console.log(pgData);
 </script>
 
 <svelte:head>

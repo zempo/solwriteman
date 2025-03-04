@@ -1,16 +1,23 @@
 <script>
+	import { goto } from '$app/navigation';
 	import { main } from '$lib/store/main.svelte';
 	import { arwL, arwR } from '../svg/nav';
 
 	export let dir = 0;
+
+	const sideNav = () => {
+		let target = main.getNextPg(dir);
+		goto(target);
+	};
 </script>
 
 <button
 	class="nav_btn nav_btn_{dir === 0 ? 'prev' : 'fwd'}"
-	aria-label={`Go to page`}
-	onclick={() => main.getNextPg()}
+	aria-label={`Go to page ${main.getLabel(dir)}`}
+	onclick={sideNav}
+	title="See {main.getLabel(dir)}"
 >
-	{#if dir == 1}
+	{#if dir == 0}
 		{@html arwR}
 	{:else}
 		{@html arwL}

@@ -1,5 +1,6 @@
 import { browser } from '$app/environment';
 import { navData } from '$lib/config';
+import { label } from 'three/tsl';
 
 class Main {
 	modalOpen = $state(false);
@@ -68,14 +69,35 @@ class Main {
 		localStorage.theme = this.selectedTheme.name;
 	}
 
-	getNextPg() {
-		console.log(this.currentPage);
+	getNextPg(dir) {
 		let links = navData.hrefs;
 		let len = links.length - 1;
 		let i_match = -1;
+		let i_next = 0;
+
+		if (this.currentPage === '/') {
+			i_match = 0;
+			i_next = dir === 0 ? 1 : len;
+		} else {
+			if (links.includes(this.currentPage)) {
+				i_match = links.indexOf(this.currentPage);
+				i_next = dir === 0 ? i_match + 1 : i_match - 1;
+				if (i_match === len) {
+					i_next = dir === 0 ? 0 : i_match - 1;
+				}
+			}
+		}
+		return links[i_next];
 	}
 
-	getLabel() {}
+	getLabel(dir) {
+		let label;
+		let target = this.getNextPg(dir);
+		let targetStr = target.slice(1);
+		targetStr = targetStr.charAt(0).toUpperCase() + targetStr.slice(1);
+		label = targetStr;
+		return label;
+	}
 }
 
 export const main = new Main();

@@ -27,24 +27,40 @@ $breakpoints: (
 	transition: $property $duration $timing $delay;
 }
 
+$br_25: 0.25rem;
+
 .app_header {
 	// border: 1px solid black;
 	background: var(--appBar);
 	line-height: 0;
 	position: fixed;
 	width: 100%;
+	border-bottom-left-radius: $br_25;
+	border-bottom-right-radius: $br_25;
+	box-shadow: var(--shadow3);
+	@include transition(all, 0.3s, ease-in);
 	.topbar {
 		display: flex;
 		justify-content: space-between;
 		line-height: 1;
 		padding: 0.75rem 1rem 0.5rem;
+		.target_stroke {
+			stroke: var(--appConst);
+		}
+		.target_fill {
+			fill: var(--appConst);
+		}
+		.target_both {
+			fill: var(--appConst);
+			stroke: var(--appConst);
+		}
 		.site_controls {
 			list-style-type: none;
 			margin: 0;
 			padding: 0;
 			display: flex;
 			justify-content: flex-end;
-			gap: 0.5rem;
+			gap: 0.75rem;
 			// width: 300px;
 			// border: 1px solid red;
 			button {
@@ -52,6 +68,7 @@ $breakpoints: (
 				box-shadow: var(--shadow4);
 				background: none;
 				line-height: 1;
+				border-radius: 0.2rem;
 				// margin-top: 0.1rem;
 			}
 		}
@@ -75,16 +92,19 @@ $breakpoints: (
 	display: flex;
 	justify-content: center;
 	padding: 0.5rem 1rem;
-	border-top: 1px solid var(--appTranslucent);
-	// &::after {
-	// 	position: absolute;
-	// 	content: '';
-	// 	top: -3px;
-	// 	left: 0;
-	// 	height: 4px;
-	// 	width: 100%;
-	// 	background: linear-gradient(#00000024, #0000);
-	// }
+	// border-top: 1px solid var(--appTranslucenter);
+	box-shadow: var(--shadowTop);
+	.target_stroke {
+		stroke: var(--appConst);
+	}
+	.target_fill {
+		fill: var(--appConst);
+	}
+	.target_both {
+		fill: var(--appConst);
+		stroke: var(--appConst);
+	}
+
 	.nav_btn {
 		line-height: 0;
 		border: 1px solid var(--appTranslucent);
@@ -99,4 +119,5 @@ $breakpoints: (
 
 .app_main {
 	padding: 2rem 1rem 3rem;
+	min-height: 100vh;
 }

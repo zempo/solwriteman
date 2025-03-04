@@ -37,7 +37,7 @@
 
 {#if btmBar}
 	<nav class="app_bar" aria-label="Primary Navigation">
-		<MainBtns />
+		<MainBtns dir={1} />
 		<button
 			class="nav_btn nav_btn_menu"
 			id="menu-button"
@@ -47,7 +47,7 @@
 		>
 			{@html menuIcon}
 		</button>
-		<MainBtns dir="1" />
+		<MainBtns />
 	</nav>
 	{main.modalOpen}
 	{#if main.modalOpen}

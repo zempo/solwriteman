@@ -10,7 +10,7 @@
 
 <ul class="site_controls" aria-label="Toggle Site settings">
 	<li>
-		<button class="ctrl_btn" onclick={() => main.setTheme()}>
+		<button class="ctrl_btn" onclick={() => main.setTheme()} title={main.selectedTheme.toolTip}>
 			{#if main.selectedTheme.name == 'light'}
 				{@html moonIcon}
 			{:else}
@@ -24,7 +24,7 @@
 		</button>
 	</li>
 	<li>
-		<button class="settings_btn scrll_btn">
+		<button class="settings_btn scrll_btn" title="Scroll to Top">
 			{@html scrollIcon}
 		</button>
 	</li>
