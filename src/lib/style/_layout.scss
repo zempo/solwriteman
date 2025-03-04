@@ -34,11 +34,13 @@ $br_25: 0.25rem;
 	background: var(--appBar);
 	line-height: 0;
 	position: fixed;
+	top: 0;
 	z-index: 2;
 	width: 100%;
 	border-bottom-left-radius: $br_25;
 	border-bottom-right-radius: $br_25;
 	box-shadow: var(--shadow3);
+	// opacity: 0.2;
 	@include transition(all, 0.3s, ease-in);
 	.topbar {
 		display: flex;
@@ -120,4 +122,5 @@ $br_25: 0.25rem;
 
 .app_main {
 	min-height: 100vh;
+	// line-height: 1;
 }

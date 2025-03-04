@@ -25,15 +25,18 @@ $breakpoints: (
 .app_main {
 	// the style of content elements
 	.home_header {
-		height: 100vh;
+		height: 75vh;
 		// width: 99vw;
 		text-align: center;
 		background: none;
+		position: relative;
+		// top: -1.47rem;
 		display: flex;
 		justify-content: center;
 		flex-direction: column;
 		// align-items: center;
 		flex-wrap: wrap;
+		overflow-x: hidden !important;
 		h1,
 		p {
 			width: 100vw;
@@ -48,8 +51,9 @@ $breakpoints: (
 			top: 0;
 			left: 0;
 			width: 100vw !important;
+			overflow-x: hidden !important;
 			// max-width: 1600px !important;
-			height: 100vh !important;
+			height: 75vh !important;
 			// overflow: hidden;
 			/* Apply masking for border radius */
 			// p_wide
@@ -80,8 +84,10 @@ $breakpoints: (
 			}
 		}
 	}
-	.bio_section {
+	.bio_section,
+	.components_section {
 		// margin-top: 100vh;
 		// width: 90vw;
+		padding: 1rem;
 	}
 }

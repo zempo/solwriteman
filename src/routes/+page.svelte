@@ -13,16 +13,13 @@
 
 <PgHead pgData={seoData.main} />
 <PgMain>
-	<header class="home_header">
+	<header class="home_header" style="margin-top: {dimension.topbarH}px;">
 		<h1>Solomon Zelenko</h1>
 		<p class="sub_title" aria-hidden="true">On Paper • On Mic • Online</p>
 		<span class="aria_text">On microphone, on paper, online</span>
 		<HeroScene />
 	</header>
 	<article class="bio_section">
-		<p>
-			{dimension.topbarH}
-		</p>
 		<p>
 			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur blanditiis laboriosam,
 			incidunt vero dignissimos sint impedit expedita harum. Nisi voluptas illum ipsam excepturi!
@@ -52,7 +49,7 @@
 					tooltip snippet
 					breadcrumpb
 					-->
-	<section>
+	<section class="components_section">
 		<h2>Disclosure Component</h2>
 		<Disclosure isOpen="true">
 			{#snippet accH()}

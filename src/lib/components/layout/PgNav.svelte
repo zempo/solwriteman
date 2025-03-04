@@ -53,7 +53,6 @@
 		</button>
 		<MainBtns />
 	</nav>
-	{main.modalOpen}
 	{#if main.modalOpen}
 		<Modal close={() => main.setModalOpen(0)}>
 			<nav class="main_nav" aria-label="Site Menu">
