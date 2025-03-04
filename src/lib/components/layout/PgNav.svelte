@@ -7,6 +7,7 @@
 	import Modal from '../static/tools/Modal.svelte';
 	import { arwL, arwR, menuIcon } from '../static/svg/nav';
 	import MainBtns from '../static/tools/MainBtns.svelte';
+	import { dimension } from '$lib/store/dimension.svelte';
 
 	let { topBar, btmBar, dialog, mainNav, socialNav, footMain, footSocial } = $props();
 </script>
@@ -24,7 +25,10 @@
 {/snippet}
 
 {#if topBar}
-	<header class={`app_header ${getRouteClass(main.currentPage)}`}>
+	<header
+		class={`app_header ${getRouteClass(main.currentPage)}`}
+		bind:clientHeight={dimension.topbarH}
+	>
 		<div class="topbar">
 			<div class="header_logo">
 				<a href="/" aria-label="Home link" title="Home">{@html logoFull}</a>

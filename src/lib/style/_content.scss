@@ -1,5 +1,87 @@
+@use 'sass:map';
+
+$breakpoints: (
+	'p_med': 560px,
+	'p_wide': 650px,
+	'phab_min': 800px,
+	't_min': 1200px,
+	't_med': 1300px,
+	't_max': 1450px,
+	'd_min': 1600px
+);
+
+@mixin mq($width, $type: min) {
+	@if map.has-key($breakpoints, $width) {
+		$width: map.get($breakpoints, $width);
+		@if $type == max {
+			$width: $width - 1px;
+		}
+		@media only screen and (#{$type}-width: $width) {
+			@content;
+		}
+	}
+}
+
 .app_main {
 	// the style of content elements
-	.slideshow_header {
+	.home_header {
+		height: 100vh;
+		// width: 99vw;
+		text-align: center;
+		background: none;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		// align-items: center;
+		flex-wrap: wrap;
+		h1,
+		p {
+			width: 100vw;
+			z-index: 1;
+			position: relative;
+			color: var(--appConst);
+			text-shadow: 2px 2px 5px var(--textConst);
+		}
+		.hero_scene {
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100vw !important;
+			// max-width: 1600px !important;
+			height: 100vh !important;
+			// overflow: hidden;
+			/* Apply masking for border radius */
+			// p_wide
+			// @include mq('p_wide', 'min') {
+			//   width: calc(100vw - 4rem) !important;
+			// }
+		}
+		.scene_btns {
+			list-style-type: none;
+			display: flex;
+			padding: 0;
+			margin: 0;
+			button {
+				padding-inline: 1.25rem;
+				margin-inline: 0.15rem;
+			}
+			.mic_btn {
+				display: none;
+			}
+			@include mq('phab_min', 'min') {
+				button {
+					padding: 0.25rem 1.25rem;
+				}
+				.mic_btn {
+					display: inline-block;
+					margin-right: 0.25rem;
+				}
+			}
+		}
+	}
+	.bio_section {
+		// margin-top: 100vh;
+		// width: 90vw;
 	}
 }

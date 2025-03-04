@@ -1,6 +1,5 @@
 import { browser } from '$app/environment';
 import { navData } from '$lib/config';
-import { label } from 'three/tsl';
 
 class Main {
 	modalOpen = $state(false);
