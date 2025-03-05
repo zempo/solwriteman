@@ -63,6 +63,7 @@ $br_25: 0.25rem;
 			padding: 0;
 			display: flex;
 			justify-content: flex-end;
+			align-items: center;
 			gap: 0.75rem;
 			// width: 300px;
 			// border: 1px solid red;
@@ -78,7 +79,7 @@ $br_25: 0.25rem;
 	}
 	@include mq('p_wide', 'min') {
 		.topbar {
-			padding: 0.75rem 2rem 0.5rem;
+			padding: 0.55rem 2rem 0.5rem;
 		}
 	}
 }

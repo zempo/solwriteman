@@ -45,6 +45,12 @@ $breakpoints: (
 			color: var(--appConst);
 			text-shadow: 2px 2px 5px var(--textConst);
 		}
+		h1 {
+			margin-top: 0;
+		}
+		p {
+			text-transform: uppercase;
+		}
 		.hero_scene {
 			display: block;
 			position: absolute;
@@ -69,6 +75,7 @@ $breakpoints: (
 			button {
 				padding-inline: 1.25rem;
 				margin-inline: 0.15rem;
+				margin-bottom: 0.25rem;
 			}
 			.mic_btn {
 				display: none;
@@ -79,7 +86,7 @@ $breakpoints: (
 				}
 				.mic_btn {
 					display: inline-block;
-					margin-right: 0.25rem;
+					margin: 0 0.35rem;
 				}
 			}
 		}

@@ -353,9 +353,9 @@ figcaption {
 	.sub_title {
 		font-family: $fontHead;
 		font-weight: bold;
-		@include font-size($h2_font_sizes);
+		@include font-size($h3_font_sizes);
 		@include mq('phablet', 'min') {
-			@include font-size($p_font_sizes);
+			@include font-size($h3_font_sizes);
 		}
 	}
 }
@@ -367,6 +367,13 @@ figcaption {
 }
 
 h1 {
+	@include font-size($h1_font_sizes);
+	@include mq('phablet', 'min') {
+		@include font-size($h1_font_sizes);
+	}
+}
+
+.home_header h1 {
 	@include font-size($h1_font_sizes);
 	@include mq('phablet', 'min') {
 		@include font-size($h1_font_sizes);
@@ -476,7 +483,10 @@ html {
 	}
 	.site_controls {
 		svg {
-			@include icon-size($h3_font_sizes);
+			@include icon-size($h2_font_sizes);
+			@include mq('tablet', 'min') {
+				@include icon-size($h2_font_sizes);
+			}
 		}
 	}
 	@include mq('p_wide', 'min') {
@@ -484,11 +494,6 @@ html {
 			svg {
 				height: auto;
 				@include icon-size-logo($hmid_font_sizes);
-			}
-		}
-		.site_controls {
-			svg {
-				@include icon-size($bigp_font_sizes);
 			}
 		}
 	}

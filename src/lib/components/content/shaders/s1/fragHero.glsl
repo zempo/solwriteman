@@ -237,9 +237,9 @@ void main(){
 
  vec2 uv1 = uv * 2.0;
  vec2 uv2 = uv * 2.0;
- vec2 uv3 = uv * vec2(1.+(0.1*-cos(u_time*.5)), 1.1+(1.0*sin(u_time*.5)));
- vec2 uv4 = 10.0 * uv;
- vec2 uv5 = .20 * uv;
+ vec2 uv3 = uv * vec2(1.1+(0.1*sin(u_time*.5)), 1.+(1.0*-cos(u_time*.5)));
+ vec2 uv4 = uv * vec2(12.0, 10.0);
+ vec2 uv5 = .40 * uv;
  vec2 uv6 = 10.0 * uv;
  vec2 uv6b = 1.0 * uv;
 
@@ -252,7 +252,7 @@ void main(){
  float rate3 = sineTime;
  float rate4 = u_time;
  float rate5 = u_time;
- float rate6 = u_time * .8;
+ float rate6 = u_time * .6;
 
   //* Ripples -- if ripple index, run ripple effect
   float duration = 3.;
@@ -295,10 +295,10 @@ void main(){
   vec3 c3 = mk_cp3(uv3, rate3, p1);
   vec3 c4 = mk_cp4(uv4, 12.0, rate4);
   vec3 c5 = mk_cp5(uv5, 5.0, rate5);
-  vec3 c6 = mk_cp5(uv6, 8.0, rate5) + (mk_cp6(uv6b*2.0, rate6) * 0.25);
+  vec3 c6 = mk_cp5(uv6, 8.0, rate5) + (mk_cp6(uv6b*2.5, rate6) * 0.2);
 
   vec3 a1[6] = vec3[6](
-    c1,c2,c3,c4,c5,c6
+    c4,c2,c3,c4,c5,c6
   );
   vec3 a_out1 = a1[int(u_shader_idx)];
 
