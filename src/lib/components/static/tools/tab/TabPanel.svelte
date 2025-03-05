@@ -1,0 +1,24 @@
+<script>
+	import { getContext } from 'svelte';
+	import { TABS } from './Tabs.svelte';
+	import { fade } from 'svelte/transition';
+	import { cubicIn, cubicOut } from 'svelte/easing';
+
+	const panel = {};
+	const { registerPanel, selectedPanel } = getContext(TABS);
+
+	registerPanel(panel);
+
+	export let id = 0;
+
+	const transitionIn = { easing: cubicIn, duration: 350 };
+	// const transitionOut = { easing: cubicIn, duration: 300 };
+</script>
+
+{#if $selectedPanel === panel}
+	<div role="tabpanel" aria-labelledby="tab_{id}" id="panel_{id}" class="tab_panel">
+		<div class={`content_wrapper panel_content_anchor`} in:fade={transitionIn}>
+			<slot />
+		</div>
+	</div>
+{/if}

@@ -5,7 +5,8 @@
 	import PgMain from '$lib/components/layout/PgMain.svelte';
 	import { dimension } from '$lib/store/dimension.svelte';
 	import { main } from '$lib/store/main.svelte';
-	import { seoData } from '$lib/config';
+	import { seoData, tabLabels } from '$lib/config';
+	import Tabs from '$lib/components/static/tools/tab/Tabs.svelte';
 	// import { onMount } from 'svelte';
 	// your script goes here
 	let tH = $state();
@@ -20,10 +21,129 @@
 		<HeroScene />
 	</header>
 	<article class="bio_section">
-		<p>
-			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur blanditiis laboriosam,
-			incidunt vero dignissimos sint impedit expedita harum. Nisi voluptas illum ipsam excepturi!
-		</p>
+		<figure
+			class="t_fig hero_fig rbg_fig stmt_fig3"
+			role="img"
+			aria-label="A collection of digital artworks rendered in Blender: a microphone, stack of books and coffee mugs, and l shaped desk. Each item has a cardboard texture, except for a metallic laptop on the desk and select parts of the microphone."
+		>
+			<img src="https://i.imgur.com/1fsCNwX.png" class="c0" alt="" />
+			<img class="c0" src="https://i.imgur.com/lCRaMur.png" alt="" />
+			<img src="https://i.imgur.com/ZI6Qo8l.png" class="c0" alt="" />
+		</figure>
+
+		<Tabs let:T>
+			<T.List>
+				{#each tabLabels.bio as L, i}
+					<T.Tab id={i}>{L}</T.Tab>
+				{/each}
+			</T.List>
+			<T.Panel id={0}>
+				<figure class="t_fig rbg_fig stmt_fig3">
+					<img
+						class="c1"
+						src="https://i.imgur.com/Xa17s7r.png"
+						alt="Artistic cardboard cat render, showcasing layered edges and a handcrafted aesthetic."
+					/>
+					<img src="https://i.imgur.com/PCnIULR.png" class="c2" alt="" aria-hidden="true" />
+					<img src="https://i.imgur.com/wVRcNis.png" class="c3" alt="" aria-hidden="true" />
+					<figcaption class="aria_text">
+						Rendered paper/cardboard cat created in Blender.
+					</figcaption>
+				</figure>
+				<div class="t_text">
+					<p>
+						In <a href="https://solwriteman.substack.com" target="_blank" rel="noopener noreferrer"
+							>Bytes && Snippets</a
+						>, I establish and join community — on mic, on paper, and online.
+					</p>
+					<p>
+						In
+						<a href="/bytes">procedural art bytes</a>, I convey my humanity through geometry — A
+						<a
+							href="https://folkdanceworld.com/2023/08/07/enchanting-russian-folk-dance-heritage.html#:~:text=and%20artistic%20expression.-,Hopak,-Russian%20Folk%20Dance"
+							target="_blank"
+							rel="noopener noreferrer">Hopak</a
+						>
+						between the Avant-Garde and Accessible. And in
+						<a href="/snippets">poetic snippets</a>, I integrate "silly geese" and "toe stubs" into
+						a larger narrative.
+					</p>
+					<p>
+						I am a first-time father, a Russian-Jewish American, and an ever curious learner. And I
+						commit to healthy masculinity and technological ethos — fulfilling our emerging
+						responsibilities as "bros who code". This narrative explores a nerdy niche, touches on
+						worlds outside our expectations, and celebrates becoming a neurodivergent man — on one's
+						own terms.
+					</p>
+					<p>TL;DR, Let's connect, communicate, and transform our reality.</p>
+					<!-- <ContactBtn /> -->
+					<!-- <T.NextTab/> -->
+				</div>
+			</T.Panel>
+			<T.Panel id={1}>
+				<figure class="t_fig stmt_fig stmt_fig2">
+					<img
+						src="https://i.imgur.com/raiaRaE.jpeg"
+						alt="Solomon's cat sleeping on a windowsill shelf, above an out-of-focus computer monitor."
+					/>
+					<figcaption class="aria_text">
+						Solomon's cat sleeping on a windowsill shelf, above an out-of-focus computer monitor.
+					</figcaption>
+				</figure>
+				<div class="t_text">
+					<p>
+						Hi, I'm Solomon! 👋<br />I am a creative dev and educational content programmer based in
+						California, USA.<br />I enjoy leveling up other devs and have been debugging my typos
+						<!-- for: <StatsCard target="2016-11-13" type="bio" /> -->
+					</p>
+					<p>
+						From 2016-2018, I worked with the former non-profit,
+						<a
+							href="https://stemworks.wested.org/program/open-world-learning-owl/"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Open World Learning (OWL)
+						</a>. We taught applied math and logic through
+						<a
+							href="https://en.wikipedia.org/wiki/MicroWorlds"
+							target="_blank"
+							rel="noopener noreferrer">MicroWorlds EX</a
+						>
+						to Title I schools in Denver, Colorado. Inspired by the impact OWL made, I began to refine
+						my dev skills, working with: Web Components, SASS, React, Svelte, ThreeJs, SQL, and other
+						web technologies. In 2021, I landed my dream gig with
+						<a href="https://www.aleks.com/" target="_blank" rel="noopener noreferrer"
+							>McGraw Hill ALEKS</a
+						>
+						as a content programmer. On the side, I've been building
+						<a
+							href="https://threejs-journey.com/lessons/introduction"
+							target="_blank"
+							rel="noopener noreferrer">creative web apps</a
+						>
+						and researching
+						<a href="https://thebookofshaders.com/" target="_blank" rel="noopener noreferrer"
+							>pixel shaders</a
+						> to craft performative, scaleable visuals. My work is equal parts art and science, and I
+						am excited to share best-practices and hard-earned lessons to make your life easier.
+					</p>
+					<p>
+						In between these "Click-Clack Glow" times, you'll find me camping, cooking for loved
+						ones, and debugging fatherhood with my wife, daughter Evelyn, and our Tortie Cat,
+						Weasel.
+					</p>
+				</div>
+			</T.Panel>
+			<T.Panel id={2}>
+				<h2>Strengths & Services</h2>
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, ipsa asperiores
+					praesentium at numquam alias aspernatur sit quisquam deserunt quibusdam pariatur explicabo
+					ullam voluptatibus minus dolorem soluta? Nulla, illum sapiente.
+				</p>
+			</T.Panel>
+		</Tabs>
 	</article>
 
 	<!-- <details>

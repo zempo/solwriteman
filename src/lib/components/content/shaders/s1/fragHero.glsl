@@ -298,7 +298,7 @@ void main(){
   vec3 c6 = mk_cp5(uv6, 8.0, rate5) + (mk_cp6(uv6b*2.5, rate6) * 0.2);
 
   vec3 a1[6] = vec3[6](
-    c4,c2,c3,c4,c5,c6
+    c1,c2,c4,c3,c5,c6
   );
   vec3 a_out1 = a1[int(u_shader_idx)];
 

@@ -81,6 +81,10 @@ export const navData = {
 	]
 };
 
+export const tabLabels = {
+	bio: ['Artist Statement', 'getBackground()', 'Stengths & Services']
+};
+
 export const defaultSEO = {
 	img: siteImg,
 	alt: siteAlt,
