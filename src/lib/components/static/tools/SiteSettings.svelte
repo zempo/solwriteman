@@ -2,6 +2,7 @@
 	import { main } from '$lib/store/main.svelte';
 	import { onMount } from 'svelte';
 	import { fontIcon, moonIcon, scrollIcon, sunIcon } from '../svg/theme';
+	import { dimension } from '$lib/store/dimension.svelte';
 
 	onMount(() => {
 		main.selectedTheme = main.getTheme();
@@ -24,7 +25,11 @@
 		</button>
 	</li>
 	<li>
-		<button class="settings_btn scrll_btn" title="Scroll to Top">
+		<button
+			class="settings_btn scrll_btn"
+			title="Scroll to Top"
+			onclick={() => dimension.scrollTop()}
+		>
 			{@html scrollIcon}
 		</button>
 	</li>
