@@ -12,6 +12,8 @@ class Main {
 	});
 	selectedTheme = $state(this.themes.light);
 
+	dyslexicOn = $state(false);
+
 	click() {
 		const click = new Audio('/sounds/click.mp3');
 		click.volume = 1;
@@ -52,20 +54,35 @@ class Main {
 
 	setTheme() {
 		this.click();
-		// let selectedTheme
-		// console.log(this.selectedTheme.name, this.themes);
 		if (this.selectedTheme.name === 'light') {
 			this.selectedTheme = this.themes['dark'];
-			// svgClr1.set('#b3b3b3');
-			// svgClr2.set('#b3b3b3');
 		} else {
 			this.selectedTheme = this.themes['light'];
-			// svgClr1.set('#222f39');
-			// svgClr2.set('#222f39');
 		}
 		const htmlEl = document.documentElement;
 		htmlEl.dataset.theme = this.selectedTheme.name;
 		localStorage.theme = this.selectedTheme.name;
+	}
+
+	setFont() {
+		this.click();
+		const htmlEl = document.documentElement;
+
+		let enabled = this.dyslexicOn;
+		if (browser) {
+			localStorage.font ? (enabled = true) : (enabled = false);
+		}
+		enabled = !enabled;
+		this.dyslexicOn = enabled;
+
+		if (enabled) {
+			localStorage.font = 'dyslexic';
+			htmlEl.dataset.font = 'dyslexic';
+		}
+		if (!enabled) {
+			localStorage.removeItem('font');
+			delete htmlEl.dataset.font;
+		}
 	}
 
 	getNextPg(dir) {

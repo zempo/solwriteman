@@ -1,8 +1,9 @@
 <script>
 	import { main } from '$lib/store/main.svelte';
 	import { onMount } from 'svelte';
-	import { fontIcon, moonIcon, scrollIcon, sunIcon } from '../svg/theme';
+	import { fontIcon, fontIconOn, moonIcon, scrollIcon, sunIcon } from '../svg/theme';
 	import { dimension } from '$lib/store/dimension.svelte';
+	import Page from '../../../../routes/+page.svelte';
 
 	onMount(() => {
 		main.selectedTheme = main.getTheme();
@@ -20,8 +21,12 @@
 		</button>
 	</li>
 	<li>
-		<button class="settings_btn font_btn">
-			{@html fontIcon}
+		<button class="settings_btn font_btn" onclick={() => main.setFont()}>
+			{#if main.dyslexicOn}
+				{@html fontIconOn}
+			{:else}
+				{@html fontIcon}
+			{/if}
 		</button>
 	</li>
 	<li>
