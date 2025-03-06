@@ -5,6 +5,14 @@
 @use './vars';
 @use './reset';
 
+@mixin transition($property: all, $duration: 0.3s, $timing: ease, $delay: 0s) {
+	-webkit-transition: $property $duration $timing $delay;
+	-moz-transition: $property $duration $timing $delay;
+	-ms-transition: $property $duration $timing $delay;
+	-o-transition: $property $duration $timing $delay;
+	transition: $property $duration $timing $delay;
+}
+
 html[data-theme='dark'] {
 	color-scheme: dark;
 
@@ -265,6 +273,7 @@ html {
 
 	.c0 {
 		filter: sepia(0.05) contrast(105%) brightness(107%) hue-rotate(200deg);
+		@include transition(all, 0.3s, ease-in);
 	}
 	.c1 {
 		filter: sepia(0.1) hue-rotate(350deg);
