@@ -107,9 +107,26 @@ $breakpoints: (
 			// 	width: 100%;
 			// 	max-width: 650px;
 			// }
-			img {
+			.img_wrap {
 				width: calc(33.1% - 0.01rem);
 				max-width: 650px;
+				border-radius: 0.25rem;
+				position: relative;
+				&::before {
+					content: '';
+					position: absolute;
+					inset: 0;
+					box-shadow: var(--insetShadow2);
+					border-radius: inherit;
+					pointer-events: none;
+					z-index: 1;
+				}
+				// box-shadow: var(--insetShadow);
+				img {
+					width: 100%;
+					max-width: 650px;
+					// filter: drop-shadow(10px 10px 15px rgba(0, 0, 0, 0.5));
+				}
 			}
 		}
 	}

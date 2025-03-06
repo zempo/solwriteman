@@ -26,9 +26,15 @@
 			role="img"
 			aria-label="A collection of digital artworks rendered in Blender: a microphone, stack of books and coffee mugs, and l shaped desk. Each item has a cardboard texture, except for a metallic laptop on the desk and select parts of the microphone."
 		>
-			<img src="https://i.imgur.com/1fsCNwX.png" class="c0" alt="" />
-			<img class="c0" src="https://i.imgur.com/lCRaMur.png" alt="" />
-			<img src="https://i.imgur.com/ZI6Qo8l.png" class="c0" alt="" />
+			<div class="img_wrap">
+				<img src="https://i.imgur.com/1fsCNwX.png" class="c0" alt="" />
+			</div>
+			<div class="img_wrap">
+				<img class="c0" src="https://i.imgur.com/lCRaMur.png" alt="" />
+			</div>
+			<div class="img_wrap">
+				<img src="https://i.imgur.com/ZI6Qo8l.png" class="c0" alt="" />
+			</div>
 		</figure>
 
 		<Tabs let:T>

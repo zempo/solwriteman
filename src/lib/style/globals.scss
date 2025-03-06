@@ -195,7 +195,8 @@ html {
 	background-size: cover;
 	color: var(--textMain);
 	--insetShadow: inset 0 0 10px var(--shadowClr1);
-	--insetShadow2: inset 0 0 10px var(--shadowClr2);
+	--insetShadowb: inset 0 0 6px var(--shadowClr2);
+	--insetShadow2: inset 0 0 2px var(--shadowClr1), inset 0 0 8px var(--bxClr2b);
 	--shadow1: 0 3px 6px var(--bxClr1), 0 3px 6px var(--bxClr2);
 	--shadow2: 0 3px 6px var(--bxClr1), 0 3px 6px var(--bxClr2);
 	--shadow3: 0 1px 3px var(--bxClr1), 0 1px 3px var(--bxClr2);
@@ -266,10 +267,10 @@ html {
 		filter: sepia(0.05) contrast(105%) brightness(107%) hue-rotate(200deg);
 	}
 	.c1 {
-		filter: sepia(0.2) hue-rotate(350deg);
+		filter: sepia(0.1) hue-rotate(350deg);
 	}
 	.c2 {
-		filter: sepia(0.2) hue-rotate(20deg);
+		filter: sepia(0.1) hue-rotate(20deg);
 	}
 	.c3 {
 		filter: sepia(0.1) hue-rotate(20deg);
