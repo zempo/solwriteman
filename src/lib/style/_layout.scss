@@ -71,8 +71,9 @@ $br_25: 0.25rem;
 				border: 1px solid var(--appTranslucent);
 				box-shadow: var(--shadow4);
 				background: none;
-				line-height: 1;
-				border-radius: 0.2rem;
+				line-height: 0;
+				padding: 0.25rem 0.5rem;
+				border-radius: 0.25rem;
 				// margin-top: 0.1rem;
 			}
 		}
@@ -110,11 +111,13 @@ $br_25: 0.25rem;
 	}
 
 	.nav_btn {
-		line-height: 0;
 		border: 1px solid var(--appTranslucent);
 		box-shadow: var(--shadow4);
 		background: none;
 		margin: 0 0.25rem;
+		border-radius: 0.25rem;
+		line-height: 0;
+		padding: 0.25rem 0.5rem;
 	}
 	@include mq('p_wide', 'min') {
 		padding: 0.75rem 2rem;
