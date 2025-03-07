@@ -513,8 +513,15 @@ html {
 	}
 }
 
-.scene_btns {
+.scene_btns,
+.modal {
 	button svg {
+		.target_stroke {
+			stroke: var(--appConst);
+		}
+		.target_fill {
+			fill: var(--appConst);
+		}
 		@include icon-size($h1_font_sizes);
 		@include mq('tablet', 'min') {
 			@include icon-size($h2_font_sizes);

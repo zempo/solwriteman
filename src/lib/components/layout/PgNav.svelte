@@ -1,13 +1,13 @@
 <script>
-	import { navData } from '$lib/config';
-	import { main } from '$lib/store/main.svelte';
-	import { logoFull } from '../static/svg/brand';
-	import { getRouteClass } from '../static/utils/nav';
 	import SiteSettings from '../static/tools/SiteSettings.svelte';
-	import Modal from '../static/tools/Modal.svelte';
-	import { arwL, arwR, menuIcon } from '../static/svg/nav';
 	import MainBtns from '../static/tools/MainBtns.svelte';
+	import Modal from '../static/tools/Modal.svelte';
+	import { getRouteClass } from '../static/utils/nav';
+	import { arwL, arwR, menuIcon } from '../static/svg/nav';
+	import { logoFull } from '../static/svg/brand';
+	import { navData } from '$lib/config';
 	import { dimension } from '$lib/store/dimension.svelte';
+	import { main } from '$lib/store/main.svelte';
 
 	let { topBar, btmBar, dialog, mainNav, socialNav, footMain, footSocial } = $props();
 </script>
@@ -53,17 +53,17 @@
 		</button>
 		<MainBtns />
 	</nav>
-	{#if main.modalOpen}
-		<Modal close={() => main.setModalOpen(0)}>
-			<nav class="main_nav modal_nav" aria-label="Site Menu">
-				<ul class="nav_list_main nav_list">
-					{#each navData.pages as P}
-						{@render navItem(P)}
-					{/each}
-				</ul>
-			</nav>
-		</Modal>
-	{/if}
+	<!-- {#if main.modalOpen} -->
+	<Modal close={() => main.setModalOpen(0)}>
+		<nav class="main_nav modal_nav" aria-label="Site Menu">
+			<ul class="nav_list_main nav_list">
+				{#each navData.pages as P}
+					{@render navItem(P)}
+				{/each}
+			</ul>
+		</nav>
+	</Modal>
+	<!-- {/if} -->
 {/if}
 
 <!-- *goes inside modal dialog -->

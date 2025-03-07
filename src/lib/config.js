@@ -49,6 +49,11 @@ export const navData = {
 			// ?? link to shops, youtube, etc
 			href: `/socials`,
 			title: `Socials`
+		},
+		{
+			// ?? svelte:self
+			href: `/uses`,
+			title: `Uses`
 		}
 	],
 	socialLinks: [
