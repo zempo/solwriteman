@@ -36,7 +36,6 @@
 				<img src="https://i.imgur.com/ZI6Qo8l.png" class="c0" alt="" />
 			</div>
 		</figure>
-
 		<Tabs let:T>
 			<T.List>
 				{#each tabLabels.bio as L, i}
@@ -45,13 +44,19 @@
 			</T.List>
 			<T.Panel id={0}>
 				<figure class="t_fig rbg_fig stmt_fig3">
-					<img
-						class="c1"
-						src="https://i.imgur.com/Xa17s7r.png"
-						alt="Artistic cardboard cat render, showcasing layered edges and a handcrafted aesthetic."
-					/>
-					<img src="https://i.imgur.com/PCnIULR.png" class="c2" alt="" aria-hidden="true" />
-					<img src="https://i.imgur.com/wVRcNis.png" class="c3" alt="" aria-hidden="true" />
+					<div class="img_wrap">
+						<img
+							class="c1"
+							src="https://i.imgur.com/Xa17s7r.png"
+							alt="Artistic cardboard cat render, showcasing layered edges and a handcrafted aesthetic."
+						/>
+					</div>
+					<div class="img_wrap">
+						<img src="https://i.imgur.com/PCnIULR.png" class="c2" alt="" aria-hidden="true" />
+					</div>
+					<div class="img_wrap">
+						<img src="https://i.imgur.com/wVRcNis.png" class="c3" alt="" aria-hidden="true" />
+					</div>
 					<figcaption class="aria_text">
 						Rendered paper/cardboard cat created in Blender.
 					</figcaption>
@@ -143,21 +148,27 @@
 			</T.Panel>
 			<T.Panel id={2}>
 				<figure class="t_fig rbg_fig stmt_fig3">
-					<img
-						class="c0"
-						src="https://i.imgur.com/lCRaMur.png"
-						alt="On Mic: Cardboard microphone render, showcasing layered edges and a handcrafted aesthetic — except for metallic knobs and bolts."
-					/>
-					<img
-						src="https://i.imgur.com/1fsCNwX.png"
-						class="c0"
-						alt="On Paper: fully cardboard book stack and mugs render, showcasing layered edges and a handcrafted aesthetic."
-					/>
-					<img
-						src="https://i.imgur.com/ZI6Qo8l.png"
-						class="c0"
-						alt="Online: Cardboard/paper stylized l-shaped computer desk setup render. Desk chair, computer monitor, and modem are also cardboard. Laptop is represented as a real laptop."
-					/>
+					<div class="img_wrap">
+						<img
+							class="c0"
+							src="https://i.imgur.com/lCRaMur.png"
+							alt="On Mic: Cardboard microphone render, showcasing layered edges and a handcrafted aesthetic — except for metallic knobs and bolts."
+						/>
+					</div>
+					<div class="img_wrap">
+						<img
+							src="https://i.imgur.com/1fsCNwX.png"
+							class="c0"
+							alt="On Paper: fully cardboard book stack and mugs render, showcasing layered edges and a handcrafted aesthetic."
+						/>
+					</div>
+					<div class="img_wrap">
+						<img
+							src="https://i.imgur.com/ZI6Qo8l.png"
+							class="c0"
+							alt="Online: Cardboard/paper stylized l-shaped computer desk setup render. Desk chair, computer monitor, and modem are also cardboard. Laptop is represented as a real laptop."
+						/>
+					</div>
 					<figcaption class="aria_text">
 						Rendered and stylized paper/cardboard microphone, book stack, and computer desk setup
 						created in Blender.
@@ -170,9 +181,8 @@
 						>
 					</p>
 					<p>
-						Outside my day job, I offer one-on-one mentoring and freelance work. As a developer,
-						others would describe me as flexible and open to new tech. That said, my current toolkit
-						is as follows:
+						Outside my dev job, I offer one-on-one mentoring and freelance work. And my current
+						toolkit is as follows:
 					</p>
 					<ul>
 						<li>
@@ -188,10 +198,8 @@
 						</li>
 					</ul>
 					<p>
-						I also open to collaboration in written works. I offer my skills as a performer,
-						narrator, and/or video editor. As a poet, I grow through performance feedback,
-						collaboration, and by reflecting on other pieces. These are the other writing
-						tools/methods I use:
+						I am also open to collaboration on written works. I offer my skills as a performer,
+						narrator, and/or video editor.
 					</p>
 					<ul>
 						<li>

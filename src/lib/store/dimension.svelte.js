@@ -1,5 +1,5 @@
 class Dimension {
-	topbarH = $state();
+	topbarH = $state(60);
 
 	scrollTop() {
 		window.scrollTo({

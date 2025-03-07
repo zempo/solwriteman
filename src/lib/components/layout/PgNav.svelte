@@ -13,9 +13,7 @@
 </script>
 
 {#snippet navItem(L)}
-	<li
-		class={`nav_link ${main.currentPage.includes(L.href) ? `nav_link_active ${main.currentPage}` : `nav_link_default`}`}
-	>
+	<li class={`nav_link ${main.isActiveLink(L.href)}`}>
 		{#if L.external}
 			<a href={L.href} target="_blank" rel="noopener noreferrer">{L.title}</a>
 		{:else}

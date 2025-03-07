@@ -22,7 +22,7 @@ export const siteAlt = `Solomon performs poetry at open mic`;
 export const desc = `🍊 OC-Based Digital Storyteller & Artist.`;
 
 export const navData = {
-	hrefs: ['/', '/books', '/bytes', '/snippets', '/socials'],
+	hrefs: ['/', '/books', '/bytes', '/snippets', '/socials', '/tools'],
 	pages: [
 		{
 			// ?? main shader slideshow, and about
@@ -52,8 +52,8 @@ export const navData = {
 		},
 		{
 			// ?? svelte:self
-			href: `/uses`,
-			title: `Uses`
+			href: `/tools`,
+			title: `Tools`
 		}
 	],
 	socialLinks: [
@@ -95,11 +95,19 @@ export const defaultSEO = {
 	alt: siteAlt,
 	type: 'website'
 };
+export const titles = {
+	books: `My Books`,
+	bytes: `Art Bytes`,
+	snippets: `Snippets`,
+	socials: `Socials`,
+	tools: `Tools & Uses`
+};
 export const taglines = {
-	books: `Storytold in a Nerdy Niche.`,
+	books: `Storytold In a Nerdy Niche.`,
 	bytes: `Keep Calm And Debug On™`,
 	snippets: `From Notes App to Table.`,
-	socials: `🐋, Hello There! Let's Connect.` // 🐋, hello there
+	socials: `🐋, Hello There! Let's Connect.`, // 🐋, hello there
+	tools: `How'd He Build That?`
 };
 export const seoData = {
 	main: {
@@ -123,8 +131,13 @@ export const seoData = {
 		...defaultSEO
 	},
 	socials: {
-		title: `Solomon Zelenko • All My Links`,
+		title: `Solomon Z • All My Links`,
 		desc: taglines.socials,
+		...defaultSEO
+	},
+	tools: {
+		title: `Solomon Z • Tools & Uses`,
+		desc: taglines.tools,
 		...defaultSEO
 	}
 };

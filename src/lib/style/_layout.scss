@@ -163,5 +163,7 @@ $br_25: 0.25rem;
 
 .app_main {
 	min-height: 100vh;
-	// line-height: 1;
+	.app_section {
+		padding: 1rem;
+	}
 }

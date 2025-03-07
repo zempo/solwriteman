@@ -3,6 +3,7 @@
 $breakpoints: (
 	'p_med': 560px,
 	'p_wide': 650px,
+	'p_max': 1000px,
 	't_min': 1400px,
 	'd_min': 1600px
 );
@@ -75,6 +76,10 @@ $breakpoints: (
 		.t_fig {
 			display: inline;
 			margin: 0;
+			margin-right: 1rem;
+			&.stmt_fig2 {
+				margin-right: 1.5rem;
+			}
 		}
 		.content_wrapper {
 			display: flex;
@@ -86,9 +91,15 @@ $breakpoints: (
 		}
 		.rbg_fig {
 			display: flex;
-			img {
+			justify-content: center;
+			.img_wrap {
 				width: calc(33% - 0.5rem);
+				border-radius: 0.25rem;
 				margin: 0.25rem;
+				box-shadow: var(--shadow3);
+				img {
+					width: 100%;
+				}
 			}
 		}
 		.stmt_fig {
@@ -109,6 +120,70 @@ $breakpoints: (
 			}
 		}
 	}
+	@include mq('p_max', 'min') {
+		width: calc(100vw - 2rem);
+		max-width: 1400px;
+		margin-block: 4rem;
+		margin-inline: auto;
+		.tab_list {
+			gap: 0.1rem;
+			button {
+				width: auto;
+				border-top-left-radius: 0.25rem;
+				border-top-right-radius: 0.25rem;
+			}
+		}
+		.tab_panel {
+			padding: 2rem 1rem 1rem;
+			.content_wrapper {
+				display: flex;
+				flex-wrap: wrap;
+				flex-direction: row;
+			}
+			.t_text {
+				max-width: 700px;
+			}
+			.stmt_fig {
+				display: inline-block;
+				margin-left: 0;
+				margin-right: 1rem;
+				width: 200px;
+				img {
+					display: inline;
+				}
+				.img_hide {
+					display: inline;
+				}
+			}
+			.rbg_fig,
+			.stmt_fig3 {
+				display: inline-block;
+				.img_wrap {
+					width: 200px;
+					border-radius: 0.25rem;
+					margin: 0.5rem;
+				}
+			}
+			.stmt_fig {
+				img {
+					object-fit: cover;
+					object-position: center;
+					height: 700px;
+				}
+				&.stmt_fig1 {
+					img {
+						object-position: 70% center;
+					}
+				}
+				&.stmt_fig3 {
+					img {
+						object-position: 20% center;
+					}
+				}
+			}
+		}
+	}
+
 	@include mq('t_min', 'min') {
 		// text-align: center;
 		width: calc(100vw - 2rem);
@@ -116,25 +191,8 @@ $breakpoints: (
 		margin-block: 4rem;
 		margin-inline: auto;
 		// margin-left: calc(  700px);
-		.tab_list {
-			gap: 0.1rem;
-			button {
-				width: auto;
-				border-top-left-radius: 0.25rem;
-				border-top-right-radius: 0.25rem;
-				&.selected {
-					// box-shadow: var(--shadowTop);
-				}
-			}
-		}
 		.tab_panel {
 			// padding: 2rem;
-			padding: 3rem 1.5rem 1.5rem;
-			.content_wrapper {
-				display: flex;
-				flex-wrap: wrap;
-				flex-direction: row;
-			}
 			.t_text {
 				position: relative;
 				max-width: 1000px;
@@ -149,8 +207,8 @@ $breakpoints: (
 			}
 			.rbg_fig {
 				display: inline-block;
-				img {
-					width: 100%;
+				.img_wrap {
+					width: 200px;
 					margin: 0.5rem 0;
 				}
 			}
@@ -164,23 +222,6 @@ $breakpoints: (
 				}
 				.img_hide {
 					display: inline;
-				}
-			}
-		}
-		.stmt_fig {
-			img {
-				object-fit: cover;
-				object-position: center;
-				height: 700px;
-			}
-			&.stmt_fig1 {
-				img {
-					object-position: 70% center;
-				}
-			}
-			&.stmt_fig3 {
-				img {
-					object-position: 20% center;
 				}
 			}
 		}

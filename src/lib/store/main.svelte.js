@@ -114,6 +114,20 @@ class Main {
 		label = targetStr;
 		return label;
 	}
+
+	isActiveLink(URL) {
+		if (this.currentPage === '/' && URL === '/') {
+			return `nav_link_active main_link`;
+		}
+
+		return this.currentPage.includes(URL) && URL !== '/'
+			? `nav_link_active ${this.currentPage.substring(1)}_link`
+			: `nav_link_default`;
+	}
+
+	getKey() {
+		return this.currentPage.substring(1);
+	}
 }
 
 export const main = new Main();

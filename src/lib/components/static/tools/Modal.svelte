@@ -102,7 +102,6 @@
 			role="dialog"
 			aria-labelledby="modal-title"
 			aria-modal="true"
-			tabindex="-1"
 			title="Minimize"
 			transition:fly={{ y: 200, duration: 300 }}
 			onclick={(e) => e.stopPropagation()}
