@@ -55,7 +55,7 @@
 	</nav>
 	{#if main.modalOpen}
 		<Modal close={() => main.setModalOpen(0)}>
-			<nav class="main_nav" aria-label="Site Menu">
+			<nav class="main_nav modal_nav" aria-label="Site Menu">
 				<ul class="nav_list_main nav_list">
 					{#each navData.pages as P}
 						{@render navItem(P)}
