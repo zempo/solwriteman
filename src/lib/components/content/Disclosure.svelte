@@ -7,7 +7,7 @@
 	<button
 		aria-expanded={isOpen}
 		aria-controls="disclosure-content"
-		on:click={() => (isOpen = !isOpen)}
+		onclick={() => (isOpen = !isOpen)}
 		class="disclosure-button"
 	>
 		{#if accH}

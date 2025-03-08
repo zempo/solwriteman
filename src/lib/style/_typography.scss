@@ -531,6 +531,9 @@ html {
 		li.nav_link {
 			font-weight: normal;
 			font-family: $fontHead;
+			a {
+				font-family: $fontAction;
+			}
 			@include font-size($h2_font_sizes);
 			@include mq('phablet', 'min') {
 				@include font-size($h2_font_sizes);

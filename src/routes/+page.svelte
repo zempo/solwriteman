@@ -7,6 +7,7 @@
 	import { main } from '$lib/store/main.svelte';
 	import { seoData, tabLabels } from '$lib/config';
 	import Tabs from '$lib/components/static/tools/tab/Tabs.svelte';
+	import Links from '$lib/components/content/Links.svelte';
 	// import { onMount } from 'svelte';
 	// your script goes here
 	let tH = $state();
@@ -76,8 +77,8 @@
 							rel="noopener noreferrer">Hopak</a
 						>
 						between the Avant-Garde and Accessible. And in
-						<a href="/snippets">poetic snippets</a>, I integrate "silly geese" and "toe stubs" into
-						a larger narrative.
+						<a href="/snippets">poetic snippets</a>, I integrate the Silly Geese and toe stubs into
+						our larger narrative.
 					</p>
 					<p>
 						I am a first-time father, a Russian-Jewish American, and an ever curious learner. And I
@@ -89,14 +90,17 @@
 					<p>TL;DR, Let's connect, communicate, and transform our reality.</p>
 					<!-- <ContactBtn /> -->
 					<!-- <T.NextTab/> -->
+					<Links>{#snippet contactLink()}Contact Me{/snippet}</Links>
 				</div>
 			</T.Panel>
 			<T.Panel id={1}>
 				<figure class="t_fig stmt_fig stmt_fig2">
-					<img
-						src="https://i.imgur.com/raiaRaE.jpeg"
-						alt="Solomon's cat sleeping on a windowsill shelf, above an out-of-focus computer monitor."
-					/>
+					<div class="img_wrap">
+						<img
+							src="https://i.imgur.com/raiaRaE.jpeg"
+							alt="Solomon's cat sleeping on a windowsill shelf, above an out-of-focus computer monitor."
+						/>
+					</div>
 					<figcaption class="aria_text">
 						Solomon's cat sleeping on a windowsill shelf, above an out-of-focus computer monitor.
 					</figcaption>
@@ -176,8 +180,8 @@
 				</figure>
 				<div class="t_text">
 					<p>
-						For a more in-depth look at my art, stacks, and methods, check out the <a href="/uses"
-							>uses page!</a
+						For a more in-depth look at my art, stacks, and methods, check out the <a href="/tools"
+							>tools page!</a
 						>
 					</p>
 					<p>
@@ -213,7 +217,7 @@
 						</li>
 						<li>
 							<p>
-								<b>Performance:</b> Workshops / Post-Performance Retrospective (<a href="/uses"
+								<b>Performance:</b> Workshops / Post-Performance Retrospective (<a href="/tools"
 									>More Info</a
 								>).
 							</p>
