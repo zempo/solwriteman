@@ -1,7 +1,8 @@
 <script>
-	let { contactLink } = $props();
+	export let linkType = 'contact';
+	export let text = `Get in Touch`;
 </script>
 
-{#if contactLink}
-	<a href="/socials" class="contact_link">{@render contactLink()}</a>
+{#if linkType == 'contact'}
+	<a href="/socials" class="contact_link">{text}</a>
 {/if}

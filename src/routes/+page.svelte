@@ -77,8 +77,8 @@
 							rel="noopener noreferrer">Hopak</a
 						>
 						between the Avant-Garde and Accessible. And in
-						<a href="/snippets">poetic snippets</a>, I integrate the Silly Geese and toe stubs into
-						our larger narrative.
+						<a href="/snippets">poetic snippets</a>, I integrate silly geese and toe stubs into our
+						larger narrative.
 					</p>
 					<p>
 						I am a first-time father, a Russian-Jewish American, and an ever curious learner. And I
@@ -88,9 +88,7 @@
 						own terms.
 					</p>
 					<p>TL;DR, Let's connect, communicate, and transform our reality.</p>
-					<!-- <ContactBtn /> -->
-					<!-- <T.NextTab/> -->
-					<Links>{#snippet contactLink()}Contact Me{/snippet}</Links>
+					<Links />
 				</div>
 			</T.Panel>
 			<T.Panel id={1}>

@@ -4,7 +4,7 @@ $breakpoints: (
 	'p_med': 560px,
 	'p_wide': 650px,
 	'p_max': 1000px,
-	't_min': 1300px,
+	't_min': 1350px,
 	'd_min': 1600px
 );
 
@@ -213,9 +213,28 @@ $breakpoints: (
 				position: relative;
 				max-width: 1000px;
 			}
+			.t_fig {
+				margin-left: 0.75rem;
+				margin-right: 2.25rem;
+			}
 			.rbg_fig {
 				display: inline-block;
 			}
 		}
 	}
+}
+
+.contact_link {
+	position: relative;
+	cursor: pointer;
+	text-decoration: none;
+	display: inline-block;
+	margin: 2rem 0 1rem;
+	border-radius: 0.25rem;
+	padding: 0.25rem 0.75rem;
+	background: var(--appBar);
+	border: 1px solid var(--appTranslucent);
+	box-shadow: var(--shadow3);
+	color: var(--appConst);
+	// text-shadow: 2px 2px 5px var(--textConst);
 }

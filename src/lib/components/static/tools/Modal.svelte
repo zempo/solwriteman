@@ -106,7 +106,6 @@
 			transition:fly={{ y: 200, duration: 300 }}
 			onclick={(e) => e.stopPropagation()}
 		>
-			<!-- TODO mynaui:minimize animated svgs -->
 			<button
 				class="close-btn"
 				type="button"

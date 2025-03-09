@@ -109,12 +109,6 @@ html[data-theme='light'] {
 
 	--appMain: #f2f1e9;
 	--appDark: #ededeb;
-	// --appBar: #fdfdfd;
-	// --appBar: #dde8e6;
-	// --appBar: #e1dede;
-	// --appBar: #a4a9ff;
-	// --appBar: #ebe7e4;
-	// --appBar: #e2e5ed;
 	--appBar: #6f7393;
 	--appGradient: linear-gradient(315deg, var(--appMain) 0%, var(--appDark) 74%);
 	--appAction: #5f5b5f;
@@ -211,20 +205,6 @@ html {
 	// 0px -4px 6px rgba(0, 0, 0, 0.2);
 	// color: var(--textFooter);
 	scroll-behavior: smooth;
-	// *SVGs, target path/g fills
-	// .target_stroke {
-	// 	stroke: var(--textNav);
-	// }
-	// .target_fill {
-	// 	fill: var(--textNav);
-	// }
-	// .target_both {
-	// 	fill: var(--textNav);
-	// 	stroke: var(--textNav);
-	// }
-	// .target_fill_head {
-	// 	fill: var(--textHeading);
-	// }
 	button {
 		background-color: var(--appMain);
 		color: var(--textMain);
