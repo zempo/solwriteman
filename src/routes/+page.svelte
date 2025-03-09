@@ -105,8 +105,8 @@
 				</figure>
 				<div class="t_text">
 					<p>
-						Hi, I'm Solomon! 👋<br />I am a creative dev and educational content programmer based in
-						California, USA.<br />I enjoy leveling up other devs and have been debugging my typos
+						Hi, I'm Solomon! 👋<br />I am a creative dev and writer based in California, USA.<br />I
+						enjoy leveling up other devs and have been debugging my typos
 						<!-- for: <StatsCard target="2016-11-13" type="bio" /> -->
 					</p>
 					<p>
@@ -146,6 +146,7 @@
 						ones, and debugging fatherhood with my wife, daughter Evelyn, and our Tortie Cat,
 						Weasel.
 					</p>
+					<Links linkType="substack" text="@SolWriteMan (Substack)" />
 				</div>
 			</T.Panel>
 			<T.Panel id={2}>

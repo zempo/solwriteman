@@ -236,5 +236,8 @@ $breakpoints: (
 	border: 1px solid var(--appTranslucent);
 	box-shadow: var(--shadow3);
 	color: var(--appConst);
-	// text-shadow: 2px 2px 5px var(--textConst);
+	&.substack_link {
+		background: var(--accentMain);
+		color: var(--textConst);
+	}
 }
