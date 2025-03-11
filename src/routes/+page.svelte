@@ -8,10 +8,13 @@
 	import { seoData, tabLabels } from '$lib/config';
 	import Tabs from '$lib/components/static/tools/tab/Tabs.svelte';
 	import Links from '$lib/components/content/Links.svelte';
-	// import { onMount } from 'svelte';
-	// your script goes here
+	import StatsCard from '$lib/components/static/tools/StatsCard.svelte';
+	import SkipBtn from '$lib/components/static/tools/SkipBtn.svelte';
+
 	let tH = $state();
 </script>
+
+<svelte:window bind:scrollY={dimension.currScrollLanding} />
 
 <PgHead pgData={seoData.main} />
 <PgMain>
@@ -21,6 +24,7 @@
 		<span class="aria_text">On microphone, on paper, online</span>
 		<HeroScene />
 	</header>
+	<SkipBtn />
 	<article class="bio_section">
 		<figure
 			class="t_fig hero_fig rbg_fig stmt_fig3"
@@ -105,9 +109,11 @@
 				</figure>
 				<div class="t_text">
 					<p>
-						Hi, I'm Solomon! 👋<br />I am a creative dev and writer based in California, USA.<br />I
-						enjoy leveling up other devs and have been debugging my typos
-						<!-- for: <StatsCard target="2016-11-13" type="bio" /> -->
+						Hi, I'm Solomon! 👋<br />I am a technologist and writer based in California, USA.<br />I
+						love leveling up other devs and have been debugging my typos for: <StatsCard
+							target="2016-11-13"
+							type="bio"
+						/>
 					</p>
 					<p>
 						From 2016-2018, I worked with the former non-profit,
@@ -123,13 +129,13 @@
 							target="_blank"
 							rel="noopener noreferrer">MicroWorlds EX</a
 						>
-						to Title I schools in Denver, Colorado. Inspired by the impact OWL made, I began to refine
-						my dev skills, working with: Web Components, SASS, React, Svelte, ThreeJs, SQL, and other
-						web technologies. In 2021, I landed my dream gig with
+						to Title I schools in Denver, Colorado. Inspired by my time with OWL, I began to refine my
+						dev skills, working with: Web Components, SASS, React, Svelte, ThreeJs, SQL, and other web
+						technologies. In 2021, I landed my dream gig with
 						<a href="https://www.aleks.com/" target="_blank" rel="noopener noreferrer"
 							>McGraw Hill ALEKS</a
 						>
-						as a content programmer. On the side, I've been building
+						as a content programmer. On the side, I've been mentoring, building
 						<a
 							href="https://threejs-journey.com/lessons/introduction"
 							target="_blank"
@@ -222,7 +228,7 @@
 							</p>
 						</li>
 					</ul>
-					<!-- <ContactBtn /> -->
+					<Links text="Let's Collaborate!" />
 				</div>
 			</T.Panel>
 		</Tabs>
@@ -251,8 +257,9 @@
 					tooltip snippet
 					breadcrumpb
 					-->
-	<section class="components_section">
+	<section class="components_section" id="featured_content">
 		<h2>Disclosure Component</h2>
+		{dimension.currScrollLanding}
 		<Disclosure isOpen="true">
 			{#snippet accH()}
 				What is a disclosure component? (open)

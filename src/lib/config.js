@@ -20,6 +20,7 @@ export const siteURL = `https://solomonzelenko.dev`;
 export const siteImg = `https://i.imgur.com/erk5C9H.png`;
 export const siteAlt = `Solomon performs poetry at open mic`;
 export const desc = `🍊 OC-Based Digital Storyteller & Artist.`;
+export const blogLaunchDate = `2025-04-02`;
 
 export const navData = {
 	hrefs: ['/', '/books', '/bytes', '/snippets', '/socials', '/tools'],
