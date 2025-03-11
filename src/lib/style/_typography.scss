@@ -291,6 +291,13 @@ p {
 	font-family: $fontBody;
 	font-weight: normal;
 }
+.skip_featured_btn {
+	font-family: $fontBody;
+	@include font-size($sub_font_sizes);
+	@include mq('phablet', 'min') {
+		@include font-size($sub_font_sizes);
+	}
+}
 .search_form {
 	input {
 		font-family: $fontAction;

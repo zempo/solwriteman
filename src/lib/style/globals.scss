@@ -19,6 +19,7 @@ html[data-theme='dark'] {
 	--appDark: #2e2c32;
 	--appMain: #07241d;
 	--appBar: #23272f;
+	--appBarTrans: #23272fcb;
 	--appGradient: linear-gradient(315deg, var(--appMain) 0%, var(--appDark) 74%);
 	--appAction: #5f5b5f;
 	// --appFig: #715f58;
@@ -111,6 +112,7 @@ html[data-theme='light'] {
 	--appMain: #f2f1e9;
 	--appDark: #ededeb;
 	--appBar: #6f7393;
+	--appBarTrans: #6f7393a5;
 	--appGradient: linear-gradient(315deg, var(--appMain) 0%, var(--appDark) 74%);
 	--appAction: #5f5b5f;
 	--appFig: #37393b;

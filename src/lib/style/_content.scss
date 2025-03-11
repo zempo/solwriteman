@@ -114,6 +114,41 @@ $breakpoints: (
 				}
 			}
 		}
+		.app_banner_l {
+			text-align: center;
+			background: var(--appFig);
+			width: calc(100% - 1rem);
+			max-width: 1400px;
+			margin: auto;
+			padding: 3rem 1rem 1rem;
+			box-shadow: var(--insetShadow);
+			border-radius: 0.5rem;
+			.img_wrap {
+				width: 100%;
+				margin: auto;
+				max-width: 800px;
+				border-radius: 0.25rem;
+				position: relative;
+				&::before {
+					content: '';
+					position: absolute;
+					inset: 0;
+					box-shadow: var(--shadow2);
+					border-radius: inherit;
+					pointer-events: none;
+					z-index: 1;
+				}
+				img {
+					width: 100%;
+					max-width: 800px;
+				}
+			}
+			figcaption {
+				color: var(--appConst);
+				line-height: 1.5;
+				margin-block: 1rem;
+			}
+		}
 	}
 	.components_section {
 		padding: 1rem;

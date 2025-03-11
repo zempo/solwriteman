@@ -125,7 +125,7 @@ $breakpoints: (
 	@include mq('p_max', 'min') {
 		width: calc(100vw - 2rem);
 		max-width: 1400px;
-		margin-block: 4rem;
+		margin-block: 4rem 2rem;
 		margin-inline: auto;
 		.tab_list {
 			gap: 0.1rem;
@@ -206,7 +206,7 @@ $breakpoints: (
 		// text-align: center;
 		width: calc(100vw - 2rem);
 		max-width: 1400px;
-		margin-block: 6rem;
+		margin-block: 4rem 2rem;
 		margin-inline: auto;
 		.tab_panel {
 			.t_text {

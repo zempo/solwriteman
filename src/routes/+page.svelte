@@ -10,8 +10,6 @@
 	import Links from '$lib/components/content/Links.svelte';
 	import StatsCard from '$lib/components/static/tools/StatsCard.svelte';
 	import SkipBtn from '$lib/components/static/tools/SkipBtn.svelte';
-
-	let tH = $state();
 </script>
 
 <svelte:window bind:scrollY={dimension.currScrollLanding} />
@@ -232,6 +230,21 @@
 				</div>
 			</T.Panel>
 		</Tabs>
+		<figure class="app_banner_l">
+			<div class="img_wrap">
+				<img
+					src="https://i.imgur.com/erk5C9H.png"
+					alt="Solomon reciting poetry at Libro Mobile arts cooperative and bookstore."
+				/>
+			</div>
+			<figcaption>
+				Reciting poetry at <a
+					href="https://www.libromobile.com/"
+					target="_blank"
+					rel="noopener noreferrer">LibroMobile</a
+				> arts cooperative and bookstore.
+			</figcaption>
+		</figure>
 	</article>
 
 	<!-- <details>
@@ -257,9 +270,8 @@
 					tooltip snippet
 					breadcrumpb
 					-->
-	<section class="components_section" id="featured_content">
+	<section class="components_section" id="featured_content" bind:this={dimension.featEl}>
 		<h2>Disclosure Component</h2>
-		{dimension.currScrollLanding}
 		<Disclosure isOpen="true">
 			{#snippet accH()}
 				What is a disclosure component? (open)
