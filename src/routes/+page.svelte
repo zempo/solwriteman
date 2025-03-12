@@ -138,8 +138,7 @@
 							href="https://threejs-journey.com/lessons/introduction"
 							target="_blank"
 							rel="noopener noreferrer">creative web apps</a
-						>
-						and researching
+						>, and researching
 						<a href="https://thebookofshaders.com/" target="_blank" rel="noopener noreferrer"
 							>pixel shaders</a
 						> to craft performative, scaleable visuals. My work is equal parts art and science, and I

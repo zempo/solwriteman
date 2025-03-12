@@ -14,14 +14,14 @@ class Dimension {
 	calcFeatured() {
 		if (this.featEl) {
 			const rect = this.featEl.getBoundingClientRect();
-			this.featElDist = Math.floor(rect.top - scrollY) - 100;
+			this.featElDist = Math.floor(rect.top - scrollY);
 		}
 	}
 
 	skipToFeatured() {
 		if (this.featEl) {
 			const rect = this.featEl.getBoundingClientRect();
-			this.featElDist = rect.top + window.scrollY;
+			this.featElDist = Math.floor(rect.top - scrollY);
 			this.featEl.setAttribute('tabindex', '-1');
 			this.featEl.focus();
 			this.featEl.scrollIntoView({ behavior: 'smooth' });
