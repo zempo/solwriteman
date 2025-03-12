@@ -3,7 +3,6 @@
 	import { onMount } from 'svelte';
 	import { fontIcon, fontIconOn, moonIcon, scrollIcon, sunIcon } from '../svg/theme';
 	import { dimension } from '$lib/store/dimension.svelte';
-	import Page from '../../../../routes/+page.svelte';
 
 	onMount(() => {
 		main.selectedTheme = main.getTheme();
