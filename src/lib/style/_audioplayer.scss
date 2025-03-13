@@ -1,0 +1,35 @@
+@use 'sass:map';
+
+$breakpoints: (
+	'p_med': 560px,
+	'p_wide': 650px,
+	'p_max': 1000px,
+	't_min': 1350px,
+	'd_min': 1600px
+);
+
+@mixin mq($width, $type: min) {
+	@if map.has-key($breakpoints, $width) {
+		$width: map.get($breakpoints, $width);
+		@if $type == max {
+			$width: $width - 1px;
+		}
+		@media only screen and (#{$type}-width: $width) {
+			@content;
+		}
+	}
+}
+
+@mixin transition($property: all, $duration: 0.3s, $timing: ease, $delay: 0s) {
+	-webkit-transition: $property $duration $timing $delay;
+	-moz-transition: $property $duration $timing $delay;
+	-ms-transition: $property $duration $timing $delay;
+	-o-transition: $property $duration $timing $delay;
+	transition: $property $duration $timing $delay;
+}
+
+.aud_wrap {
+	width: calc(100vw - 1rem);
+	max-width: 1400px;
+	border: 1px solid black;
+}
