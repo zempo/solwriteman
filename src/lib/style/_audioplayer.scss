@@ -62,14 +62,14 @@ $breakpoints: (
 			border: 1px solid var(--playerGreen);
 			height: 0.5rem;
 			border-radius: 0.5rem;
-			margin-bottom: 0.5rem;
+			margin-block: 1.5rem 2rem;
 		}
 		.aud_controls {
 			border: 1px solid var(--playerBlue);
 			display: flex;
 			justify-content: center;
 			button {
-				color: var(--appFig);
+				color: var(--textConst);
 			}
 		}
 	}
