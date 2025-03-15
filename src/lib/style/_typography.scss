@@ -428,6 +428,32 @@ td {
 	}
 }
 
+.aud_player {
+	.aud_stats {
+		font-family: $fontAction;
+		@include font-size($sub_font_sizes);
+		@include mq('phablet', 'min') {
+			@include font-size($sub_font_sizes);
+		}
+	}
+	p,
+	button {
+		font-family: $fontBody;
+		@include font-size($bigp_font_sizes);
+		@include mq('phablet', 'min') {
+			@include font-size($p_font_sizes);
+		}
+	}
+}
+.aud_item {
+	font-family: $fontBody;
+	font-style: italic;
+	@include font-size($bigp_font_sizes);
+	@include mq('phablet', 'min') {
+		@include font-size($p_font_sizes);
+	}
+}
+
 .snip_article,
 .byte_article {
 	a {
