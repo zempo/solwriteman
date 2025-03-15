@@ -1,6 +1,7 @@
 import { browser } from '$app/environment';
 import { navData } from '$lib/config';
 
+/* eslint-disable no-undef */
 class Main {
 	modalOpen = $state(false);
 

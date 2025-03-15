@@ -10,6 +10,8 @@
 	import Links from '$lib/components/content/Links.svelte';
 	import StatsCard from '$lib/components/static/tools/StatsCard.svelte';
 	import SkipBtn from '$lib/components/static/tools/SkipBtn.svelte';
+	import AudPlayer from '$lib/components/static/tools/aud/AudPlayer.svelte';
+	import { reelData } from '$lib/store/audio.svelte';
 </script>
 
 <svelte:window bind:scrollY={dimension.currScrollLanding} />
@@ -23,7 +25,7 @@
 		<HeroScene />
 	</header>
 	<SkipBtn />
-	<article class="bio_section">
+	<article class="bio_section" aria-label="Biography Section">
 		<figure
 			class="t_fig hero_fig rbg_fig stmt_fig3"
 			role="img"
@@ -245,42 +247,15 @@
 			</figcaption>
 		</figure>
 	</article>
-
-	<!-- <details>
-		<summary>Artist Statement</summary>
-		<div class="details_body">
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque iusto aut itaque officiis
-				sapiente maiores at dicta natus pariatur, beatae suscipit, nam, quaerat provident maxime
-				blanditiis non odit.
-				</p>
-				</div>
-				</details> -->
-	<!-- {main.theme} -->
-	<!--  
-					tabs snippet
-					timestamp snippet
-					calednar snippet
-					figure/video/code-copy snippet 
-					carousel
-					modal snippet
-					grid/table 
-					tree view snippet?
-					tooltip snippet
-					breadcrumpb
-					-->
 	<section class="components_section" id="featured_content" bind:this={dimension.featEl}>
-		<h2>Disclosure Component</h2>
+		<AudPlayer audData={reelData} />
 		<Disclosure isOpen="true">
 			{#snippet accH()}
 				What is a disclosure component? (open)
 			{/snippet}
 			{#snippet accC()}
-				<p>
-					Park at the nearest available parking meter without paying the meter and call 999-999-9999
-					to report the problem. We will note and approve your alternate location and will
-					investigate the cause of the shortage in your assigned facility.
-				</p>
+				tabs snippet timestamp snippet calednar snippet figure/video/code-copy snippet carousel
+				modal snippet grid/table tree view snippet? tooltip snippet breadcrumpb
 			{/snippet}
 		</Disclosure>
 		<Disclosure>
@@ -295,20 +270,6 @@
 				</figure>
 			{/snippet}
 		</Disclosure>
-		<div class="spacer">
-			<p>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia eaque vero harum
-				consequatur, nemo consequuntur aspernatur, qui dicta optio nesciunt dignissimos. Voluptates,
-				aliquid.
-			</p>
-		</div>
-		<div class="spacer">
-			<p>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia eaque vero harum
-				consequatur, nemo consequuntur aspernatur, qui dicta optio nesciunt dignissimos. Voluptates,
-				aliquid.
-			</p>
-		</div>
 		<div class="spacer">
 			<p>
 				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia eaque vero harum

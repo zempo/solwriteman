@@ -1,3 +1,5 @@
+import { setContext, getContext } from 'svelte';
+
 /**
  * *
  *  {
@@ -11,9 +13,27 @@
  */
 export const reelData = [
 	{
+		_id: 0,
 		type: 0,
-		title: `Audiobook / Poetry`,
+		title: `Narration Demo`,
 		src: `https://open.acast.com/public/streams/62bb6cbc21e4cb001212c5e7/episodes/62bb73e7e762370014e5f253.mp3`,
+		timestamps: [
+			{
+				pt: 10,
+				label: `Crest Shadows`
+			},
+			{
+				pt: 45,
+				label: `Knight's Knob`
+			}
+		],
+		notes: [`From the Riviting Lorem of Ipsum, by A Non Mous, comes an all new tale.`]
+	},
+	{
+		_id: 1,
+		type: 1,
+		title: `Commercial Demo`,
+		src: `https://open.acast.com/public/streams/62bb6cbc21e4cb001212c5e7/episodes/62bb6ecccbcafc00132f0f54.mp3`,
 		timestamps: [
 			{
 				pt: 10,
@@ -30,9 +50,15 @@ export const reelData = [
 
 /* eslint-disable no-undef */
 class AudPlay {
-	time = $state(0);
-	duration = $state(0);
-	paused = $state(true);
+	getAud(KEY) {
+		return getContext(KEY);
+	}
+
+	setAud(audFile, audIdx) {
+		setContext('audIdx', audIdx);
+		setContext('audFile', audFile);
+		return '';
+	}
 
 	// format time (read time)
 	format(T) {

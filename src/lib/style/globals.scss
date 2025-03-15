@@ -1,3 +1,4 @@
+@use './audioplayer';
 @use './content';
 @use './layout';
 @use './utils';
@@ -49,6 +50,7 @@ html[data-theme='dark'] {
 	--shadowClr1: rgba(27, 27, 26, 0.716);
 	--shadowClr2: rgba(21, 20, 20, 0.727);
 	--shadowClr3: rgba(46, 44, 44, 0.305);
+	--textFade: rgba(98, 103, 121, 0.472);
 
 	--accentMain: #eb824d;
 	--accentMainDark: #e15c1a;
@@ -61,6 +63,18 @@ html[data-theme='dark'] {
 	--accentWorksLt: #e87f78;
 	--accentSnipLt: #eb7aba;
 	--accentByteLt: #57d7bb;
+
+	--playerDark: #252a34;
+	--player2: #2e3440;
+	--playerBgd: #2e3440;
+	--playerBtnBgd: #464d5c;
+	--playerBlue: #99d4ce;
+	--playerBlue_dark: #278a8c;
+	--playerGreen: #b6d59a;
+	--playerGreen_dark: #a1bd88;
+	--playerPurple: #e5bbed;
+	--playerText: #eceff4;
+	--playerRed: #dd0b51;
 
 	--bxClr1: rgba(0, 0, 0, 0.16);
 	--bxClr2: rgba(0, 0, 0, 0.24);
@@ -121,6 +135,19 @@ html[data-theme='light'] {
 	--textLt: #37393bda;
 	--textMain: #37393b;
 	--textHead: #232527;
+	--textFade: rgba(52, 51, 51, 0.1);
+
+	--playerDark: #252a34;
+	--player2: #2e3440;
+	--playerBgd: #2e3440;
+	--playerBtnBgd: #464d5c;
+	--playerText: #eceff4;
+	--playerBlue: #99d4ce;
+	--playerBlue_dark: #278a8c;
+	--playerGreen: #b6d59a;
+	--playerGreen_dark: #a1bd88;
+	--playerPurple: #e5bbed;
+	--playerRed: #dd0b51;
 
 	--accentGradient: linear-gradient(to left, #feac5e, #c779d0, #4bc8b1);
 	--accentGradientTab: linear-gradient(to left, #fccb9e, #edbcf2, #87e2d2);

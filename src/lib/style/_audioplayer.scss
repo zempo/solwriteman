@@ -31,5 +31,65 @@ $breakpoints: (
 .aud_wrap {
 	width: calc(100vw - 1rem);
 	max-width: 1400px;
-	border: 1px solid black;
+	margin: 0.5rem;
+	box-shadow: var(--shadow3);
+	background: var(--playerBgd);
+	border: 1px solid var(--textFade);
+	border-radius: 0.5rem;
+	h2,
+	li,
+	p,
+	button {
+		color: var(--playerText);
+	}
+	.aud_header,
+	.aud_player,
+	.aud_tracklist {
+		padding: 0.5rem 1rem;
+	}
+	.aud_header {
+		background: var(--playerDark);
+		border-top-left-radius: 0.5rem;
+		border-top-right-radius: 0.5rem;
+		h2 {
+			margin-top: 0.5rem;
+		}
+	}
+	.aud_player {
+		background: var(--playerBgd);
+		color: var(--playerBlue);
+		.aud_stats {
+			border: 1px solid var(--playerGreen);
+			height: 0.5rem;
+			border-radius: 0.5rem;
+			margin-bottom: 0.5rem;
+		}
+		.aud_controls {
+			border: 1px solid var(--playerBlue);
+			display: flex;
+			justify-content: center;
+			button {
+				color: var(--appFig);
+			}
+		}
+	}
+	.aud_tracklist {
+		background: var(--playerDark);
+		border-bottom-left-radius: 0.5rem;
+		border-bottom-right-radius: 0.5rem;
+		ul {
+			margin: 0;
+			padding: 0 0.25rem;
+			list-style-type: none;
+			li {
+				padding-block: 0.5rem;
+			}
+		}
+	}
+	@include mq('p_max', 'min') {
+		width: calc(100vw - 2rem);
+		max-width: 1400px;
+		margin-block: 4rem 2rem;
+		margin-inline: auto;
+	}
 }

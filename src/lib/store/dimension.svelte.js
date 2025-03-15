@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 class Dimension {
 	topbarH = $state(60);
 	currScrollLanding = $state(0);
