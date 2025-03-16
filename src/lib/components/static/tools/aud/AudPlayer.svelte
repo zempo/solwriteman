@@ -4,7 +4,7 @@
 	import { main } from '$lib/store/main.svelte';
 	import { getContext, setContext } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
-	import { pauseBtn, playBtn } from './audIcons';
+	import { backBtn, fwdBtn, pauseBtn, playBtn } from './audIcons';
 	// import { getAUD, initControls, initFile, set } from './audioContext';
 	// import { onMount } from 'svelte';
 
@@ -13,8 +13,6 @@
 	let time = $state(0);
 	let duration = $state(0);
 	let paused = $state(true);
-	// { _id, type, title, src, timestamps, notes }
-	// src,title,type,timestamps,notes
 
 	$effect(() => {
 		currAud = audData[audIdx];
@@ -23,6 +21,17 @@
 	const selectTrack = (idx) => {
 		main.click();
 		audIdx = idx;
+	};
+
+	const setSeek = (seek) => {
+		let max = time + seek;
+		if (seek < 0) {
+			if (max <= 0) time = 0;
+			else time -= Math.abs(seek);
+		} else {
+			if (max >= duration) time = 0;
+			else time += seek;
+		}
 	};
 </script>
 
@@ -76,9 +85,17 @@
 		<span class="progress">{duration ? audPlay.format(duration) : '--:--'}</span>
 	</div>
 	<div class="aud_controls">
-		<button class="aud_btn aud_btn_play" onclick={() => (paused = !paused)}>
+		<button class="aud_btn aud_btn_back" aria-label="Back ten seconds" onclick={() => setSeek(-10)}
+			>{@html backBtn} 10</button
+		>
+		<button
+			class="aud_btn aud_btn_play"
+			onclick={() => (paused = !paused)}
+			aria-label={paused == true ? 'Play track' : 'Pause track'}
+		>
 			{#if paused}{@html playBtn}{:else}{@html pauseBtn}{/if}
 		</button>
+		<button class="aud_btn aud_btn_fwd" aria-label="Seek ten seconds">{@html fwdBtn} 10</button>
 	</div>
 {/snippet}
 

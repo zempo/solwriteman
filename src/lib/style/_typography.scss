@@ -393,6 +393,14 @@ h2 {
 		@include font-size($h2_font_sizes);
 	}
 }
+.featured_section {
+	h2 {
+		@include font-size($hmid_font_sizes);
+		@include mq('phablet', 'min') {
+			@include font-size($hmid_font_sizes);
+		}
+	}
+}
 h3,
 th,
 .use_h3 {

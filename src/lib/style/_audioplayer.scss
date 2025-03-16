@@ -66,15 +66,17 @@ $breakpoints: (
 		h3 {
 			margin-top: 0.5rem;
 		}
+		box-shadow: var(--shadowBtm);
 	}
 	.aud_player {
 		background: var(--playerBgd);
 		color: var(--playerBlue);
+		box-shadow: var(--insetShadow2);
 		.aud_stats {
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			margin-block: 1rem 1.5rem;
+			margin-block: 1rem;
 			column-gap: 0.5rem;
 			.slider {
 				width: 90%;
@@ -86,15 +88,18 @@ $breakpoints: (
 					margin: auto;
 					accent-color: var(--playerBlue);
 					border: 1px solid var(--playerBlueLt);
+					cursor: pointer;
 				}
 			}
 		}
 		.aud_controls {
-			border: 1px solid var(--playerBlue);
 			display: flex;
 			justify-content: center;
+			align-items: center;
+			margin-bottom: 1rem;
 			button {
 				color: var(--textConst);
+				box-shadow: var(--shadow4);
 			}
 			.aud_btn {
 				cursor: pointer;

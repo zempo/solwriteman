@@ -150,9 +150,18 @@ $breakpoints: (
 			}
 		}
 	}
-	.components_section {
+	.featured_section {
 		padding: 0;
 		padding-top: 4rem;
+		.section_head {
+			width: calc(100vw - 1rem);
+			margin: auto;
+			max-width: 1400px;
+			border-bottom: 1px solid var(--textMain);
+			.sub_title {
+				margin-block: 0.5rem 0.25rem;
+			}
+		}
 	}
 
 	.app_section {

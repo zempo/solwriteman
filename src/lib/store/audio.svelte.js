@@ -93,21 +93,6 @@ class AudPlay {
 
 		return `${min}:${sec < 10 ? `0${sec}` : sec}`;
 	}
-
-	// seek pos, read/write time
-	seek(e) {
-		const targetEl = e.currentTarget;
-
-		if (targetEl) {
-			const { left, width } = targetEl.getBoundingClientRect();
-
-			let pos = (e.clientX - left) / width;
-			if (pos < 0) pos = 0;
-			if (pos > 1) pos = 1;
-
-			this.time = p * duration;
-		}
-	}
 }
 
 export const audPlay = new AudPlay();
