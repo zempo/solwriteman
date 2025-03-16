@@ -16,14 +16,15 @@ export const reelData = [
 		_id: 0,
 		type: 0,
 		title: `Narration Demo`,
-		src: `https://open.acast.com/public/streams/62bb6cbc21e4cb001212c5e7/episodes/62bb73e7e762370014e5f253.mp3`,
+		// src: `https://open.acast.com/public/streams/62bb6cbc21e4cb001212c5e7/episodes/62bb73e7e762370014e5f253.mp3`,
+		src: `https://sveltejs.github.io/assets/music/satie.mp3`,
 		timestamps: [
 			{
 				pt: 10,
 				label: `Crest Shadows`
 			},
 			{
-				pt: 45,
+				pt: 15,
 				label: `Knight's Knob`
 			}
 		],
@@ -34,6 +35,23 @@ export const reelData = [
 		type: 1,
 		title: `Commercial Demo`,
 		src: `https://open.acast.com/public/streams/62bb6cbc21e4cb001212c5e7/episodes/62bb6ecccbcafc00132f0f54.mp3`,
+		timestamps: [
+			{
+				pt: 24,
+				label: `Crest`
+			},
+			{
+				pt: 95,
+				label: `Knight's Knob`
+			}
+		],
+		notes: [`From the Riviting Lorem of Ipsum, by A Non Mous, comes an all new tale.`]
+	},
+	{
+		_id: 2,
+		type: 3,
+		title: `Character Demo`,
+		src: `https://open.acast.com/public/streams/62bb6cbc21e4cb001212c5e7/episodes/62bb73e7e762370014e5f253.mp3`,
 		timestamps: [
 			{
 				pt: 10,
@@ -50,6 +68,8 @@ export const reelData = [
 
 /* eslint-disable no-undef */
 class AudPlay {
+	selectedAud = $state(0);
+
 	getAud(KEY) {
 		return getContext(KEY);
 	}
@@ -58,6 +78,10 @@ class AudPlay {
 		setContext('audIdx', audIdx);
 		setContext('audFile', audFile);
 		return '';
+	}
+
+	selectTrack(idx, idxNew) {
+		idx = idxNew;
 	}
 
 	// format time (read time)
