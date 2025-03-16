@@ -32,17 +32,28 @@ $breakpoints: (
 	width: calc(100vw - 1rem);
 	max-width: 1400px;
 	margin: 0.5rem;
-	box-shadow: var(--shadow2);
+	box-shadow: var(--shadow4);
 	background: var(--playerBgd);
-	border: 1px solid var(--textFade);
+	border: 1px solid var(--playerDark);
 	// border-radius: 0.5rem;
 	border-top-left-radius: 1rem;
 	border-top-right-radius: 1rem;
+	border-bottom-left-radius: 0.25rem;
+	border-bottom-right-radius: 0.25rem;
 	h3,
 	li,
 	p,
 	button {
 		color: var(--playerText);
+	}
+	button,
+	a {
+		&:active,
+		&:focus {
+			outline: 2px solid var(--playerBlue);
+			outline-offset: 2px;
+			position: relative;
+		}
 	}
 	.aud_header,
 	.aud_player {
@@ -67,10 +78,15 @@ $breakpoints: (
 			column-gap: 0.5rem;
 			.slider {
 				width: 90%;
-				border: 1px solid var(--playerBlue);
-				background: var(--playerBlueLt);
-				height: 0.5rem;
-				border-radius: 0.5rem;
+				// border: 1px solid var(--playerBlue);
+				// background: var(--playerBlueLt);
+				input[type='range'] {
+					border-radius: 0.5rem;
+					width: 100%;
+					margin: auto;
+					accent-color: var(--playerBlue);
+					border: 1px solid var(--playerBlueLt);
+				}
 			}
 		}
 		.aud_controls {
@@ -80,12 +96,34 @@ $breakpoints: (
 			button {
 				color: var(--textConst);
 			}
+			.aud_btn {
+				cursor: pointer;
+				&.aud_btn_play {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					border-radius: 50%;
+					// margin: auto 0.5rem;
+					padding: 0.5rem;
+					border: 1px solid var(--playerBtn);
+					background: var(--playerBtn);
+					svg {
+						width: 3rem;
+						height: 3rem;
+						.target_stroke,
+						.target_both {
+							fill: var(--playerBlue);
+							stroke: var(--playerBlue);
+						}
+					}
+				}
+			}
 		}
 	}
 	.aud_tracklist {
 		// background: var(--playerDark);
-		// border-bottom-left-radius: 0.5rem;
-		// border-bottom-right-radius: 0.5rem;
+		border-bottom-left-radius: 0.25rem;
+		border-bottom-right-radius: 0.25rem;
 		padding: 0;
 		.disclosure-button {
 			background: var(--playerBtn);
@@ -93,21 +131,24 @@ $breakpoints: (
 			width: 100%;
 			border: none;
 			padding: 0.75rem 0.25rem;
-			// border-bottom-left-radius: 0.5rem;
-			// border-bottom-right-radius: 0.5rem;
+			border-bottom-left-radius: 0.25rem;
+			border-bottom-right-radius: 0.25rem;
 		}
 		ul {
 			margin: 0;
 			background: var(--playerDark);
+			border-bottom-left-radius: 0.25rem;
+			border-bottom-right-radius: 0.25rem;
 			// padding: 0;
-			padding: 0 0.25rem;
+			padding: 0.25rem;
 			list-style-type: none;
+			box-shadow: var(--insetShadowb);
 			li {
 				padding: 0;
 				.track_btn {
 					width: 100%;
 					text-align: left;
-					// border: none;
+					border: 1px solid var(--playerBgd);
 					padding-block: 0.5rem;
 					margin-block: 0.1rem;
 					background-color: var(--playerDark);
@@ -116,7 +157,11 @@ $breakpoints: (
 					&:focus,
 					&:active {
 						background-color: var(--playerBgd);
+						color: var(--playerBlue);
 						@include transition(background-color, 0.15s, ease-in);
+					}
+					&.is_curr_aud {
+						color: var(--playerBlue);
 					}
 					&.is_curr_aud::before {
 						content: '>';
@@ -144,6 +189,18 @@ $breakpoints: (
 				// align-items: center;
 				// margin-block: 1rem 1.5rem;
 				column-gap: 0.75rem;
+			}
+			.aud_controls {
+				// border: 1px solid var(--playerBlue);
+				.aud_btn {
+					&.aud_btn_play {
+						margin: auto 0.5rem;
+						svg {
+							width: 4rem;
+							height: 4rem;
+						}
+					}
+				}
 			}
 		}
 	}

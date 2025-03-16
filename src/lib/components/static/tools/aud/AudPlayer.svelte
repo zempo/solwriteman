@@ -4,6 +4,7 @@
 	import { main } from '$lib/store/main.svelte';
 	import { getContext, setContext } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
+	import { pauseBtn, playBtn } from './audIcons';
 	// import { getAUD, initControls, initFile, set } from './audioContext';
 	// import { onMount } from 'svelte';
 
@@ -62,11 +63,22 @@
 {#snippet audBody()}
 	<div class="aud_stats">
 		<span class="time">{audPlay.format(time)}</span>
-		<div class="slider"></div>
+		<label class="slider">
+			<input
+				type="range"
+				name="track_prog"
+				id="track_prog"
+				min={0}
+				max={duration}
+				bind:value={time}
+			/>
+		</label>
 		<span class="progress">{duration ? audPlay.format(duration) : '--:--'}</span>
 	</div>
 	<div class="aud_controls">
-		<button onclick={() => (paused = !paused)}>Play</button>
+		<button class="aud_btn aud_btn_play" onclick={() => (paused = !paused)}>
+			{#if paused}{@html playBtn}{:else}{@html pauseBtn}{/if}
+		</button>
 	</div>
 {/snippet}
 
