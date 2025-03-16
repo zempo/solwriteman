@@ -250,7 +250,7 @@
 	<section class="featured_section" id="featured_content" bind:this={dimension.featEl}>
 		<div class="section_head">
 			<h2>Featured Content</h2>
-			<p class="sub_title">VO Demos / Poems / Recent Releases</p>
+			<p class="sub_title">VO Demos / Poems / New Art</p>
 		</div>
 		<AudPlayer audData={reelData} />
 		<!-- <AudPlayer audData={reelData} audIdx={2} /> -->

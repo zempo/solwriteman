@@ -15,7 +15,7 @@
 	class="nav_btn nav_btn_{dir === 0 ? 'prev' : 'fwd'}"
 	aria-label={`Go to page ${main.getLabel(dir)}`}
 	onclick={sideNav}
-	title="See {main.getLabel(dir)}"
+	title="View {main.getLabel(dir)}"
 >
 	{#if dir == 0}
 		{@html arwR}

@@ -81,8 +81,13 @@
 	</div>
 	<div class="aud_controls">
 		<div class="btn_grp btn_grp_l">
-			<button class="aud_btn aud_btn_loop">
-				{@html repeatBtn}
+			<button
+				class="aud_btn aud_btn_loop {audPlay.loop ? 'loop_on' : ''}"
+				onclick={() => audPlay.toggleLoop()}
+				title="Loop {audPlay.loop ? 'Off' : 'On'}"
+				aria-label="Turn Loop {audPlay.loop ? 'Off' : 'On'}"
+			>
+				{#if audPlay.loop}{@html repeatBtnOn}{:else}{@html repeatBtn}{/if}
 			</button>
 		</div>
 		<div class="btn_grp btn_grp_m">

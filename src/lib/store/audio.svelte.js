@@ -14,7 +14,6 @@ import { setContext, getContext } from 'svelte';
 export const reelData = [
 	{
 		_id: 0,
-		type: 0,
 		title: `Narration Demo`,
 		// src: `https://open.acast.com/public/streams/62bb6cbc21e4cb001212c5e7/episodes/62bb73e7e762370014e5f253.mp3`,
 		src: `https://sveltejs.github.io/assets/music/satie.mp3`,
@@ -24,7 +23,7 @@ export const reelData = [
 				label: `Crest Shadows`
 			},
 			{
-				pt: 15,
+				pt: 21,
 				label: `Knight's Knob`
 			}
 		],
@@ -32,7 +31,6 @@ export const reelData = [
 	},
 	{
 		_id: 1,
-		type: 1,
 		title: `Commercial Demo`,
 		src: `https://open.acast.com/public/streams/62bb6cbc21e4cb001212c5e7/episodes/62bb6ecccbcafc00132f0f54.mp3`,
 		timestamps: [
@@ -49,7 +47,6 @@ export const reelData = [
 	},
 	{
 		_id: 2,
-		type: 3,
 		title: `Character Demo`,
 		src: `https://open.acast.com/public/streams/62bb6cbc21e4cb001212c5e7/episodes/62bb73e7e762370014e5f253.mp3`,
 		timestamps: [
@@ -59,6 +56,22 @@ export const reelData = [
 			},
 			{
 				pt: 45,
+				label: `Knight's Knob`
+			}
+		],
+		notes: [`From the Riviting Lorem of Ipsum, by A Non Mous, comes an all new tale.`]
+	},
+	{
+		_id: 3,
+		title: `eLearning Demo`,
+		src: `https://open.acast.com/public/streams/62bb6cbc21e4cb001212c5e7/episodes/62bb73e7e762370014e5f253.mp3`,
+		timestamps: [
+			{
+				pt: 40,
+				label: `Crest Shadows`
+			},
+			{
+				pt: 95,
 				label: `Knight's Knob`
 			}
 		],
@@ -92,6 +105,10 @@ class AudPlay {
 
 	togglePause() {
 		this.paused = !this.paused;
+	}
+
+	toggleLoop() {
+		this.loop = !this.loop;
 	}
 
 	// format time (read time)
