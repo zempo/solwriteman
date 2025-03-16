@@ -233,11 +233,20 @@ $breakpoints: (
 	border-radius: 0.25rem;
 	padding: 0.25rem 0.75rem;
 	background: var(--appBar);
-	border: 1px solid var(--appTranslucenter);
+	border: 1px solid var(--textFade);
 	box-shadow: var(--shadow3);
 	color: var(--appConst);
+	opacity: 0.9;
 	&.substack_link {
 		background: var(--accentMainDark);
 		color: var(--appConst);
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		opacity: 1;
+		background-color: #6ea3afa1;
+		border-color: #6ea3af;
+		transition: ease-in 0.25s;
 	}
 }
