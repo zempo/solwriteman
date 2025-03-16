@@ -445,9 +445,15 @@ td {
 		}
 	}
 }
+
+.disclosure-button {
+	font-family: $fontHead;
+}
 .aud_item {
 	font-family: $fontBody;
-	font-style: italic;
+}
+.aud_item,
+.disclosure-button {
 	@include font-size($bigp_font_sizes);
 	@include mq('phablet', 'min') {
 		@include font-size($p_font_sizes);

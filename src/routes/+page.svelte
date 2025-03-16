@@ -249,7 +249,7 @@
 	</article>
 	<section class="components_section" id="featured_content" bind:this={dimension.featEl}>
 		<AudPlayer audData={reelData} />
-		<AudPlayer audData={reelData} audIdx={2} />
+		<!-- <AudPlayer audData={reelData} audIdx={2} /> -->
 		<Disclosure isOpen="true">
 			{#snippet accH()}
 				What is a disclosure component? (open)

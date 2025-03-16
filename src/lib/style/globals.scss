@@ -251,6 +251,7 @@ html {
 	a:focus {
 		outline: 2px solid var(--accentMain); /* Change outline color and width */
 		outline-offset: 2px; /* Space between the element and the outline */
+		position: relative;
 	}
 	.target_stroke {
 		stroke: var(--textMain);

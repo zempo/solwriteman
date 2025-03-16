@@ -32,10 +32,12 @@ $breakpoints: (
 	width: calc(100vw - 1rem);
 	max-width: 1400px;
 	margin: 0.5rem;
-	box-shadow: var(--shadow3);
+	box-shadow: var(--shadow2);
 	background: var(--playerBgd);
 	border: 1px solid var(--textFade);
-	border-radius: 0.5rem;
+	// border-radius: 0.5rem;
+	border-top-left-radius: 1rem;
+	border-top-right-radius: 1rem;
 	h3,
 	li,
 	p,
@@ -43,14 +45,13 @@ $breakpoints: (
 		color: var(--playerText);
 	}
 	.aud_header,
-	.aud_player,
-	.aud_tracklist {
+	.aud_player {
 		padding: 0.5rem 0.75rem;
 	}
 	.aud_header {
 		background: var(--playerDark);
-		border-top-left-radius: 0.5rem;
-		border-top-right-radius: 0.5rem;
+		border-top-left-radius: 1rem;
+		border-top-right-radius: 1rem;
 		h3 {
 			margin-top: 0.5rem;
 		}
@@ -82,23 +83,47 @@ $breakpoints: (
 		}
 	}
 	.aud_tracklist {
-		background: var(--playerDark);
-		border-bottom-left-radius: 0.5rem;
-		border-bottom-right-radius: 0.5rem;
+		// background: var(--playerDark);
+		// border-bottom-left-radius: 0.5rem;
+		// border-bottom-right-radius: 0.5rem;
+		padding: 0;
+		.disclosure-button {
+			background: var(--playerBtn);
+			font-weight: bold;
+			width: 100%;
+			border: none;
+			padding: 0.75rem 0.25rem;
+			// border-bottom-left-radius: 0.5rem;
+			// border-bottom-right-radius: 0.5rem;
+		}
 		ul {
 			margin: 0;
-			// padding: 0 0.25rem;
-			padding: 0;
+			background: var(--playerDark);
+			// padding: 0;
+			padding: 0 0.25rem;
 			list-style-type: none;
 			li {
 				padding: 0;
 				.track_btn {
-					background: var(--playerBgd);
 					width: 100%;
 					text-align: left;
 					// border: none;
 					padding-block: 0.5rem;
 					margin-block: 0.1rem;
+					background-color: var(--playerDark);
+					@include transition(background-color, 0.15s, ease-in);
+					&:hover,
+					&:focus,
+					&:active {
+						background-color: var(--playerBgd);
+						@include transition(background-color, 0.15s, ease-in);
+					}
+					&.is_curr_aud::before {
+						content: '>';
+						position: relative;
+						top: -0.15rem;
+						margin-right: 0.5rem;
+					}
 				}
 			}
 		}
@@ -109,8 +134,7 @@ $breakpoints: (
 		margin-block: 4rem 2rem;
 		margin-inline: auto;
 		.aud_header,
-		.aud_player,
-		.aud_tracklist {
+		.aud_player {
 			padding: 0.5rem 1rem;
 		}
 		.aud_player {
