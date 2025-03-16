@@ -1,18 +1,21 @@
 <script>
-	import Disclosure from '$lib/components/content/Disclosure.svelte';
-	import { audPlay } from '$lib/store/audio.svelte';
-	import { main } from '$lib/store/main.svelte';
 	import { getContext, setContext } from 'svelte';
+	import Disclosure from '$lib/components/content/Disclosure.svelte';
+	import {
+		backBtn,
+		fwdBtn,
+		pauseBtn,
+		playbackWalk,
+		playBtn,
+		repeatBtn,
+		repeatBtnOn
+	} from './audIcons';
+	import { audPlay } from '$lib/store/audio.svelte';
 	import { fade, fly } from 'svelte/transition';
-	import { backBtn, fwdBtn, pauseBtn, playBtn } from './audIcons';
-	// import { getAUD, initControls, initFile, set } from './audioContext';
-	// import { onMount } from 'svelte';
+	import { main } from '$lib/store/main.svelte';
 
 	let { audData, audIdx = 0 } = $props();
 	let currAud = $state(audData[audIdx]);
-	let time = $state(0);
-	let duration = $state(0);
-	let paused = $state(true);
 
 	$effect(() => {
 		currAud = audData[audIdx];
@@ -21,17 +24,6 @@
 	const selectTrack = (idx) => {
 		main.click();
 		audIdx = idx;
-	};
-
-	const setSeek = (seek) => {
-		let max = time + seek;
-		if (seek < 0) {
-			if (max <= 0) time = 0;
-			else time -= Math.abs(seek);
-		} else {
-			if (max >= duration) time = 0;
-			else time += seek;
-		}
 	};
 </script>
 
@@ -45,10 +37,13 @@
 	<div class="aud_player">
 		<audio
 			src={currAud.src}
-			bind:currentTime={time}
-			bind:duration
-			bind:paused
-			onended={() => (time = 0)}
+			loop={audPlay.loop}
+			bind:currentTime={audPlay.time}
+			bind:duration={audPlay.duration}
+			bind:paused={audPlay.paused}
+			bind:muted={audPlay.muted}
+			bind:playbackRate={audPlay.playbackRate}
+			onended={() => (audPlay.time = 0)}
 		></audio>
 		{@render audBody()}
 	</div>
@@ -71,31 +66,49 @@
 <!-- ??? AudBody -->
 {#snippet audBody()}
 	<div class="aud_stats">
-		<span class="time">{audPlay.format(time)}</span>
+		<span class="time">{audPlay.format(audPlay.time)}</span>
 		<label class="slider">
 			<input
 				type="range"
 				name="track_prog"
 				id="track_prog"
 				min={0}
-				max={duration}
-				bind:value={time}
+				max={audPlay.duration}
+				bind:value={audPlay.time}
 			/>
 		</label>
-		<span class="progress">{duration ? audPlay.format(duration) : '--:--'}</span>
+		<span class="progress">{audPlay.duration ? audPlay.format(audPlay.duration) : '--:--'}</span>
 	</div>
 	<div class="aud_controls">
-		<button class="aud_btn aud_btn_back" aria-label="Back ten seconds" onclick={() => setSeek(-10)}
-			>{@html backBtn} 10</button
-		>
-		<button
-			class="aud_btn aud_btn_play"
-			onclick={() => (paused = !paused)}
-			aria-label={paused == true ? 'Play track' : 'Pause track'}
-		>
-			{#if paused}{@html playBtn}{:else}{@html pauseBtn}{/if}
-		</button>
-		<button class="aud_btn aud_btn_fwd" aria-label="Seek ten seconds">{@html fwdBtn} 10</button>
+		<div class="btn_grp btn_grp_l">
+			<button class="aud_btn aud_btn_loop">
+				{@html repeatBtn}
+			</button>
+		</div>
+		<div class="btn_grp btn_grp_m">
+			<button
+				class="aud_btn aud_btn_back"
+				aria-label="Back ten seconds"
+				onclick={() => audPlay.setSeek(-10)}>{@html backBtn} 10</button
+			>
+			<button
+				class="aud_btn aud_btn_play"
+				onclick={() => audPlay.togglePause()}
+				aria-label={audPlay.paused == true ? 'Play track' : 'Pause track'}
+			>
+				{#if audPlay.paused}{@html playBtn}{:else}{@html pauseBtn}{/if}
+			</button>
+			<button
+				class="aud_btn aud_btn_fwd"
+				aria-label="Seek ten seconds"
+				onclick={() => audPlay.setSeek(10)}>10 {@html fwdBtn}</button
+			>
+		</div>
+		<div class="btn_grp btn_grp_r">
+			<button class="aud_btn aud_btn_rate">
+				{@html playbackWalk} <span class="playback_lbl">1x</span>
+			</button>
+		</div>
 	</div>
 {/snippet}
 

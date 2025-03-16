@@ -452,6 +452,11 @@ td {
 			@include font-size($p_font_sizes);
 		}
 	}
+	.aud_btn_back,
+	.aud_btn_fwd,
+	.aud_btn_rate {
+		font-family: $fontAction;
+	}
 }
 
 .disclosure-button {

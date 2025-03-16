@@ -31,11 +31,10 @@ $breakpoints: (
 .aud_wrap {
 	width: calc(100vw - 1rem);
 	max-width: 1400px;
-	margin: 0.5rem;
+	margin: 1rem 0.5rem;
 	box-shadow: var(--shadow4);
 	background: var(--playerBgd);
 	border: 1px solid var(--playerDark);
-	// border-radius: 0.5rem;
 	border-top-left-radius: 1rem;
 	border-top-right-radius: 1rem;
 	border-bottom-left-radius: 0.25rem;
@@ -93,23 +92,96 @@ $breakpoints: (
 			}
 		}
 		.aud_controls {
-			display: flex;
-			justify-content: center;
-			align-items: center;
 			margin-bottom: 1rem;
+			display: flex;
+			justify-content: space-evenly;
+			.btn_grp {
+				display: inline;
+				margin: auto 0.22rem;
+			}
+			.btn_grp_m {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
 			button {
-				color: var(--textConst);
+				background: var(--playerBtn);
+				border: none;
+				border-radius: 0.35rem;
 				box-shadow: var(--shadow4);
 			}
 			.aud_btn {
 				cursor: pointer;
+				&.aud_btn_loop {
+					width: 3rem;
+					// height: ;
+					line-height: 0;
+					padding-block: 0.25rem;
+					svg {
+						height: 1.75rem;
+						width: 1.75rem;
+						.target_fill {
+							fill: var(--playerGreen_dark);
+						}
+						&.loop_on svg .target_fill {
+							fill: var(--playerGreen);
+						}
+					}
+				}
+				&.aud_btn_rate {
+					line-height: 0;
+					padding-block: 0.25rem;
+					width: 3rem;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					svg {
+						height: 1.75rem;
+						width: 1.75rem;
+						.target_fill {
+							fill: var(--playerPurple);
+						}
+					}
+					.playback_lbl {
+						font-size: x-small;
+						color: var(--playerPurple);
+						line-height: 1.1;
+					}
+				}
+				&.aud_btn_back,
+				&.aud_btn_fwd {
+					font-size: medium;
+					display: flex;
+					margin: auto 0;
+					border: none;
+					background: none;
+					box-shadow: none;
+					justify-content: space-between;
+					border-radius: 0.5rem;
+					align-items: center;
+					font-weight: bolder;
+					color: var(--playerBlue);
+					svg {
+						height: 1.5rem;
+						width: 1.5rem;
+						position: relative;
+						top: -0.1rem;
+						.target_stroke,
+						.target_both,
+						.target_fill {
+							// fill: #278a8c;
+							fill: var(--playerBlue_dark);
+							stroke: var(--playerBlue_dark);
+						}
+					}
+				}
 				&.aud_btn_play {
 					display: flex;
 					justify-content: center;
 					align-items: center;
 					border-radius: 50%;
-					// margin: auto 0.5rem;
 					padding: 0.5rem;
+					margin: auto 0.5rem;
 					border: 1px solid var(--playerBtn);
 					background: var(--playerBtn);
 					svg {
@@ -189,17 +261,33 @@ $breakpoints: (
 		}
 		.aud_player {
 			.aud_stats {
-				// display: flex;
-				// justify-content: center;
-				// align-items: center;
-				// margin-block: 1rem 1.5rem;
 				column-gap: 0.75rem;
+				max-width: 1200px;
+				margin: 1.25rem auto 1.5rem;
 			}
 			.aud_controls {
-				// border: 1px solid var(--playerBlue);
 				.aud_btn {
+					&.aud_btn_loop,
+					&.aud_btn_rate {
+						width: 4.25rem;
+						svg {
+							height: 2.75rem;
+							width: 2.75rem;
+						}
+						.playback_lbl {
+							font-size: large;
+						}
+					}
+					&.aud_btn_back,
+					&.aud_btn_fwd {
+						font-size: x-large;
+						svg {
+							width: 2rem;
+							height: 2rem;
+						}
+					}
 					&.aud_btn_play {
-						margin: auto 0.5rem;
+						margin: auto 0.65rem;
 						svg {
 							width: 4rem;
 							height: 4rem;

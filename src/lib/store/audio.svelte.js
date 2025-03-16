@@ -69,6 +69,12 @@ export const reelData = [
 /* eslint-disable no-undef */
 class AudPlay {
 	selectedAud = $state(0);
+	time = $state(0);
+	duration = $state(0);
+	loop = $state(false);
+	muted = $state(false);
+	paused = $state(true);
+	playbackRate = $state(1);
 
 	getAud(KEY) {
 		return getContext(KEY);
@@ -84,6 +90,10 @@ class AudPlay {
 		idx = idxNew;
 	}
 
+	togglePause() {
+		this.paused = !this.paused;
+	}
+
 	// format time (read time)
 	format(T) {
 		if (isNaN(T)) return `...`;
@@ -92,6 +102,17 @@ class AudPlay {
 		const sec = Math.floor(T % 60);
 
 		return `${min}:${sec < 10 ? `0${sec}` : sec}`;
+	}
+
+	setSeek(seek) {
+		let max = this.time + seek;
+		if (seek < 0) {
+			if (max <= 0) this.time = 0;
+			else this.time -= Math.abs(seek);
+		} else {
+			if (max >= this.duration) this.time = this.duration;
+			else this.time += seek;
+		}
 	}
 }
 
