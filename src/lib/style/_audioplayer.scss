@@ -3,6 +3,7 @@
 $breakpoints: (
 	'p_med': 560px,
 	'p_wide': 650px,
+	'p_xwide': 750px,
 	'p_max': 1000px,
 	't_min': 1350px,
 	'd_min': 1600px
@@ -31,7 +32,7 @@ $breakpoints: (
 .aud_wrap {
 	width: calc(100vw - 1rem);
 	max-width: 1400px;
-	margin: 0.75rem 0.5rem;
+	margin: 3rem 0.5rem 2rem;
 	box-shadow: var(--shadow4);
 	background: var(--playerBgd);
 	border: 1px solid var(--playerDark);
@@ -64,10 +65,41 @@ $breakpoints: (
 		background: var(--playerDark);
 		border-top-left-radius: 1rem;
 		border-top-right-radius: 1rem;
+		box-shadow: var(--shadowBtm);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 		h3 {
 			margin-top: 0.5rem;
+			display: inline-block;
 		}
-		box-shadow: var(--shadowBtm);
+		.aud_utils {
+			display: inline-block;
+			.aud_btn {
+				cursor: pointer;
+				line-height: 0;
+				background: var(--playerBtn);
+				border: none;
+				padding: 0.25rem 0.5rem;
+				border-radius: 0.2rem;
+				margin: 0.5rem 0.25rem 0;
+				box-shadow: var(--shadow4);
+				svg {
+					width: 1.25rem;
+					height: 1.25rem;
+					.target_both {
+						fill: var(--playerText);
+						stroke: var(--playerText);
+					}
+					.target_fill {
+						fill: var(--playerText);
+					}
+					.target_stroke {
+						stroke: var(--playerText);
+					}
+				}
+			}
+		}
 	}
 	.aud_player {
 		background: var(--playerBgd);
@@ -99,7 +131,7 @@ $breakpoints: (
 			justify-content: space-evenly;
 			.btn_grp {
 				display: inline;
-				margin: auto 0.22rem;
+				margin: auto 0.1rem;
 			}
 			.btn_grp_m {
 				display: flex;
@@ -115,9 +147,12 @@ $breakpoints: (
 			.aud_btn {
 				cursor: pointer;
 				&.aud_btn_loop {
-					padding-block: 0.25rem;
+					// padding-block: 0.25rem;
+					padding: 0.25rem 0;
 					width: 3rem;
 					line-height: 0;
+					display: flex;
+					justify-content: center;
 					&:active,
 					&:focus {
 						outline: 2px solid var(--playerGreen);
@@ -138,11 +173,10 @@ $breakpoints: (
 				}
 				&.aud_btn_rate {
 					line-height: 0;
-					padding-block: 0.5rem;
+					padding: 0.5rem 0.05rem;
 					width: 4.25rem;
 					display: flex;
 					justify-content: center;
-					column-gap: 0.22rem;
 					align-items: center;
 					&:active,
 					&:focus {
@@ -150,7 +184,8 @@ $breakpoints: (
 					}
 					svg {
 						height: 1.5rem;
-						width: 1.5rem;
+						width: 1.25rem;
+						margin-right: 0.22rem;
 						.target_fill {
 							fill: var(--playerPurple);
 						}
@@ -195,7 +230,7 @@ $breakpoints: (
 					align-items: center;
 					border-radius: 50%;
 					padding: 0.5rem;
-					margin: auto 0.5rem;
+					margin: auto 0.1rem;
 					border: 1px solid var(--playerBtn);
 					background: var(--playerBtn);
 					svg {
@@ -255,14 +290,14 @@ $breakpoints: (
 					&.is_curr_aud::before {
 						content: '>';
 						position: relative;
-						top: -0.15rem;
+						top: 0;
 						margin-right: 0.5rem;
 					}
 				}
 			}
 		}
 	}
-	@include mq('p_max', 'min') {
+	@include mq('p_xwide', 'min') {
 		width: calc(100vw - 2rem);
 		max-width: 1400px;
 		margin-block: 4rem 2rem;
@@ -270,6 +305,21 @@ $breakpoints: (
 		.aud_header,
 		.aud_player {
 			padding: 0.5rem 1rem;
+		}
+		.aud_header {
+			.aud_utils {
+				display: inline-block;
+				.aud_btn {
+					padding: 0.25rem 0.5rem;
+					border-radius: 0.2rem;
+					margin: 0.5rem 0.25rem 0;
+					box-shadow: var(--shadow4);
+					svg {
+						width: 2rem;
+						height: 2rem;
+					}
+				}
+			}
 		}
 		.aud_player {
 			.aud_stats {

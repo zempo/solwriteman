@@ -25,7 +25,7 @@ $breakpoints: (
 .app_main {
 	// the style of content elements
 	.home_header {
-		height: 75vh;
+		height: 65vh;
 		text-align: center;
 		background: none;
 		position: relative;
@@ -56,7 +56,7 @@ $breakpoints: (
 			left: 0;
 			width: 100vw !important;
 			overflow-x: hidden !important;
-			height: 75vh !important;
+			height: 65vh !important;
 		}
 		.scene_btns {
 			list-style-type: none;
@@ -79,6 +79,12 @@ $breakpoints: (
 					display: inline-block;
 					margin: 0 0.35rem;
 				}
+			}
+		}
+		@include mq('t_min', 'min') {
+			height: 70vh;
+			.hero_scene {
+				height: 70vh !important;
 			}
 		}
 	}
@@ -165,7 +171,7 @@ $breakpoints: (
 	}
 
 	.app_section {
-		margin-top: 5rem;
+		margin-top: 70px;
 		.reg_hero {
 			padding: 1rem 0.75rem 0.75rem;
 			border-bottom: 1px solid var(--textLt);
@@ -175,6 +181,9 @@ $breakpoints: (
 			.sub_title {
 				margin-top: 0.5rem;
 			}
+		}
+		@include mq('phab_min', 'min') {
+			margin-top: 80px;
 		}
 	}
 }

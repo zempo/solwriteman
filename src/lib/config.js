@@ -108,27 +108,27 @@ export const taglines = {
 	books: `Storytold In a Nerdy Niche.`,
 	bytes: `Keep Calm And Debug On™`,
 	snippets: `From Notes App to Table.`,
-	socials: `🐋, Hello There! Let's Connect.`, // 🐋, hello there
+	socials: `🐋 Well, Hello There!`, // 🐋, hello there
 	tools: `How'd He Build That?`
 };
 export const seoData = {
 	main: {
-		title: `Solomon Z • On Paper, On Mic, Online`,
+		title: `Solomon Zelenko`,
 		desc,
 		...defaultSEO
 	},
 	books: {
-		title: `@SolWriteMan • eBooks, Chapbooks, & Zines`,
+		title: `SolWriteMan • eBooks, Chapbooks, & Zines`,
 		desc: taglines.books,
 		...defaultSEO
 	},
 	bytes: {
-		title: `@Zempo • Procedural Art Bytes`,
+		title: `Zempo • Procedural Art Bytes`,
 		desc: taglines.bytes,
 		...defaultSEO
 	},
 	snippets: {
-		title: `@SolWriteMan • Select Pieces & Performances`,
+		title: `SolWriteMan • Snippets & Performances`,
 		desc: taglines.snippets,
 		...defaultSEO
 	},

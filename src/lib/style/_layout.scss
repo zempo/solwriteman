@@ -95,7 +95,7 @@ $br_25: 0.25rem;
 	// box-shadow: var(--shadowTop);
 	// background: white;
 	display: flex;
-	justify-content: center;
+	justify-content: space-evenly;
 	padding: 0.5rem 1rem;
 	// border-top: 1px solid var(--appTranslucenter);
 	box-shadow: var(--shadowTop);
@@ -117,10 +117,11 @@ $br_25: 0.25rem;
 		margin: 0 0.25rem;
 		border-radius: 0.25rem;
 		line-height: 0;
-		padding: 0.25rem 0.5rem;
+		padding: 0.25rem 10vw;
 	}
 	@include mq('p_wide', 'min') {
 		padding: 0.75rem 2rem;
+		justify-content: center;
 		.nav_btn {
 			margin: 0 0.5rem;
 		}

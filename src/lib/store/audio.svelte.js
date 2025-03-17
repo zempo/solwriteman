@@ -103,8 +103,8 @@ class AudPlay {
 	playbackNext = $state(2);
 	playbackIdx = $state(0);
 
-	loopRef = $state(0);
-	playbackRef = $state(0);
+	// loopRef = $state(0);
+	// playbackRef = $state(0);
 
 	getAud(KEY) {
 		return getContext(KEY);

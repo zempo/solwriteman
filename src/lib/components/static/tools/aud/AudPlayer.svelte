@@ -12,7 +12,9 @@
 		playbackWalk,
 		playBtn,
 		repeatBtn,
-		repeatBtnOn
+		repeatBtnOn,
+		volumeIcon,
+		transcriptIcon
 	} from './audIcons';
 	import { audPlay } from '$lib/store/audio.svelte';
 	import { fade, fly } from 'svelte/transition';
@@ -47,9 +49,7 @@
 <!-- ?? player + tracklist container -->
 <div class="aud_wrap">
 	<div class="aud_header">
-		{#key audIdx}
-			<h3 in:fly={{ y: 20, duration: 300, opacity: 0 }}>{currAud.title}</h3>
-		{/key}
+		{@render audHeader()}
 	</div>
 	<div class="aud_player">
 		<audio
@@ -81,6 +81,24 @@
 	</div>
 </div>
 
+<!-- ??? AudHead -->
+{#snippet audHeader()}
+	{#key audIdx}
+		<h3 in:fly={{ y: 20, duration: 300, opacity: 0 }}>{currAud.title}</h3>
+	{/key}
+	<div class="aud_utils" role="toolbar" aria-label="playback utility controls">
+		<button class="aud_btn aud_btn_vol">
+			{@html muteIcon}
+		</button>
+		<button class="aud_btn aud_btn_notes">
+			{@html transcriptIcon}
+		</button>
+		<button class="aud_btn aud_btn_download">
+			{@html downloadIcon}
+		</button>
+	</div>
+{/snippet}
+
 <!-- ??? AudBody -->
 {#snippet audBody()}
 	<div class="aud_stats">
@@ -102,8 +120,7 @@
 			<button
 				class="aud_btn aud_btn_loop {audPlay.loop ? 'loop_on' : ''}"
 				onclick={() => audPlay.toggleLoop()}
-				title="Turn Loop {audPlay.loop ? 'Off' : 'On'}"
-				bind:this={audPlay.loopRef}
+				title="Turn Loop {audPlay.loop === false ? 'On' : 'Off'}"
 			>
 				{@html repeatBtn}
 			</button>
@@ -132,7 +149,6 @@
 				class="aud_btn aud_btn_rate"
 				onclick={() => audPlay.togglePlayback()}
 				title="Set Speed {audPlay.playbackNext}"
-				bind:this={audPlay.playbackRef}
 			>
 				{#if audPlay.playbackIdx < 2}{#if audPlay.playbackIdx === 0}{@html playbackWalk}{:else}{@html playbackSprint}{/if}
 				{:else}{@html playbackSnail}{/if}

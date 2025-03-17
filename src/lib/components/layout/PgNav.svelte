@@ -29,7 +29,7 @@
 	>
 		<div class="topbar">
 			<div class="header_logo">
-				<a href="/" aria-label="Home link" title="Home">{@html logoFull}</a>
+				<a href="/" aria-label="Home" title="Home">{@html logoFull}</a>
 			</div>
 			<SiteSettings />
 		</div>

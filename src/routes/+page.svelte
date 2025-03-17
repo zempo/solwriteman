@@ -21,8 +21,9 @@
 <PgMain>
 	<header class="home_header" style="margin-top: {dimension.topbarH}px;">
 		<h1>Solomon Zelenko</h1>
-		<p class="sub_title" aria-hidden="true">On Paper • On Mic • Online</p>
-		<span class="aria_text">On microphone, on paper, online</span>
+		<p class="sub_title">
+			<AdaAlt textReg="On Paper • On Mic • Online" textAda="On paper, on mic, online" />
+		</p>
 		<HeroScene />
 	</header>
 	<SkipBtn />
