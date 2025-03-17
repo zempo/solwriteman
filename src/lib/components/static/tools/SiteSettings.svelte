@@ -20,7 +20,11 @@
 		</button>
 	</li>
 	<li>
-		<button class="settings_btn font_btn" onclick={() => main.setFont()}>
+		<button
+			class="settings_btn font_btn"
+			onclick={() => main.setFont()}
+			aria-label="Toggle Dyslexia Font"
+		>
 			{#if main.dyslexicOn}
 				{@html fontIconOn}
 			{:else}

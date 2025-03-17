@@ -141,6 +141,7 @@
 			class={`mic_btn ${isMicActive ? 'mic_btn_on' : ''}`}
 			on:click={toggleMicInput}
 			title={isMicActive ? 'Turn Mic Off' : 'Mic Interaction'}
+			aria-hidden="true"
 		>
 			{#if isMicActive}
 				{@html micOn}

@@ -12,6 +12,7 @@
 	import SkipBtn from '$lib/components/static/tools/SkipBtn.svelte';
 	import AudPlayer from '$lib/components/static/tools/aud/AudPlayer.svelte';
 	import { reelData } from '$lib/store/audio.svelte';
+	import AdaAlt from '$lib/components/static/tools/AdaAlt.svelte';
 </script>
 
 <svelte:window bind:scrollY={dimension.currScrollLanding} />
@@ -44,7 +45,7 @@
 		<Tabs let:T>
 			<T.List>
 				{#each tabLabels.bio as L, i}
-					<T.Tab id={i}>{L}</T.Tab>
+					<T.Tab id={i}><AdaAlt textReg={L} textAda={tabLabels.bio_ada[i]} /></T.Tab>
 				{/each}
 			</T.List>
 			<T.Panel id={0}>

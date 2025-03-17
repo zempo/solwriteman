@@ -54,9 +54,11 @@ $breakpoints: (
 			position: relative;
 		}
 	}
-	.aud_header,
-	.aud_player {
+	.aud_header {
 		padding: 0.5rem 0.75rem;
+	}
+	.aud_player {
+		padding: 0.65rem;
 	}
 	.aud_header {
 		background: var(--playerDark);
@@ -113,20 +115,18 @@ $breakpoints: (
 			.aud_btn {
 				cursor: pointer;
 				&.aud_btn_loop {
-					width: 3rem;
-					// height: ;
-					line-height: 0;
 					padding-block: 0.25rem;
-					opacity: 0.9;
+					width: 3rem;
+					line-height: 0;
 					&:active,
 					&:focus {
 						outline: 2px solid var(--playerGreen);
 					}
 					svg {
-						height: 1.75rem;
-						width: 1.75rem;
+						height: 2rem;
+						width: 2rem;
 						.target_fill {
-							fill: var(--playerGreen_dark);
+							fill: var(--playerDark);
 						}
 					}
 					&.loop_on {
@@ -138,20 +138,26 @@ $breakpoints: (
 				}
 				&.aud_btn_rate {
 					line-height: 0;
-					padding-block: 0.25rem;
-					width: 3rem;
+					padding-block: 0.5rem;
+					width: 4.25rem;
 					display: flex;
-					justify-content: space-between;
+					justify-content: center;
+					column-gap: 0.22rem;
 					align-items: center;
+					&:active,
+					&:focus {
+						outline: 2px solid var(--playerPurple);
+					}
 					svg {
-						height: 1.75rem;
-						width: 1.75rem;
+						height: 1.5rem;
+						width: 1.5rem;
 						.target_fill {
 							fill: var(--playerPurple);
 						}
 					}
 					.playback_lbl {
 						font-size: small;
+						font-weight: bolder;
 						color: var(--playerPurple);
 						line-height: 1.1;
 					}
@@ -206,7 +212,6 @@ $breakpoints: (
 		}
 	}
 	.aud_tracklist {
-		// background: var(--playerDark);
 		border-bottom-left-radius: 0.25rem;
 		border-bottom-right-radius: 0.25rem;
 		padding: 0;
@@ -224,7 +229,6 @@ $breakpoints: (
 			background: var(--playerDark);
 			border-bottom-left-radius: 0.25rem;
 			border-bottom-right-radius: 0.25rem;
-			// padding: 0;
 			padding: 0.25rem;
 			list-style-type: none;
 			box-shadow: var(--insetShadowb);
@@ -275,15 +279,21 @@ $breakpoints: (
 			}
 			.aud_controls {
 				.aud_btn {
-					&.aud_btn_loop,
-					&.aud_btn_rate {
-						width: 4.25rem;
+					&.aud_btn_loop {
+						width: 5.5rem;
 						svg {
-							height: 2.75rem;
-							width: 2.75rem;
+							height: 2.5rem;
+							width: 2.5rem;
+						}
+					}
+					&.aud_btn_rate {
+						width: 5.5rem;
+						svg {
+							height: 2rem;
+							width: 2rem;
 						}
 						.playback_lbl {
-							font-size: large;
+							font-size: medium;
 						}
 					}
 					&.aud_btn_back,

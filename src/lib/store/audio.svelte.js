@@ -13,7 +13,6 @@ import { setContext, getContext } from 'svelte';
  */
 export const reelData = [
 	{
-		_id: 0,
 		title: `Narration Demo`,
 		// src: `https://open.acast.com/public/streams/62bb6cbc21e4cb001212c5e7/episodes/62bb73e7e762370014e5f253.mp3`,
 		src: `https://sveltejs.github.io/assets/music/satie.mp3`,
@@ -27,10 +26,9 @@ export const reelData = [
 				label: `Knight's Knob`
 			}
 		],
-		notes: [`From the Riviting Lorem of Ipsum, by A Non Mous, comes an all new tale.`]
+		notes: [``]
 	},
 	{
-		_id: 1,
 		title: `Commercial Demo`,
 		src: `https://open.acast.com/public/streams/62bb6cbc21e4cb001212c5e7/episodes/62bb6ecccbcafc00132f0f54.mp3`,
 		timestamps: [
@@ -43,10 +41,9 @@ export const reelData = [
 				label: `Knight's Knob`
 			}
 		],
-		notes: [`From the Riviting Lorem of Ipsum, by A Non Mous, comes an all new tale.`]
+		notes: [``]
 	},
 	{
-		_id: 2,
 		title: `Character Demo`,
 		src: `https://open.acast.com/public/streams/62bb6cbc21e4cb001212c5e7/episodes/62bb73e7e762370014e5f253.mp3`,
 		timestamps: [
@@ -59,12 +56,11 @@ export const reelData = [
 				label: `Knight's Knob`
 			}
 		],
-		notes: [`From the Riviting Lorem of Ipsum, by A Non Mous, comes an all new tale.`]
+		notes: [``]
 	},
 	{
-		_id: 3,
 		title: `eLearning Demo`,
-		src: `https://open.acast.com/public/streams/62bb6cbc21e4cb001212c5e7/episodes/62bb73e7e762370014e5f253.mp3`,
+		src: `https://open.acast.com/public/streams/62bb6cbc21e4cb001212c5e7/episodes/62bb6d2f21e4cb001212c7cd.mp3`,
 		timestamps: [
 			{
 				pt: 40,
@@ -75,19 +71,40 @@ export const reelData = [
 				label: `Knight's Knob`
 			}
 		],
-		notes: [`From the Riviting Lorem of Ipsum, by A Non Mous, comes an all new tale.`]
+		notes: [``]
+	},
+	{
+		title: `TV / Promo Demo`,
+		src: `https://open.acast.com/public/streams/62bb6cbc21e4cb001212c5e7/episodes/62bb8940e762370014e64722.mp3`,
+		timestamps: [
+			{
+				pt: 40,
+				label: `Crest Shadows`
+			},
+			{
+				pt: 95,
+				label: `Knight's Knob`
+			}
+		],
+		notes: [``]
 	}
 ];
 
+// **********************************************************************************
+// **********************************************************************************
 /* eslint-disable no-undef */
 class AudPlay {
-	selectedAud = $state(0);
 	time = $state(0);
 	duration = $state(0);
 	loop = $state(false);
 	muted = $state(false);
 	paused = $state(true);
 	playbackRate = $state(1);
+	playbackNext = $state(2);
+	playbackIdx = $state(0);
+
+	loopRef = $state(0);
+	playbackRef = $state(0);
 
 	getAud(KEY) {
 		return getContext(KEY);
@@ -109,9 +126,36 @@ class AudPlay {
 
 	toggleLoop() {
 		this.loop = !this.loop;
+		// this.loopRef.focus();
 	}
 
-	// format time (read time)
+	toggleMute() {
+		this.muted = !this.muted;
+	}
+
+	togglePlayback() {
+		let speedsRef = [1.0, 2.0, 0.5];
+		if (this.playbackIdx === 0) {
+			this.playbackIdx = 1;
+			this.playbackNext = speedsRef[2];
+		} else if (this.playbackIdx === 1) {
+			this.playbackIdx = 2;
+			this.playbackNext = speedsRef[0];
+		} else {
+			this.playbackIdx = 0;
+			this.playbackNext = speedsRef[1];
+		}
+		this.playbackRate = speedsRef[this.playbackIdx];
+		// this.playbackRef.focus();
+	}
+
+	trackReset() {
+		this.time = 0;
+	}
+	trackAutoplay() {
+		this.paused = false;
+	}
+
 	format(T) {
 		if (isNaN(T)) return `...`;
 

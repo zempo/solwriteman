@@ -45,6 +45,7 @@
 			id="menu-button"
 			aria-haspopup="dialog"
 			aria-controls="site-menu"
+			aria-label="Open Navigation Menu"
 			onclick={() => main.setModalOpen(2)}
 		>
 			{@html menuIcon}

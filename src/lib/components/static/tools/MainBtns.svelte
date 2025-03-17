@@ -13,7 +13,7 @@
 
 <button
 	class="nav_btn nav_btn_{dir === 0 ? 'prev' : 'fwd'}"
-	aria-label={`Go to page ${main.getLabel(dir)}`}
+	aria-label={`Go to ${main.getLabel(dir)} page`}
 	onclick={sideNav}
 	title="View {main.getLabel(dir)}"
 >

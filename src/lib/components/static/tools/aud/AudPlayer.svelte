@@ -5,6 +5,10 @@
 		backBtn,
 		fwdBtn,
 		pauseBtn,
+		muteIcon,
+		downloadIcon,
+		playbackSnail,
+		playbackSprint,
 		playbackWalk,
 		playBtn,
 		repeatBtn,
@@ -16,6 +20,7 @@
 
 	let { audData, audIdx = 0 } = $props();
 	let currAud = $state(audData[audIdx]);
+	let audRef;
 
 	$effect(() => {
 		currAud = audData[audIdx];
@@ -24,6 +29,18 @@
 	const selectTrack = (idx) => {
 		main.click();
 		audIdx = idx;
+	};
+
+	const endTrack = () => {
+		let len = audData.length - 1;
+		let next = len === audIdx ? 0 : audIdx + 1;
+		audPlay.trackReset();
+		if (audPlay.loop === false) {
+			audIdx = next;
+			audRef.onloadedmetadata = () => {
+				audPlay.trackAutoplay();
+			};
+		}
 	};
 </script>
 
@@ -43,7 +60,8 @@
 			bind:paused={audPlay.paused}
 			bind:muted={audPlay.muted}
 			bind:playbackRate={audPlay.playbackRate}
-			onended={() => (audPlay.time = 0)}
+			bind:this={audRef}
+			onended={() => endTrack()}
 		></audio>
 		{@render audBody()}
 	</div>
@@ -54,8 +72,8 @@
 			{/snippet}
 			{#snippet accC()}
 				<ul>
-					{#each audData as A}
-						{@render trackList(A)}
+					{#each audData as A, idx}
+						{@render trackList(A, idx)}
 					{/each}
 				</ul>
 			{/snippet}
@@ -79,15 +97,15 @@
 		</label>
 		<span class="progress">{audPlay.duration ? audPlay.format(audPlay.duration) : '--:--'}</span>
 	</div>
-	<div class="aud_controls">
+	<div class="aud_controls" role="toolbar" aria-label="playback controls">
 		<div class="btn_grp btn_grp_l">
 			<button
 				class="aud_btn aud_btn_loop {audPlay.loop ? 'loop_on' : ''}"
 				onclick={() => audPlay.toggleLoop()}
-				title="Loop {audPlay.loop ? 'Off' : 'On'}"
-				aria-label="Turn Loop {audPlay.loop ? 'Off' : 'On'}"
+				title="Turn Loop {audPlay.loop ? 'Off' : 'On'}"
+				bind:this={audPlay.loopRef}
 			>
-				{#if audPlay.loop}{@html repeatBtnOn}{:else}{@html repeatBtn}{/if}
+				{@html repeatBtn}
 			</button>
 		</div>
 		<div class="btn_grp btn_grp_m">
@@ -110,19 +128,26 @@
 			>
 		</div>
 		<div class="btn_grp btn_grp_r">
-			<button class="aud_btn aud_btn_rate">
-				{@html playbackWalk} <span class="playback_lbl">1x</span>
+			<button
+				class="aud_btn aud_btn_rate"
+				onclick={() => audPlay.togglePlayback()}
+				title="Set Speed {audPlay.playbackNext}"
+				bind:this={audPlay.playbackRef}
+			>
+				{#if audPlay.playbackIdx < 2}{#if audPlay.playbackIdx === 0}{@html playbackWalk}{:else}{@html playbackSprint}{/if}
+				{:else}{@html playbackSnail}{/if}
+				<span class="playback_lbl" aria-label="playback">{audPlay.playbackRate}x</span>
 			</button>
 		</div>
 	</div>
 {/snippet}
 
 <!-- ??? TrackList -->
-{#snippet trackList(A)}
+{#snippet trackList(A, idx)}
 	<li class={`aud_item`}>
 		<button
-			class={`track_btn ${A._id === audIdx ? 'is_curr_aud' : ''}`}
-			onclick={() => selectTrack(A._id)}
+			class={`track_btn ${idx === audIdx ? 'is_curr_aud' : ''}`}
+			onclick={() => selectTrack(idx)}
 		>
 			{A.title}
 		</button>

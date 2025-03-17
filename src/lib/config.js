@@ -88,7 +88,8 @@ export const navData = {
 };
 
 export const tabLabels = {
-	bio: ['Artist Statement', 'getBackground()', 'Stengths & Services']
+	bio: ['Artist Statement', 'getBackground()', 'Strengths & Services'],
+	bio_ada: ['Artist Statement', 'Background', 'Strengths and Services']
 };
 
 export const defaultSEO = {
