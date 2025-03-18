@@ -129,7 +129,7 @@
 			<div class="timestamps">
 				{#each currAud.timestamps as A}
 					<!-- visibility: ${audPlay.duration > 0 ? 'visible;opacity:1;':'hidden;opacity:0;'}l -->
-					{#key audIdx}
+					{#key audPlay.duration > 0}
 						<!-- in:fade={{ duration: 300, opacity: 0 }} -->
 						<span
 							class="t_stamp"

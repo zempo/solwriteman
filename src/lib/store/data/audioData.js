@@ -37,6 +37,10 @@ export const reelData = [
 			{
 				pt: 25,
 				info: `Knight's Knob`
+			},
+			{
+				pt: 97,
+				info: `ABF`
 			}
 		],
 		notes: [``]
@@ -52,6 +56,10 @@ export const reelData = [
 			{
 				pt: 45,
 				info: `Knight's Knob`
+			},
+			{
+				pt: 65,
+				info: `Knight's Knob`
 			}
 		],
 		notes: [``]
@@ -61,11 +69,11 @@ export const reelData = [
 		src: `https://open.acast.com/public/streams/62bb6cbc21e4cb001212c5e7/episodes/62bb6d2f21e4cb001212c7cd.mp3`,
 		timestamps: [
 			{
-				pt: 40,
+				pt: 10,
 				info: `Crest Shadows`
 			},
 			{
-				pt: 95,
+				pt: 25,
 				info: `Knight's Knob`
 			}
 		],
@@ -76,11 +84,11 @@ export const reelData = [
 		src: `https://open.acast.com/public/streams/62bb6cbc21e4cb001212c5e7/episodes/62bb8940e762370014e64722.mp3`,
 		timestamps: [
 			{
-				pt: 10,
+				pt: 50,
 				info: `Crest Shadows`
 			},
 			{
-				pt: 15,
+				pt: 75,
 				info: `Knight's Knob`
 			}
 		],

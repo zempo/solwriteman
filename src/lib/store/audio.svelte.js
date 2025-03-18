@@ -69,6 +69,7 @@ class AudPlay {
 
 	selectReset() {
 		this.notesOpen = false;
+		this.duration = 0;
 		if (this.paused === false) {
 			this.paused = true;
 			this.time = 0;
