@@ -17,11 +17,11 @@ export const reelData = [
 		timestamps: [
 			{
 				pt: 10,
-				label: `Crest Shadows`
+				info: `Crest Shadows`
 			},
 			{
 				pt: 21,
-				label: `Knight's Knob`
+				info: `Knight's Knob`
 			}
 		],
 		notes: [`Main niche.`]
@@ -31,12 +31,12 @@ export const reelData = [
 		src: `https://open.acast.com/public/streams/62bb6cbc21e4cb001212c5e7/episodes/62bb6ecccbcafc00132f0f54.mp3`,
 		timestamps: [
 			{
-				pt: 24,
-				label: `Crest`
+				pt: 10,
+				info: `Crest`
 			},
 			{
-				pt: 95,
-				label: `Knight's Knob`
+				pt: 25,
+				info: `Knight's Knob`
 			}
 		],
 		notes: [``]
@@ -47,11 +47,11 @@ export const reelData = [
 		timestamps: [
 			{
 				pt: 10,
-				label: `Crest Shadows`
+				info: `Crest Shadows`
 			},
 			{
 				pt: 45,
-				label: `Knight's Knob`
+				info: `Knight's Knob`
 			}
 		],
 		notes: [``]
@@ -62,11 +62,11 @@ export const reelData = [
 		timestamps: [
 			{
 				pt: 40,
-				label: `Crest Shadows`
+				info: `Crest Shadows`
 			},
 			{
 				pt: 95,
-				label: `Knight's Knob`
+				info: `Knight's Knob`
 			}
 		],
 		notes: [`Brainz is an entirely ficticious educational product.`]
@@ -76,12 +76,12 @@ export const reelData = [
 		src: `https://open.acast.com/public/streams/62bb6cbc21e4cb001212c5e7/episodes/62bb8940e762370014e64722.mp3`,
 		timestamps: [
 			{
-				pt: 40,
-				label: `Crest Shadows`
+				pt: 10,
+				info: `Crest Shadows`
 			},
 			{
-				pt: 95,
-				label: `Knight's Knob`
+				pt: 15,
+				info: `Knight's Knob`
 			}
 		],
 		notes: [`This is a passion project. For more info, visit www.indieproject.com.`]

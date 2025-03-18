@@ -1,18 +1,19 @@
 <script>
-	import HeroScene from '$lib/components/content/shaders/HeroScene.svelte';
-	import Disclosure from '$lib/components/content/Disclosure.svelte';
+	import { dimension } from '$lib/store/dimension.svelte';
+	import { seoData, tabLabels } from '$lib/config';
+	import { main } from '$lib/store/main.svelte';
 	import PgHead from '$lib/components/layout/PgHead.svelte';
 	import PgMain from '$lib/components/layout/PgMain.svelte';
-	import { dimension } from '$lib/store/dimension.svelte';
-	import { main } from '$lib/store/main.svelte';
-	import { seoData, tabLabels } from '$lib/config';
+	import HeroScene from '$lib/components/content/shaders/HeroScene.svelte';
+	import AudPlayer from '$lib/components/static/tools/aud/AudPlayer.svelte';
+	import Disclosure from '$lib/components/content/Disclosure.svelte';
 	import Tabs from '$lib/components/static/tools/tab/Tabs.svelte';
 	import Links from '$lib/components/content/Links.svelte';
 	import StatsCard from '$lib/components/static/tools/StatsCard.svelte';
 	import SkipBtn from '$lib/components/static/tools/SkipBtn.svelte';
-	import AudPlayer from '$lib/components/static/tools/aud/AudPlayer.svelte';
 	import { reelData } from '$lib/store/data/audioData.js';
-	import AdaAlt from '$lib/components/static/tools/AdaAlt.svelte';
+	import AdaAlt from '$lib/components/static/comp_lib/AdaAlt.svelte';
+	import OnScroll from '$lib/components/static/comp_lib/OnScroll.svelte';
 </script>
 
 <svelte:window bind:scrollY={dimension.currScrollLanding} />
@@ -251,11 +252,14 @@
 	</article>
 	<section class="featured_section" id="featured_content" bind:this={dimension.featEl}>
 		<div class="section_head">
-			<h2>Featured Content</h2>
-			<p class="sub_title">VO Demos / Poems / New Art</p>
+			<OnScroll>
+				{#snippet flyUp()}
+					<h2>Featured Content</h2>
+					<p class="sub_title">VO Demos / Poems / New Art</p>
+				{/snippet}
+			</OnScroll>
 		</div>
 		<AudPlayer audData={reelData} />
-		<!-- <AudPlayer audData={reelData} audIdx={2} /> -->
 		<Disclosure isOpen="true">
 			{#snippet accH()}
 				What is a disclosure component? (open)

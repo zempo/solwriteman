@@ -120,6 +120,7 @@ $breakpoints: (
 		color: var(--playerBlue);
 		box-shadow: var(--insetShadow2);
 		.aud_stats {
+			position: relative;
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -133,9 +134,41 @@ $breakpoints: (
 					border-radius: 0.5rem;
 					width: 100%;
 					margin: auto;
+					z-index: 2;
 					accent-color: var(--playerBlue);
 					border: 1px solid var(--playerBlueLt);
 					cursor: pointer;
+				}
+				.timestamps {
+					width: 100%;
+					position: relative;
+					.t_stamp {
+						position: absolute;
+						top: 0.9rem;
+						left: 0;
+						color: var(--null);
+						cursor: help;
+						&::before {
+							content: '';
+							width: 0.15rem;
+							height: 0.75rem;
+							z-index: 1;
+							position: absolute;
+							background: var(--playerGreen);
+							border: 0.01rem solid var(--playerGreen);
+							border-radius: 0.1rem;
+							left: 50%;
+							top: 0;
+							// -webkit-transition: var(--transitionMain);
+							// transition: var(--transitionMain);
+						}
+					}
+				}
+			}
+			datalist {
+				visibility: hidden;
+				option {
+					color: var(--playerGreen);
 				}
 			}
 		}
