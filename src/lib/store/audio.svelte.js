@@ -152,6 +152,14 @@ class AudPlay {
 	trackReset() {
 		this.time = 0;
 	}
+
+	selectReset() {
+		if (this.paused === false) {
+			this.paused = true;
+			this.time = 0;
+		}
+	}
+
 	trackAutoplay() {
 		this.paused = false;
 	}

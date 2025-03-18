@@ -30,7 +30,13 @@
 
 	const selectTrack = (idx) => {
 		main.click();
+		audPlay.selectReset();
 		audIdx = idx;
+		if (audPlay.loop === false) {
+			audRef.onloadedmetadata = () => {
+				audPlay.trackAutoplay();
+			};
+		}
 	};
 
 	const endTrack = () => {
