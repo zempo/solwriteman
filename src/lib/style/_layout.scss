@@ -75,6 +75,12 @@ $br_25: 0.25rem;
 				padding: 0.25rem 0.5rem;
 				border-radius: 0.25rem;
 				// margin-top: 0.1rem;
+				&:hover,
+				&:focus,
+				&:active {
+					background-color: var(--appBarHov);
+					@include transition(background-color, 0.15s, ease-in);
+				}
 			}
 		}
 	}
@@ -114,11 +120,17 @@ $br_25: 0.25rem;
 		border: 1px solid var(--appTranslucent);
 		box-shadow: var(--shadow4);
 		background: none;
-		margin: 0 0.15rem 0.75rem;
+		margin: 0 0.15rem 0.65rem;
 		border-radius: 0.25rem;
 		line-height: 0;
 		padding: 0.25rem 11vw;
 		max-width: calc(33.3vw - 0.5rem);
+		&:hover,
+		&:focus,
+		&:active {
+			background: var(--appBarHov);
+			@include transition(background-color, 0.15s, ease-in);
+		}
 	}
 	@include mq('p_wide', 'min') {
 		padding: 0.75rem 2rem;

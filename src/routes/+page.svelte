@@ -11,7 +11,7 @@
 	import StatsCard from '$lib/components/static/tools/StatsCard.svelte';
 	import SkipBtn from '$lib/components/static/tools/SkipBtn.svelte';
 	import AudPlayer from '$lib/components/static/tools/aud/AudPlayer.svelte';
-	import { reelData } from '$lib/store/audio.svelte';
+	import { reelData } from '$lib/store/data/audioData.js';
 	import AdaAlt from '$lib/components/static/tools/AdaAlt.svelte';
 </script>
 

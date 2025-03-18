@@ -98,6 +98,20 @@ $breakpoints: (
 						stroke: var(--playerText);
 					}
 				}
+				&.mute_on {
+					&:active,
+					&:focus {
+						outline: 2px solid var(--playerRed);
+					}
+					svg {
+						.target_stroke {
+							stroke: var(--playerRed);
+						}
+					}
+				}
+				&.aud_btn_download {
+					display: inline-block;
+				}
 			}
 		}
 	}

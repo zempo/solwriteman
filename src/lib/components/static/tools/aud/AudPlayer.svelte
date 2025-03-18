@@ -93,15 +93,31 @@
 		<h3 in:fly={{ y: 20, duration: 300, opacity: 0 }}>{currAud.title}</h3>
 	{/key}
 	<div class="aud_utils" role="toolbar" aria-label="playback utility controls">
-		<button class="aud_btn aud_btn_vol">
-			{@html muteIcon}
+		<button
+			class="aud_btn aud_btn_vol {audPlay.muted ? 'mute_on' : ''}"
+			title="{audPlay.muted ? 'Unmute' : 'Mute'} Track"
+			onclick={() => audPlay.toggleMute()}
+		>
+			{#if audPlay.muted}{@html muteIcon}{:else}{@html volumeIcon}{/if}
 		</button>
-		<button class="aud_btn aud_btn_notes">
+		<button
+			class="aud_btn aud_btn_notes"
+			title="{audPlay.notesOpen ? 'Hide' : 'Show'} Notes"
+			disabled={currAud.notes[0] === ''}
+		>
 			{@html transcriptIcon}
 		</button>
-		<button class="aud_btn aud_btn_download">
+		<a
+			class="aud_btn aud_btn_download"
+			role="button"
+			title="Download Track"
+			href={currAud.src}
+			target="_blank"
+			rel="noopener noreferrer"
+			download
+		>
 			{@html downloadIcon}
-		</button>
+		</a>
 	</div>
 {/snippet}
 
