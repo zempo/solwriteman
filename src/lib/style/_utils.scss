@@ -188,9 +188,18 @@ $breakpoints: (
 						height: 700px;
 					}
 				}
+
 				&.stmt_fig1 {
 					img {
 						object-position: 70% center;
+					}
+				}
+				&.stmt_fig2 {
+					.img_wrap {
+						height: 636px;
+					}
+					img {
+						height: 636px;
 					}
 				}
 				&.stmt_fig3 {

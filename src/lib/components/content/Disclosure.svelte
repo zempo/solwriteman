@@ -1,4 +1,6 @@
 <script>
+	import { fade, slide } from 'svelte/transition';
+
 	// let isOpen = $state(false);
 	let { accH, accC, isOpen = false } = $props();
 </script>
@@ -15,15 +17,20 @@
 		{/if}
 		<span class="icon" aria-hidden="true">{isOpen ? '−' : '+'}</span>
 	</button>
-	<div
-		id="disclosure-content"
-		role="region"
-		aria-hidden={!isOpen}
-		hidden={!isOpen}
-		class="disclosure-content"
-	>
-		{#if accC}
-			{@render accC()}
-		{/if}
-	</div>
+	{#key isOpen}
+		<div
+			id="disclosure-content"
+			role="region"
+			aria-hidden={!isOpen}
+			hidden={!isOpen}
+			transition:slide={{ duration: 300, axis: 'y' }}
+			class="disclosure-content"
+		>
+			<div class="fade_wrap" in:fade={{ duration: 350 }}>
+				{#if accC}
+					{@render accC()}
+				{/if}
+			</div>
+		</div>
+	{/key}
 </div>

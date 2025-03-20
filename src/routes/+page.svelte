@@ -70,32 +70,42 @@
 					</figcaption>
 				</figure>
 				<div class="t_text">
-					<p>
-						In <a href="https://solwriteman.substack.com" target="_blank" rel="noopener noreferrer"
-							>Bytes && Snippets</a
-						>, I establish and join community — on mic, on paper, and online.
-					</p>
-					<p>
-						In
-						<a href="/bytes">procedural art bytes</a>, I convey my humanity through geometry — A
-						<a
-							href="https://folkdanceworld.com/2023/08/07/enchanting-russian-folk-dance-heritage.html#:~:text=and%20artistic%20expression.-,Hopak,-Russian%20Folk%20Dance"
-							target="_blank"
-							rel="noopener noreferrer">Hopak</a
-						>
-						between the Avant-Garde and Accessible. And in
-						<a href="/snippets">poetic snippets</a>, I integrate silly geese and toe stubs into our
-						larger narrative.
-					</p>
-					<p>
-						I am a first-time father, a Russian-Jewish American, and an ever curious learner. And I
-						commit to healthy masculinity and technological ethos — fulfilling our emerging
-						responsibilities as "bros who code". This narrative explores a nerdy niche, touches on
-						worlds outside our expectations, and celebrates becoming a neurodivergent man — on one's
-						own terms.
-					</p>
-					<p>TL;DR, Let's connect, communicate, and transform our reality.</p>
-					<Links />
+					<OnScroll>
+						{#snippet fadeIn()}
+							<p>
+								In <a
+									href="https://solwriteman.substack.com"
+									target="_blank"
+									rel="noopener noreferrer">Bytes && Snippets</a
+								>, I establish and join community — on mic, on paper, and online.
+							</p>
+							<p>
+								In
+								<a href="/bytes">procedural art bytes</a>, I convey my humanity through geometry — A
+								<a
+									href="https://folkdanceworld.com/2023/08/07/enchanting-russian-folk-dance-heritage.html#:~:text=and%20artistic%20expression.-,Hopak,-Russian%20Folk%20Dance"
+									target="_blank"
+									rel="noopener noreferrer">Hopak</a
+								>
+								between the Avant-Garde and Accessible. And in
+								<a href="/snippets">poetic snippets</a>, I integrate silly geese and toe stubs into
+								our larger narrative.
+							</p>
+							<p>
+								I am a first-time father, a Russian-Jewish American, and an ever curious learner.
+								And I commit to healthy masculinity and technological ethos — fulfilling our
+								emerging responsibilities as "bros who code". This narrative explores a nerdy niche,
+								touches on worlds outside our expectations, and celebrates becoming a neurodivergent
+								man — on one's own terms.
+							</p>
+							<p>TL;DR, Let's connect, communicate, and transform our reality.</p>
+						{/snippet}
+					</OnScroll>
+					<OnScroll>
+						{#snippet flyUp()}
+							<Links />
+						{/snippet}
+					</OnScroll>
 				</div>
 			</T.Panel>
 			<T.Panel id={1}>
@@ -132,29 +142,32 @@
 							target="_blank"
 							rel="noopener noreferrer">MicroWorlds EX</a
 						>
-						to Title I schools in Denver, Colorado. Inspired by my time with OWL, I began to refine my
-						dev skills, working with: Web Components, SASS, React, Svelte, ThreeJs, SQL, and other web
-						technologies. In 2021, I landed my dream gig with
+						to Title I schools in Denver, Colorado. Inspired, I spent many tea-fueled evenings refining
+						my dev skills. And in 2021, I landed my dream gig with
 						<a href="https://www.aleks.com/" target="_blank" rel="noopener noreferrer"
 							>McGraw Hill ALEKS</a
 						>
-						as a content programmer. On the side, I've been mentoring, building
+						as a content programmer. On the side, I mentor, build
 						<a
 							href="https://threejs-journey.com/lessons/introduction"
 							target="_blank"
 							rel="noopener noreferrer">creative web apps</a
-						>, and researching
+						>, and research
 						<a href="https://thebookofshaders.com/" target="_blank" rel="noopener noreferrer"
 							>pixel shaders</a
-						> to craft performative, scaleable visuals. My work is equal parts art and science, and I
-						am excited to share best-practices and hard-earned lessons to make your life easier.
+						> to craft performative, scaleable artworks. And I am excited to share best-practices and
+						hard-earned lessons with you.
 					</p>
 					<p>
 						In between these "Click-Clack Glow" times, you'll find me camping, cooking for loved
 						ones, and debugging fatherhood with my wife, daughter Evelyn, and our Tortie Cat,
 						Weasel.
 					</p>
-					<Links linkType="substack" text="@SolWriteMan (Substack)" />
+					<OnScroll>
+						{#snippet flyUp()}
+							<Links linkType="substack" text="@SolWriteMan (Substack)" />
+						{/snippet}
+					</OnScroll>
 				</div>
 			</T.Panel>
 			<T.Panel id={2}>
@@ -230,7 +243,11 @@
 							</p>
 						</li>
 					</ul>
-					<Links text="Let's Collaborate!" />
+					<OnScroll>
+						{#snippet flyUp()}
+							<Links text="Let's Collaborate!" />
+						{/snippet}
+					</OnScroll>
 				</div>
 			</T.Panel>
 		</Tabs>
@@ -241,13 +258,17 @@
 					alt="Solomon reciting poetry at Libro Mobile arts cooperative and bookstore."
 				/>
 			</div>
-			<figcaption>
-				Reciting poetry at <a
-					href="https://www.libromobile.com/"
-					target="_blank"
-					rel="noopener noreferrer">LibroMobile</a
-				> arts cooperative and bookstore.
-			</figcaption>
+			<OnScroll>
+				{#snippet flyUp()}
+					<figcaption>
+						Reciting poetry at <a
+							href="https://www.libromobile.com/"
+							target="_blank"
+							rel="noopener noreferrer">LibroMobile</a
+						> arts cooperative and bookstore.
+					</figcaption>
+				{/snippet}
+			</OnScroll>
 		</figure>
 	</article>
 	<section class="featured_section" id="featured_content" bind:this={dimension.featEl}>
@@ -255,7 +276,7 @@
 			<OnScroll>
 				{#snippet flyUp()}
 					<h2>Featured Content</h2>
-					<p class="sub_title">VO Demos / Poems / New Art</p>
+					<p class="sub_title">Voice Over / Poems / New Art</p>
 				{/snippet}
 			</OnScroll>
 		</div>

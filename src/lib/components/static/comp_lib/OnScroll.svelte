@@ -1,8 +1,8 @@
 <script>
 	import { onMount } from 'svelte';
-	import { fly } from 'svelte/transition';
+	import { fly, fade } from 'svelte/transition';
 
-	const { flyUp } = $props();
+	const { flyUp, fadeIn } = $props();
 
 	let elRef = $state(false);
 	let isVisible = $state(false);
@@ -12,7 +12,7 @@
 		const rect = elRef.getBoundingClientRect();
 		const windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
-		if (rect.top <= windowHeight * 0.8) {
+		if (rect.top <= windowHeight * 0.85) {
 			isVisible = true;
 		}
 	}
@@ -26,8 +26,16 @@
 
 {#if flyUp}
 	{#key isVisible}
-		<div class="scroll_razzle" bind:this={elRef} in:fly={{ y: 40, duration: 800, opacity: 0 }}>
+		<div class="scroll_razzle" bind:this={elRef} in:fly={{ y: 40, duration: 800 }}>
 			{@render flyUp()}
+		</div>
+	{/key}
+{/if}
+
+{#if fadeIn}
+	{#key isVisible}
+		<div class="scroll_razzle" bind:this={elRef} in:fade={{ duration: 500 }}>
+			{@render fadeIn()}
 		</div>
 	{/key}
 {/if}

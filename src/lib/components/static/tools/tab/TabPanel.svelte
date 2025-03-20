@@ -11,7 +11,7 @@
 
 	export let id = 0;
 
-	const transitionIn = { easing: cubicIn, duration: 350 };
+	const transitionIn = { easing: cubicIn, duration: 400 };
 	// const transitionOut = { easing: cubicIn, duration: 300 };
 </script>
 
