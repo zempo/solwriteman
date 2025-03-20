@@ -76,29 +76,23 @@
 								In <a
 									href="https://solwriteman.substack.com"
 									target="_blank"
+									title="My blog!"
 									rel="noopener noreferrer">Bytes && Snippets</a
-								>, I establish and join community — on mic, on paper, and online.
+								>, I create and share accessible, vibrant experiences.
 							</p>
 							<p>
-								In
-								<a href="/bytes">procedural art bytes</a>, I convey my humanity through geometry — A
-								<a
-									href="https://folkdanceworld.com/2023/08/07/enchanting-russian-folk-dance-heritage.html#:~:text=and%20artistic%20expression.-,Hopak,-Russian%20Folk%20Dance"
-									target="_blank"
-									rel="noopener noreferrer">Hopak</a
-								>
-								between the Avant-Garde and Accessible. And in
-								<a href="/snippets">poetic snippets</a>, I integrate silly geese and toe stubs into
-								our larger narrative.
+								In procedural art bytes, I convey humanity through geometry and thread the
+								Avant-Garde through familiar lenses. In poetic snippets, I integrate bumbling
+								spirits and toe stubs into our greater narrative.
 							</p>
 							<p>
-								I am a first-time father, a Russian-Jewish American, and an ever curious learner.
-								And I commit to healthy masculinity and technological ethos — fulfilling our
-								emerging responsibilities as "bros who code". This narrative explores a nerdy niche,
-								touches on worlds outside our expectations, and celebrates becoming a neurodivergent
-								man — on one's own terms.
+								I am a new father, Russian-Jewish American, and an ever curious learner. I commit to
+								healthy masculinity and technological ethos — fulfilling our emerging
+								responsibilities as "bros who code". This narrative explores my nerdy niche, touches
+								on worlds outside our expectations, and celebrates becoming a neurodivergent
+								creative — on one's own terms.
 							</p>
-							<p>TL;DR, Let's connect, communicate, and transform our reality.</p>
+							<p>TL;DR, Let's reunite stories and truths — "On Mic, On Paper, and Online".</p>
 						{/snippet}
 					</OnScroll>
 					<OnScroll>
