@@ -45,14 +45,13 @@
 			id="menu-button"
 			aria-haspopup="dialog"
 			aria-controls="site-menu"
-			aria-label="Open Navigation Menu"
+			title="Open Menu"
 			onclick={() => main.setModalOpen(2)}
 		>
 			{@html menuIcon}
 		</button>
 		<MainBtns />
 	</nav>
-	<!-- {#if main.modalOpen} -->
 	<Modal close={() => main.setModalOpen(0)}>
 		<nav class="main_nav modal_nav" aria-label="Site Menu">
 			<ul class="nav_list_main nav_list">
@@ -62,7 +61,6 @@
 			</ul>
 		</nav>
 	</Modal>
-	<!-- {/if} -->
 {/if}
 
 <!-- *goes inside modal dialog -->

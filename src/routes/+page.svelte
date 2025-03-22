@@ -73,26 +73,27 @@
 					<OnScroll>
 						{#snippet fadeIn()}
 							<p>
-								In <a
+								Hi, I'm Solomon! 👋<br />
+								And this is my artistic vision.<br />
+								It is far superior to my 20/400 vision.
+							</p>
+							<p>
+								Through <a
 									href="https://solwriteman.substack.com"
 									target="_blank"
 									title="My blog!"
 									rel="noopener noreferrer">Bytes && Snippets</a
-								>, I create and share accessible, vibrant experiences.
-							</p>
-							<p>
-								In procedural art bytes, I convey humanity through geometry and thread the
-								Avant-Garde through familiar lenses. In poetic snippets, I integrate bumbling
-								spirits and toe stubs into our greater narrative.
+								>, I share my slice of virtual wisdom. In bytes of procedural art, I express my
+								humanity through geometry. And in poetic snippets, I integrate each of my bumbling
+								spirits and memories into the greater narrative.
 							</p>
 							<p>
 								I am a new father, Russian-Jewish American, and an ever curious learner. I commit to
-								healthy masculinity and technological ethos — fulfilling our emerging
-								responsibilities as "bros who code". This narrative explores my nerdy niche, touches
-								on worlds outside our expectations, and celebrates becoming a neurodivergent
-								creative — on one's own terms.
+								healthy masculinity and technological ethos — fulfilling an emerging responsibility
+								as a men "who writes to heal". My narrative explores a nerdy niche and imagines
+								pages beyond the weights on our shoulders.
 							</p>
-							<p>TL;DR, Let's reunite stories and truths — "On Mic, On Paper, and Online".</p>
+							<p>TL;DR, Let's connect and communicate — "On Mic, On Paper, and Online".</p>
 						{/snippet}
 					</OnScroll>
 					<OnScroll>
@@ -116,11 +117,8 @@
 				</figure>
 				<div class="t_text">
 					<p>
-						Hi, I'm Solomon! 👋<br />I am a technologist and writer based in California, USA.<br />I
-						love leveling up other devs and have been debugging my typos for: <StatsCard
-							target="2016-11-13"
-							type="bio"
-						/>
+						I am a technologist and writer based in California, USA.<br />I love leveling up other
+						devs and have been debugging my typos for: <StatsCard target="2016-11-13" type="bio" />
 					</p>
 					<p>
 						From 2016-2018, I worked with the former non-profit,

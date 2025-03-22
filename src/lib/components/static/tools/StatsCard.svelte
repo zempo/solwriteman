@@ -27,8 +27,7 @@
 			>{timeData.years} years,{timeData.days === 0
 				? ''
 				: ` ${timeData.days} days,`}{timeData.hours === 0 ? '' : ` ${timeData.hours} hours,`}
-			{timeData.minutes}
-			mins, and
+			{timeData.hours === 0 ? '' : ` ${timeData.minutes} mins,`} and
 			{timeData.seconds} secs!</b
 		>
 	</span>
