@@ -3,6 +3,10 @@ import { main } from './main.svelte';
 
 // **********************************************************************************
 // **********************************************************************************
+export const getAUD = (KEY) => {
+	return getContext(KEY);
+};
+
 /* eslint-disable no-undef */
 class AudPlay {
 	time = $state(0);
@@ -22,10 +26,8 @@ class AudPlay {
 		return getContext(KEY);
 	}
 
-	setAud(audFile, audIdx) {
-		setContext('audIdx', audIdx);
-		setContext('audFile', audFile);
-		return '';
+	initAud() {
+		setContext('paused', this.paused);
 	}
 
 	selectTrack(idx, idxNew) {
@@ -59,7 +61,6 @@ class AudPlay {
 			this.playbackNext = speedsRef[1];
 		}
 		this.playbackRate = speedsRef[this.playbackIdx];
-		// this.playbackRef.focus();
 	}
 
 	trackReset() {

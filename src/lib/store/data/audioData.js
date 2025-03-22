@@ -98,9 +98,21 @@ export const reelData = [
 
 export const poemData = [
 	{
-		title: `This Day in ADHD`,
-		src: `https://open.acast.com/public/streams/62bb6cbc21e4cb001212c5e7/episodes/62bb8940e762370014e64722.mp3`,
+		title: `Virual Wisdom`,
+		src: `https://sveltejs.github.io/assets/music/mozart.mp3`,
 		timestamps: [],
-		notes: [`This is a passion project. For more info, visit www.indieproject.com.`]
+		notes: [``]
+	},
+	{
+		title: `If Friend-Shaped`,
+		src: `https://sveltejs.github.io/assets/music/holst.mp3`,
+		timestamps: [],
+		notes: [``]
+	},
+	{
+		title: `It's SolWriteMan`,
+		src: `https://sveltejs.github.io/assets/music/strauss.mp3`,
+		timestamps: [],
+		notes: [``]
 	}
 ];

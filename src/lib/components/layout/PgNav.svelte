@@ -8,6 +8,7 @@
 	import { navData } from '$lib/config';
 	import { dimension } from '$lib/store/dimension.svelte';
 	import { main } from '$lib/store/main.svelte';
+	import { onMount } from 'svelte';
 
 	let { topBar, btmBar, dialog, mainNav, socialNav, footMain, footSocial } = $props();
 </script>

@@ -17,12 +17,11 @@
 		{/if}
 		<span class="icon" aria-hidden="true">{isOpen ? '−' : '+'}</span>
 	</button>
-	{#key isOpen}
+	{#if isOpen}
 		<div
 			id="disclosure-content"
 			role="region"
 			aria-hidden={!isOpen}
-			hidden={!isOpen}
 			transition:slide={{ duration: 300, axis: 'y' }}
 			class="disclosure-content"
 		>
@@ -32,5 +31,5 @@
 				{/if}
 			</div>
 		</div>
-	{/key}
+	{/if}
 </div>

@@ -11,7 +11,7 @@
 	import Links from '$lib/components/content/Links.svelte';
 	import StatsCard from '$lib/components/static/tools/StatsCard.svelte';
 	import SkipBtn from '$lib/components/static/tools/SkipBtn.svelte';
-	import { reelData } from '$lib/store/data/audioData.js';
+	import { poemData, reelData } from '$lib/store/data/audioData.js';
 	import AdaAlt from '$lib/components/static/comp_lib/AdaAlt.svelte';
 	import OnScroll from '$lib/components/static/comp_lib/OnScroll.svelte';
 </script>
@@ -273,5 +273,6 @@
 			</OnScroll>
 		</div>
 		<AudPlayer audData={reelData} />
+		<AudPlayer audData={poemData} />
 	</section>
 </PgMain>
