@@ -2,7 +2,11 @@
 	import { navData } from '$lib/config';
 	import { main } from '$lib/store/main.svelte';
 
-	const { navItem } = $props();
+	// const { navItem } = $props();
+	let currYr = () => {
+		let d = new Date();
+		return d.getFullYear();
+	};
 </script>
 
 {#snippet navItem(L)}
@@ -16,14 +20,37 @@
 {/snippet}
 
 <footer class="app_footer">
-	<!-- pages list -->
-	<nav class="foot_menu" aria-label="Footer Menu">
+	<nav class="foot_menu" aria-label="Quick Links">
+		<h2 class="use_h3" aria-hidden="true">Pages</h2>
 		<ul class="foot_list_main foot_list">
 			{#each navData.pages as P}
 				{@render navItem(P)}
 			{/each}
 		</ul>
 	</nav>
-	<!-- some socials list -->
+	<nav class="foot_menu socials_menu" aria-label="My Socials">
+		<h2 class="use_h3" aria-hidden="true">Socials</h2>
+		<ul class="foot_list_main foot_list">
+			{#each navData.socialLinks as P}
+				{@render navItem(P)}
+			{/each}
+		</ul>
+	</nav>
+	<div class="foot_content">
+		<a href="https://notbyai.fyi/about" class="not_ai_img" target="_blank" rel="noopener noreferrer"
+			><img src="/img/ai-badge.svg" alt="Made by a human, not by AI." class="foot_img" /><span
+				class="aria_text">Made by a human, not by AI.</span
+			></a
+		>
+		<p>&copy;2020-{currYr()} Solomon Zelenko</p>
+		<p>
+			⚙️ Made with <a href="https://kit.svelte.dev/" target="_blank" rel="noopener noreferrer"
+				>SvelteKit</a
+			>;<br />☁️ Hosted on
+			<a href="https://www.cloudflare.com/" target="_blank" rel="noopener noreferrer">Cloudflare</a
+			>;<br />
+			☕ Powered by Caffeine.
+		</p>
+	</div>
 	<!-- copyright -->
 </footer>
