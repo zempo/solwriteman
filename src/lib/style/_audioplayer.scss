@@ -125,9 +125,9 @@ $breakpoints: (
 			justify-content: center;
 			align-items: center;
 			margin-block: 1rem;
-			column-gap: 0.5rem;
+			column-gap: 0.25rem;
 			.slider {
-				width: 90%;
+				width: 75%;
 				// border: 1px solid var(--playerBlue);
 				// background: var(--playerBlueLt);
 				input[type='range'] {
@@ -340,6 +340,16 @@ $breakpoints: (
 						top: 0;
 						margin-right: 0.5rem;
 					}
+				}
+			}
+		}
+	}
+	@include mq('p_wide', 'min') {
+		.aud_player {
+			.aud_stats {
+				column-gap: 0.5rem;
+				.slider {
+					width: 90%;
 				}
 			}
 		}

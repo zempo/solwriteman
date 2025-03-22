@@ -128,15 +128,13 @@
 		<label class="slider">
 			<div class="timestamps">
 				{#each currAud.timestamps as A}
-					<!-- visibility: ${audPlay.duration > 0 ? 'visible;opacity:1;':'hidden;opacity:0;'}l -->
 					{#key audPlay.duration > 0}
-						<!-- in:fade={{ duration: 300, opacity: 0 }} -->
 						<span
 							class="t_stamp"
 							aria-hidden="true"
 							title={A.info}
 							in:fade={{ duration: 300, opacity: 0 }}
-							style={`visibility: ${audPlay.duration > 0 ? 'visible;opacity:1;' : 'hidden;opacity:0;'}left:${A.pt * (100 / audPlay.duration)}%`}
+							style={`display: ${audPlay.duration > 0 ? 'inline-block;opacity:1;' : 'none;opacity:0;'}left:${A.pt * (100 / audPlay.duration)}%`}
 						></span>
 					{/key}
 				{/each}
@@ -152,11 +150,6 @@
 			/>
 		</label>
 		<span class="progress">{audPlay.duration ? audPlay.format(audPlay.duration) : '--:--'}</span>
-		<!-- <datalist id="timestamps">
-			{#each currAud.timestamps as A}
-				<option value={A.pt} label={A.pt}></option>
-			{/each}
-		</datalist> -->
 	</div>
 	<div class="aud_controls" role="toolbar" aria-label="playback controls">
 		<div class="btn_grp btn_grp_l">

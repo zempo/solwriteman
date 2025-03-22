@@ -189,7 +189,7 @@ $br_25: 0.25rem;
 	margin: 1rem auto 0;
 	width: calc(100vw - 1rem);
 	max-width: 1600px;
-	padding: 2rem 0 100px;
+	padding: 0 0 100px;
 	border: 1px solid var(--appFig);
 	border-top-right-radius: 1rem;
 	border-top-left-radius: 1rem;
@@ -200,7 +200,7 @@ $br_25: 0.25rem;
 	.foot_content {
 		// border: 1px solid var(--appConst);
 		color: var(--appConst);
-		padding: 0.5rem 1rem;
+		padding: 0.5rem 2rem;
 		.use_h3 {
 			color: var(--appConst);
 		}
@@ -212,13 +212,14 @@ $br_25: 0.25rem;
 	@include mq('p_wide', 'min') {
 		// justify-content: center;
 		// width: calc(100vw - 2rem);
-		padding: 2rem 0 100px;
+		padding: 1rem 0 100px;
 		display: flex;
 		flex-wrap: wrap;
 		.foot_menu {
 			width: calc(50vw - 0.6rem);
 		}
 		.foot_content {
+			// border-top: 1px solid var(--appConst);
 			width: 100%;
 		}
 	}

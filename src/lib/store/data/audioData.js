@@ -95,3 +95,12 @@ export const reelData = [
 		notes: [`This is a passion project. For more info, visit www.indieproject.com.`]
 	}
 ];
+
+export const poemData = [
+	{
+		title: `This Day in ADHD`,
+		src: `https://open.acast.com/public/streams/62bb6cbc21e4cb001212c5e7/episodes/62bb8940e762370014e64722.mp3`,
+		timestamps: [],
+		notes: [`This is a passion project. For more info, visit www.indieproject.com.`]
+	}
+];
