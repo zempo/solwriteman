@@ -6,6 +6,7 @@
 	import { main } from '$lib/store/main.svelte.js';
 	import '$lib/style/globals.scss';
 	import { getRouteClass } from '$lib/components/static/utils/nav.js';
+	import PgFoot from '$lib/components/layout/PgFoot.svelte';
 	export let data;
 
 	$: main.currentPage = data.path;
@@ -28,6 +29,7 @@
 		</div>
 	</PgMain>
 {/key}
+<PgFoot />
 
 <style lang="scss">
 	/* @import "lib/assets/scss/..." */
