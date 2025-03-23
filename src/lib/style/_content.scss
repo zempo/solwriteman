@@ -49,6 +49,10 @@ $breakpoints: (
 		p {
 			text-transform: uppercase;
 		}
+		a {
+			// text-transform: none;
+			text-decoration: none;
+		}
 		.hero_scene {
 			display: block;
 			position: absolute;
@@ -166,6 +170,39 @@ $breakpoints: (
 			border-bottom: 1px solid var(--textMain);
 			.sub_title {
 				margin-block: 0.5rem 0.25rem;
+			}
+		}
+		.sub_sec {
+			width: calc(100vw - 1.5rem);
+			padding: 4rem auto 0;
+			margin: 0 auto;
+			max-width: 1400px;
+			h3 {
+				margin: 0;
+			}
+		}
+		.vsnip {
+			width: calc(100vw - 1rem);
+			max-width: 1400px;
+			margin: 1.75rem auto;
+			.you__tube {
+				border-radius: 1rem;
+			}
+		}
+		@include mq('phab_min', 'min') {
+			.sub_sec {
+				padding: 5rem 0.5rem 0;
+			}
+			.vsnip {
+				margin: 2rem auto 3rem;
+			}
+		}
+		@include mq('t_med', 'min') {
+			.sub_sec {
+				padding: 6rem 0.5rem 0;
+			}
+			.vsnip {
+				margin: 2rem auto 3rem;
 			}
 		}
 	}

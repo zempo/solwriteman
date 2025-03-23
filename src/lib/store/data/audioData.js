@@ -24,7 +24,10 @@ export const reelData = [
 				info: `Knight's Knob`
 			}
 		],
-		notes: [`Main niche.`]
+		notes: [
+			`Recorded and edited in my home studio.`,
+			`These samples are based on real works of fiction, but have been altered.`
+		]
 	},
 	{
 		title: `Commercial Demo`,

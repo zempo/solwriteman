@@ -17,7 +17,7 @@
 		transcriptIcon
 	} from './audIcons';
 	import { audPlay, getAUD } from '$lib/store/audio.svelte';
-	import { fade, fly } from 'svelte/transition';
+	import { fade, fly, slide } from 'svelte/transition';
 	import { main } from '$lib/store/main.svelte';
 	import { truncate } from '../../utils/helpers';
 	import { dimension } from '$lib/store/dimension.svelte';
@@ -113,6 +113,7 @@
 			onended={() => endTrack()}
 		></audio>
 		{@render audBody()}
+		{@render audNotes()}
 	</div>
 	<div class="aud_tracklist">
 		<Disclosure>
@@ -133,9 +134,9 @@
 <!-- ??? AudHead -->
 {#snippet audHeader()}
 	{#key audIdx}
-		<h3 in:fly={{ y: 20, duration: 300, opacity: 0 }}>
+		<p class="use_h3" in:fly={{ y: 20, duration: 300, opacity: 0 }}>
 			{truncate(currAud.title, dimension.trunc1, '...')}
-		</h3>
+		</p>
 	{/key}
 	<div class="aud_utils" role="toolbar" aria-label="playback utility controls">
 		<button
@@ -146,8 +147,13 @@
 			{#if muted}{@html muteIcon}{:else}{@html volumeIcon}{/if}
 		</button>
 		<button
-			class="aud_btn aud_btn_notes"
-			title="{notesOpen ? 'Hide' : 'Show'} Notes"
+			class="aud_btn aud_btn_notes {notesOpen == true ? 'note_open' : ''}"
+			title={notesOpen
+				? 'Hide Notes'
+				: currAud.notes[0] === ''
+					? 'No Track Notes'
+					: 'See Track Notes'}
+			onclick={() => (notesOpen = !notesOpen)}
 			disabled={currAud.notes[0] === ''}
 		>
 			{@html transcriptIcon}
@@ -164,6 +170,17 @@
 			{@html downloadIcon}
 		</a>
 	</div>
+{/snippet}
+
+<!-- ??? AudNotes -->
+{#snippet audNotes()}
+	{#if notesOpen}
+		<div class="aud_notes" transition:slide={{ duration: 300, axis: 'y' }}>
+			{#each currAud.notes as N}
+				<p class="track_note">{N}</p>
+			{/each}
+		</div>
+	{/if}
 {/snippet}
 
 <!-- ??? AudBody -->

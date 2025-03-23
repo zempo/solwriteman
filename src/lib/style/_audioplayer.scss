@@ -32,7 +32,7 @@ $breakpoints: (
 .aud_wrap {
 	width: calc(100vw - 1rem);
 	max-width: 1400px;
-	margin: 3rem 0.5rem 2rem;
+	margin: 1.75rem 0.5rem;
 	box-shadow: var(--shadow4);
 	background: var(--playerBgd);
 	border: 1px solid var(--playerDark);
@@ -69,8 +69,9 @@ $breakpoints: (
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		h3 {
+		.use_h3 {
 			margin-top: 0.5rem;
+			font-weight: bolder;
 			display: inline-block;
 		}
 		.aud_utils {
@@ -109,6 +110,21 @@ $breakpoints: (
 						}
 					}
 				}
+				&.aud_btn_notes:disabled {
+					cursor: not-allowed;
+					svg {
+						.target_fill {
+							fill: var(--playerText_dim);
+						}
+					}
+				}
+				&.note_open {
+					svg {
+						.target_fill {
+							fill: var(--playerBlue);
+						}
+					}
+				}
 				&.aud_btn_download {
 					display: inline-block;
 				}
@@ -119,6 +135,16 @@ $breakpoints: (
 		background: var(--playerBgd);
 		color: var(--playerBlue);
 		box-shadow: var(--insetShadow2);
+		.aud_notes {
+			background: var(--playerBgd2);
+			width: 100%;
+			.track_note {
+				color: var(--playerBlue);
+				display: inline-block;
+				width: 100%;
+				margin: 0 1rem;
+			}
+		}
 		.aud_stats {
 			position: relative;
 			display: flex;
@@ -357,7 +383,7 @@ $breakpoints: (
 	@include mq('p_xwide', 'min') {
 		width: calc(100vw - 2rem);
 		max-width: 1400px;
-		margin-block: 4rem 2rem;
+		margin-block: 1.5rem;
 		margin-inline: auto;
 		.aud_header,
 		.aud_player {

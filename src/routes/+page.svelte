@@ -14,6 +14,7 @@
 	import { poemData, reelData } from '$lib/store/data/audioData.js';
 	import AdaAlt from '$lib/components/static/comp_lib/AdaAlt.svelte';
 	import OnScroll from '$lib/components/static/comp_lib/OnScroll.svelte';
+	import Youtube from 'svelte-youtube-embed';
 </script>
 
 <svelte:window bind:scrollY={dimension.currScrollLanding} bind:innerWidth={dimension.currW} />
@@ -23,7 +24,9 @@
 	<header class="home_header" style="margin-top: {dimension.topbarH}px;">
 		<h1>Solomon Zelenko</h1>
 		<p class="sub_title">
-			<AdaAlt textReg="On Paper • On Mic • Online" textAda="On paper, on mic, online" />
+			<span aria-label="On paper, on mic, online">
+				<a href="#onpaper">On Paper</a> • <a href="#onmic">On Mic</a> • <a href="#online">Online</a>
+			</span>
 		</p>
 		<HeroScene />
 	</header>
@@ -272,7 +275,38 @@
 				{/snippet}
 			</OnScroll>
 		</div>
+		<div class="sub_sec" id="onmic">
+			<OnScroll>
+				{#snippet flyUp()}
+					<h3>#On Mic</h3>
+				{/snippet}
+			</OnScroll>
+		</div>
 		<AudPlayer audData={reelData} />
+		<div class="sub_sec" id="onpaper">
+			<OnScroll>
+				{#snippet flyUp()}
+					<h3>#On Paper</h3>
+				{/snippet}
+			</OnScroll>
+		</div>
+		<div class="vsnip">
+			<Youtube id="a-4oCHe-hDE">
+				<!-- <img
+					slot="thumbnail"
+					alt="Default Snip Alt"
+					src="https://i.imgur.com/ZljZRA2.png"
+					style="width: 100%; height: 100%; object-fit: contain; object-position: center; background: red"
+				/> -->
+			</Youtube>
+		</div>
 		<AudPlayer audData={poemData} />
+		<div class="sub_sec" id="online">
+			<OnScroll>
+				{#snippet flyUp()}
+					<h3>#Online</h3>
+				{/snippet}
+			</OnScroll>
+		</div>
 	</section>
 </PgMain>
