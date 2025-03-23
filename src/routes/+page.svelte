@@ -16,7 +16,7 @@
 	import OnScroll from '$lib/components/static/comp_lib/OnScroll.svelte';
 </script>
 
-<svelte:window bind:scrollY={dimension.currScrollLanding} />
+<svelte:window bind:scrollY={dimension.currScrollLanding} bind:innerWidth={dimension.currW} />
 
 <PgHead pgData={seoData.main} />
 <PgMain>

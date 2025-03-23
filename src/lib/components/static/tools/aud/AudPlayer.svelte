@@ -19,6 +19,8 @@
 	import { audPlay, getAUD } from '$lib/store/audio.svelte';
 	import { fade, fly } from 'svelte/transition';
 	import { main } from '$lib/store/main.svelte';
+	import { truncate } from '../../utils/helpers';
+	import { dimension } from '$lib/store/dimension.svelte';
 
 	let { audData, audIdx = 0 } = $props();
 	let currAud = $state(audData[audIdx]);
@@ -131,7 +133,9 @@
 <!-- ??? AudHead -->
 {#snippet audHeader()}
 	{#key audIdx}
-		<h3 in:fly={{ y: 20, duration: 300, opacity: 0 }}>{currAud.title}</h3>
+		<h3 in:fly={{ y: 20, duration: 300, opacity: 0 }}>
+			{truncate(currAud.title, dimension.trunc1, '...')}
+		</h3>
 	{/key}
 	<div class="aud_utils" role="toolbar" aria-label="playback utility controls">
 		<button

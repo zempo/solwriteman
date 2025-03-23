@@ -2,6 +2,8 @@
 class Dimension {
 	topbarH = $state(60);
 	currScrollLanding = $state(0);
+	currW = $state(300);
+	trunc1 = $derived(Math.ceil(this.currW / 24));
 	featElDist = $state(600);
 	featEl = $state();
 
