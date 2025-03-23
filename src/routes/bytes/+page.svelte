@@ -10,4 +10,19 @@
 	<section class="app_section">
 		<PgHero>{#snippet regHero()}{/snippet}</PgHero>
 	</section>
+	<!-- 
+	bytes:
+
+	onclick opens
+
+	copy code / image preview / notes .svx (no code linting)
+
+	bytes/
+
+	bytes/kit/this_component
+
+	bytes/lab/this_shader or render (image)
+
+	https://www.w3.org/WAI/ARIA/apg/patterns/
+	-->
 </PgMain>

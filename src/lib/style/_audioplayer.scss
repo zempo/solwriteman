@@ -137,7 +137,9 @@ $breakpoints: (
 		box-shadow: var(--insetShadow2);
 		.aud_notes {
 			background: var(--playerBgd2);
+			box-shadow: var(--insetShadow);
 			width: 100%;
+			padding: 0.25rem 0;
 			.track_note {
 				color: var(--playerBlue);
 				display: inline-block;

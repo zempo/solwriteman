@@ -10,4 +10,10 @@
 	<section class="app_section">
 		<PgHero>{#snippet regHero()}{/snippet}</PgHero>
 	</section>
+	<!-- 
+	book preview 
+	just external links page
+
+	/books?this_book (highlight)
+	-->
 </PgMain>

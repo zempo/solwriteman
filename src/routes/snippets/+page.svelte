@@ -10,4 +10,11 @@
 	<section class="app_section">
 		<PgHero>{#snippet regHero()}{/snippet}</PgHero>
 	</section>
+	<!-- 
+	snippets:
+
+	snippets?this_tag (image preview / summary of external substack link)
+
+	make table
+	-->
 </PgMain>
