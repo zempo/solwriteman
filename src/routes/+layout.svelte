@@ -7,12 +7,15 @@
 	import '$lib/style/globals.scss';
 	import { getRouteClass } from '$lib/components/static/utils/nav.js';
 	import PgFoot from '$lib/components/layout/PgFoot.svelte';
+	import { dimension } from '$lib/store/dimension.svelte.js';
 	export let data;
 
 	$: main.currentPage = data.path;
 	const transitionIn = { easing: cubicOut, duration: 300, delay: 200 };
 	const transitionOut = { easing: cubicIn, duration: 300 };
 </script>
+
+<svelte:window bind:scrollY={dimension.currScrollLanding} bind:innerWidth={dimension.currW} />
 
 <PgNav
 	>{#snippet topBar()}

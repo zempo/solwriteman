@@ -17,8 +17,6 @@
 	import Youtube from 'svelte-youtube-embed';
 </script>
 
-<svelte:window bind:scrollY={dimension.currScrollLanding} bind:innerWidth={dimension.currW} />
-
 <PgHead pgData={seoData.main} />
 <PgMain>
 	<header class="home_header" style="margin-top: {dimension.topbarH}px;">
@@ -308,5 +306,7 @@
 				{/snippet}
 			</OnScroll>
 		</div>
+		<!-- TODO | Github Contributions chart like...
+		 ?? https://svelte.dev/playground/756596b4f3af4f02bf23e572159f159c?version=5.25.2 -->
 	</section>
 </PgMain>
