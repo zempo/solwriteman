@@ -98,11 +98,11 @@ export const defaultSEO = {
 	type: 'website'
 };
 export const titles = {
-	books: `My Books`,
-	bytes: `Art Bytes`,
+	books: `Books / Zines`,
+	bytes: `Quick Bytes`,
 	snippets: `Snippets`,
 	socials: `Socials`,
-	tools: `Tools & Uses`
+	tools: `Tools`
 };
 export const taglines = {
 	books: `Storytold In a Nerdy Niche.`,

@@ -11,6 +11,8 @@
 	import NextTab from './NextTab.svelte';
 	import { main } from '$lib/store/main.svelte';
 
+	export let tabType = 'tabs_standard';
+
 	const T = {
 		Tab,
 		NextTab,
@@ -73,6 +75,6 @@
 	});
 </script>
 
-<div class="tabs" id="tabs_scroll">
+<div class="tabs {tabType}" id="tabs_scroll">
 	<slot {T} />
 </div>

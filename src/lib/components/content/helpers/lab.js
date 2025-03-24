@@ -4,24 +4,26 @@ import { blogYears, getAllTopics } from './api';
 
 export const fetchLab = async ({ topics = '', byURL = '' } = {}) => {
 	const labs = await Promise.all(
-		Object.entries(import.meta.glob('$lib/content/lab/*.svx')).map(async ([path, resolver]) => {
-			const { metadata, default: content } = await resolver();
-			const slug = path.split('/').pop().slice(0, -4);
+		Object.entries(import.meta.glob('$lib/components/content/lab/*.svx')).map(
+			async ([path, resolver]) => {
+				const { metadata, default: content } = await resolver();
+				const slug = path.split('/').pop().slice(0, -4);
 
-			let labText = '';
+				let labText = '';
 
-			if (content) {
-				const labContent = render(content);
-				// Strip HTML tags, remove \n line breaks, to lowercase
-				labText =
-					labContent?.body
-						?.replace(/<[^>]*>?/gm, '')
-						.replace(/\r?\n|\r/g, ' ')
-						.toLowerCase() || '';
+				if (content) {
+					const labContent = render(content);
+					// Strip HTML tags, remove \n line breaks, to lowercase
+					labText =
+						labContent?.body
+							?.replace(/<[^>]*>?/gm, '')
+							.replace(/\r?\n|\r/g, ' ')
+							.toLowerCase() || '';
+				}
+
+				return { ...metadata, slug, labText };
 			}
-
-			return { ...metadata, slug, labText };
-		})
+		)
 	);
 
 	let sortedLabs = labs.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
@@ -32,7 +34,7 @@ export const fetchLab = async ({ topics = '', byURL = '' } = {}) => {
 		sortedLabs = sortedLabs.filter((s) => {
 			topics.forEach((t) => s.topics.includes(t));
 		});
-		// console.log(sortedSnips, 'by topic');
+		// console.log(sortedLabs, 'by topic');
 	}
 
 	if (byURL) {
@@ -65,14 +67,14 @@ export const fetchLab = async ({ topics = '', byURL = '' } = {}) => {
 			allTopics.push({ lab_slug: s.slug, topics: s.topics });
 		}
 
-		if (s.snipText) {
+		if (s.labText) {
 			searchStrs.push({
 				slug: s.slug,
-				content: `${s.title.toLowerCase()} ${s.excerpt.toLowerCase()} ${s.snipText}`
+				content: `${s.title.toLowerCase()} ${s.excerpt.toLowerCase()} ${s.labText}`
 			});
 		}
 
-		for (let i = 1; i <= blogYears; i++) {
+		for (let i = 0; i < blogYears; i++) {
 			let currYr = 2025 + i;
 			if (s.created_at.includes(currYr)) {
 				byYear[i].push({

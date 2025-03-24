@@ -208,7 +208,10 @@ $breakpoints: (
 	}
 
 	.app_section {
+		margin: auto;
 		margin-top: 70px;
+		width: calc(100vw - 1rem);
+		max-width: 1600px;
 		.reg_hero {
 			padding: 1rem 0.75rem 0.75rem;
 			border-bottom: 1px solid var(--textLt);
@@ -220,7 +223,7 @@ $breakpoints: (
 			}
 		}
 		@include mq('phab_min', 'min') {
-			margin-top: 80px;
+			margin-top: 90px;
 		}
 	}
 }
