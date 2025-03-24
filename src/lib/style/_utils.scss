@@ -30,6 +30,9 @@ $breakpoints: (
 
 .tabs {
 	margin: 0.5rem;
+	&.wide_tabs {
+		margin: 1rem 0;
+	}
 	// border: 1px solid black;
 	.tab_list {
 		display: flex;
@@ -219,6 +222,9 @@ $breakpoints: (
 		width: calc(100vw - 2rem);
 		margin-block: 4rem 2rem;
 		margin-inline: auto;
+		&.wide_tabs {
+			margin: 1.5rem 0;
+		}
 		.tab_panel {
 			.t_text {
 				position: relative;
