@@ -7,7 +7,8 @@
 
 	registerTab(tab);
 
-	export let id = 0;
+	// export let id = 0;
+	const { id = 0, children } = $props();
 
 	const handleClick = () => {
 		selectTab(tab);
@@ -26,5 +27,6 @@
 	class:selected={$selectedTab === tab}
 	onclick={() => handleClick()}
 >
-	<slot />
+	<!-- <slot /> -->
+	{@render children()}
 </button>

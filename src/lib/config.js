@@ -98,7 +98,7 @@ export const defaultSEO = {
 	type: 'website'
 };
 export const titles = {
-	books: `Books / Zines`,
+	books: `Published Works`,
 	bytes: `Quick Bytes`,
 	snippets: `Snippets`,
 	socials: `Socials`,

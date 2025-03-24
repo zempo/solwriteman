@@ -11,7 +11,8 @@
 	import NextTab from './NextTab.svelte';
 	import { main } from '$lib/store/main.svelte';
 
-	export let tabType = 'tabs_standard';
+	// export let tabType = 'tabs_standard';
+	const { tabType = 'tabs_standard', children } = $props();
 
 	const T = {
 		Tab,
@@ -76,5 +77,6 @@
 </script>
 
 <div class="tabs {tabType}" id="tabs_scroll">
-	<slot {T} />
+	<!-- <slot {T} /> -->
+	{@render children(T)}
 </div>

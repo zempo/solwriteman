@@ -4,13 +4,12 @@ import { json } from '@sveltejs/kit';
 export const prerender = true;
 
 export const GET = async () => {
-	const { labs, byYear, searchStrs, pinned, topics } = await fetchLab();
+	const { labs, searchLab, pinnedLab, topicsLab } = await fetchLab();
 
 	return json({
 		labs,
-		byYear,
-		searchStrs,
-		pinned,
-		topics
+		searchLab,
+		pinnedLab,
+		topicsLab
 	});
 };

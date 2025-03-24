@@ -1,6 +1,6 @@
 import { siteAlt, siteImg } from '$lib/config';
 import { render } from 'svelte/server';
-import { blogYears, getAllTopics } from './api';
+import { getAllTopics } from './api';
 
 export const fetchLab = async ({ topics = '', byURL = '' } = {}) => {
 	const labs = await Promise.all(
@@ -42,17 +42,12 @@ export const fetchLab = async ({ topics = '', byURL = '' } = {}) => {
 	}
 
 	let allTopics = [];
-	let pinned = [];
-	let byYear = [];
-	let searchStrs = [];
-	// year slots
-	for (let y = 0; y < blogYears; y++) {
-		byYear.push([]);
-	}
+	let pinnedLab = [];
+	let searchLab = [];
 
 	sortedLabs = sortedLabs.map((s) => {
 		if (s.pinned) {
-			pinned.push({
+			pinnedLab.push({
 				title: s.title,
 				slug: s.slug,
 				created_at: s.created_at,
@@ -68,24 +63,10 @@ export const fetchLab = async ({ topics = '', byURL = '' } = {}) => {
 		}
 
 		if (s.labText) {
-			searchStrs.push({
+			searchLab.push({
 				slug: s.slug,
 				content: `${s.title.toLowerCase()} ${s.excerpt.toLowerCase()} ${s.labText}`
 			});
-		}
-
-		for (let i = 0; i < blogYears; i++) {
-			let currYr = 2025 + i;
-			if (s.created_at.includes(currYr)) {
-				byYear[i].push({
-					title: s.title,
-					slug: s.slug,
-					created_at: s.created_at,
-					excerpt: s.excerpt,
-					topics: s.topics ?? [],
-					pinned: s.pinned ?? false
-				});
-			}
 		}
 
 		return {
@@ -101,13 +82,12 @@ export const fetchLab = async ({ topics = '', byURL = '' } = {}) => {
 		};
 	});
 
-	// console.log(searchStrs);
+	// console.log(searchLabs);
 
 	return {
 		labs: sortedLabs,
-		searchStrs,
-		topics: getAllTopics(allTopics),
-		byYear: byYear.reverse(),
-		pinned
+		searchLab,
+		topicsLab: getAllTopics(allTopics),
+		pinnedLab
 	};
 };
