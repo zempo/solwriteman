@@ -21,7 +21,7 @@
 
 <footer class="app_footer">
 	<nav class="foot_menu" aria-label="Quick Links">
-		<h2 class="use_h3" aria-hidden="true">Pages</h2>
+		<span class="use_h3" aria-hidden="true">Pages</span>
 		<ul class="foot_list_main foot_list">
 			{#each navData.pages as P}
 				{@render navItem(P)}
@@ -29,7 +29,7 @@
 		</ul>
 	</nav>
 	<nav class="foot_menu socials_menu" aria-label="My Socials">
-		<h2 class="use_h3" aria-hidden="true">Socials</h2>
+		<span class="use_h3" aria-hidden="true">Socials</span>
 		<ul class="foot_list_main foot_list">
 			{#each navData.socialLinks as P}
 				{@render navItem(P)}

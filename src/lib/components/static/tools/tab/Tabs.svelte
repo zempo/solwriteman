@@ -77,6 +77,5 @@
 </script>
 
 <div class="tabs {tabType}" id="tabs_scroll">
-	<!-- <slot {T} /> -->
 	{@render children(T)}
 </div>

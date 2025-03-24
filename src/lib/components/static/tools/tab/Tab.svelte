@@ -27,6 +27,5 @@
 	class:selected={$selectedTab === tab}
 	onclick={() => handleClick()}
 >
-	<!-- <slot /> -->
 	{@render children()}
 </button>

@@ -8,9 +8,15 @@
 	import { getRouteClass } from '$lib/components/static/utils/nav.js';
 	import PgFoot from '$lib/components/layout/PgFoot.svelte';
 	import { dimension } from '$lib/store/dimension.svelte.js';
-	export let data;
+	// export let data;
+	const { data, children } = $props();
 
-	$: main.currentPage = data.path;
+	// $: main.currentPage = data.path;
+
+	$effect(() => {
+		main.currentPage = data.path;
+	});
+
 	const transitionIn = { easing: cubicOut, duration: 300, delay: 200 };
 	const transitionOut = { easing: cubicIn, duration: 300 };
 </script>
@@ -28,7 +34,8 @@
 {#key data.path}
 	<PgMain>
 		<div in:fade|global={transitionIn} out:fade|global={transitionOut}>
-			<slot />
+			<!-- <slot /> -->
+			{@render children()}
 		</div>
 	</PgMain>
 {/key}
