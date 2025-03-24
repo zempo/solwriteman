@@ -1,11 +1,3 @@
-// For Number of Tables
-export const thisYear = Number(new Date().getFullYear());
-/**
- * !extra year added for testing
- * */
-// export const blogYears = thisYear - 2024 + 1;
-export const blogYears = thisYear - 2024 + 3;
-
 /**
  * *For website stats in about secion and homepage
  */
