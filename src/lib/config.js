@@ -23,13 +23,11 @@ export const desc = `🍊 OC-Based Digital Storyteller & Artist.`;
 export const blogLaunchDate = `2025-04-02`;
 
 export const navData = {
-	hrefs: ['/', '/books', '/bytes', '/snippets', '/socials', '/tools'],
+	hrefs: ['/', '/books', '/bytes', '/snippets', '/socials'],
 	pages: [
 		{
-			// ?? main shader slideshow, and about
 			href: `/`,
 			title: `Main`
-			// *add [/] box
 		},
 		{
 			// ?? book read/buy links
@@ -47,14 +45,10 @@ export const navData = {
 			title: `Snippets`
 		},
 		{
+			// svelte:self tools rolled into FAQ section
 			// ?? link to shops, youtube, etc
 			href: `/socials`,
 			title: `Socials`
-		},
-		{
-			// ?? svelte:self
-			href: `/tools`,
-			title: `Tools`
 		}
 	],
 	socialLinks: [
@@ -101,15 +95,13 @@ export const titles = {
 	books: `Published Works`,
 	bytes: `Quick Bytes`,
 	snippets: `Snippets`,
-	socials: `Socials`,
-	tools: `Tools`
+	socials: `Socials`
 };
 export const taglines = {
 	books: `Storytold In a Nerdy Niche.`,
 	bytes: `Keep Calm And Debug On™`,
 	snippets: `From Notes App to Table.`,
-	socials: `🐋 Well, Hello There!`, // 🐋, hello there
-	tools: `How'd He Build That?`
+	socials: `🐋 Well, Hello There!` // 🐋, hello there
 };
 export const seoData = {
 	main: {
@@ -135,11 +127,6 @@ export const seoData = {
 	socials: {
 		title: `Solomon Z • All My Links`,
 		desc: taglines.socials,
-		...defaultSEO
-	},
-	tools: {
-		title: `Solomon Z • Tools & Uses`,
-		desc: taglines.tools,
 		...defaultSEO
 	}
 };

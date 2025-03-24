@@ -3,6 +3,7 @@
 	import { onDestroy, tick } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
 	import { miniHov, miniReg } from '../svg/nav';
+	import { navData } from '$lib/config';
 
 	let dialog;
 	let backdrop;
@@ -93,6 +94,7 @@
 	<div
 		class="modal-backdrop"
 		bind:this={backdrop}
+		title="Minimize"
 		onclick={(e) => handleBackdropClick(e)}
 		use:focusTrap
 	>
@@ -102,7 +104,6 @@
 			role="dialog"
 			aria-labelledby="modal-title"
 			aria-modal="true"
-			title="Minimize"
 			transition:fly={{ y: 200, duration: 300 }}
 			onclick={(e) => e.stopPropagation()}
 		>
@@ -123,7 +124,19 @@
 					{@html miniReg}
 				{/if}
 			</button>
-			<slot></slot>
+			<nav class="main_nav modal_nav" aria-label="Site Menu">
+				<ul class="nav_list_main nav_list">
+					{#each navData.pages as P}
+						<li class={`nav_link ${main.isActiveLink(P.href)}`}>
+							{#if P.external}
+								<a href={P.href} target="_blank" rel="noopener noreferrer">{P.title}</a>
+							{:else}
+								<a href={P.href}>{P.title}</a>
+							{/if}
+						</li>
+					{/each}
+				</ul>
+			</nav>
 		</div>
 	</div>
 {/if}

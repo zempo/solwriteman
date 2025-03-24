@@ -36,7 +36,8 @@
 				<T.Panel id={0} panelType="wide_panel">
 					{#snippet children()}
 						<p>
-							{count}
+							{countLab}
+							{countKit}
 						</p>
 					{/snippet}
 				</T.Panel>

@@ -209,8 +209,8 @@
 						</figure>
 						<div class="t_text">
 							<p>
-								For a more in-depth look at my art, stacks, and methods, check out the <a
-									href="/tools">tools page!</a
+								For a more in-depth look at my art, tech stacks, and methods, check out the <a
+									href="/socials#uses">uses section!</a
 								>
 							</p>
 							<p>
@@ -246,8 +246,8 @@
 								</li>
 								<li>
 									<p>
-										<b>Performance:</b> Workshops / Post-Performance Retrospective (<a href="/tools"
-											>More Info</a
+										<b>Performance:</b> Workshops / Post-Performance Retrospective (<a
+											href="/socials#uses">More Info</a
 										>).
 									</p>
 								</li>
