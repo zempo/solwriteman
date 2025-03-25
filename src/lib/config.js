@@ -30,7 +30,7 @@ export const rssData = {
 };
 
 export const navData = {
-	hrefs: ['/', '/books', '/bytes', '/snippets', '/socials'],
+	hrefs: ['/', '/books', '/bytes', '/snippets', '/contact'],
 	pages: [
 		{
 			href: `/`,
@@ -54,8 +54,8 @@ export const navData = {
 		{
 			// svelte:self tools rolled into FAQ section
 			// ?? link to shops, youtube, etc
-			href: `/socials`,
-			title: `Socials`
+			href: `/contact`,
+			title: `Contact`
 		}
 	],
 	socialLinks: [
@@ -107,13 +107,13 @@ export const titles = {
 	books: `Books`,
 	bytes: `Bytes`,
 	snippets: `Snippets`,
-	socials: `Socials`
+	contact: `Contact`
 };
 export const taglines = {
 	books: `Storytold In a Nerdy Niche.`,
 	bytes: `Keep Calm And Debug On™`,
 	snippets: `From Notes App to Table.`,
-	socials: `🐋 Well, Hello There!` // 🐋, hello there
+	contact: `🐋 Well, Hello There!` // 🐋, hello there
 };
 export const seoData = {
 	main: {
@@ -136,9 +136,9 @@ export const seoData = {
 		desc: taglines.snippets,
 		...defaultSEO
 	},
-	socials: {
+	contact: {
 		title: `Solomon Z • All My Links`,
-		desc: taglines.socials,
+		desc: taglines.contact,
 		...defaultSEO
 	}
 };

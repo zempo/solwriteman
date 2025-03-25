@@ -4,7 +4,7 @@
 </script>
 
 {#if linkType == 'contact'}
-	<a href="/socials" class="contact_link">{text}</a>
+	<a href="/contact#contact" class="contact_link">{text}</a>
 {/if}
 {#if linkType == 'substack'}
 	<a

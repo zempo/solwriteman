@@ -5,7 +5,7 @@
 	import { seoData } from '$lib/config';
 </script>
 
-<PgHead pgData={seoData.socials} />
+<PgHead pgData={seoData.contact} />
 <PgMain>
 	<section class="app_section">
 		<PgHero>{#snippet regHero()}{/snippet}</PgHero>

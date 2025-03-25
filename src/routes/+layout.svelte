@@ -92,7 +92,7 @@
 			@include transition(all, 0.3s, ease-in-out);
 			@extend .animate-brighten-slide;
 		}
-		&.socials_on {
+		&.contact_on {
 			background: var(--accentByte);
 			@include transition(all, 0.3s, ease-in-out);
 			@extend .animate-brighten-slide;

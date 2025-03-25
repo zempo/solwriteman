@@ -210,7 +210,7 @@
 						<div class="t_text">
 							<p>
 								For a more in-depth look at my art, tech stacks, and methods, check out the <a
-									href="/socials#uses">uses section!</a
+									href="/contact#uses">uses section!</a
 								>
 							</p>
 							<p>
@@ -247,7 +247,7 @@
 								<li>
 									<p>
 										<b>Performance:</b> Workshops / Post-Performance Retrospective (<a
-											href="/socials#uses">More Info</a
+											href="/contact#uses">More Info</a
 										>).
 									</p>
 								</li>

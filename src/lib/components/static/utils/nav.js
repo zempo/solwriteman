@@ -4,7 +4,7 @@ export const getRouteClass = (url) => {
 	routeMap.set('books', 'books_on');
 	routeMap.set('bytes', 'bytes_on');
 	routeMap.set('snippets', 'snippets_on');
-	routeMap.set('socials', 'socials_on');
+	routeMap.set('contact', 'contact_on');
 
 	let urlSplits = url.split('/');
 
