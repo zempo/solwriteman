@@ -322,7 +322,7 @@ figcaption {
 .tabs,
 .subsec {
 	button,
-	.contact_link {
+	.contact_pg_link {
 		font-family: $fontHead;
 		font-weight: bold;
 		// text-transform: uppercase;
@@ -489,7 +489,7 @@ td,
 
 html {
 	.app_pg {
-		.contact_link {
+		.contact_pg_link {
 			display: inline-block;
 			background: var(--appOpaque2);
 			border-radius: 0.25rem;

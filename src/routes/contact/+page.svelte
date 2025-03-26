@@ -34,8 +34,8 @@
 				</li>
 			</ul>
 		</section>
-		<section class="app_subsec" id="contact">
-			<h2>Contact Form</h2>
+		<section class="app_subsec" id="meet">
+			<h2>Meetup!</h2>
 		</section>
 	</section>
 </PgMain>

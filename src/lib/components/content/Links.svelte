@@ -4,13 +4,13 @@
 </script>
 
 {#if linkType == 'contact'}
-	<a href="/contact#contact" class="contact_link">{text}</a>
+	<a href="/contact#meet" class="contact_pg_link">{text}</a>
 {/if}
 {#if linkType == 'substack'}
 	<a
 		href="https://solwriteman.substack.com/"
 		target="_blank"
 		rel="noopener noreferrer"
-		class="contact_link substack_link">{text}</a
+		class="contact_pg_link substack_link">{text}</a
 	>
 {/if}
