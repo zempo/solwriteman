@@ -1,0 +1,9 @@
+---
+title: "GLSL Svelte Scene"
+created_at: "2025-01-22"
+topics: ["svelte","front_end","glsl","shaders"]
+excerpt: "A "
+seo_type: "article"
+---
+
+## Overview 

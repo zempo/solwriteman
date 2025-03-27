@@ -9,7 +9,7 @@ seo_type: "article"
 ---
 <!-- possible topics: noise, rgb, glsl, p3js, d3js, music, data_vis -->
 <!-- https://www.shadertoy.com/view/XsXXDn -->
-# Another heading!
+## Overview
 
 ```glsl
 #ifdef GL_ES

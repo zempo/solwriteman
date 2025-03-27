@@ -1,9 +1,11 @@
 ---
 title: "Tabs"
 created_at: "2025-01-22"
-topics: ["svelte","front_end"]
-excerpt: "A formatted countdown component"
+topics: ["svelte","ux_ui"]
+excerpt: "Tabs component"
 seo_type: "article"
 ---
 
-# Tabs 
+## Overview 
+
+Put it on my tab
