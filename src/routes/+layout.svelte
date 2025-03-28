@@ -34,7 +34,6 @@
 {#key data.path}
 	<PgMain>
 		<div in:fade|global={transitionIn} out:fade|global={transitionOut}>
-			<!-- <slot /> -->
 			{@render children()}
 		</div>
 	</PgMain>

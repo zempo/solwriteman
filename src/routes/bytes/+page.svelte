@@ -4,6 +4,7 @@
 	import PgHero from '$lib/components/layout/PgHero.svelte';
 	import { seoData } from '$lib/config';
 	import Tabs from '$lib/components/static/tools/tab/Tabs.svelte';
+	import ApiCard from '$lib/components/content/helpers/ApiCard.svelte';
 
 	export let data;
 
@@ -29,32 +30,18 @@
 			{#snippet children(T)}
 				<T.List>
 					{#snippet children()}
-						<T.Tab id={0}>{#snippet children()}Lab: Art / Visuals / Figures{/snippet}</T.Tab>
-						<T.Tab id={1}>{#snippet children()}Kit: Components / Packages{/snippet}</T.Tab>
+						<T.Tab id={0}>{#snippet children()}Lab: Art / Shaders / Renders{/snippet}</T.Tab>
+						<T.Tab id={1}>{#snippet children()}Kit: UI for a UX Guy{/snippet}</T.Tab>
 					{/snippet}
 				</T.List>
 				<T.Panel id={0} panelType="wide_panel">
 					{#snippet children()}
-						<p>
-							{countLab}
-							{countKit}
-						</p>
+						<ApiCard content={labs} />
 					{/snippet}
 				</T.Panel>
 				<T.Panel id={1}>
 					{#snippet children()}
-						<p>
-							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab ipsum enim nobis
-							quibusdam. Excepturi reiciendis odit totam veritatis ducimus laborum esse
-							reprehenderit, dignissimos velit, maxime minima quos, eum magnam placeat illo quo? Id
-							enim magni suscipit assumenda! Iste quam, fugit esse maxime harum molestias nihil
-							eveniet quasi! Exercitationem facere, beatae est non illum nobis adipisci nihil
-							incidunt magni, doloribus excepturi nulla deserunt reprehenderit, fugiat vitae. In
-							nisi commodi ex soluta accusamus quisquam, itaque quia quidem provident facilis
-							consequuntur ipsum, beatae dolores. Recusandae expedita unde quas! Possimus aut
-							ducimus voluptatibus deleniti veniam blanditiis eius, commodi saepe quo, harum
-							accusantium error incidunt?
-						</p>
+						<ApiCard type="kit" content={kits} />
 					{/snippet}
 				</T.Panel>
 			{/snippet}

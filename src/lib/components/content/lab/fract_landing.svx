@@ -1,15 +1,14 @@
 ---
-title: "Noise Experiments 2025"
-created_at: "2025-01-22"
-topics: ["glsl","rgb"]
-excerpt: "Spring 2025 Noise Experiments"
-cover_img: "https://t3.ftcdn.net/jpg/03/26/50/04/360_F_326500445_ZD1zFSz2cMT1qOOjDy7C5xCD4shawQfM.jpg"
-cover_alt: "Behold! This glorious placeholder horse!"
+title: "Landing Page Fractal"
+created_at: "2025-03-12"
+topics: ["glsl","rgb","matrix"]
+excerpt: "A fractal generated for my landing page."
+pinned: true
 seo_type: "article"
 ---
-<!-- possible topics: noise, rgb, glsl, p3js, d3js, music_linked, data_vis -->
+<!-- possible topics: noise, rgb, glsl, p3js, d3js, music, data_vis -->
 <!-- https://www.shadertoy.com/view/XsXXDn -->
-## Overview
+## Overview 
 
 ```glsl
 #ifdef GL_ES
