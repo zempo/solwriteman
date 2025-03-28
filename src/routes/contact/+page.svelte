@@ -1,12 +1,12 @@
 <script>
 	import PgHead from '$lib/components/layout/PgHead.svelte';
-	import PgMain from '$lib/components/layout/PgMain.svelte';
 	import PgHero from '$lib/components/layout/PgHero.svelte';
+	import PgWrap from '$lib/components/layout/PgWrap.svelte';
 	import { seoData } from '$lib/config';
 </script>
 
 <PgHead pgData={seoData.contact} />
-<PgMain>
+<PgWrap>
 	<section class="app_section">
 		<PgHero>{#snippet regHero()}{/snippet}</PgHero>
 		<!--  -->
@@ -38,4 +38,4 @@
 			<h2>Meetup!</h2>
 		</section>
 	</section>
-</PgMain>
+</PgWrap>
