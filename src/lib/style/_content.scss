@@ -248,6 +248,7 @@ $contentW: calc(75% - 1rem);
 
 		.content_aside {
 			display: none;
+			order: 2;
 			input:focus,
 			button:focus,
 			a:focus {
@@ -341,11 +342,13 @@ $contentW: calc(75% - 1rem);
 								box-shadow: var(--shadow3);
 								text-decoration: none;
 								padding: 0.25rem 0.5rem;
-								@include transition(all, 0.3s, ease-in);
-								&:hover {
+								@include transition(background-color, 0.3s, ease-in);
+								&:hover,
+								&:focus,
+								&:active {
 									background: var(--appTranslucent);
 									border-color: var(--playerDark);
-									@include transition(all, 0.3s, ease-in);
+									@include transition(background-color, 0.3s, ease-in);
 								}
 							}
 						}
@@ -373,7 +376,7 @@ $contentW: calc(75% - 1rem);
 			&.app_wrap_w {
 				overflow: visible;
 				width: calc(100vw - 4rem);
-				max-width: 1800px;
+				max-width: 1600px;
 				display: flex;
 				flex-wrap: wrap;
 				flex-direction: row-reverse;
