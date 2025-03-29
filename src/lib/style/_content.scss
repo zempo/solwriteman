@@ -220,7 +220,7 @@ $contentW: calc(75% - 1rem);
 			margin-top: 1rem;
 		}
 		&.app_wrap_w {
-			width: calc(100vw - 2rem);
+			width: calc(100vw - 1rem);
 			max-width: 100%;
 		}
 		.reg_hero {
@@ -285,14 +285,13 @@ $contentW: calc(75% - 1rem);
 			list-style-type: none;
 			display: flex;
 			flex-wrap: wrap;
+			row-gap: 1rem;
 			margin: 0;
 			padding: 0;
 			width: 100%;
 			.byte_item {
 				width: 100%;
 				.byte_preview {
-					border: 1px solid var(--appTranslucent);
-					border-radius: 0.5rem;
 					.prev_head {
 						display: flex;
 						h2 {

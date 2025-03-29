@@ -1,4 +1,5 @@
 <script>
+	import { byteLab, byteLab2, byteLab3 } from '$lib/components/static/svg/api';
 	import { formatTimestampLong } from './api';
 
 	const { content = [], type = 'lab' } = $props();
@@ -19,7 +20,7 @@
 	<li class="byte_item">
 		<article class="byte_preview {type}_preview">
 			<div class="prev_head">
-				<div class="gl">icon</div>
+				<div class="gl">{@html byteLab}</div>
 				<div class="gr">
 					<h2 class="use_h4">{@render contentLink(L)}</h2>
 					<p class="pub">{@html formatTimestampLong(L.created_at)}</p>

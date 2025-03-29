@@ -573,6 +573,22 @@ html {
 	}
 }
 
+.byte_item {
+	.prev_head {
+		position: relative;
+		.gl {
+			height: 100%;
+			vertical-align: middle;
+			svg {
+				@include icon-size($h1_font_sizes);
+				@include mq('tablet', 'min') {
+					@include icon-size($h1_font_sizes);
+				}
+			}
+		}
+	}
+}
+
 .search_form {
 	svg {
 		@include icon-size($p_font_sizes);
