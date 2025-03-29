@@ -316,9 +316,11 @@ th {
 }
 td,
 .foot_link a,
-.content_aside li {
+.content_aside li,
+.tag_item {
 	font-family: $fontBody;
 }
+
 figcaption {
 	font-family: $fontBody;
 }
@@ -443,7 +445,8 @@ td,
 }
 .search_form input,
 .content_aside li,
-.pub {
+.pub,
+.tag_item a {
 	@include font-size($sub_font_sizes);
 	@include mq('phablet', 'min') {
 		@include font-size($sub_font_sizes);

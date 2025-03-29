@@ -22,6 +22,14 @@ $breakpoints: (
 	}
 }
 
+@mixin transition($property: all, $duration: 0.3s, $timing: ease, $delay: 0s) {
+	-webkit-transition: $property $duration $timing $delay;
+	-moz-transition: $property $duration $timing $delay;
+	-ms-transition: $property $duration $timing $delay;
+	-o-transition: $property $duration $timing $delay;
+	transition: $property $duration $timing $delay;
+}
+
 $contentW: calc(75% - 1rem);
 
 .app_main {
@@ -285,7 +293,7 @@ $contentW: calc(75% - 1rem);
 			list-style-type: none;
 			display: flex;
 			flex-wrap: wrap;
-			row-gap: 1rem;
+			row-gap: 3rem;
 			margin: 0;
 			padding: 0;
 			width: 100%;
@@ -294,15 +302,56 @@ $contentW: calc(75% - 1rem);
 				.byte_preview {
 					.prev_head {
 						display: flex;
+						gap: 0.25rem;
 						h2 {
 							margin-top: 0;
 							a {
 								text-decoration: none;
 							}
 						}
+						.pub {
+							margin-top: 0.15rem;
+						}
 					}
-					.pub {
-						margin-top: 0.15rem;
+					.prev_body {
+						p {
+							margin: 0;
+							font-style: oblique;
+							a {
+								display: block;
+								font-style: normal;
+								line-height: 2;
+								color: var(--textLt);
+								font-weight: 550;
+								text-transform: uppercase;
+								font-family: 'Inter Variable', sans-serif;
+							}
+						}
+						.tag_list {
+							list-style-type: none;
+							display: flex;
+							gap: 0.5rem;
+							padding: 0;
+							// line-height: 1;
+							margin-top: 1rem;
+							.tag_item {
+								a {
+									background: var(--appFig);
+									color: var(--appConst);
+									border-radius: 0.25rem;
+									border: 1px solid var(--playerDark);
+									box-shadow: var(--shadow3);
+									text-decoration: none;
+									padding: 0.25rem 0.5rem;
+									@include transition(all, 0.3s, ease-in);
+									&:hover {
+										background: var(--appTranslucent);
+										border-color: var(--playerDark);
+										@include transition(all, 0.3s, ease-in);
+									}
+								}
+							}
+						}
 					}
 				}
 			}
