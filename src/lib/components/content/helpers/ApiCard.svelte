@@ -43,12 +43,12 @@
 					{L.excerpt}
 					{@render contentLink(L, 'Read More...')}
 				</p>
-				<ul class="tag_list">
-					{#each L.topics as T, idx}
-						{@render tagList(T)}
-					{/each}
-				</ul>
 			</div>
+			<ul class="tag_list">
+				{#each L.topics as T, idx}
+					{@render tagList(T)}
+				{/each}
+			</ul>
 		</article>
 	</li>
 {/snippet}

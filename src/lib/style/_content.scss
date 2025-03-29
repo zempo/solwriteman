@@ -246,9 +246,6 @@ $contentW: calc(75% - 1rem);
 			border-bottom: 1px solid var(--textLt);
 		}
 
-		.byte_item_list {
-			list-style-type: none;
-		}
 		.content_aside {
 			display: none;
 			input:focus,
@@ -293,7 +290,7 @@ $contentW: calc(75% - 1rem);
 			list-style-type: none;
 			display: flex;
 			flex-wrap: wrap;
-			row-gap: 3rem;
+			row-gap: 3.5rem;
 			margin: 0;
 			padding: 0;
 			width: 100%;
@@ -302,7 +299,7 @@ $contentW: calc(75% - 1rem);
 				.byte_preview {
 					.prev_head {
 						display: flex;
-						gap: 0.25rem;
+						gap: 0.5rem;
 						h2 {
 							margin-top: 0;
 							a {
@@ -324,31 +321,31 @@ $contentW: calc(75% - 1rem);
 								color: var(--textLt);
 								font-weight: 550;
 								text-transform: uppercase;
-								font-family: 'Inter Variable', sans-serif;
+								// font-family: 'Inter Variable', sans-serif;
 							}
 						}
-						.tag_list {
-							list-style-type: none;
-							display: flex;
-							gap: 0.5rem;
-							padding: 0;
-							// line-height: 1;
-							margin-top: 1rem;
-							.tag_item {
-								a {
-									background: var(--appFig);
-									color: var(--appConst);
-									border-radius: 0.25rem;
-									border: 1px solid var(--playerDark);
-									box-shadow: var(--shadow3);
-									text-decoration: none;
-									padding: 0.25rem 0.5rem;
+					}
+					.tag_list {
+						list-style-type: none;
+						display: flex;
+						gap: 0.5rem;
+						padding: 0;
+						// line-height: 1;
+						margin-top: 1rem;
+						.tag_item {
+							a {
+								background: var(--appFig);
+								color: var(--appConst);
+								border-radius: 0.25rem;
+								border: 1px solid var(--playerDark);
+								box-shadow: var(--shadow3);
+								text-decoration: none;
+								padding: 0.25rem 0.5rem;
+								@include transition(all, 0.3s, ease-in);
+								&:hover {
+									background: var(--appTranslucent);
+									border-color: var(--playerDark);
 									@include transition(all, 0.3s, ease-in);
-									&:hover {
-										background: var(--appTranslucent);
-										border-color: var(--playerDark);
-										@include transition(all, 0.3s, ease-in);
-									}
 								}
 							}
 						}
@@ -358,6 +355,13 @@ $contentW: calc(75% - 1rem);
 		}
 		@include mq('phab_min', 'min') {
 			margin-top: 100px;
+			.byte_item_list {
+				row-gap: 4rem;
+				// justify-content: space-between;
+				// .byte_item {
+				// 	width: calc(50% - 2rem);
+				// }
+			}
 			&.app_wrap_w {
 				width: calc(100vw - 3rem);
 				.wide_tabs {
@@ -380,7 +384,7 @@ $contentW: calc(75% - 1rem);
 					width: 100%;
 				}
 				.wide_tabs {
-					height: 150vh;
+					// height: 150vh;
 					margin: 0;
 					max-width: $contentW;
 					margin-inline: 1rem;

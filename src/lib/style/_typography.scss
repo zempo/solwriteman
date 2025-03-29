@@ -582,6 +582,7 @@ html {
 		.gl {
 			height: 100%;
 			vertical-align: middle;
+			margin-top: 0.5rem;
 			svg {
 				@include icon-size($h1_font_sizes);
 				@include mq('tablet', 'min') {
