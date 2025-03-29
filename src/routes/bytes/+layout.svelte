@@ -21,6 +21,6 @@
 <PgWrap type="w">
 	{@render children()}
 	<ApiAside>
-		<h2>boob</h2>
+		<h2>Aside</h2>
 	</ApiAside>
 </PgWrap>

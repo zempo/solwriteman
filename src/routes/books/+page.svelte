@@ -7,7 +7,8 @@
 
 <PgHead pgData={seoData.books} />
 <PgWrap>
-	<PgHero>{#snippet regHero()}{/snippet}</PgHero>
+	<PgHero />
+	<div class="spacer"></div>
 	<!-- 
 	book preview 
 	just external links page

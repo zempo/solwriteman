@@ -1,0 +1,21 @@
+@use 'sass:map';
+
+/**
+	--shiki-light: #5c6a72;
+	--shiki-dark: #d3c6aa;
+	--shiki-light-bg: #fdf6e3;
+	--shiki-dark-bg: #2d353b;
+*/
+
+pre {
+	background: var(--appFig);
+	box-shadow: var(--shadow2);
+	width: calc(100% - 1rem);
+	padding: 1rem;
+	border-top-left-radius: 1rem;
+	border-top-right-radius: 1rem;
+	code {
+		color: rgb(112, 205, 215);
+		text-wrap: wrap;
+	}
+}

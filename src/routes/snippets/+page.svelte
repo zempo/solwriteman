@@ -7,9 +7,8 @@
 
 <PgHead pgData={seoData.snippets} />
 <PgWrap>
-	<section class="app_section">
-		<PgHero>{#snippet regHero()}{/snippet}</PgHero>
-	</section>
+	<PgHero />
+	<div class="spacer"></div>
 	<!-- 
 	snippets:
 

@@ -23,7 +23,7 @@
 </script>
 
 <PgHead pgData={seoData.bytes} />
-<PgHero>{#snippet regHero()}{/snippet}</PgHero>
+<PgHero />
 <Tabs let:T tabType="wide_tabs">
 	{#snippet children(T)}
 		<T.List>

@@ -8,7 +8,9 @@ seo_type: "article"
 ---
 <!-- possible topics: noise, rgb, glsl, p3js, d3js, music, data_vis -->
 <!-- https://www.shadertoy.com/view/XsXXDn -->
-## Overview 
+## Overview
+
+
 
 ```glsl
 #ifdef GL_ES
@@ -24,10 +26,27 @@ float circleGEO(vec2 position, float radius){
 
 void main() {
   vec2 uv = ((gl_FragCoord.xy - (u_resolution.xy * 0.5)) / u_resolution.y);
-  // shapes, colors, fragments output here
-  float circle = circleGEO(uv, 0.2);
+  // Adjust color based on audio data
+  float colorIntensity = smoothstep(0.0, 1.0, u_audio); // Map audio value [0,1]
+  colorIntensity *= 0.5; // lower effect intensity
 
-  vec3 color = vec3(circle);
-  gl_FragColor = vec4(color, 1.0);
+  float angle = u_time * 0.05; 
+  for (int i = 0; i < 8; i++){
+    uv = abs(uv);
+    uv -= 0.5;
+    uv *= 1.1;
+    uv *= mat2(
+      cos(angle), -sin(angle),
+      sin(angle), cos(angle)  
+    );
+  } 
+
+  vec3 c1 = vec3(
+    length(uv + vec2(colorIntensity, colorIntensity)), 
+    length(uv + vec2(0.2 + colorIntensity, -0.3)),
+    length(uv + vec2(0.4 + colorIntensity, -0.2))
+  );
+
+  gl_FragColor = vec4(c1, 1.0);
 } 
 ```

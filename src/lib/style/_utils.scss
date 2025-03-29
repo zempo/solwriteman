@@ -219,11 +219,6 @@ $breakpoints: (
 		width: calc(100vw - 2rem);
 		margin-block: 4rem 2rem;
 		margin-inline: auto;
-		&.wide_tabs {
-			margin: 0;
-			max-width: calc(66vw - 2rem);
-			margin-inline: 1rem;
-		}
 		.tab_panel {
 			.t_text {
 				position: relative;

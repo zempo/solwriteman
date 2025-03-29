@@ -8,7 +8,7 @@
 <PgHead pgData={seoData.contact} />
 <PgWrap>
 	<section class="app_section">
-		<PgHero>{#snippet regHero()}{/snippet}</PgHero>
+		<PgHero />
 		<!--  -->
 		<section class="app_subsec" id="uses">
 			<h2>Uses</h2>

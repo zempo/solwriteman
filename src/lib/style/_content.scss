@@ -22,6 +22,8 @@ $breakpoints: (
 	}
 }
 
+$contentW: calc(75% - 1rem);
+
 .app_main {
 	// the style of content elements
 	.home_header {
@@ -215,6 +217,11 @@ $breakpoints: (
 		margin-top: 70px;
 		width: calc(100vw - 1rem);
 		max-width: 1600px;
+		.spacer {
+			height: 100vh;
+			border: 1px solid var(--textMain);
+			margin-top: 1rem;
+		}
 		&.app_wrap_w {
 			width: calc(100vw - 2rem);
 			max-width: 100%;
@@ -229,32 +236,61 @@ $breakpoints: (
 				margin-top: 0.5rem;
 			}
 		}
+		.post_hero {
+			padding: 1rem 0.75rem 0.75rem;
+			border-bottom: 1px solid var(--textLt);
+		}
+		.content_aside {
+			display: none;
+		}
 		@include mq('phab_min', 'min') {
 			margin-top: 100px;
+			&.app_wrap_w {
+				width: calc(100vw - 3rem);
+				.wide_tabs {
+					width: 100%;
+				}
+			}
 		}
-		@include mq('d_min', 'min') {
+		@include mq('t_med', 'min') {
 			&.app_wrap_w {
 				overflow: visible;
 				width: calc(100vw - 4rem);
+				max-width: 1800px;
 				display: flex;
 				flex-wrap: wrap;
 				flex-direction: row-reverse;
 				justify-content: space-between;
 				row-gap: 1rem;
-				.reg_hero {
+				.reg_hero,
+				.post_hero {
 					width: 100%;
 				}
 				.wide_tabs {
-					// height: 200vh;
+					height: 150vh;
+					margin: 0;
+					max-width: $contentW;
+					margin-inline: 1rem;
 				}
 				.content_aside {
 					display: block;
 					// background: var(--appFig);
-					width: calc(32vw - 2rem);
+					width: calc(25% - 2rem);
 					position: sticky;
+					height: 100vh;
 					top: 100px;
 				}
 			}
 		}
+	}
+}
+
+.byte_pg {
+	text-align: left;
+	margin: auto;
+	width: calc(100vw - 1rem);
+	@include mq('d_min', 'min') {
+		margin: 0;
+		width: $contentW;
 	}
 }
