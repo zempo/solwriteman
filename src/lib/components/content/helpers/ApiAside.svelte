@@ -7,13 +7,11 @@
 		{@render children()}
 	</div>
 	<div class="global_aside">
-		<p>
-			Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore voluptatum maiores a esse
-			molestias.
-		</p>
-		<hr />
-		<p>about me...</p>
-		<p>Lorem, ipsum dolor.</p>
-		<p>Lorem, ipsum dolor.</p>
+		<h2 class="use_h4">Quick Links</h2>
+		<ul>
+			<li><a href="/bytes">All Bytes</a></li>
+			<li><a href="/snippets">Snippets</a></li>
+			<li><a href="/contact#faq">FAQs</a></li>
+		</ul>
 	</div>
 </aside>

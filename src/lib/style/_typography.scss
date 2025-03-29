@@ -258,6 +258,7 @@ h1,
 h2,
 h3,
 .use_h3,
+.use_h4,
 th {
 	font-family: $fontHead;
 	color: var(--textHead);
@@ -304,6 +305,7 @@ p {
 		font-family: $fontAction;
 	}
 }
+
 .tsnip {
 	h3 {
 		font-family: $fontBody;
@@ -313,7 +315,8 @@ th {
 	font-family: $fontHead;
 }
 td,
-.foot_link a {
+.foot_link a,
+.content_aside li {
 	font-family: $fontBody;
 }
 figcaption {
@@ -411,6 +414,12 @@ th,
 		@include font-size($h3_font_sizes);
 	}
 }
+h4,
+.use_h4 {
+	font-weight: 550;
+	@include font-size($bigp_font_sizes);
+}
+
 p,
 figcaption {
 	@include font-size($bigp_font_sizes);
@@ -432,7 +441,9 @@ td,
 		@include font-size($p_font_sizes);
 	}
 }
-.search_form input {
+.search_form input,
+.content_aside li,
+.pub {
 	@include font-size($sub_font_sizes);
 	@include mq('phablet', 'min') {
 		@include font-size($sub_font_sizes);

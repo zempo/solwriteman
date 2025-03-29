@@ -210,9 +210,6 @@ $contentW: calc(75% - 1rem);
 	}
 
 	.app_wrap {
-		/**
-		  * TODO responsive search/blog aside searchbar
-		**/
 		margin: auto;
 		margin-top: 70px;
 		width: calc(100vw - 1rem);
@@ -240,8 +237,76 @@ $contentW: calc(75% - 1rem);
 			padding: 1rem 0.75rem 0.75rem;
 			border-bottom: 1px solid var(--textLt);
 		}
+
+		.byte_item_list {
+			list-style-type: none;
+		}
 		.content_aside {
 			display: none;
+			input:focus,
+			button:focus,
+			a:focus {
+				outline: 2px solid var(--accentMain); /* Change outline color and width */
+				outline-offset: 2px; /* Space between the element and the outline */
+				position: relative;
+			}
+			.use_h4 {
+				border-bottom: 1px solid var(--appTranslucent);
+			}
+			.search_form {
+				width: 100%;
+				position: relative;
+				display: flex;
+				.search_input {
+					width: 100%;
+					border: none;
+					background: var(--appTranslucent);
+					padding: 0.9rem 0.5rem 0.8rem;
+					margin-bottom: 0.2rem;
+					&::placeholder {
+						color: var(--textMain);
+					}
+				}
+				.search_btn {
+					margin: 0px;
+					padding: 0px;
+					background: none;
+					border: none;
+					cursor: pointer;
+					position: relative;
+					left: -2rem;
+				}
+			}
+			ul {
+				list-style-type: circle;
+			}
+		}
+		.byte_item_list {
+			list-style-type: none;
+			display: flex;
+			flex-wrap: wrap;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			.byte_item {
+				width: 100%;
+				.byte_preview {
+					border: 1px solid var(--appTranslucent);
+					border-radius: 0.5rem;
+					.prev_head {
+						display: flex;
+						h2 {
+							margin-top: 0;
+							a {
+								text-decoration: none;
+							}
+						}
+					}
+					.pub {
+						margin-top: 0.15rem;
+					}
+				}
+			}
 		}
 		@include mq('phab_min', 'min') {
 			margin-top: 100px;

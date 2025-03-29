@@ -1,4 +1,6 @@
 <script>
+	import { formatTimestampLong } from './api';
+
 	const { content = [], type = 'lab' } = $props();
 </script>
 
@@ -16,7 +18,13 @@
 {#snippet contentItem(L, idx)}
 	<li class="byte_item">
 		<article class="byte_preview {type}_preview">
-			<h2>{@render contentLink(L)}</h2>
+			<div class="prev_head">
+				<div class="gl">icon</div>
+				<div class="gr">
+					<h2 class="use_h4">{@render contentLink(L)}</h2>
+					<p class="pub">{@html formatTimestampLong(L.created_at)}</p>
+				</div>
+			</div>
 		</article>
 	</li>
 {/snippet}
