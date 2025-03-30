@@ -7,6 +7,13 @@ export const getAllTopics = (posts) => {
 	return uniqueTopics;
 };
 
+export const combineTopics = (...topics) => {
+	const combined_topics = [].concat(...topics);
+	const unique_topics = [...new Set(combined_topics)];
+
+	return unique_topics;
+};
+
 export const getOrdinal = (num) => {
 	var s = ['th', 'st', 'nd', 'rd'];
 	var v = num % 100;

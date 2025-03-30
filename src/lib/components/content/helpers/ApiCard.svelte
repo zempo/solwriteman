@@ -23,7 +23,9 @@
 
 {#snippet tagList(T)}
 	<li class="tag_item {T === content.byteTopic ? 'btn_hl' : ''}">
-		<a href="/bytes?topic={T}">#{T}</a>
+		<button class="tag_btn" onclick={() => content.toggleByteTopic(T)}>
+			#{T}
+		</button>
 	</li>
 {/snippet}
 

@@ -285,6 +285,37 @@ $contentW: calc(75% - 1rem);
 			}
 			ul {
 				list-style-type: circle;
+				&.all_tags_list {
+					padding: 0;
+					list-style-type: none;
+					display: flex;
+					flex-wrap: wrap;
+					gap: 0.5rem 0.65rem;
+					.tag_item {
+						.tag_btn {
+							background: var(--appFig);
+							color: var(--appConst);
+							border-radius: 0.25rem;
+							border: 1px solid var(--playerDark);
+							box-shadow: var(--shadow3);
+							text-decoration: none;
+							padding: 0.25rem 0.5rem;
+							@include transition(background-color, 0.3s, ease-in);
+							&:hover,
+							&:focus,
+							&:active {
+								background: var(--appTranslucent);
+								border-color: var(--playerDark);
+								@include transition(background-color, 0.3s, ease-in);
+							}
+							&:active {
+								position: relative;
+								top: 0.05rem;
+								@include transition(background-color, 0.3s, ease-in);
+							}
+						}
+					}
+				}
 			}
 		}
 		.byte_item_list {
@@ -298,9 +329,10 @@ $contentW: calc(75% - 1rem);
 			.byte_item {
 				width: 100%;
 				&.rw_hl {
-					h2 a {
+					h2 a,
+					p a {
 						text-decoration: underline !important;
-						color: var(--rw);
+						color: var(--rw) !important;
 					}
 					svg {
 						.target_stroke {
@@ -308,7 +340,7 @@ $contentW: calc(75% - 1rem);
 						}
 					}
 					.btn_hl {
-						a {
+						.tag_btn {
 							background: var(--rw) !important;
 							color: var(--textRev) !important;
 						}
@@ -346,12 +378,12 @@ $contentW: calc(75% - 1rem);
 					.tag_list {
 						list-style-type: none;
 						display: flex;
-						gap: 0.5rem;
+						gap: 0.65rem;
 						padding: 0;
 						// line-height: 1;
 						margin-top: 1rem;
 						.tag_item {
-							a {
+							.tag_btn {
 								background: var(--appFig);
 								color: var(--appConst);
 								border-radius: 0.25rem;
@@ -365,6 +397,11 @@ $contentW: calc(75% - 1rem);
 								&:active {
 									background: var(--appTranslucent);
 									border-color: var(--playerDark);
+									@include transition(background-color, 0.3s, ease-in);
+								}
+								&:active {
+									position: relative;
+									top: 0.05rem;
 									@include transition(background-color, 0.3s, ease-in);
 								}
 							}

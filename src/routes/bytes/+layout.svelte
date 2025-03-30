@@ -4,6 +4,7 @@
 	import { searchIcon } from '$lib/components/static/svg/nav.js';
 	import { content } from '$lib/store/content.svelte.js';
 	import { page } from '$app/state';
+	import { combineTopics } from '$lib/components/content/helpers/api.js';
 
 	const { children, data } = $props();
 
@@ -36,15 +37,23 @@
 	</form>
 {/snippet}
 
-{#snippet allTagsList(T)}
-	<ul class="all_topics_list">
-		{@render allTagsList()}
+{#snippet allTagsList(Topic)}
+	<h2 class="use_h4">Topics</h2>
+	<ul class="all_tags_list">
+		{#each Topic as T}
+			<li class="tag_item">
+				<button class="tag_btn" onclick={() => content.toggleByteTopic(T)}>
+					#{T}
+				</button>
+			</li>
+		{/each}
 	</ul>
 {/snippet}
 
 <PgWrap type="w">
 	<ApiAside>
 		{@render searchForm()}
+		{@render allTagsList(combineTopics(topicsLab, topicsKit))}
 	</ApiAside>
 	{@render children()}
 </PgWrap>

@@ -317,7 +317,7 @@ th {
 td,
 .foot_link a,
 .content_aside li,
-.tag_item {
+.tag_item .tag_btn {
 	font-family: $fontBody;
 }
 
@@ -446,7 +446,7 @@ td,
 .search_form input,
 .content_aside li,
 .pub,
-.tag_item a {
+.tag_item .tag_btn {
 	@include font-size($sub_font_sizes);
 	@include mq('phablet', 'min') {
 		@include font-size($sub_font_sizes);
