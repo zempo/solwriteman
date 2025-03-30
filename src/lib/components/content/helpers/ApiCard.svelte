@@ -22,7 +22,7 @@
 {/snippet}
 
 {#snippet tagList(T)}
-	<li class="tag_item">
+	<li class="tag_item {T === content.byteTopic ? 'btn_hl' : ''}">
 		<a href="/bytes?topic={T}">#{T}</a>
 	</li>
 {/snippet}

@@ -28,6 +28,7 @@ html[data-theme='dark'] {
 	--appAction: #5f5b5f;
 	// --appFig: #715f58;
 	--appFig: #373d3a;
+	--textRev: #373d3a;
 	--textFig: #efe5e5;
 	--textFigHead: #fefefe;
 	--textLt: #e0e9e5b1;
@@ -68,6 +69,7 @@ html[data-theme='dark'] {
 	--accentByteLt: #57d7bb;
 
 	--rw: #2d94de;
+	--rw: #38c2bf;
 
 	--playerDark: #252a34;
 	--player2: #2e3440;
@@ -141,6 +143,7 @@ html[data-theme='light'] {
 	--appGradient: linear-gradient(315deg, var(--appMain) 0%, var(--appDark) 74%);
 	--appAction: #5f5b5f;
 	--appFig: #37393b;
+	--textRev: #eceff4;
 	--textFig: #c8c8c8;
 	--textFigHead: #f2f1e9;
 	--textLt: #37393bda;
@@ -181,6 +184,7 @@ html[data-theme='light'] {
 	--accentByteLt: #f4b1d7;
 
 	--rw: #1584d4;
+	--rw: #5b5cc4;
 
 	--hltSnip: #a279cd85;
 	--hltByte: #eb63b060;

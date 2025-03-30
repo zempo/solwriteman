@@ -307,6 +307,12 @@ $contentW: calc(75% - 1rem);
 							stroke: var(--rw);
 						}
 					}
+					.btn_hl {
+						a {
+							background: var(--rw) !important;
+							color: var(--textRev) !important;
+						}
+					}
 				}
 				.byte_preview {
 					.prev_head {
