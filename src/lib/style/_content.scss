@@ -297,6 +297,17 @@ $contentW: calc(75% - 1rem);
 			width: 100%;
 			.byte_item {
 				width: 100%;
+				&.rw_hl {
+					h2 a {
+						text-decoration: underline !important;
+						color: var(--rw);
+					}
+					svg {
+						.target_stroke {
+							stroke: var(--rw);
+						}
+					}
+				}
 				.byte_preview {
 					.prev_head {
 						display: flex;

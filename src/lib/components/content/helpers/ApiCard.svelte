@@ -1,8 +1,9 @@
 <script>
 	import { byteKit, byteLab } from '$lib/components/static/svg/api';
+	import { content } from '$lib/store/content.svelte';
 	import { formatTimestampLong } from './api';
 
-	const { content = [], type = 'lab' } = $props();
+	const { posts = [], type = 'lab' } = $props();
 </script>
 
 <!-- 
@@ -12,7 +13,7 @@
 			excerpt: s.excerpt,
 -->
 
-{#snippet contentLink(L, rdm = 1)}
+{#snippet postsLink(L, rdm = 1)}
 	{#if rdm === 1}
 		<a data-sveltekit-preload-data href="/bytes/{type}/{L.slug}">{L.title}</a>
 	{:else}
@@ -26,22 +27,22 @@
 	</li>
 {/snippet}
 
-{#snippet contentItem(L, idx)}
-	<li class="byte_item">
+{#snippet postsItem(L, idx)}
+	<li class="byte_item {L.topics.includes(content.byteTopic) ? 'rw_hl' : ''}">
 		<article class="byte_preview {type}_preview">
 			<div class="prev_head">
 				<div class="gl">
 					{#if type === 'lab'}{@html byteLab}{:else}{@html byteKit}{/if}
 				</div>
 				<div class="gr">
-					<h2 class="use_h4">{@render contentLink(L)}</h2>
+					<h2 class="use_h4">{@render postsLink(L)}</h2>
 					<p class="pub">{@html formatTimestampLong(L.created_at)}</p>
 				</div>
 			</div>
 			<div class="prev_body">
 				<p class="excerpt">
 					{L.excerpt}
-					{@render contentLink(L, 'Read More...')}
+					{@render postsLink(L, 'Read More...')}
 				</p>
 			</div>
 			<ul class="tag_list">
@@ -54,7 +55,7 @@
 {/snippet}
 
 <ul class="byte_item_list">
-	{#each content as C, idx}
-		{@render contentItem(C, idx)}
+	{#each posts as C, idx}
+		{@render postsItem(C, idx)}
 	{/each}
 </ul>

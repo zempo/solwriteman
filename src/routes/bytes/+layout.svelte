@@ -2,15 +2,15 @@
 	import ApiAside from '$lib/components/content/helpers/ApiAside.svelte';
 	import PgWrap from '$lib/components/layout/PgWrap.svelte';
 	import { searchIcon } from '$lib/components/static/svg/nav.js';
-	// import { page } from '$app/state';
+	import { content } from '$lib/store/content.svelte.js';
+	import { page } from '$app/state';
 
 	const { children, data } = $props();
 
-	// let url = $page.url;
 	// let urlTopic = null;
-	// $effect.pre(() => {
-	// 	urlTopic = url.searchParams.get('topic')
-	// })
+	$effect.pre(() => {
+		content.queryByteTopic(page.url);
+	});
 
 	const {
 		labs,

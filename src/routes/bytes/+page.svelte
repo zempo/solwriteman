@@ -34,12 +34,12 @@
 		</T.List>
 		<T.Panel id={0} panelType="wide_panel">
 			{#snippet children()}
-				<ApiCard content={labs} />
+				<ApiCard posts={labs} />
 			{/snippet}
 		</T.Panel>
 		<T.Panel id={1}>
 			{#snippet children()}
-				<ApiCard type="kit" content={kits} />
+				<ApiCard type="kit" posts={kits} />
 			{/snippet}
 		</T.Panel>
 	{/snippet}
