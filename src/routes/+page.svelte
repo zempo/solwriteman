@@ -97,12 +97,15 @@
 										bumbling spirits and memories into the greater narrative.
 									</p>
 									<p>
-										I am a new father, Russian-Jewish American, and an ever curious learner. I
-										commit to healthy masculinity and technological ethos — fulfilling an emerging
-										responsibility as a men "who writes to heal". My narrative explores a nerdy
-										niche and imagines pages beyond the weights on our shoulders.
+										I am a new father, son of Russian-Jewish Immigrants, and an ever curious
+										learner. I commit to healthy masculinity and technological ethos — writing
+										prose, poetry, and code responsibly. My narrative explores a nerdy niche and
+										imagines pages beyond the weights on our necks and shoulders.
 									</p>
-									<p>TL;DR, Let's connect and communicate — "On Mic, On Paper, and Online".</p>
+									<p>
+										TL;DR: Whether "On Mic, On Paper, and Online",<br />Let's connect, communicate,
+										and shape accessible realities.
+									</p>
 								{/snippet}
 							</OnScroll>
 							<OnScroll>
@@ -270,7 +273,7 @@
 				/>
 			</div>
 			<OnScroll>
-				{#snippet flyUp()}
+				{#snippet fadeIn()}
 					<figcaption>
 						Reciting poetry at <a
 							href="https://www.libromobile.com/"
@@ -293,7 +296,7 @@
 		</div>
 		<div class="sub_sec" id="onmic">
 			<OnScroll>
-				{#snippet flyUp()}
+				{#snippet fadeIn()}
 					<h3>#On Mic</h3>
 				{/snippet}
 			</OnScroll>
@@ -301,7 +304,7 @@
 		<AudPlayer audData={reelData} />
 		<div class="sub_sec" id="onpaper">
 			<OnScroll>
-				{#snippet flyUp()}
+				{#snippet fadeIn()}
 					<h3>#On Paper</h3>
 				{/snippet}
 			</OnScroll>
@@ -319,7 +322,7 @@
 		<AudPlayer audData={poemData} />
 		<div class="sub_sec" id="online">
 			<OnScroll>
-				{#snippet flyUp()}
+				{#snippet fadeIn()}
 					<h3>#Online</h3>
 				{/snippet}
 			</OnScroll>

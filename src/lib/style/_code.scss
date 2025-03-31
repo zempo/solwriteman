@@ -8,14 +8,15 @@
 */
 
 pre {
-	background: var(--appFig);
+	background: var(--appCodeBg);
 	box-shadow: var(--shadow2);
-	width: calc(100% - 1rem);
+	width: 100%;
 	padding: 1rem;
-	border-top-left-radius: 1rem;
-	border-top-right-radius: 1rem;
+	border-radius: 0.25rem;
+	border: 6px solid var(--appCodebar);
 	code {
 		color: rgb(112, 205, 215);
+		font-weight: bold;
 		text-wrap: wrap;
 	}
 }

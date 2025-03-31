@@ -453,6 +453,13 @@ td,
 	}
 }
 
+pre code {
+	@include font-size($sub_font_sizes);
+	@include mq('phablet', 'min') {
+		@include font-size($sub_sub_font_sizes);
+	}
+}
+
 .aud_player {
 	.aud_stats {
 		font-family: $fontAction;
