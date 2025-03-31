@@ -30,7 +30,11 @@
 {/snippet}
 
 {#snippet postsItem(L, idx)}
-	<li class="byte_item {L.topics.includes(content.byteTopic) ? 'rw_hl' : ''}">
+	<li
+		class="byte_item {L.topics.includes(content.byteTopic)
+			? 'rw_hl'
+			: ''}{content.byteMatchList.includes(L.slug) ? ' rw_match' : ''}"
+	>
 		<article class="byte_preview {type}_preview">
 			<div class="prev_head">
 				<div class="gl">

@@ -10,7 +10,7 @@
 		<h2 class="use_h4">Quick Links</h2>
 		<ul>
 			<li><a href="/bytes">All Bytes</a></li>
-			<li><a href="/snippets">Snippets</a></li>
+			<li><a href="/snippets"> All Snippets</a></li>
 			<li><a href="/contact#faq">FAQs</a></li>
 		</ul>
 	</div>

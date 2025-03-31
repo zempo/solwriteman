@@ -7,6 +7,7 @@
 	import { combineTopics } from '$lib/components/content/helpers/api.js';
 
 	const { children, data } = $props();
+	let query = $state('');
 
 	// let urlTopic = null;
 	$effect.pre(() => {
@@ -28,9 +29,23 @@
 </script>
 
 {#snippet searchForm()}
-	<form autocomplete="off" role="search" class="search_form">
+	<form
+		autocomplete="off"
+		role="search"
+		class="search_form"
+		onsubmit={(e) => content.handleSearch(e, query, [...searchLab, ...searchKit])}
+	>
 		<label for="byte_search" class="sr">Filter Bytes by Keyword</label>
-		<input id="byte_search" class="search_input" placeholder="Explore Art" type="search" />
+		<input
+			id="byte_search"
+			class="search_input"
+			bind:value={query}
+			oninput={() => {
+				if (query === '') content.handleClear();
+			}}
+			placeholder="Find the Best Byte"
+			type="search"
+		/>
 		<button type="submit" title="Search" aria-label="Submit search" class="search_btn"
 			>{@html searchIcon}</button
 		>
@@ -42,7 +57,10 @@
 	<ul class="all_tags_list">
 		{#each Topic as T}
 			<li class="tag_item">
-				<button class="tag_btn" onclick={() => content.toggleByteTopic(T)}>
+				<button
+					class="tag_btn {T === content.byteTopic ? 'btn_hl' : ''}"
+					onclick={() => content.toggleByteTopic(T)}
+				>
 					#{T}
 				</button>
 			</li>

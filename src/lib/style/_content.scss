@@ -225,7 +225,6 @@ $contentW: calc(75% - 1rem);
 		.spacer {
 			height: 100vh;
 			border: 1px solid var(--textMain);
-			margin-top: 1rem;
 		}
 		&.app_wrap_w {
 			width: calc(100vw - 1rem);
@@ -234,6 +233,7 @@ $contentW: calc(75% - 1rem);
 		.reg_hero {
 			padding: 1rem 0.75rem 0.75rem;
 			border-bottom: 1px solid var(--textLt);
+			margin-bottom: 1.75rem;
 			h1 {
 				margin-top: 0;
 			}
@@ -244,6 +244,7 @@ $contentW: calc(75% - 1rem);
 		.post_hero {
 			padding: 1rem 0.75rem 0.75rem;
 			border-bottom: 1px solid var(--textLt);
+			margin-bottom: 1.75rem;
 		}
 
 		.content_aside {
@@ -258,11 +259,18 @@ $contentW: calc(75% - 1rem);
 			}
 			.use_h4 {
 				border-bottom: 1px solid var(--appTranslucent);
+				line-height: 1.5;
+				width: calc(100% - 2rem);
 			}
 			.search_form {
 				width: 100%;
 				position: relative;
 				display: flex;
+				input[type='search']::-webkit-search-cancel-button {
+					-webkit-appearance: none;
+					appearance: none;
+					display: none;
+				}
 				.search_input {
 					width: 100%;
 					border: none;
@@ -313,6 +321,10 @@ $contentW: calc(75% - 1rem);
 								top: 0.05rem;
 								@include transition(background-color, 0.3s, ease-in);
 							}
+							&.btn_hl {
+								background: var(--rw);
+								color: var(--textRev);
+							}
 						}
 					}
 				}
@@ -328,24 +340,7 @@ $contentW: calc(75% - 1rem);
 			width: 100%;
 			.byte_item {
 				width: 100%;
-				&.rw_hl {
-					h2 a,
-					p a {
-						text-decoration: underline !important;
-						color: var(--rw) !important;
-					}
-					svg {
-						.target_stroke {
-							stroke: var(--rw);
-						}
-					}
-					.btn_hl {
-						.tag_btn {
-							background: var(--rw) !important;
-							color: var(--textRev) !important;
-						}
-					}
-				}
+				position: relative;
 				.byte_preview {
 					.prev_head {
 						display: flex;
@@ -408,16 +403,48 @@ $contentW: calc(75% - 1rem);
 						}
 					}
 				}
+				&.rw_hl {
+					h2 a,
+					p a {
+						text-decoration: underline !important;
+						color: var(--rw) !important;
+					}
+					svg {
+						.target_stroke {
+							stroke: var(--rw);
+						}
+					}
+					.btn_hl {
+						.tag_btn {
+							background: var(--rw) !important;
+							color: var(--textRev) !important;
+						}
+					}
+				}
+				&.rw_match {
+					.excerpt {
+						color: var(--appBar);
+					}
+					// &::before {
+					// 	content: '';
+					// 	position: absolute;
+					// 	top: calc(50% - 0.5rem);
+					// 	left: calc(-0.15rem - 0.15vw);
+					// 	border-radius: 50%;
+					// 	height: 1rem;
+					// 	width: 1rem;
+					// 	background: var(--accentMain);
+					// 	line-height: 1;
+					// 	z-index: 1;
+					// }
+				}
 			}
 		}
 		@include mq('phab_min', 'min') {
 			margin-top: 100px;
 			.byte_item_list {
 				row-gap: 4rem;
-				// justify-content: space-between;
-				// .byte_item {
-				// 	width: calc(50% - 2rem);
-				// }
+				padding-left: 1rem;
 			}
 			&.app_wrap_w {
 				width: calc(100vw - 3rem);
@@ -435,7 +462,6 @@ $contentW: calc(75% - 1rem);
 				flex-wrap: wrap;
 				flex-direction: row-reverse;
 				justify-content: space-between;
-				row-gap: 1rem;
 				.reg_hero,
 				.post_hero {
 					width: 100%;
