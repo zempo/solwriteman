@@ -64,6 +64,7 @@ export const fetchKit = async ({ topics = '', byURL = '' } = {}) => {
 		if (s.kitText) {
 			searchKit.push({
 				slug: s.slug,
+				subType: 'kit',
 				content: `${s.title.toLowerCase()} ${s.excerpt.toLowerCase()} ${s.kitText}`
 			});
 		}

@@ -65,6 +65,7 @@ export const fetchLab = async ({ topics = '', byURL = '' } = {}) => {
 		if (s.labText) {
 			searchLab.push({
 				slug: s.slug,
+				subType: 'lab',
 				content: `${s.title.toLowerCase()} ${s.excerpt.toLowerCase()} ${s.labText}`
 			});
 		}

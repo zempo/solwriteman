@@ -5,6 +5,7 @@
 	import Tabs from '$lib/components/static/tools/tab/Tabs.svelte';
 	import ApiCard from '$lib/components/content/helpers/ApiCard.svelte';
 	import { seoData } from '$lib/config';
+	import { content } from '$lib/store/content.svelte.js';
 
 	export let data;
 
@@ -28,8 +29,19 @@
 	{#snippet children(T)}
 		<T.List>
 			{#snippet children()}
-				<T.Tab id={0}>{#snippet children()}Byte Lab: Shaders / Renders{/snippet}</T.Tab>
-				<T.Tab id={1}>{#snippet children()}Byte Kit: UI / UX / Templates{/snippet}</T.Tab>
+				<T.Tab id={0}
+					>{#snippet children()}
+						<span
+							class={content.byteTabStatus === 1 || content.byteTabStatus === 3 ? 'tab_hl' : ''}
+						>
+							Byte Lab: Shaders / Renders
+						</span>{/snippet}</T.Tab
+				>
+				<T.Tab id={1}
+					>{#snippet children()}<span class={content.byteTabStatus >= 2 ? 'tab_hl' : ''}
+							>Byte Kit: UI / UX / Templates</span
+						>{/snippet}</T.Tab
+				>
 			{/snippet}
 		</T.List>
 		<T.Panel id={0} panelType="wide_panel">

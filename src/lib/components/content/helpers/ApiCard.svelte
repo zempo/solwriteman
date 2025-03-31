@@ -47,7 +47,9 @@
 			</div>
 			<div class="prev_body">
 				<p class="excerpt">
-					{L.excerpt}
+					<span class="ex_p">
+						{L.excerpt}
+					</span>
 					{@render postsLink(L, 'Read More...')}
 				</p>
 			</div>
