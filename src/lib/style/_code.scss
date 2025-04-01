@@ -6,16 +6,48 @@
 	--shiki-light-bg: #fdf6e3;
 	--shiki-dark-bg: #2d353b;
 */
+$fontHead: 'Inter Variable', sans-serif;
+$fontAction: 'Nunito Variable', sans-serif;
+$fontBody: 'Crimson Pro Variable', Garamond, serif;
+$code_0: rgb(112, 205, 215);
 
 pre {
 	background: var(--appCodeBg);
 	box-shadow: var(--shadow2);
 	width: 100%;
 	padding: 1rem;
-	border-radius: 0.25rem;
-	border: 6px solid var(--appCodebar);
+	border-radius: 0.5rem;
+	border: 8px solid var(--appCodebar);
+	border-top-width: 2.5rem;
+	position: relative;
+	opacity: 0.95;
+	&:focus,
+	&:active {
+		outline: 3px solid var(--rw); /* Change outline color and width */
+		outline-offset: 3px; /* Space between the element and the outline */
+		position: relative;
+		opacity: 1;
+	}
+	&[class*='language-']::before {
+		content: '.CODE';
+		position: absolute;
+		font-weight: 700;
+		font-family: $fontHead;
+		letter-spacing: 0.1rem;
+		font-size: 1.4rem;
+		top: calc(-2.5rem);
+		left: -8px;
+		width: calc(100% + 16px);
+		border-top-left-radius: 0.5rem;
+		border-top-right-radius: 0.5rem;
+		padding: 0.3rem 1rem 0.15rem;
+		background: var(--appCodebar);
+		// background: var(--playerGreen);
+		color: var(--appConst);
+		// opacity: 0.38;
+	}
 	code {
-		color: rgb(112, 205, 215);
+		color: $code_0;
 		font-weight: bold;
 		text-wrap: wrap;
 	}

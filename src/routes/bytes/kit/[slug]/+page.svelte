@@ -10,5 +10,4 @@
 <PgHero regHero="post" meta={byteMeta} />
 <article class="byte_pg">
 	<Body />
-	<!-- add topics, etc down here -->
 </article>

@@ -519,8 +519,9 @@ $contentW: calc(75% - 1rem);
 .byte_pg {
 	text-align: left;
 	margin: auto;
-	width: calc(100vw - 1rem);
-	@include mq('d_min', 'min') {
+	// width: calc(100vw - 1rem);
+	width: 100%;
+	@include mq('t_med', 'min') {
 		margin: 0;
 		width: $contentW;
 	}
