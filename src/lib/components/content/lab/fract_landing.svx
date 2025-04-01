@@ -10,7 +10,51 @@ seo_type: "article"
 <!-- https://www.shadertoy.com/view/XsXXDn -->
 ## Overview
 
+```bash
+pnpm run dev --host
+```
 
+```py
+def fibonacci(n):
+  """Return the nth Fibonacci number."""
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+
+print([fibonacci(i) for i in range(10)])  
+# Output: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+```
+
+```scss
+code {
+ color: $code_0;
+ font-weight: bold;
+ text-wrap: wrap;
+}
+```
+
+```css
+code {
+ color: $code_0;
+ font-weight: bold;
+ text-wrap: wrap;
+}
+```
+
+```js
+let d = new Date();
+seizeThe = d.getDay();
+console.log(`Seize the ${seizeThe}`)
+```
+
+```svelte
+<script>
+import a as 'this';
+</script>
+```
 
 ```glsl
 #ifdef GL_ES

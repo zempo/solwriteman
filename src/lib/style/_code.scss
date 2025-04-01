@@ -6,27 +6,51 @@
 	--shiki-light-bg: #fdf6e3;
 	--shiki-dark-bg: #2d353b;
 */
+
+@mixin transition($property: all, $duration: 0.3s, $timing: ease, $delay: 0s) {
+	-webkit-transition: $property $duration $timing $delay;
+	-moz-transition: $property $duration $timing $delay;
+	-ms-transition: $property $duration $timing $delay;
+	-o-transition: $property $duration $timing $delay;
+	transition: $property $duration $timing $delay;
+}
+
 $fontHead: 'Inter Variable', sans-serif;
 $fontAction: 'Nunito Variable', sans-serif;
 $fontBody: 'Crimson Pro Variable', Garamond, serif;
 $code_0: rgb(112, 205, 215);
+$code_bash: rgb(215, 112, 181);
+$code_py: rgb(157, 112, 215);
+$code_css: rgb(215, 182, 112);
+$code_js: rgb(87, 225, 128);
+$code_sv: rgb(235, 124, 87);
+$code_comment: rgb(65, 132, 89);
 
 pre {
-	background: var(--appCodeBg);
-	box-shadow: var(--shadow2);
+	background: var(--playerBgd2);
+	box-shadow: var(--shadow3);
 	width: 100%;
 	padding: 1rem;
 	border-radius: 0.5rem;
 	border: 8px solid var(--appCodebar);
 	border-top-width: 2.5rem;
 	position: relative;
-	opacity: 0.95;
-	&:focus,
-	&:active {
+	// opacity: 0.95;
+	// @include transition(border-color, 0.3s, ease-in);
+	// @include transition(background-color, 0.3s, ease-in);
+	&:focus {
 		outline: 3px solid var(--rw); /* Change outline color and width */
 		outline-offset: 3px; /* Space between the element and the outline */
 		position: relative;
 		opacity: 1;
+	}
+	code {
+		color: $code_0;
+		font-weight: bold;
+		text-wrap: wrap;
+		.comment {
+			color: $code_comment;
+		}
 	}
 	&[class*='language-']::before {
 		content: '.CODE';
@@ -41,14 +65,42 @@ pre {
 		border-top-left-radius: 0.5rem;
 		border-top-right-radius: 0.5rem;
 		padding: 0.3rem 1rem 0.15rem;
-		background: var(--appCodebar);
-		// background: var(--playerGreen);
+		background: none;
 		color: var(--appConst);
 		// opacity: 0.38;
 	}
-	code {
-		color: $code_0;
-		font-weight: bold;
-		text-wrap: wrap;
+	&.language-css::before {
+		content: '.CSS';
+	}
+	&.language-glsl::before {
+		content: '.GLSL';
+	}
+	&.language-frag::before {
+		content: '.FRAG';
+	}
+	&.language-scss::before {
+		content: '.SCSS';
+	}
+	&.language-js::before {
+		content: '.JS';
+	}
+	&.language-py::before {
+		content: '.PY';
+	}
+	&.language-svelte::before {
+		content: '.SVELTE';
+	}
+	&.language-css code,
+	&.language-scss code {
+		color: $code_css;
+	}
+	&.language-js code {
+		color: $code_js;
+	}
+	&.language-py code {
+		color: $code_py;
+	}
+	&.language-svelte code {
+		color: $code_sv;
 	}
 }
