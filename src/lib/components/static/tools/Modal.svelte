@@ -4,6 +4,7 @@
 	import { fade, fly } from 'svelte/transition';
 	import { miniHov, miniReg } from '../svg/nav';
 	import { navData } from '$lib/config';
+	import { trapFocus } from '$lib/store/actions.svelte';
 
 	let dialog;
 	let backdrop;
@@ -21,70 +22,6 @@
 			main.setModalOpen(0);
 		}
 	}
-
-	// Manage focus when modal opens
-	async function trapFocus() {
-		await tick();
-		if (main.modalOpen) {
-			dialog.focus();
-		}
-	}
-
-	$: if (main.modalOpen) trapFocus();
-
-	// Focus trap utility
-	function focusTrap(node) {
-		const previousActiveElement = document.activeElement;
-		let focusableElements = [];
-
-		// Get all focusable elements inside the modal
-		function updateFocusableElements() {
-			focusableElements = Array.from(
-				node.querySelectorAll(
-					'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), ' +
-						'textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
-				)
-			);
-		}
-
-		// Handle Tab key navigation
-		function handleKeydown(event) {
-			if (event.key !== 'Tab') return;
-
-			updateFocusableElements();
-			if (focusableElements.length === 0) return;
-
-			const firstElement = focusableElements[0];
-			const lastElement = focusableElements[focusableElements.length - 1];
-
-			if (event.shiftKey) {
-				// Shift + Tab: Go to previous element
-				if (document.activeElement === firstElement) {
-					lastElement.focus();
-					event.preventDefault();
-				}
-			} else {
-				// Tab: Go to next element
-				if (document.activeElement === lastElement) {
-					firstElement.focus();
-					event.preventDefault();
-				}
-			}
-		}
-
-		// Initialize focus trap
-		updateFocusableElements();
-		if (focusableElements.length > 0) focusableElements[0].focus();
-		node.addEventListener('keydown', handleKeydown);
-
-		// Cleanup when modal closes
-		return {
-			destroy() {
-				node.removeEventListener('keydown', handleKeydown);
-				previousActiveElement?.focus(); // Restore original focus
-			}
-		};
-	}
 </script>
 
 {#if main.modalOpen}
@@ -96,7 +33,7 @@
 		bind:this={backdrop}
 		title="Minimize"
 		onclick={(e) => handleBackdropClick(e)}
-		use:focusTrap
+		use:trapFocus
 	>
 		<div
 			class="modal"

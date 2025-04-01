@@ -245,6 +245,12 @@ $contentW: calc(75% - 1rem);
 			padding: 1rem 0.75rem 0.75rem;
 			border-bottom: 1px solid var(--textLt);
 			margin-bottom: 1.75rem;
+			h1 {
+				margin-top: 0;
+			}
+			.sub_title {
+				margin-top: 0.5rem;
+			}
 		}
 
 		.content_aside {
