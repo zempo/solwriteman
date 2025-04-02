@@ -4,7 +4,7 @@ import { mdsvex } from 'mdsvex';
 import { sveltePreprocess } from 'svelte-preprocess';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { visit } from 'unist-util-visit';
+// import { lintCode } from './src/lib/remarkHelpers.js';
 // import highlighter from './codeHighlighter.mjs';
 
 const filePath = dirname(fileURLToPath(import.meta.url));
@@ -23,7 +23,7 @@ const config = {
 	preprocess: [
 		mdsvex({
 			// The default mdsvex extension is .svx; this overrides that.
-			extensions: ['.md', '.svx'],
+			extensions: ['.md', '.svx']
 			// highlight: {
 			// 	highlighter
 			// }
@@ -32,57 +32,7 @@ const config = {
 			// 	rehypeSlug,
 			// 	rehypeAutolinkHeadings,
 			// ],
-			remarkPlugins: [
-				() => (tree) => {
-					visit(tree, 'code', (node) => {
-						let lines = node.value.split('\n');
-						let newLines = [];
-
-						lines.forEach((L) => {
-							let trim = L.trim();
-							let isComment =
-								trim.startsWith('//') || trim.startsWith('#') || trim.startsWith('<!--');
-
-							// Create a new code node for each line
-							const newL = {
-								type: 'element',
-								tagName: 'span',
-								properties: {
-									className: isComment
-										? [`language-${node.lang} cmt`]
-										: [`language-${node.lang} ln`]
-								},
-								children: [
-									{
-										type: 'text',
-										value: L
-									}
-								]
-							};
-							// console.log(newL);
-							newLines.push(newL);
-						});
-
-						let newCode = {
-							type: 'element',
-							tagName: 'code',
-							properties: {
-								className: [`language-${node.lang}`]
-							},
-							children: newLines
-						};
-						node = newCode;
-						console.log(node);
-						// node.value = node.value.split('\n').map(line => {
-						// 	const trimmed = line.trim();
-						// 	const isComment = trimmed.startsWith('//') ||
-						// 									trimmed.startsWith('#') ||
-						// 									trimmed.startsWith('<!--');
-						// 	return `<span class="${isComment ? 'cmt' : 'code-line'}">${line}</span>`;
-						// }).join('\n');
-					});
-				}
-			]
+			// remarkPlugins: [lintCode]
 		}),
 		sveltePreprocess({
 			scss: {
