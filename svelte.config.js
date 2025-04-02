@@ -5,7 +5,7 @@ import { sveltePreprocess } from 'svelte-preprocess';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 // import { lintCode } from './src/lib/remarkHelpers.js';
-// import highlighter from './codeHighlighter.mjs';
+import highlighter from './codeHighlighter.mjs';
 
 const filePath = dirname(fileURLToPath(import.meta.url));
 const sassPath = `${filePath}/src/lib/style/`;
@@ -23,10 +23,10 @@ const config = {
 	preprocess: [
 		mdsvex({
 			// The default mdsvex extension is .svx; this overrides that.
-			extensions: ['.md', '.svx']
-			// highlight: {
-			// 	highlighter
-			// }
+			extensions: ['.md', '.svx'],
+			highlight: {
+				highlighter
+			}
 			// Adds IDs to headings, and anchor links to those IDs. Note: must stay in this order to work.
 			// rehypePlugins: [
 			// 	rehypeSlug,

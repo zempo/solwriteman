@@ -92,25 +92,25 @@ pre {
 	&.language-svelte::before {
 		content: '.SVELTE';
 	}
-	&.language-css code,
-	&.language-scss code {
-		color: $code_css;
-	}
-	&.language-js code {
-		color: $code_js;
-		.string,
-		.punctuation {
-			color: $code_js_punc;
-		}
-	}
-	&.language-py code {
-		color: $code_py;
-	}
-	&.language-svelte code {
-		color: $code_sv;
-		.string,
-		.punctuation {
-			color: $code_sv_punc;
-		}
-	}
+	// &.language-css code,
+	// &.language-scss code {
+	// 	color: $code_css;
+	// }
+	// &.language-js code {
+	// 	color: $code_js;
+	// 	.string,
+	// 	.punctuation {
+	// 		color: $code_js_punc;
+	// 	}
+	// }
+	// &.language-py code {
+	// 	color: $code_py;
+	// }
+	// &.language-svelte code {
+	// 	color: $code_sv;
+	// 	.string,
+	// 	.punctuation {
+	// 		color: $code_sv_punc;
+	// 	}
+	// }
 }
