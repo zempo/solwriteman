@@ -7,7 +7,7 @@ class Content {
 	queryByteTopic(url) {
 		this.byteTopic = url.searchParams.get('topic');
 	}
-	toggleByteTopic(topic) {
+	toggleByteTopic(topic, type = 'byte') {
 		if (topic === this.byteTopic) {
 			this.byteTopic = null;
 		} else {

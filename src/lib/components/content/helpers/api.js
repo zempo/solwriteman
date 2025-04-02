@@ -7,6 +7,7 @@ export const getAllTopics = (posts) => {
 	return uniqueTopics;
 };
 
+// TODO Create hash map for lab and kit-based posts
 export const combineTopics = (...topics) => {
 	const combined_topics = [].concat(...topics);
 	const unique_topics = [...new Set(combined_topics)];

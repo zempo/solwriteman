@@ -23,7 +23,7 @@
 
 {#snippet tagList(T)}
 	<li class="tag_item {T === content.byteTopic ? 'btn_hl' : ''}">
-		<button class="tag_btn" onclick={() => content.toggleByteTopic(T)}>
+		<button class="tag_btn" onclick={() => content.toggleByteTopic(T, type)}>
 			#{T}
 		</button>
 	</li>

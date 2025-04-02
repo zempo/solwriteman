@@ -9,18 +9,7 @@
 
 	export let data;
 
-	const {
-		labs,
-		topicsLab,
-		searchLab,
-		pinnedLab,
-		countLab,
-		kits,
-		topicsKit,
-		searchKit,
-		pinnedKit,
-		countKit
-	} = data;
+	const { labs, kits } = data;
 </script>
 
 <PgHead pgData={seoData.bytes} />
@@ -32,13 +21,15 @@
 				<T.Tab id={0}
 					>{#snippet children()}
 						<span
-							class={content.byteTabStatus === 1 || content.byteTabStatus === 3 ? 'tab_hl' : ''}
+							class="tab_reg {content.byteTabStatus === 1 || content.byteTabStatus === 3
+								? 'tab_hl'
+								: ''}"
 						>
 							Byte Lab: Shaders / Renders
 						</span>{/snippet}</T.Tab
 				>
 				<T.Tab id={1}
-					>{#snippet children()}<span class={content.byteTabStatus >= 2 ? 'tab_hl' : ''}
+					>{#snippet children()}<span class="tab_reg {content.byteTabStatus >= 2 ? 'tab_hl' : ''}"
 							>Byte Kit: UI / UX / Templates</span
 						>{/snippet}</T.Tab
 				>
