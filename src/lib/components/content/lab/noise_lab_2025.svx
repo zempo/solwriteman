@@ -9,6 +9,8 @@ seo_type: "article"
 <!-- https://www.shadertoy.com/view/XsXXDn -->
 ## Overview
 
+Let's create a noise shader for 2025.
+
 ```glsl
 #ifdef GL_ES
 precision mediump float;

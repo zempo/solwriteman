@@ -10,6 +10,17 @@
 		line-height: 1;
 	}
 
+	p:first-of-type {
+		&::first-letter {
+			font-size: 350%;
+			line-height: 0.75;
+			float: left;
+			margin-right: 0.25rem;
+			margin-top: 0rem;
+			// color: var(--appConst);
+		}
+	}
+
 	.psnip {
 		text-align: center;
 		background: var(--appFig);

@@ -7,3 +7,5 @@ seo_type: "article"
 ---
 
 ## Overview 
+
+Let's create a Svelte scene with GLSL shaders.

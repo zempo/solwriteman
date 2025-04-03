@@ -10,6 +10,8 @@ seo_type: "article"
 <!-- https://www.shadertoy.com/view/XsXXDn -->
 ## The Plan
 
+Here's the plan going forward:
+
 ```bash
 pnpm run dev --host
 ```

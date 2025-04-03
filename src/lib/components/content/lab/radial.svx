@@ -11,6 +11,8 @@ seo_type: "article"
 <!-- https://www.shadertoy.com/view/XsXXDn -->
 ## Overview
 
+Behold! This glorious placeholder horse!
+
 ```glsl
 #ifdef GL_ES
 precision mediump float;
