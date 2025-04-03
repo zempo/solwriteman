@@ -6,6 +6,14 @@
 {#if linkType == 'contact'}
 	<a href="/contact#meet" class="contact_pg_link">{text}</a>
 {/if}
+{#if linkType == 'github'}
+	<a
+		href="https://github.com/zempo"
+		target="_blank"
+		rel="noopener noreferrer"
+		class="contact_pg_link github_link">{text}</a
+	>
+{/if}
 {#if linkType == 'substack'}
 	<a
 		href="https://solwriteman.substack.com/"

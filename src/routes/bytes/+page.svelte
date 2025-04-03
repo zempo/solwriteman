@@ -1,7 +1,6 @@
 <script>
 	import PgHead from '$lib/components/layout/PgHead.svelte';
 	import PgHero from '$lib/components/layout/PgHero.svelte';
-	import PgWrap from '$lib/components/layout/PgWrap.svelte';
 	import Tabs from '$lib/components/static/tools/tab/Tabs.svelte';
 	import ApiCard from '$lib/components/content/helpers/ApiCard.svelte';
 	import { seoData } from '$lib/config';
@@ -21,16 +20,18 @@
 				<T.Tab id={0}
 					>{#snippet children()}
 						<span
-							class="tab_reg {content.byteTabStatus === 1 || content.byteTabStatus === 3
-								? 'tab_hl'
-								: ''}"
+							class="tab_reg{content.byteTabStatus === 1 || content.byteTabStatus === 3
+								? ' tab_hl'
+								: ''}{content.tabLab ? ' tab_tag' : ''}"
 						>
 							Byte Lab: Shaders / Renders
 						</span>{/snippet}</T.Tab
 				>
 				<T.Tab id={1}
-					>{#snippet children()}<span class="tab_reg {content.byteTabStatus >= 2 ? 'tab_hl' : ''}"
-							>Byte Kit: UI / UX / Templates</span
+					>{#snippet children()}<span
+							class="tab_reg{content.byteTabStatus >= 2 ? ' tab_hl' : ''}{content.tabKit
+								? ' tab_tag'
+								: ''}">Byte Kit: UI / UX / Templates</span
 						>{/snippet}</T.Tab
 				>
 			{/snippet}

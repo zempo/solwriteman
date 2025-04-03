@@ -10,8 +10,8 @@ const sassPath = `${filePath}/src/lib/style/`;
 
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypeHighlight from 'rehype-highlight';
-import rehypePrism from '@mapbox/rehype-prism';
+// import rehypeHighlight from 'rehype-highlight';
+// import rehypePrism from '@mapbox/rehype-prism';
 // import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
 // import rehypeExternalLinks from 'rehype-external-links';
 // import toc from '@jsdevtools/rehype-toc';
@@ -35,7 +35,7 @@ const config = {
 			// 	highlighter
 			// },
 			// Adds IDs to headings, and anchor links to those IDs. Note: must stay in this order to work.
-			rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings, rehypePrism, rehypeHighlight]
+			rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings]
 			// remarkPlugins: [lintCode]
 		}),
 		sveltePreprocess({

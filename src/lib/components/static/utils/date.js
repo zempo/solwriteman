@@ -17,8 +17,15 @@ export const countLeapYearDays = (startYear, endYear) => {
 	return leapDays;
 };
 
+/**
+ * @params {number} x - Adding the leading zeros.
+ */
 export const digitFormat = (x) => (x < 10 ? `0${x}` : x);
 
+/**
+ * @params {string} targetStr - The target date string in 'YYYY-MM-DD' format.
+ * @params {string} format - 'digit' returns a string with leading zeros, 'any other string' returns a string without leading zeros.
+ * */
 export const getTimeDiff = (targetStr = '2024-12-01', format = 'digit') => {
 	let currDate = new Date();
 	let targetDate = new Date(targetStr);
@@ -60,4 +67,39 @@ export const getTimeDiff = (targetStr = '2024-12-01', format = 'digit') => {
 		minutes: minutesFormat,
 		seconds: secondsFormat
 	};
+};
+
+/**
+ * Formats an array of time units into a human-readable string
+ * @param {number[]} times - Array of time values
+ * @param {string[]} units - Array of unit names corresponding to the times
+ * @param {string} [sep=', '] - Separator between units (default: ', ')
+ * @returns {string} Formatted time string
+ */
+export const formatTimeUnits = (times, units, sep = ', ') => {
+	// Filter out zero values and pair non-zero times with their units
+	const nonZeroPairs = times
+		.map((time, index) => ({ time, unit: units[index] }))
+		.filter((pair) => pair.time !== 0);
+
+	// Handle empty case
+	if (nonZeroPairs.length === 0) return '';
+
+	// Format each unit with proper pluralization
+	const formattedParts = nonZeroPairs.map((pair, index) => {
+		const isLast = index === nonZeroPairs.length - 1;
+		const isSecondLast = index === nonZeroPairs.length - 2;
+
+		let separator = sep;
+		if (isSecondLast && nonZeroPairs.length > 1) {
+			separator = ' and ';
+		} else if (isLast) {
+			separator = '';
+		}
+
+		return `${pair.time} ${pair.unit}${pair.time > 1 ? 's' : ''}${separator}`;
+	});
+
+	// Join all parts and replace any remaining "and ," with just "and"
+	return formattedParts.join('').replace(/, and /g, ' and ');
 };

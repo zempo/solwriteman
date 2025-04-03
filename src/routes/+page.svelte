@@ -87,30 +87,26 @@
 										It is far superior to my 20/400 vision.
 									</p>
 									<p>
-										Through <a
-											href="https://solwriteman.substack.com"
-											target="_blank"
-											title="My blog!"
-											rel="noopener noreferrer">Bytes && Snippets</a
-										>, I share my slice of virtual wisdom. In bytes of procedural art, I express my
-										humanity through geometry. And in poetic snippets, I integrate each of my
-										bumbling spirits and memories into the greater narrative.
+										Through <a href="/bytes">Bytes</a> and <a href="/snippets">Snippets</a>, I share
+										this slice of virtual wisdom. In bytes of generative art and code, I express my
+										humanity through geometry. And in written snippets, I integrate the "bugs" and
+										"features" of my life into the greater narrative.
 									</p>
 									<p>
 										I am a new father, son of Russian-Jewish Immigrants, and an ever curious
 										learner. I commit to healthy masculinity and technological ethos — writing
-										prose, poetry, and code responsibly. My narrative explores a nerdy niche and
-										imagines pages beyond the weights on our necks and shoulders.
+										accessible prose, poetry, and code. My narrative explores a nerdy niche and
+										imagines pages beyond weights on our shoulders.
 									</p>
 									<p>
-										TL;DR: Whether "On Mic, On Paper, and Online",<br />Let's connect, communicate,
-										and shape accessible realities.
+										TL;DR: On Mic, On Paper, and Online,<br />Let's create, communicate, and
+										transform our reality.
 									</p>
 								{/snippet}
 							</OnScroll>
 							<OnScroll>
 								{#snippet flyUp()}
-									<Links />
+									<Links linkType="substack" text="@SolWriteMan (Substack)" />
 								{/snippet}
 							</OnScroll>
 						</div>
@@ -157,7 +153,7 @@
 								<a href="https://www.aleks.com/" target="_blank" rel="noopener noreferrer"
 									>McGraw Hill ALEKS</a
 								>
-								as a content programmer. On the side, I mentor, build
+								as a content programmer. On the side, I mentor other devs, build
 								<a
 									href="https://threejs-journey.com/lessons/introduction"
 									target="_blank"
@@ -170,12 +166,11 @@
 							</p>
 							<p>
 								In between these "Click-Clack Glow" times, you'll find me camping, cooking for loved
-								ones, and debugging fatherhood with my wife, daughter Evelyn, and our Tortie Cat,
-								Weasel.
+								ones, and debugging fatherhood with my wife, daughter, and our Tortie Cat, Weasel.
 							</p>
 							<OnScroll>
 								{#snippet flyUp()}
-									<Links linkType="substack" text="@SolWriteMan (Substack)" />
+									<Links linkType="github" text="getGithub()" />
 								{/snippet}
 							</OnScroll>
 						</div>

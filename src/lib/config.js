@@ -17,8 +17,8 @@
  *  *
  * */
 export const siteURL = `https://solomonzelenko.dev`;
-export const siteImg = `https://i.imgur.com/erk5C9H.png`;
-export const siteAlt = `Solomon performs poetry at open mic`;
+export const siteImg = `https://i.imgur.com/T1shE6J.png`;
+export const siteAlt = `On Mic, On Paper, Online with Solomon Zelenko`;
 export const desc = `🍊 OC-Based Digital Storyteller & Artist.`;
 export const blogLaunchDate = `2025-04-02`;
 export const rssData = {

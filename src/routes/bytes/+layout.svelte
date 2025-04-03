@@ -5,6 +5,7 @@
 	import { content } from '$lib/store/content.svelte.js';
 	import { page } from '$app/state';
 	import { combineTopics } from '$lib/components/content/helpers/api.js';
+	import { onMount } from 'svelte';
 
 	const { children, data } = $props();
 	let query = $state('');
@@ -26,6 +27,10 @@
 		pinnedKit,
 		countKit
 	} = data;
+
+	onMount(() => {
+		content.setTopicObj(labs, kits);
+	});
 </script>
 
 {#snippet searchForm()}

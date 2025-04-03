@@ -1,6 +1,6 @@
 <script>
 	import { blogLaunchDate } from '$lib/config.js';
-	import { getTimeDiff } from '../utils/date.js';
+	import { formatTimeUnits, getTimeDiff } from '../utils/date.js';
 	import { onMount } from 'svelte';
 
 	export let type = 'default';
@@ -24,13 +24,24 @@
 {#if type === 'bio'}
 	<span class="stat_wrap">
 		<b
-			>{timeData.years} years,{timeData.days === 0
-				? ''
-				: ` ${timeData.days} days,`}{timeData.hours === 0 ? '' : ` ${timeData.hours} hours,`}
-			{timeData.hours === 0 ? '' : ` ${timeData.minutes} mins,`} and
-			{timeData.seconds} secs!</b
+			>{formatTimeUnits(
+				[timeData.years, timeData.days, timeData.hours, timeData.minutes, timeData.seconds],
+				['year', 'day', 'hour', 'min', 'sec'],
+				', '
+			)}!</b
 		>
 	</span>
+{/if}
+{#if type === 'byte'}
+	<p class="stat_wrap">
+		<b>
+			{formatTimeUnits(
+				[timeData.years, timeData.days, timeData.hours, timeData.minutes, timeData.seconds],
+				['year', 'day', 'hour', 'min', 'sec'],
+				', '
+			)}!
+		</b>
+	</p>
 {/if}
 
 <style lang="scss">

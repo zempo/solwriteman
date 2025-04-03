@@ -453,7 +453,8 @@ td,
 	}
 }
 
-pre code {
+pre code,
+p code {
 	@include font-size($sub_font_sizes);
 	@include mq('phablet', 'min') {
 		@include font-size($sub_sub_font_sizes);

@@ -78,6 +78,11 @@ $breakpoints: (
 					opacity: 1;
 				}
 			}
+			.tab_tag {
+				color: var(--rw);
+				font-style: italic;
+				text-decoration: underline;
+			}
 		}
 	}
 	.tab_panel {
@@ -268,6 +273,10 @@ $breakpoints: (
 	&.substack_link {
 		background: var(--accentMainDark);
 		color: var(--appConst);
+	}
+	&.github_link {
+		color: var(--appConst);
+		background-color: var(--appFig);
 	}
 	&:hover,
 	&:focus,
