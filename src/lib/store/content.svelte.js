@@ -1,3 +1,5 @@
+import { goto } from '$app/navigation';
+
 /* eslint-disable no-undef */
 class Content {
 	byteTopic = $state('');
@@ -20,6 +22,10 @@ class Content {
 			this.tabLab = this.byteTopicObj[topic].lab > 0;
 			this.tabKit = this.byteTopicObj[topic].kit > 0;
 		}
+	}
+	toggleByteTopicLink(topic) {
+		this.toggleByteTopic(topic);
+		goto(`/bytes?topic=${this.byteTopic}`);
 	}
 	setTopicObj(labs, kits) {
 		let topicObj = {};

@@ -64,7 +64,7 @@
 			<li class="tag_item">
 				<button
 					class="tag_btn {T === content.byteTopic ? 'btn_hl' : ''}"
-					onclick={() => content.toggleByteTopic(T)}
+					onclick={() => content.toggleByteTopicLink(T)}
 				>
 					#{T}
 				</button>
