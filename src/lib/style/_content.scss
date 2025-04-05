@@ -4,6 +4,7 @@ $breakpoints: (
 	'p_med': 560px,
 	'p_wide': 650px,
 	'phab_min': 800px,
+	'phab_med': 1100px,
 	't_min': 1200px,
 	't_med': 1300px,
 	't_max': 1450px,
@@ -304,7 +305,7 @@ $contentW: calc(75% - 1rem);
 					list-style-type: none;
 					display: flex;
 					flex-wrap: wrap;
-					gap: 0.5rem 0.65rem;
+					gap: 0.5rem 0.5rem;
 					.tag_item {
 						.tag_btn {
 							background: var(--appFig);
@@ -313,7 +314,7 @@ $contentW: calc(75% - 1rem);
 							border: 1px solid var(--playerDark);
 							box-shadow: var(--shadow3);
 							text-decoration: none;
-							padding: 0.25rem 0.5rem;
+							padding: 0.25rem 0.35rem;
 							@include transition(background-color, 0.3s, ease-in);
 							&:hover,
 							&:focus,
@@ -392,6 +393,7 @@ $contentW: calc(75% - 1rem);
 								box-shadow: var(--shadow3);
 								text-decoration: none;
 								padding: 0.25rem 0.5rem;
+								font-weight: normal;
 								@include transition(background-color, 0.3s, ease-in);
 								&:hover,
 								&:focus,
@@ -484,7 +486,7 @@ $contentW: calc(75% - 1rem);
 				}
 			}
 		}
-		@include mq('t_med', 'min') {
+		@include mq('phab_med', 'min') {
 			&.app_wrap_w {
 				overflow: visible;
 				width: calc(100vw - 4rem);
@@ -521,7 +523,7 @@ $contentW: calc(75% - 1rem);
 	margin: auto;
 	// width: calc(100vw - 1rem);
 	width: 100%;
-	@include mq('t_med', 'min') {
+	@include mq('phab_med', 'min') {
 		margin: 0;
 		width: $contentW;
 	}

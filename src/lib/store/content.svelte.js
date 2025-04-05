@@ -25,6 +25,14 @@ class Content {
 	}
 	toggleByteTopicLink(topic) {
 		this.toggleByteTopic(topic);
+
+		if (this.byteTopic === null) {
+			goto('/bytes', {
+				// replaceState: true,
+				noScroll: true
+			});
+			return;
+		}
 		goto(`/bytes?topic=${this.byteTopic}`);
 	}
 	setTopicObj(labs, kits) {

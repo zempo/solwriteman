@@ -4,7 +4,7 @@
 	import { searchIcon } from '$lib/components/static/svg/nav.js';
 	import { content } from '$lib/store/content.svelte.js';
 	import { page } from '$app/state';
-	import { combineTopics } from '$lib/components/content/helpers/api.js';
+	import { combineTopics, combineObjArrays } from '$lib/components/content/helpers/api.js';
 	import { onMount } from 'svelte';
 
 	const { children, data } = $props();
@@ -57,6 +57,19 @@
 	</form>
 {/snippet}
 
+{#snippet pinnedPosts(pinned)}
+	<h2 class="use_h4">Pinned</h2>
+	<ul class="pinned_list">
+		{#each pinned as P}
+			<li class="pinned_item">
+				<a href={`/bytes/${P.byte_type}/${P.slug}`} class="pinned_link">
+					{P.title}
+				</a>
+			</li>
+		{/each}
+	</ul>
+{/snippet}
+
 {#snippet allTagsList(Topic)}
 	<h2 class="use_h4">Topics</h2>
 	<ul class="all_tags_list">
@@ -76,6 +89,7 @@
 <PgWrap type="w">
 	<ApiAside>
 		{@render searchForm()}
+		{@render pinnedPosts(combineObjArrays(pinnedLab, pinnedKit))}
 		{@render allTagsList(combineTopics(topicsLab, topicsKit))}
 	</ApiAside>
 	{@render children()}

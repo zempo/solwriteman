@@ -419,7 +419,7 @@ th,
 h4,
 .use_h4 {
 	font-weight: 550;
-	@include font-size($bigp_font_sizes);
+	@include font-size($p_font_sizes);
 }
 
 p,

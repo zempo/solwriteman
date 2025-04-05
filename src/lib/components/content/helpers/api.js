@@ -15,6 +15,16 @@ export const combineTopics = (...topics) => {
 	return unique_topics;
 };
 
+// combine two object arrays and return a new object array
+export const combineObjArrays = (arr1, arr2) => {
+	const combined = [...arr1, ...arr2];
+	const unique = Array.from(new Set(combined.map((item) => item.slug))).map((slug) =>
+		combined.find((item) => item.slug === slug)
+	);
+
+	return unique;
+};
+
 export const getOrdinal = (num) => {
 	var s = ['th', 'st', 'nd', 'rd'];
 	var v = num % 100;

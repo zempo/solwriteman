@@ -54,7 +54,8 @@ export const fetchLab = async ({ topics = '', byURL = '' } = {}) => {
 				excerpt: s.excerpt,
 				topics: s.topics ?? [],
 				pinned: s.pinned ?? false,
-				seo_type: s.seo_type ?? 'article'
+				seo_type: s.seo_type ?? 'article',
+				byte_type: 'lab'
 			});
 		}
 
@@ -79,7 +80,8 @@ export const fetchLab = async ({ topics = '', byURL = '' } = {}) => {
 			pinned: s.pinned ?? false,
 			cover_img: s.cover_img ?? siteImg,
 			cover_alt: s.cover_alt ?? siteAlt,
-			seo_type: s.seo_type ?? 'article'
+			seo_type: s.seo_type ?? 'article',
+			byte_type: 'lab'
 		};
 	});
 
