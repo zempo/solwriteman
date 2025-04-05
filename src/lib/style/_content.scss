@@ -31,7 +31,7 @@ $breakpoints: (
 	transition: $property $duration $timing $delay;
 }
 
-$contentW: calc(75% - 1rem);
+$contentW: calc(72% - 1rem);
 
 .app_main {
 	// the style of content elements
@@ -257,6 +257,10 @@ $contentW: calc(75% - 1rem);
 		.content_aside {
 			display: none;
 			order: 2;
+			.use_h4,
+			ul {
+				width: calc(100% - 1rem);
+			}
 			input:focus,
 			button:focus,
 			a:focus {
@@ -267,7 +271,6 @@ $contentW: calc(75% - 1rem);
 			.use_h4 {
 				border-bottom: 1px solid var(--appTranslucent);
 				line-height: 1.5;
-				width: calc(100% - 2rem);
 			}
 			.search_form {
 				width: 100%;
@@ -503,12 +506,12 @@ $contentW: calc(75% - 1rem);
 					// height: 150vh;
 					margin: 0;
 					max-width: $contentW;
-					margin-inline: 1rem;
+					// margin-inline: 1rem;
 				}
 				.content_aside {
 					display: block;
 					// background: var(--appFig);
-					width: calc(25% - 2rem);
+					width: calc(28% - 1rem);
 					position: sticky;
 					height: 100vh;
 					top: 100px;
