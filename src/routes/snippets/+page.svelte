@@ -32,7 +32,7 @@
 				`It's not your Segmentation Fault (But responsibility)`
 			]}
 			minSpeed={30}
-			maxSpeed={80}
+			maxSpeed={60}
 			eraseSpeed={35}
 			delay={600}
 		/>
