@@ -18,7 +18,6 @@
 
 	onDestroy(() => {
 		isMounted = false;
-		console.log('Unmounting TypeWriter');
 		clearTimeout(timeoutId); // Fixed: Using clearTimeout instead
 	});
 
