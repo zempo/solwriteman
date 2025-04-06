@@ -19,7 +19,7 @@
 
 <PgHead pgData={seoData.main} />
 <PgMain>
-	<header class="home_header" style="margin-top: {dimension.topbarH}px;">
+	<header class="home_header" style="margin-top: {dimension.topbarH}px;" id="about_me">
 		<h1>Solomon Zelenko</h1>
 		<p class="sub_title">
 			<span aria-label="On paper, on mic, online">
@@ -283,7 +283,7 @@
 	<section class="featured_section" id="featured_content" bind:this={dimension.featEl}>
 		<div class="section_head">
 			<OnScroll>
-				{#snippet flyUp()}
+				{#snippet fadeIn()}
 					<h2>Featured Content</h2>
 					<p class="sub_title">Voice Over / Poems / New Art</p>
 				{/snippet}

@@ -1,0 +1,52 @@
+@use 'sass:map';
+
+$breakpoints: (
+	'p_med': 560px,
+	'p_wide': 650px,
+	'phab_min': 800px,
+	'phab_med': 1100px,
+	't_min': 1200px,
+	't_med': 1300px,
+	't_max': 1450px,
+	'd_min': 1600px
+);
+
+@mixin mq($width, $type: min) {
+	@if map.has-key($breakpoints, $width) {
+		$width: map.get($breakpoints, $width);
+		@if $type == max {
+			$width: $width - 1px;
+		}
+		@media only screen and (#{$type}-width: $width) {
+			@content;
+		}
+	}
+}
+
+@mixin transition($property: all, $duration: 0.3s, $timing: ease, $delay: 0s) {
+	-webkit-transition: $property $duration $timing $delay;
+	-moz-transition: $property $duration $timing $delay;
+	-ms-transition: $property $duration $timing $delay;
+	-o-transition: $property $duration $timing $delay;
+	transition: $property $duration $timing $delay;
+}
+
+$border_0: 1px solid var(--textHead);
+
+.snip_panels {
+	.content_disclosure {
+		border-bottom: $border_0;
+		.disclosure-button {
+			background: transparent;
+			width: 100%;
+			border: none;
+			padding: 1rem 0.25rem;
+			text-align: left;
+			font-weight: 550;
+		}
+		.disclosure-content {
+			border-top: $border_0;
+			padding: 0.5rem;
+		}
+	}
+}

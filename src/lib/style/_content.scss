@@ -483,21 +483,23 @@ $contentW: calc(72% - 1rem);
 		}
 		@include mq('phab_min', 'min') {
 			margin-top: 100px;
+			width: calc(100vw - 2rem);
 			.byte_item_list {
 				row-gap: 4rem;
 				padding-left: 1rem;
 			}
 			&.app_wrap_w {
-				width: calc(100vw - 3rem);
+				width: calc(100vw - 2rem);
 				.wide_tabs {
 					width: 100%;
 				}
 			}
 		}
 		@include mq('phab_med', 'min') {
+			width: calc(100vw - 2rem);
 			&.app_wrap_w {
 				overflow: visible;
-				width: calc(100vw - 4rem);
+				width: calc(100vw - 2rem);
 				max-width: 1600px;
 				display: flex;
 				flex-wrap: wrap;
