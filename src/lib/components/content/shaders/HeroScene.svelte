@@ -82,7 +82,7 @@
 				u_theme: {
 					value:
 						main.selectedTheme.name === 'light'
-							? new THREE.Color(0.7373, 0.3961, 0.3098)
+							? new THREE.Color(0.3725, 0.7059, 0.7804)
 							: new THREE.Color(0.3098, 0.7373, 0.5255)
 				},
 				u_shader_idx: { value: currShader }
@@ -112,7 +112,7 @@
 			material.uniforms.u_shader_idx.value = currShader;
 			material.uniforms.u_theme.value =
 				main.selectedTheme.name === 'light'
-					? new THREE.Color(0.651, 0.3725, 0.7804)
+					? new THREE.Color(0.3725, 0.7059, 0.7804)
 					: new THREE.Color(0.3098, 0.7373, 0.5255);
 			material.uniforms.u_time.value = performance.now() / 1000;
 			renderer.render(scene, camera);
