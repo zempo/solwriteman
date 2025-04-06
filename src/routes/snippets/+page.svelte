@@ -13,17 +13,25 @@
 	<div class="snips_aside">
 		<TypeWriter
 			messages={[
-				'From Notes App to Table',
+				'Git Commitment Issues',
+				`e̸̻̒o̷̝͛e̴̦͘j̸̹́m̵͑͜l̷̪̚;̶͚͛s̵̘͐d̴̺̚ḟ̴̝s̸̯̀ḏ̸̏f̵̘̄ , am I right?`,
+				`Oh! How you Opti-maze me, Eugene!`,
+				'From Notes App to Table.',
 				'Finding Virtual Wisdom',
+				`Live. Laugh. Take Your Mandated Fifteen, Love.`,
+				`Uh...42. Obviously.`,
+				`I've got 99 Warnings, but my Code Still Runs`,
+				'Garbage Collection for the Soul',
 				'Purge Burnout.exe?',
 				'Debugging Fatherhood',
-				'From a Nerdy Niche',
-				'Not Your Segmentation Fault'
+				'A Fork in the Road',
+				'Snips of a Nerdy Niche',
+				`It's not your Segmentation Fault (But responsibility)`
 			]}
 			minSpeed={30}
 			maxSpeed={80}
-			eraseSpeed={60}
-			delay={500}
+			eraseSpeed={35}
+			delay={600}
 		/>
 	</div>
 	<div class="snip_panels">

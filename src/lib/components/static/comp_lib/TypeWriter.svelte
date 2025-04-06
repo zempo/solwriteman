@@ -75,9 +75,9 @@
 	});
 </script>
 
-<div class="typewriter">
+<div class="typewriter" aria-hidden="true">
 	<p>
-		{displayedText}
+		{@html displayedText}
 		<span class:blinking={isTyping || isErasing}>|</span>
 	</p>
 </div>
