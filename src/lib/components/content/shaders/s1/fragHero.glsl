@@ -5,6 +5,7 @@ precision mediump float;
 uniform vec2 u_resolution;
 uniform float u_time;
 uniform float u_audio;
+uniform vec3 u_theme;
 uniform float u_shader_idx;
 
 const float PI = 3.14159265359;
@@ -388,8 +389,10 @@ void main(){
   float n = psrdnoise(vec2(3.) * uv7, vec2(0.), .2 * rate7 * PI, gradient);
   uv7 = fract(uv7 * 4.0 * n) - 0.5;
   float p7 = cos((uv7.x + n * 0.1 + exp(uv7.y + 2.0 * uv7.x) + 0.2) * PI);
-  vec3 c7_1 = vec3(0.3098, 0.7373, 0.5255);
-  vec3 c7_2 = vec3(0.251, 0.2941, 0.3451);
+  // vec3 c7_1 = vec3(0.3098, 0.7373, 0.5255);
+  // vec3 c7_1 = vec3(0.651, 0.3725, 0.7804);
+  vec3 c7_1 = u_theme;
+  vec3 c7_2 = vec3(0.298, 0.251, 0.3451);
   vec3 c7 = mix(c7_1,c7_2,p7 * n);
 
   vec3 a1[6] = vec3[6](

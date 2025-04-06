@@ -5,6 +5,7 @@
 	import fragmentShader from './s1/fragHero.glsl';
 	import { micOff, micOn, next } from '$lib/components/static/svg/scene';
 	import { nextIdx } from '$lib/components/static/utils/helpers';
+	import { main } from '$lib/store/main.svelte.js';
 
 	let canvas; // Reference to the canvas element
 	let audioContext, analyser, dataArray, source;
@@ -78,6 +79,12 @@
 				u_resolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
 				u_time: { value: 0.0 },
 				u_audio: { value: 0.0 },
+				u_theme: {
+					value:
+						main.selectedTheme.name === 'light'
+							? new THREE.Color(0.7373, 0.3961, 0.3098)
+							: new THREE.Color(0.3098, 0.7373, 0.5255)
+				},
 				u_shader_idx: { value: currShader }
 			}
 		});
@@ -103,6 +110,10 @@
 
 			// Update uniform values
 			material.uniforms.u_shader_idx.value = currShader;
+			material.uniforms.u_theme.value =
+				main.selectedTheme.name === 'light'
+					? new THREE.Color(0.651, 0.3725, 0.7804)
+					: new THREE.Color(0.3098, 0.7373, 0.5255);
 			material.uniforms.u_time.value = performance.now() / 1000;
 			renderer.render(scene, camera);
 		}
