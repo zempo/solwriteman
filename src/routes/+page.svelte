@@ -19,7 +19,7 @@
 
 <PgHead pgData={seoData.main} />
 <PgMain>
-	<header class="home_header" style="margin-top: {dimension.topbarH}px;" id="about_me">
+	<header class="home_header" style="margin-top: {dimension.topbarH}px;">
 		<h1>Solomon Zelenko</h1>
 		<p class="sub_title">
 			<span aria-label="On paper, on mic, online">

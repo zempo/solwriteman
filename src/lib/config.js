@@ -21,6 +21,7 @@ export const siteImg = `https://i.imgur.com/T1shE6J.png`;
 export const siteAlt = `On Mic, On Paper, Online with Solomon Zelenko`;
 export const desc = `🍊 OC-Based Digital Storyteller & Artist.`;
 export const blogLaunchDate = `2025-04-02`;
+export const DELAY = 360;
 export const rssData = {
 	siteTitle: `Solomon Zelenko`,
 	siteURL,

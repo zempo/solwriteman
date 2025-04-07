@@ -1,4 +1,5 @@
 <script>
+	import { goto } from '$app/navigation';
 	const { children, type = 'byte' } = $props();
 </script>
 
@@ -10,9 +11,9 @@
 		<h2 class="use_h4">Quick Links</h2>
 		<ul>
 			<li><a href="/bytes">All Bytes</a></li>
-			<li><a href="/snippets">Snippets</a></li>
-			<!-- also sroll to top of page -->
-			<li><a href="/#about_me">About Me</a></li>
+			<li><a href="/snippets">All Snips</a></li>
+			<!-- use goto method onclick with link -->
+			<li><a href="/contact">Contact</a></li>
 		</ul>
 	</div>
 </aside>

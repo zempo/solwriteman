@@ -1,6 +1,5 @@
 import { browser } from '$app/environment';
 import { navData } from '$lib/config';
-import * as THREE from 'three';
 
 /* eslint-disable no-undef */
 class Main {
