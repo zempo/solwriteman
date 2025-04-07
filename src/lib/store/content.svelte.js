@@ -8,19 +8,29 @@ class Content {
 	byteTopicObj = $state({});
 	tabLab = $state(false);
 	tabKit = $state(false);
+	tabLabResult = $state(0);
+	tabKitResult = $state(0);
+
+	byteReset() {
+		this.byteTopic = null;
+		this.tabLab = false;
+		this.tabKit = false;
+		this.tabLabResult = 0;
+		this.tabKitResult = 0;
+	}
 
 	queryByteTopic(url) {
 		this.byteTopic = url.searchParams.get('topic');
 	}
 	toggleByteTopic(topic) {
 		if (topic === this.byteTopic) {
-			this.byteTopic = null;
-			this.tabLab = false;
-			this.tabKit = false;
+			this.byteReset();
 		} else {
 			this.byteTopic = topic;
 			this.tabLab = this.byteTopicObj[topic].lab > 0;
 			this.tabKit = this.byteTopicObj[topic].kit > 0;
+			this.tabLabResult = this.byteTopicObj[topic].lab;
+			this.tabKitResult = this.byteTopicObj[topic].kit;
 		}
 	}
 	toggleByteTopicLink(topic) {
@@ -72,11 +82,15 @@ class Content {
 		let matches = [];
 		let tmpStat = 0;
 
+		this.byteReset();
+
 		for (let idx = 0; idx < searchStrs.length; idx++) {
 			let currPost = searchStrs[idx];
 			let matchCond = currPost.content.includes(currQuery);
 			if (matchCond) {
 				matches.push(currPost.slug);
+				this.tabLabResult += currPost.subType === 'lab' ? 1 : 0;
+				this.tabKitResult += currPost.subType === 'kit' ? 1 : 0;
 				if (tmpStat === 0) {
 					tmpStat = currPost.subType === 'lab' ? 1 : 2;
 				} else if (
@@ -89,6 +103,7 @@ class Content {
 				}
 			}
 		}
+
 		this.byteTabStatus = tmpStat;
 
 		if (type === 'byte') {
@@ -102,6 +117,7 @@ class Content {
 		if (type === 'byte') {
 			this.byteMatchList = [];
 			this.byteTabStatus = 0;
+			this.byteReset();
 		} else {
 			//
 		}

@@ -24,15 +24,18 @@
 								? ' tab_hl'
 								: ''}{content.tabLab ? ' tab_tag' : ''}"
 						>
-							Lab: Shaders &amp; Renders
+							Lab: Shaders &amp; Renders {content.tabLabResult > 0
+								? `(${content.tabLabResult})`
+								: ''}
 						</span>{/snippet}</T.Tab
 				>
 				<T.Tab id={1}
 					>{#snippet children()}<span
 							class="tab_reg{content.byteTabStatus >= 2 ? ' tab_hl' : ''}{content.tabKit
 								? ' tab_tag'
-								: ''}">Kit: UI/UX & Templates</span
-						>{/snippet}</T.Tab
+								: ''}"
+							>Kit: UI/UX & Templates {content.tabKitResult > 0 ? `(${content.tabKitResult})` : ''}
+						</span>{/snippet}</T.Tab
 				>
 			{/snippet}
 		</T.List>
