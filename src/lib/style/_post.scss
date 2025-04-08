@@ -1,3 +1,40 @@
+@use 'sass:map';
+
+/**
+	--shiki-light: #5c6a72;
+	--shiki-dark: #d3c6aa;
+	--shiki-light-bg: #fdf6e3;
+	--shiki-dark-bg: #2d353b;
+*/
+
+$breakpoints: (
+	'p_med': 560px,
+	'p_wide': 650px,
+	'p_max': 1150px,
+	't_min': 1200px,
+	'd_min': 1600px
+);
+
+@mixin mq($width, $type: min) {
+	@if map.has-key($breakpoints, $width) {
+		$width: map.get($breakpoints, $width);
+		@if $type == max {
+			$width: $width - 1px;
+		}
+		@media only screen and (#{$type}-width: $width) {
+			@content;
+		}
+	}
+}
+
+@mixin transition($property: all, $duration: 0.3s, $timing: ease, $delay: 0s) {
+	-webkit-transition: $property $duration $timing $delay;
+	-moz-transition: $property $duration $timing $delay;
+	-ms-transition: $property $duration $timing $delay;
+	-o-transition: $property $duration $timing $delay;
+	transition: $property $duration $timing $delay;
+}
+
 .byte_pg {
 	h2 {
 		margin-top: 4rem;
@@ -10,14 +47,58 @@
 		line-height: 1;
 	}
 
-	p:first-of-type {
-		&::first-letter {
-			font-size: 350%;
-			line-height: 0.75;
-			float: left;
-			margin-right: 0.25rem;
-			margin-top: 0rem;
-			// color: var(--appConst);
+	.body_wrap {
+		p:first-of-type {
+			&::first-letter {
+				font-size: 350%;
+				line-height: 0.75;
+				float: left;
+				margin-right: 0.25rem;
+				margin-top: 0rem;
+				// color: var(--appConst);
+			}
+		}
+	}
+	.byte_bio {
+		border: 1px solid var(--appTranslucent);
+		border-right: none;
+		border-left: none;
+		padding: 2rem 1rem;
+		width: 100%;
+		margin-top: 5rem;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		.byte_bio_img {
+			width: 200px;
+			max-width: 200px;
+			border-radius: 50%;
+			box-shadow: var(--insetShadow);
+			img {
+				border-radius: 50%;
+				height: 200px;
+				object-fit: cover;
+				object-position: center;
+			}
+		}
+		.byte_bio_text {
+			width: 100%;
+		}
+		@include mq('p_med') {
+			justify-content: space-between;
+			.byte_bio_img {
+				width: 200px;
+				img {
+					border-radius: 50%;
+					height: 200px;
+					object-fit: cover;
+					object-position: center;
+				}
+			}
+			.byte_bio_text {
+				order: -1;
+				width: calc(100% - 200px - 2rem);
+			}
 		}
 	}
 
@@ -64,6 +145,7 @@
 		background: var(--appSocialBg);
 		box-shadow: var(--shadow3);
 		border-radius: 0.5rem;
+		border: 2px solid var(--rw);
 		.utterances {
 			width: 100% !important;
 			max-width: calc(100% - 2rem) !important;

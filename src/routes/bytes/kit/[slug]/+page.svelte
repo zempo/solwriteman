@@ -21,7 +21,10 @@
 <PgHead pgData={seoObj} />
 <PgHero regHero="post" meta={byteMeta} />
 <article class="byte_pg">
-	<Body />
+	<div class="body_wrap">
+		<Body />
+	</div>
+	<ApiAuthor />
 	{#if !dev}
 		<ApiSocial />
 	{/if}

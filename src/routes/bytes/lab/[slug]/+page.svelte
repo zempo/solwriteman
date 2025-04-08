@@ -4,6 +4,7 @@
 	import PgHero from '$lib/components/layout/PgHero.svelte';
 	import ApiSocial from '$lib/components/content/helpers/ApiSocial.svelte';
 	import { dev } from '$app/environment';
+	import ApiAuthor from '../../../../lib/components/content/helpers/ApiAuthor.svelte';
 
 	const { data } = $props();
 	const { byteMeta, byteContent } = data;
@@ -20,9 +21,12 @@
 <PgHead pgData={seoObj} />
 <PgHero regHero="post" meta={byteMeta} />
 <article class="byte_pg">
-	<Body />
-	<ApiSocial />
-	<!-- {#if !dev}
+	<div class="body_wrap">
+		<Body />
+	</div>
+	<ApiAuthor />
+	<!-- <ApiSocial /> -->
+	{#if !dev}
 		<ApiSocial />
-	{/if} -->
+	{/if}
 </article>
