@@ -55,4 +55,18 @@
 			margin-block: 1rem;
 		}
 	}
+
+	.timeline-header {
+		color: var(--textMain) !important;
+	}
+	#utterances-comments {
+		margin-top: 2rem;
+		background: var(--appSocialBg);
+		box-shadow: var(--shadow3);
+		border-radius: 0.5rem;
+		.utterances {
+			width: 100% !important;
+			max-width: calc(100% - 2rem) !important;
+		}
+	}
 }

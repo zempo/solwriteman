@@ -9,7 +9,7 @@ seo_type: "article"
 <!-- https://www.shadertoy.com/view/XsXXDn -->
 ## Overview
 
-Let's create a noise shader for 2025.
+Let's create a noise shader for 2025. To start out the new year, we will create a simple noise shader. This shader will be used to create a variety of effects, including backgrounds, textures, and more. From there, I'll go into more complex shaders, including 3D noise, fractals, and more. The goal is to create a variety of effects that can be used in a variety of projects.
 
 ```glsl
 #ifdef GL_ES

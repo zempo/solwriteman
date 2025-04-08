@@ -3,21 +3,22 @@
 	import { onMount } from 'svelte';
 	import { main } from '$lib/store/main.svelte.js';
 
-	const siteTheme = main.selectedTheme.name === 'dark' ? 'github-dark' : 'github-light';
+	let siteTheme = main.selectedTheme.name === 'dark' ? 'gruvbox-dark' : 'icy-dark';
 
-	const options = {
+	let options = {
 		src: 'https://utteranc.es/client.js',
 		repo: 'zempo/solwriteman',
 		label: 'comments',
 		crossorigin: 'anonymous',
-		theme: siteTheme,
+		// theme: `github-${main.socialTheme}`,
+		theme: `photon-dark`,
 		async: '',
 		'issue-term': 'pathname'
 	};
 
 	onMount(() => {
 		setTimeout(() => {
-			const utteranceScript = document.createElement('script');
+			let utteranceScript = document.createElement('script');
 			const targetTag = document.getElementById('utterances-comments');
 
 			for (const prop in options) {
@@ -31,3 +32,10 @@
 
 <noscript>Enable javascript to leave comments.</noscript>
 <div id="utterances-comments"></div>
+
+<style lang="scss">
+	/* @import "lib/assets/scss/..." */
+	.timeline-header {
+		color: var(--textMain) !important;
+	}
+</style>

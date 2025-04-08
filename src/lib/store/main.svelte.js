@@ -12,6 +12,7 @@ class Main {
 		light: { name: 'light', toolTip: 'Use Dark Mode', icon: 'moon icon' }
 	});
 	selectedTheme = $state(this.themes.light);
+	socialTheme = $derived(this.selectedTheme.name);
 
 	dyslexicOn = $state(false);
 

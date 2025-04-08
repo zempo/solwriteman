@@ -21,7 +21,8 @@
 <PgHero regHero="post" meta={byteMeta} />
 <article class="byte_pg">
 	<Body />
-	{#if !dev}
+	<ApiSocial />
+	<!-- {#if !dev}
 		<ApiSocial />
-	{/if}
+	{/if} -->
 </article>
