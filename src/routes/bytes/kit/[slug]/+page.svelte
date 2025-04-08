@@ -24,7 +24,7 @@
 	<div class="body_wrap">
 		<Body />
 	</div>
-	<ApiAuthor />
+	<ApiAuthor tags={byteMeta.topics} />
 	{#if !dev}
 		<ApiSocial />
 	{/if}

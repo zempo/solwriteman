@@ -35,7 +35,8 @@
 			</ul>
 		</section>
 		<section class="app_subsec" id="meet">
-			<h2>Meetup!</h2>
+			<h2>Reach Out!</h2>
+			<!-- no solicitations -->
 		</section>
 	</section>
 </PgWrap>

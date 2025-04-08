@@ -13,7 +13,7 @@
 			<li><a href="/bytes">All Bytes</a></li>
 			<li><a href="/snippets">All Snips</a></li>
 			<!-- use goto method onclick with link -->
-			<li><a href="/contact">Contact</a></li>
+			<li><a href="/contact#meet">Get in Touch!</a></li>
 		</ul>
 	</div>
 </aside>
