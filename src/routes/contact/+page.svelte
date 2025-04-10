@@ -2,41 +2,49 @@
 	import PgHead from '$lib/components/layout/PgHead.svelte';
 	import PgHero from '$lib/components/layout/PgHero.svelte';
 	import PgWrap from '$lib/components/layout/PgWrap.svelte';
+	import Disclosure from '$lib/components/content/Disclosure.svelte';
 	import { seoData } from '$lib/config';
 </script>
 
 <PgHead pgData={seoData.contact} />
 <PgWrap>
-	<section class="app_section">
-		<PgHero />
-		<!--  -->
-		<section class="app_subsec" id="uses">
-			<h2>Uses</h2>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias libero, non similique
-				exercitationem, cum eaque a vero suscipit debitis quia doloribus vel id excepturi nulla?
-				Dignissimos soluta beatae ducimus voluptatum rem maiores velit hic voluptates consequuntur
-				doloremque, nostrum, ipsum quaerat voluptatibus id totam asperiores! Dignissimos labore
-				culpa cupiditate amet qui aperiam ea quaerat doloribus repudiandae dolore!
-			</p>
-		</section>
-		<section class="app_subsec" id="faq">
-			<h2>FAQ</h2>
-			<ul>
-				<li>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis maiores
-					voluptatibus, officiis dolorem provident hic recusandae optio sed accusantium, ipsa
-					incidunt facilis quisquam.
-				</li>
-				<li>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus perferendis non hic
-					culpa.
-				</li>
-			</ul>
-		</section>
-		<section class="app_subsec" id="meet">
-			<h2>Reach Out!</h2>
-			<!-- no solicitations -->
-		</section>
-	</section>
+	<PgHero />
+	<div class="contact_panels">
+		<Disclosure isOpen={true}>
+			{#snippet accH()}<span id="meet">Get in touch</span>{/snippet}
+			{#snippet accC()}
+				<p>
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur, eum. Illo,
+					dignissimos.
+				</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+			{/snippet}
+		</Disclosure>
+		<Disclosure>
+			{#snippet accH()}<span id="uses">Tools & Uses</span>{/snippet}
+			{#snippet accC()}
+				<p>
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur, eum. Illo,
+					dignissimos.
+				</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+			{/snippet}
+		</Disclosure>
+		<Disclosure>
+			{#snippet accH()}<span id="faq">FAQs</span>{/snippet}
+			{#snippet accC()}
+				<p>
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur, eum. Illo,
+					dignissimos.
+				</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+			{/snippet}
+		</Disclosure>
+	</div>
 </PgWrap>

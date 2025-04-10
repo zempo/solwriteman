@@ -108,13 +108,13 @@ export const titles = {
 	books: `Books`,
 	bytes: `Bytes`,
 	snippets: `Snippets`,
-	contact: `Contact`
+	contact: `Connect`
 };
 export const taglines = {
 	books: `Storytold In a Nerdy Niche.`,
 	bytes: `Keep Calm And Debug On™`,
 	snippets: `From Notes App to Table.`,
-	contact: `🐋 Well, Hello There!` // 🐋, hello there
+	contact: `Feedback / Commissions / Mentoring` // 🐋, hello there
 };
 export const seoData = {
 	main: {
