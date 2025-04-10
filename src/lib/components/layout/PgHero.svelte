@@ -9,12 +9,12 @@
 </script>
 
 {#if regHero === 'pg'}
-	<header class="{main.getKey()}_hero reg_hero">
+	<header class="{main.getKey()}_hero reg_hero" id="pg_top">
 		<h1>{titles[main.getKey()]}</h1>
 		<p class="sub_title">{taglines[main.getKey()]}</p>
 	</header>
 {:else if regHero === 'post'}
-	<header class="{main.getKey()}_hero post_hero">
+	<header class="{main.getKey()}_hero post_hero" id="pg_top">
 		<h1>{meta.title}</h1>
 		<div class="hero_wrap">
 			<p class="sub_title"><b>Published:</b> {@html formatTimestampLong(meta.created_at)}</p>

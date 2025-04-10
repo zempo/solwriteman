@@ -329,6 +329,8 @@ $contentW: calc(72% - 1rem);
 							&:active {
 								background: var(--appTranslucent);
 								border-color: var(--playerDark);
+								// background: var(--rw);
+								// color: var(--textRev);
 								@include transition(background-color, 0.3s, ease-in);
 							}
 							&:active {
@@ -409,6 +411,7 @@ $contentW: calc(72% - 1rem);
 									background: var(--appTranslucent);
 									border-color: var(--playerDark);
 									@include transition(background-color, 0.3s, ease-in);
+									// @include transition(color, 0.3s, ease-in);
 								}
 								&:active {
 									position: relative;

@@ -1,7 +1,7 @@
 <script>
 	import { content } from '$lib/store/content.svelte.js';
 
-	const { tags = [] } = $props();
+	const { tags = [], slug = '', subtype = 'lab' } = $props();
 </script>
 
 <div class="byte_bio">
@@ -48,5 +48,8 @@
 				</li>
 			{/each}
 		</ul>
+		<p class="scroll_top_p use_h4">
+			<a href="/bytes/{subtype}/{slug}#pg_top" class="scroll_top_btn">Back to Top</a>
+		</p>
 	</div>
 </div>

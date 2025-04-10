@@ -10,6 +10,7 @@
 $breakpoints: (
 	'p_med': 560px,
 	'p_wide': 650px,
+	'p_wider': 750px,
 	'p_max': 1150px,
 	't_min': 1200px,
 	'd_min': 1600px
@@ -72,17 +73,18 @@ $breakpoints: (
 		margin-top: 5rem;
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: center;
+		justify-content: left;
 		.byte_bio_img {
-			width: 200px;
-			height: 200px;
+			width: 150px;
+			height: 150px;
 			// max-width: 200px;
-			border-radius: 1rem;
+			border-radius: 0.5rem;
 			box-shadow: var(--shadow3);
 			z-index: 1;
+			margin-bottom: 2rem;
 			img {
-				border-radius: 1rem;
-				height: 200px;
+				border-radius: 0.5rem;
+				height: 150px;
 				width: 100%;
 				object-fit: cover;
 				object-position: center;
@@ -140,10 +142,40 @@ $breakpoints: (
 				li button {
 					background: var(--appFig);
 					color: var(--appConst);
+					border-radius: 0.25rem;
+					border: 1px solid var(--playerDark);
+					box-shadow: var(--shadow3);
+					text-decoration: none;
+					padding: 0.25rem 0.35rem;
+					@include transition(background-color, 0.3s, ease-in);
+					&:hover,
+					&:focus,
+					&:active {
+						background: var(--appTranslucent);
+						border-color: var(--playerDark);
+						@include transition(background-color, 0.3s, ease-in);
+					}
+					&:active {
+						position: relative;
+						top: 0.05rem;
+						@include transition(background-color, 0.3s, ease-in);
+					}
+					// &.btn_hl {
+					// 	background: var(--rw);
+					// 	color: var(--textRev);
+					// }
 				}
 			}
 		}
-		@include mq('p_med') {
+		.scroll_top_p {
+			border-top: 1px solid var(--textFade);
+			width: 100%;
+			padding-top: 1rem;
+			a {
+				color: var(--rw);
+			}
+		}
+		@include mq('p_wider') {
 			justify-content: space-between;
 			padding: 2rem 1.5rem;
 			.byte_bio_img {
