@@ -1,11 +1,51 @@
 <script>
+	import { organizeByYear } from '$lib/components/content/helpers/snippet.js';
+	import { pinnedSnips, poemSnips, lifeSnips, techSnips } from '$lib/store/data/snipData.js';
 	import Disclosure from '$lib/components/content/Disclosure.svelte';
 	import TypeWriter from '$lib/components/static/comp_lib/TypeWriter.svelte';
 	import PgHead from '$lib/components/layout/PgHead.svelte';
 	import PgHero from '$lib/components/layout/PgHero.svelte';
 	import PgWrap from '$lib/components/layout/PgWrap.svelte';
 	import { seoData } from '$lib/config';
+	import { onMount } from 'svelte';
+
+	let pinOrg = null;
+	let poemOrg = null;
+	let lifeOrg = null;
+	let techOrg = null;
+	onMount(() => {
+		pinOrg = organizeByYear(pinnedSnips);
+		poemOrg = organizeByYear(poemSnips);
+		lifeOrg = organizeByYear(lifeSnips);
+		techOrg = organizeByYear(techSnips);
+		console.log(pinOrg);
+	});
 </script>
+
+<!-- *If label != 0, single table, different title -->
+{#snippet snipTable(S, label = 0)}
+	{#if S.organized}
+		{#each S.organized as T, idx}
+			<table class="snip_table">
+				<thead>
+					<tr>
+						<th class="use_h4">{label === 0 ? S.years[idx] : label}</th>
+					</tr>
+				</thead>
+			</table>
+		{/each}
+	{/if}
+{/snippet}
+
+{#snippet snipTablePin(S, label)}
+	<table class="snip_table">
+		<thead>
+			<tr>
+				<th class="use_h4">{label}</th>
+			</tr>
+		</thead>
+	</table>
+{/snippet}
 
 <PgHead pgData={seoData.snippets} />
 <PgWrap>
@@ -41,52 +81,26 @@
 		<Disclosure isOpen={true}>
 			{#snippet accH()}Freshly Cut Snips{/snippet}
 			{#snippet accC()}
-				<p>
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur, eum. Illo,
-					dignissimos.
-				</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+				{@render snipTablePin(pinnedSnips, 'Featured')}
 			{/snippet}
 		</Disclosure>
 		<Disclosure>
 			{#snippet accH()}Prose & Poems{/snippet}
 			{#snippet accC()}
-				<p>
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur, eum. Illo,
-					dignissimos.
-				</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+				{@render snipTable(poemOrg)}
 			{/snippet}
 		</Disclosure>
 		<Disclosure>
 			{#snippet accH()}Worth / Life Balance{/snippet}
 			{#snippet accC()}
-				<p>
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur, eum. Illo,
-					dignissimos.
-				</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+				{@render snipTable(lifeOrg)}
 			{/snippet}
 		</Disclosure>
 		<Disclosure>
 			{#snippet accH()}Tech Talk{/snippet}
 			{#snippet accC()}
-				<p>
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur, eum. Illo,
-					dignissimos.
-				</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+				{@render snipTable(techOrg)}
 			{/snippet}
 		</Disclosure>
 	</div>
 </PgWrap>
-
-{#snippet snipTable()}{/snippet}

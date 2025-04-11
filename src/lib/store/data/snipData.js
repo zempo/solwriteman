@@ -1,3 +1,5 @@
+import { organizeByYear } from '../../components/content/helpers/snippet';
+
 /**
  * TODO Sort array by date helper fxn
  *
@@ -34,16 +36,6 @@ export const pinnedSnips = [
 		title: `Compunding`,
 		link: `https://www.youtube.com/watch?v=D7DNVX4iwFQ&ab_channel=blakeoftoday`,
 		date: `02-12-2025`
-	},
-	{
-		title: `Hacking open source`,
-		link: `https://www.youtube.com/watch?v=D7DNVX4iwFQ&ab_channel=blakeoftoday`,
-		date: `01-07-2025`
-	},
-	{
-		title: `Nuero-dad-vergence`,
-		link: `https://www.youtube.com/watch?v=D7DNVX4iwFQ&ab_channel=blakeoftoday`,
-		date: `04-09-2025`
 	}
 ];
 
@@ -56,7 +48,7 @@ export const poemSnips = [
 	{
 		title: `Noticing Journal`,
 		link: `https://www.youtube.com/watch?v=D7DNVX4iwFQ&ab_channel=blakeoftoday`,
-		date: `02-12-2025`
+		date: `02-12-2022`
 	},
 	{
 		title: `This or that`,
@@ -66,7 +58,7 @@ export const poemSnips = [
 	{
 		title: `Compunding`,
 		link: `https://www.youtube.com/watch?v=D7DNVX4iwFQ&ab_channel=blakeoftoday`,
-		date: `02-12-2025`
+		date: `02-12-2024`
 	},
 	{
 		title: `Hacking open source`,
@@ -84,7 +76,7 @@ export const techSnips = [
 	{
 		title: `Ten Years of Code`,
 		link: `https://joshcollinsworth.com/blog/ten-years-of-code`,
-		date: `03-02-2025`
+		date: `03-02-2024`
 	},
 	{
 		title: `Noticing Journal`,
@@ -94,7 +86,7 @@ export const techSnips = [
 	{
 		title: `This or that`,
 		link: `https://www.youtube.com/watch?v=D7DNVX4iwFQ&ab_channel=blakeoftoday`,
-		date: `04-1-2025`
+		date: `04-1-2024`
 	},
 	{
 		title: `Compunding`,
@@ -127,7 +119,7 @@ export const lifeSnips = [
 	{
 		title: `This or that`,
 		link: `https://www.youtube.com/watch?v=D7DNVX4iwFQ&ab_channel=blakeoftoday`,
-		date: `04-1-2025`
+		date: `04-1-2024`
 	},
 	{
 		title: `Compunding`,
@@ -145,3 +137,7 @@ export const lifeSnips = [
 		date: `04-09-2025`
 	}
 ];
+
+// export const { poemOrg, poemYears } = organizeByYear(poemSnips);
+// export const { techOrg, techYears } = organizeByYear(techSnips);
+// export const { lifeOrg, lifeYears } = organizeByYear(lifeSnips);
