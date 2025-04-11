@@ -74,12 +74,19 @@
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
 			{/snippet}
 		</Disclosure>
+		<Disclosure>
+			{#snippet accH()}Tech Talk{/snippet}
+			{#snippet accC()}
+				<p>
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur, eum. Illo,
+					dignissimos.
+				</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+			{/snippet}
+		</Disclosure>
 	</div>
-	<!-- 
-	snippets:
-
-	snippets?this_tag (image preview / summary of external substack link)
-
-	make table
-	-->
 </PgWrap>
+
+{#snippet snipTable()}{/snippet}
