@@ -1,5 +1,6 @@
 <script>
 	import { organizeByYear } from '$lib/components/content/helpers/snippet.js';
+	import { formatTimestamp, formatTimestampAbbrv } from '$lib/components/content/helpers/api';
 	import { pinnedSnips, poemSnips, lifeSnips, techSnips } from '$lib/store/data/snipData.js';
 	import Disclosure from '$lib/components/content/Disclosure.svelte';
 	import TypeWriter from '$lib/components/static/comp_lib/TypeWriter.svelte';
@@ -22,6 +23,23 @@
 	});
 </script>
 
+{#snippet snipRw(entry, featured = false)}
+	{#each entry as T}
+		<tr>
+			<td>
+				<time datetime={T.date}>
+					{#if featured}
+						{@html formatTimestampAbbrv(T.date)}
+					{:else}
+						{@html formatTimestamp(T.date)}
+					{/if}
+				</time>
+			</td>
+			<td>{T.title}</td>
+		</tr>
+	{/each}
+{/snippet}
+
 <!-- *If label != 0, single table, different title -->
 {#snippet snipTable(S, label = 0)}
 	{#if S.organized}
@@ -32,6 +50,9 @@
 						<th class="use_h4">{label === 0 ? S.years[idx] : label}</th>
 					</tr>
 				</thead>
+				<tbody>
+					{@render snipRw(T)}
+				</tbody>
 			</table>
 		{/each}
 	{/if}
@@ -39,11 +60,9 @@
 
 {#snippet snipTablePin(S, label)}
 	<table class="snip_table">
-		<thead>
-			<tr>
-				<th class="use_h4">{label}</th>
-			</tr>
-		</thead>
+		<tbody>
+			{@render snipRw(S, true)}
+		</tbody>
 	</table>
 {/snippet}
 
@@ -54,7 +73,8 @@
 		<TypeWriter
 			messages={[
 				'Git Commitment Issues',
-				`e̸̻̒o̷̝͛e̴̦͘j̸̹́m̵͑͜l̷̪̚;̶͚͛s̵̘͐d̴̺̚ḟ̴̝s̸̯̀ḏ̸̏f̵̘̄ , am I right?`,
+				'Fresh Cut Snips',
+				`e̸̻̒o̷̝͛e̴̦͘j̸̹́m̵͑͜l̷̪̚, am I right?`,
 				`Oh! How you Opti-maze me, Eugene!`,
 				'From Notes App to Table.',
 				'Finding Virtual Wisdom',
@@ -79,7 +99,7 @@
 	</div>
 	<div class="snip_panels">
 		<Disclosure isOpen={true}>
-			{#snippet accH()}Freshly Cut Snips{/snippet}
+			{#snippet accH()}Featured Snips{/snippet}
 			{#snippet accC()}
 				{@render snipTablePin(pinnedSnips, 'Featured')}
 			{/snippet}
