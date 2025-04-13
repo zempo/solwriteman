@@ -31,14 +31,24 @@ export const getOrdinal = (num) => {
 	return `${num}<sup>${s[(v - 20) % 10] || s[v] || s[0]}</sup>`;
 };
 
-export const formatTimestamp = (isoStr) => {
-	const date = new Date(isoStr);
-	const opts = { month: 'short', day: 'numeric' };
-	let dateNumeric = date.toLocaleDateString('en-US', opts);
-	let dateNumericStrs = dateNumeric.split(' ');
-	let dateOrdinal = `${dateNumericStrs[0]} ${getOrdinal(dateNumericStrs[1])}`;
+export const formatTimestamp = (dateStr) => {
+	// Safely parse date (works for MM-DD-YYYY, YYYY-MM-DD, etc.)
+	const parseDate = (str) => {
+		const [month, day, year] = str.split('-').map(Number);
+		return new Date(year, month - 1, day); // month is 0-indexed
+	};
 
-	return dateOrdinal;
+	const date = parseDate(dateStr); // Use manual parsing instead of `new Date(isoStr)`
+
+	// Format as "Mar 2nd", "Apr 1st", etc.
+	const opts = { month: 'short', day: 'numeric' };
+	const formatted = date.toLocaleDateString('en-US', opts);
+
+	// Add ordinal suffix (e.g., "2" → "2nd")
+	const [month, day] = formatted.split(' ');
+	const dayWithOrdinal = `${getOrdinal(Number(day))}`;
+
+	return `${month} ${dayWithOrdinal}`;
 };
 
 export const formatTimestampLong = (isoStr) => {
@@ -72,15 +82,36 @@ export const detectUserDateFormat = () => {
 };
 
 export const formatTimestampAbbrv = (isoStr) => {
-	const date = new Date(isoStr); // Convert ISO string to Date object
+	// Safely parse the date string (works for MM-DD-YYYY, YYYY-MM-DD, etc.)
+	const parseDate = (str) => {
+		// Try ISO format first (YYYY-MM-DD)
+		if (str.includes('-')) {
+			const parts = str.split('-');
+			// If year is first (ISO format)
+			if (parts[0].length === 4) {
+				return new Date(parts[0], parts[1] - 1, parts[2]);
+			}
+			// If month is first (MM-DD-YYYY)
+			return new Date(parts[2], parts[0] - 1, parts[1]);
+		}
+		// Fallback to Date constructor (may still fail in Safari)
+		return new Date(str);
+	};
+
+	const date = parseDate(isoStr);
+
+	if (isNaN(date.getTime())) {
+		console.error('Invalid date:', isoStr);
+		return 'Invalid Date';
+	}
 
 	const day = String(date.getDate()).padStart(2, '0');
 	const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
-	const year = String(date.getFullYear()).slice(-2); // Get last two digits of the year
-	// console.log(detectUserDateFormat());
-	const output =
-		detectUserDateFormat() === 1 ? `${month}/${day}/${year}` : `${day}/${month}/${year}`;
-	return output;
+	const year = String(date.getFullYear()).slice(-2); // Get last two digits
+
+	return detectUserDateFormat() === 1
+		? `${month}/${day}/${year}` // US format (MM/DD/YY)
+		: `${day}/${month}/${year}`; // Non-US format (DD/MM/YY)
 };
 
 export const getRandIdx = (len) => {

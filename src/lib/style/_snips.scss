@@ -68,7 +68,7 @@ $border_0: 1px solid var(--textLt);
 	}
 	.snip_table {
 		margin: 1.5rem 0;
-		border-spacing: 1rem 0.5rem;
+		border-spacing: 1.25rem 0.5rem;
 		th {
 			color: var(--textHead);
 			position: relative;
@@ -77,6 +77,7 @@ $border_0: 1px solid var(--textLt);
 		.t_cell {
 			color: var(--textMain);
 			opacity: 0.95;
+			text-wrap: wrap;
 		}
 		.l_cell {
 			color: var(--rw);

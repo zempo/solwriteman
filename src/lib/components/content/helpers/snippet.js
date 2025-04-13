@@ -1,17 +1,27 @@
 // Sort by date (ascending: oldest first)
 export const sortedByDateAsc = (snips) =>
 	[...snips].sort((a, b) => {
-		const dateA = new Date(a.date.split('-').reverse().join('-'));
-		const dateB = new Date(b.date.split('-').reverse().join('-'));
-		return dateA - dateB;
+		const parseDate = (dateStr) => {
+			const [month, day, year] = dateStr.split('-').map(Number);
+			return new Date(year, month - 1, day); // Month is 0-indexed in JS
+		};
+
+		const dateA = parseDate(a.date);
+		const dateB = parseDate(b.date);
+		return dateA - dateB; // Newest first
 	});
 
 // Sort by date (descending: newest first)
 export const sortedByDateDesc = (snips) =>
 	[...snips].sort((a, b) => {
-		const dateA = new Date(a.date.split('-').reverse().join('-'));
-		const dateB = new Date(b.date.split('-').reverse().join('-'));
-		return dateB - dateA;
+		const parseDate = (dateStr) => {
+			const [month, day, year] = dateStr.split('-').map(Number);
+			return new Date(year, month - 1, day); // Month is 0-indexed in JS
+		};
+
+		const dateA = parseDate(a.date);
+		const dateB = parseDate(b.date);
+		return dateB - dateA; // Newest first
 	});
 
 export function organizeByYear(articles, index = 0, result = {}, years = new Set()) {
