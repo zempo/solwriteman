@@ -1,5 +1,5 @@
 <script>
-	import { organizeByYear } from '$lib/components/content/helpers/snippet.js';
+	import { organizeByYear, sortedByDateAsc } from '$lib/components/content/helpers/snippet.js';
 	import { formatTimestamp, formatTimestampAbbrv } from '$lib/components/content/helpers/api';
 	import { pinnedSnips, poemSnips, lifeSnips, techSnips } from '$lib/store/data/snipData.js';
 	import Disclosure from '$lib/components/content/Disclosure.svelte';
@@ -19,14 +19,13 @@
 		poemOrg = organizeByYear(poemSnips);
 		lifeOrg = organizeByYear(lifeSnips);
 		techOrg = organizeByYear(techSnips);
-		console.log(pinOrg);
 	});
 </script>
 
 {#snippet snipRw(entry, featured = false)}
 	{#each entry as T}
 		<tr>
-			<td>
+			<td class="t_cell">
 				<time datetime={T.date}>
 					{#if featured}
 						{@html formatTimestampAbbrv(T.date)}
@@ -35,7 +34,11 @@
 					{/if}
 				</time>
 			</td>
-			<td>{T.title}</td>
+			<td class="l_cell">
+				<a href={T.link} target="_blank" rel="noopener noreferrer">
+					<em>{T.src}</em>: {T.title}
+				</a>
+			</td>
 		</tr>
 	{/each}
 {/snippet}
@@ -51,7 +54,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					{@render snipRw(T)}
+					{@render snipRw(sortedByDateAsc(T))}
 				</tbody>
 			</table>
 		{/each}
@@ -60,8 +63,13 @@
 
 {#snippet snipTablePin(S, label)}
 	<table class="snip_table">
+		<thead>
+			<tr>
+				<th class="use_h4">{label}</th>
+			</tr>
+		</thead>
 		<tbody>
-			{@render snipRw(S, true)}
+			{@render snipRw(sortedByDateAsc(S), true)}
 		</tbody>
 	</table>
 {/snippet}

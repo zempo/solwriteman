@@ -1,29 +1,18 @@
-/**
- * !!!!!! return {byYear: byYear.reverse(),}
- * 
-  let byYear = [];
-	let searchStrs = [];
-	// year slots
-	for (let y = 0; y < blogYears; y++) {
-		byYear.push([]);
-	}
+// Sort by date (ascending: oldest first)
+export const sortedByDateAsc = (snips) =>
+	[...snips].sort((a, b) => {
+		const dateA = new Date(a.date.split('-').reverse().join('-'));
+		const dateB = new Date(b.date.split('-').reverse().join('-'));
+		return dateA - dateB;
+	});
 
- 		for (let i = 0; i < blogYears; i++) {
-			let currYr = 2025 + i;
-			if (s.created_at.includes(currYr)) {
-				byYear[i].push({
-					title: s.title,
-					slug: s.slug,
-					created_at: s.created_at,
-					excerpt: s.excerpt,
-					topics: s.topics ?? [],
-					pinned: s.pinned ?? false
-				});
-			}
-		} 
- !! * !!! return      		byYear: byYear.reverse(),
- *
- * **/
+// Sort by date (descending: newest first)
+export const sortedByDateDesc = (snips) =>
+	[...snips].sort((a, b) => {
+		const dateA = new Date(a.date.split('-').reverse().join('-'));
+		const dateB = new Date(b.date.split('-').reverse().join('-'));
+		return dateB - dateA;
+	});
 
 export function organizeByYear(articles, index = 0, result = {}, years = new Set()) {
 	// Base case: when we've processed all articles

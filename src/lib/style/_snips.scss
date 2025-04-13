@@ -66,4 +66,20 @@ $border_0: 1px solid var(--textLt);
 			padding: 0.5rem;
 		}
 	}
+	.snip_table {
+		margin: 1.5rem 0;
+		border-spacing: 1rem 0.5rem;
+		th {
+			color: var(--textHead);
+			position: relative;
+			left: -0.5rem;
+		}
+		.t_cell {
+			color: var(--textMain);
+			opacity: 0.95;
+		}
+		.l_cell {
+			color: var(--rw);
+		}
+	}
 }

@@ -18,12 +18,14 @@ import { organizeByYear } from '../../components/content/helpers/snippet';
  */
 export const pinnedSnips = [
 	{
-		title: `Ten Years of Code`,
+		title: `Reflecting on Ten Years of Code`,
+		src: `SubStack`,
 		link: `https://joshcollinsworth.com/blog/ten-years-of-code`,
 		date: `03-02-2025`
 	},
 	{
-		title: `Noticing Journal`,
+		title: `Work-From-Home Survival Guide`,
+		src: `SubStack`,
 		link: `https://www.youtube.com/watch?v=D7DNVX4iwFQ&ab_channel=blakeoftoday`,
 		date: `02-12-2025`
 	}
@@ -32,11 +34,13 @@ export const pinnedSnips = [
 export const poemSnips = [
 	{
 		title: `Ten Years of Code`,
+		src: `SubStack`,
 		link: `https://joshcollinsworth.com/blog/ten-years-of-code`,
 		date: `03-02-2025`
 	},
 	{
 		title: `This or that`,
+		src: `SubStack`,
 		link: `https://www.youtube.com/watch?v=D7DNVX4iwFQ&ab_channel=blakeoftoday`,
 		date: `04-1-2025`
 	}
@@ -44,17 +48,20 @@ export const poemSnips = [
 
 export const techSnips = [
 	{
-		title: `Ten Years of Code`,
+		title: `Reflecting on Ten Years of Code`,
+		src: `SubStack`,
 		link: `https://joshcollinsworth.com/blog/ten-years-of-code`,
 		date: `03-02-2025`
 	},
 	{
 		title: `Noticing Journal`,
+		src: `SubStack`,
 		link: `https://www.youtube.com/watch?v=D7DNVX4iwFQ&ab_channel=blakeoftoday`,
 		date: `02-12-2025`
 	},
 	{
 		title: `This or that`,
+		src: `SubStack`,
 		link: `https://www.youtube.com/watch?v=D7DNVX4iwFQ&ab_channel=blakeoftoday`,
 		date: `04-1-2025`
 	}
@@ -62,12 +69,14 @@ export const techSnips = [
 
 export const lifeSnips = [
 	{
-		title: `Ten Years of Code`,
+		title: `Work-From-Home Survival Guide`,
+		src: `SubStack`,
 		link: `https://joshcollinsworth.com/blog/ten-years-of-code`,
 		date: `03-02-2025`
 	},
 	{
-		title: `Noticing Journal`,
+		title: `How to take a break (No, really)`,
+		src: `SubStack`,
 		link: `https://www.youtube.com/watch?v=D7DNVX4iwFQ&ab_channel=blakeoftoday`,
 		date: `02-12-2025`
 	}
