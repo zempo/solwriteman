@@ -120,7 +120,6 @@
 		<Disclosure isOpen={true}>
 			{#snippet accH()}Featured Snips{/snippet}
 			{#snippet accC()}
-				{dimension.trunc1}
 				{@render snipTablePin(pinnedSnips, 'Featured')}
 			{/snippet}
 		</Disclosure>
