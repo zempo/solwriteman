@@ -484,25 +484,25 @@ $contentW: calc(72% - 1rem);
 				}
 			}
 		}
-		@include mq('phab_min', 'min') {
+		@include mq('p_wide', 'min') {
 			margin-top: 100px;
-			width: calc(100vw - 2rem);
+			width: calc(100vw - 3rem);
 			.byte_item_list {
 				row-gap: 4rem;
 				padding-left: 1rem;
 			}
 			&.app_wrap_w {
-				width: calc(100vw - 2rem);
+				width: calc(100vw - 3rem);
 				.wide_tabs {
 					width: 100%;
 				}
 			}
 		}
 		@include mq('phab_med', 'min') {
-			width: calc(100vw - 2rem);
+			width: calc(100vw - 3rem);
 			&.app_wrap_w {
 				overflow: visible;
-				width: calc(100vw - 2rem);
+				width: calc(100vw - 3rem);
 				max-width: 1600px;
 				display: flex;
 				flex-wrap: wrap;

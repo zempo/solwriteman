@@ -2,6 +2,7 @@
 	import { siteImg, siteAlt } from '$lib/config.js';
 	import PgHead from '$lib/components/layout/PgHead.svelte';
 	import PgHero from '$lib/components/layout/PgHero.svelte';
+	import ApiAuthor from '$lib/components/content/helpers/ApiAuthor.svelte';
 	import ApiSocial from '$lib/components/content/helpers/ApiSocial.svelte';
 	import { dev } from '$app/environment';
 

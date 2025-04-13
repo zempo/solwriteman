@@ -1,6 +1,12 @@
 <script>
+	import { dimension } from '$lib/store/dimension.svelte.js';
+	import { truncate } from '$lib/components/static/utils/helpers';
 	import { organizeByYear, sortedByDateAsc } from '$lib/components/content/helpers/snippet.js';
-	import { formatTimestamp, formatTimestampAbbrv } from '$lib/components/content/helpers/api';
+	import {
+		formatTimestamp,
+		formatTimestampAbbrv,
+		getAccessibleDate
+	} from '$lib/components/content/helpers/api';
 	import { pinnedSnips, poemSnips, lifeSnips, techSnips } from '$lib/store/data/snipData.js';
 	import Disclosure from '$lib/components/content/Disclosure.svelte';
 	import TypeWriter from '$lib/components/static/comp_lib/TypeWriter.svelte';
@@ -26,17 +32,22 @@
 	{#each entry as T}
 		<tr>
 			<td class="t_cell">
-				<time datetime={T.date}>
+				<time datetime={T.date} aria-label={getAccessibleDate(T.date)}>
+					<span class="sr">{getAccessibleDate(T.date)}</span>
 					{#if featured}
-						{@html formatTimestampAbbrv(T.date)}
+						<span aria-hidden="true">{@html formatTimestampAbbrv(T.date)}</span>
 					{:else}
-						{@html formatTimestamp(T.date)}
+						<span aria-hidden="true">{@html formatTimestamp(T.date)}</span>
 					{/if}
 				</time>
 			</td>
 			<td class="l_cell">
 				<a href={T.link} target="_blank" rel="noopener noreferrer">
-					<em>{T.src}</em>: {T.title}
+					<em>{T.src}</em>: {truncate(
+						T.title,
+						dimension.trunc1 + (dimension.trunc1 > 25 ? 20 : 0),
+						'...'
+					)}
 				</a>
 			</td>
 		</tr>
@@ -109,6 +120,7 @@
 		<Disclosure isOpen={true}>
 			{#snippet accH()}Featured Snips{/snippet}
 			{#snippet accC()}
+				{dimension.trunc1}
 				{@render snipTablePin(pinnedSnips, 'Featured')}
 			{/snippet}
 		</Disclosure>

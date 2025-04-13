@@ -25,6 +25,24 @@ export const combineObjArrays = (arr1, arr2) => {
 	return unique;
 };
 
+// Your existing safeParseDate function
+const safeParseDate = (dateStr) => {
+	const parts = dateStr.split('-');
+	return new Date(parts[2], parts[0] - 1, parts[1]);
+};
+
+export const getAccessibleDate = (dateStr) => {
+	const date = safeParseDate(dateStr);
+	if (isNaN(date.getTime())) return 'Invalid Date';
+
+	const options = {
+		month: 'long',
+		day: 'numeric',
+		year: 'numeric'
+	};
+	return date.toLocaleDateString('en-US', options); // "February 12, 2025"
+};
+
 export const getOrdinal = (num) => {
 	var s = ['th', 'st', 'nd', 'rd'];
 	var v = num % 100;
