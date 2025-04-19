@@ -1,5 +1,4 @@
 <script>
-	import { goto } from '$app/navigation';
 	const { children, type = 'byte' } = $props();
 </script>
 
