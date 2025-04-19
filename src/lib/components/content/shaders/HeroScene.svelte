@@ -12,6 +12,7 @@
 	let isMicActive = false; // Tracks if the mic input is active
 	let currShader = 0;
 	let animationFrameId;
+	let mousePos = new THREE.Vector2(0, 0);
 
 	async function toggleMicInput() {
 		try {
@@ -79,6 +80,7 @@
 				u_resolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
 				u_time: { value: 0.0 },
 				u_audio: { value: 0.0 },
+				u_mouse: { value: new THREE.Vector2(0, 0) },
 				u_theme: {
 					value:
 						main.selectedTheme.name === 'light'
@@ -114,6 +116,7 @@
 				main.selectedTheme.name === 'light'
 					? new THREE.Color(0.3725, 0.7059, 0.7804)
 					: new THREE.Color(0.3098, 0.7373, 0.5255);
+			material.uniforms.u_mouse.value = mousePos;
 			material.uniforms.u_time.value = performance.now() / 1000;
 			renderer.render(scene, camera);
 		}
@@ -130,10 +133,20 @@
 			material.uniforms.u_resolution.value.set(window.innerWidth, window.innerHeight);
 		}
 
+		// handle mouse movement
+		function handleMouseMove(event) {
+			material.uniforms.u_mouse.value.set(
+				event.clientX / window.innerWidth,
+				1.0 - event.clientY / window.innerHeight
+			);
+		}
+		window.addEventListener('mousemove', handleMouseMove);
+
 		return () => {
 			// Clean up
 			cancelAnimationFrame(animationFrameId);
 			window.removeEventListener('resize', onWindowResize);
+			window.removeEventListener('mousemove', handleMouseMove);
 
 			renderer.dispose();
 			geometry.dispose();

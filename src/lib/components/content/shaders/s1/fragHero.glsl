@@ -5,6 +5,7 @@ precision mediump float;
 uniform vec2 u_resolution;
 uniform float u_time;
 uniform float u_audio;
+uniform vec2 u_mouse;
 uniform vec3 u_theme;
 uniform float u_shader_idx;
 
@@ -314,6 +315,22 @@ vec3 mk_cp6(vec2 pt, float rate) {
   return c_fin;
 }
 
+vec3 mk_cp6b(vec2 pt, float rate) {
+  vec2 mouseNorm = u_mouse;
+  float mX = mouseNorm.x * 2.0 - 1.0;
+  float mY = mouseNorm.y * 2.0 - 1.0;
+  
+float reaction = sin(pt.x * 30.0 + rate) * sin(pt.y * 30.0);  
+float diffusion = smoothstep(-0.2, 0.2 + sin(pt.x * 3.0 + rate) + sin(pt.x * 20.0 + rate/pt.y * (-(mX)) * .00005 + rate), reaction); 
+
+  // vec3 c_out = mix(c1, , );
+  vec3 c1 = vec3(diffusion * (0.1+abs(mX)-abs(mY*0.2)) - (mX/2.0), reaction - (0.1+abs(mX)),.2 + diffusion * abs(mX));
+  vec3 c2 = vec3(reaction * abs(mX) - (mX/5.0), diffusion, reaction * abs(mX));
+  vec3 c_fin = mix(c1, c1, sin(pt.x * 2.0 + rate));
+
+  return c_fin;
+}
+
 void main(){
  vec2 uv = ((gl_FragCoord.xy - (u_resolution.xy * 0.5)) / u_resolution.y);
   // Adjust color based on audio data
@@ -327,6 +344,7 @@ void main(){
  vec2 uv5 = .40 * uv;
  vec2 uv6 = 10.0 * uv;
  vec2 uv6b = 1.0 * uv;
+ vec2 uv6b2 = 1.25 * uv;
  vec2 uv7 = 1.0 * uv;
 
 
@@ -397,8 +415,11 @@ void main(){
   vec3 c7_2 = vec3(0.298, 0.251, 0.3451);
   vec3 c7 = mix(c7_1,c7_2,p7 * n);
 
+  vec3 c6b = mk_cp6b(uv6b2, rate7);
+
+    // c1,c7,c4,c2,c5,c6b
   vec3 a1[6] = vec3[6](
-    c1,c7,c4,c2,c5,c6
+  c1,c6b,c7,c4,c2,c5
   );
   vec3 a_out1 = a1[int(u_shader_idx)];
 

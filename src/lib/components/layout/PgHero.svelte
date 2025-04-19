@@ -11,7 +11,7 @@
 {#if regHero === 'pg'}
 	<header class="{main.getKey()}_hero reg_hero" id="pg_top">
 		<h1>{titles[main.getKey()]}</h1>
-		<p class="sub_title">{taglines[main.getKey()]}</p>
+		<p class="sub_title">{@html taglines[main.getKey()]}</p>
 	</header>
 {:else if regHero === 'post'}
 	<header class="{main.getKey()}_hero post_hero" id="pg_top">

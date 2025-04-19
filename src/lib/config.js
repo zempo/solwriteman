@@ -111,10 +111,10 @@ export const titles = {
 	contact: `Connect`
 };
 export const taglines = {
-	books: `Storytold In a Nerdy Niche.`,
-	bytes: `Keep Calm And Debug On™`,
-	snippets: `From Notes App to Table.`,
-	contact: `Feedback / Commissions / Mentoring` // 🐋, hello there
+	books: `<span aria-hidden="true">📚</span> Storytold In a Nerdy Niche.`,
+	bytes: `<span aria-hidden="true">💻</span> Keep Calm And Debug On™`,
+	snippets: `<span aria-hidden="true">✍️</span> From Notes App to Table.`,
+	contact: `<span aria-hidden="true">👋</span> Feedback / Commissions / Mentoring` // 🐋, hello there
 };
 export const seoData = {
 	main: {
@@ -128,12 +128,12 @@ export const seoData = {
 		...defaultSEO
 	},
 	bytes: {
-		title: `Zempo • Procedural Art Bytes`,
+		title: `Zempo • Code Bytes`,
 		desc: taglines.bytes,
 		...defaultSEO
 	},
 	snippets: {
-		title: `SolWriteMan • Snippets & Performances`,
+		title: `SolWriteMan • Text Snippets`,
 		desc: taglines.snippets,
 		...defaultSEO
 	},
