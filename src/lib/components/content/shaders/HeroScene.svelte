@@ -189,7 +189,6 @@
 		-o-transition: $property $duration $timing $delay;
 		transition: $property $duration $timing $delay;
 	}
-	/* @import "lib/assets/scss/..." */
 	.scene_btns {
 		position: absolute;
 		left: 0.25rem;
@@ -198,7 +197,6 @@
 			cursor: pointer;
 			border-radius: 0.21rem;
 			padding-inline: 1.25rem;
-			// background-color: orange;
 			background-color: #c8c8c86e;
 			color: white;
 			border-color: #c8c8c86e;
@@ -218,14 +216,13 @@
 					fill: white;
 				}
 			}
-		}
-		.mic_btn {
-			position: relative;
-			&.mic_btn_on {
-				background-color: var(--accentMain);
-				border-color: var(--accentMainLt);
+			&.mic_btn {
+				position: relative;
+				&.mic_btn_on {
+					background-color: var(--accentMain);
+					border-color: var(--accentMainLt);
+				}
 			}
-			// top: 1rem;
 		}
 	}
 </style>

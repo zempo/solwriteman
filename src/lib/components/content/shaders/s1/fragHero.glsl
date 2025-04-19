@@ -238,7 +238,7 @@ vec3 mk_cp4(vec2 pt, float len, float rate) {
     pt.x = pt.x - cos(pt.y + sin(l)) + cos(rate / 9.0);
     pt.y = pt.y + sin(pt.x + cos(l)) + sin(rate / 12.0); 
   }
-  vec3 cp_fin = vec3(tan(l * (0.01 + (sin(rate) / 60.0))) * 0.5 + (colorIntensity_4 * 0.5), cos(l * 0.2) + colorIntensity_4, cos(l * 0.1));
+  vec3 cp_fin = vec3(tan(l * (0.01 + (sin(rate + (colorIntensity_4*0.1)) / 60.0))) * 0.5 + (colorIntensity_4 * 0.5), cos(l * 0.2) + colorIntensity_4, cos(l * 0.1));
   return cp_fin;
 }
 
@@ -316,15 +316,19 @@ vec3 mk_cp6(vec2 pt, float rate) {
 }
 
 vec3 mk_cp6b(vec2 pt, float rate) {
+  float colorIntensity_7 = smoothstep(0.0, 1.0, u_audio); // Map audio value [0,1]
+  colorIntensity_7 *= .15;
+
+
   vec2 mouseNorm = u_mouse;
   float mX = mouseNorm.x * 2.0 - 1.0;
   float mY = mouseNorm.y * 2.0 - 1.0;
   
 float reaction = sin(pt.x * 30.0 + rate) * sin(pt.y * 30.0);  
-float diffusion = smoothstep(-0.2, 0.2 + sin(pt.x * 3.0 + rate) + sin(pt.x * 20.0 + 100.0/pt.y * (-(mX)) * .0005), reaction); 
+float diffusion = smoothstep(-0.2, 0.2 + sin(pt.x * 3.0 + rate) + sin(pt.x * 20.0 + 100.0/pt.y * (-(mX)) * (.0005+colorIntensity_7)), reaction); 
 
   // vec3 c_out = mix(c1, , );
-  vec3 c1 = vec3(diffusion * (0.1+abs(mX)-abs(mY*0.2)) - (mX/2.0), reaction - (0.1+abs(mX)),.2 + diffusion * abs(mX));
+  vec3 c1 = vec3(diffusion * (0.1+abs(mX)-abs(mY*0.2)) - (mX/2.0), reaction - (0.1+abs(mX)) + colorIntensity_7,.2 + diffusion * abs(mX));
   vec3 c2 = vec3(reaction * abs(mX) - (mX/5.0), diffusion, reaction * abs(mX));
   vec3 c_fin = mix(c1, c1, sin(pt.x * 2.0 + rate));
 
@@ -338,6 +342,8 @@ void main(){
   colorIntensity *= 0.5;
 
  vec2 uv1 = uv * 2.0;
+ uv1.y *= (colorIntensity * .5) + 1.0;
+ uv1.x *= (colorIntensity * .5) + 1.0;
  vec2 uv2 = uv * 2.0;
  vec2 uv3 = uv * vec2(2.0+(0.1*sin(u_time*.5)), 2.0+(1.0*-cos(u_time*.5)));
  vec2 uv4 = uv * vec2(12.0, 10.0);
@@ -369,7 +375,7 @@ void main(){
   // Effect phase: Ripple effect
   float effect_time = time_in_phase - delay; // Time relative to the start of the effect
   float len = fract(length(uv1) * .25); 
-  vec2 ripple = uv1 + uv1 / len * 0.03 * cos(len * 100.0 - effect_time * 4.0);
+  vec2 ripple = uv1 + uv1 / len * (0.03) * cos(len * 100.0 - effect_time * 4.0);
   float delta = (sin(effect_time * (2.0 * PI / duration)) + 1.0) / 2.0;
   uv2 = mix(ripple, uv2, delta + colorIntensity);
   
@@ -378,7 +384,7 @@ void main(){
   float angle = u_time * 0.05;
   for (int i = 0; i < 8; i++){
     uv = abs(uv);
-    uv -= 0.5;
+    uv -= 0.5 - (colorIntensity * 0.07);
     uv *= 1.1;
     uv *= mat2(
       cos(angle), -sin(angle),
@@ -404,7 +410,7 @@ void main(){
   vec3 c6 = mk_cp5(uv6, 8.0, rate5) + (mk_cp6(uv6b*2.5, rate6) * 0.2);
 
   vec2 gradient = vec2(1.0, 1.0);
-  float n = psrdnoise(vec2(3.) * uv7, vec2(0.), .2 * rate7 * PI, gradient);
+  float n = psrdnoise(vec2(3.) * uv7 + (colorIntensity * 0.25), vec2(0.), .2 * rate7 * PI, gradient);
   uv7 = fract(uv7 * 4.0 * n) - 0.5;
   float p7 = cos((uv7.x + n * 0.1 + exp(uv7.y + 2.0 * uv7.x) + 0.2) * PI);
   // vec3 c7_1 = vec3(0.3098, 0.7373, 0.5255);
@@ -413,13 +419,13 @@ void main(){
   // 0.651, 0.3725, 0.7804
   vec3 c7_1 = u_theme;
   vec3 c7_2 = vec3(0.298, 0.251, 0.3451);
-  vec3 c7 = mix(c7_1,c7_2,p7 * n);
+  vec3 c7 = mix(c7_1,c7_2,p7 * n + (colorIntensity * 2.0));
 
   vec3 c6b = mk_cp6b(uv6b2, rate7);
 
     // c1,c7,c4,c2,c5,c6b
   vec3 a1[6] = vec3[6](
-  c1,c6b,c7,c4,c2,c5
+  c2,c6b,c7,c4,c2,c5
   );
   vec3 a_out1 = a1[int(u_shader_idx)];
 
