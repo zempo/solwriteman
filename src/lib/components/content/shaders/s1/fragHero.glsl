@@ -321,7 +321,7 @@ vec3 mk_cp6b(vec2 pt, float rate) {
   float mY = mouseNorm.y * 2.0 - 1.0;
   
 float reaction = sin(pt.x * 30.0 + rate) * sin(pt.y * 30.0);  
-float diffusion = smoothstep(-0.2, 0.2 + sin(pt.x * 3.0 + rate) + sin(pt.x * 20.0 + rate/pt.y * (-(mX)) * .00005 + rate), reaction); 
+float diffusion = smoothstep(-0.2, 0.2 + sin(pt.x * 3.0 + rate) + sin(pt.x * 20.0 + 100.0/pt.y * (-(mX)) * .0005), reaction); 
 
   // vec3 c_out = mix(c1, , );
   vec3 c1 = vec3(diffusion * (0.1+abs(mX)-abs(mY*0.2)) - (mX/2.0), reaction - (0.1+abs(mX)),.2 + diffusion * abs(mX));
@@ -344,7 +344,7 @@ void main(){
  vec2 uv5 = .40 * uv;
  vec2 uv6 = 10.0 * uv;
  vec2 uv6b = 1.0 * uv;
- vec2 uv6b2 = 1.25 * uv;
+ vec2 uv6b2 = 1.35 * uv;
  vec2 uv7 = 1.0 * uv;
 
 
