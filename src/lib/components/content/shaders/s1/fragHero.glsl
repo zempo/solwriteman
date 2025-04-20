@@ -238,8 +238,8 @@ vec3 mk_cp4(vec2 pt, float len, float rate) {
     pt.x = pt.x - cos(pt.y + sin(l)) + cos(rate / 9.0);
     pt.y = pt.y + sin(pt.x + cos(l)) + sin(rate / 12.0); 
   }
-  vec3 cp_fin = vec3(tan(l * (0.01 + (sin(rate + (colorIntensity_4*0.1)) / 60.0))) * 0.5 + (colorIntensity_4 * 0.5), cos(l * 0.2) + colorIntensity_4, cos(l * 0.1));
-  return cp_fin;
+  vec3 cp_fin = vec3(tan(l * (0.01 + (sin(rate + (colorIntensity_4*0.1)) / 60.0))) * 0.5 + (colorIntensity_4 * 0.5), cos(l * 0.2) + colorIntensity_4 + (u_theme.g*.25), cos(l * 0.1) + (u_theme.b*.5));
+  return cp_fin; 
 }
 
 vec3 mk_cp5(vec2 pt, float len, float rate) {
@@ -328,7 +328,7 @@ float reaction = sin(pt.x * 30.0 + rate) * sin(pt.y * 30.0);
 float diffusion = smoothstep(-0.2, 0.2 + sin(pt.x * 3.0 + rate) + sin(pt.x * 20.0 + 100.0/pt.y * (-(mX)) * (.0005+colorIntensity_7)), reaction); 
 
   // vec3 c_out = mix(c1, , );
-  vec3 c1 = vec3(diffusion * (0.1+abs(mX)-abs(mY*0.2)) - (mX/2.0), reaction - (0.1+abs(mX)) + colorIntensity_7,.2 + diffusion * abs(mX));
+  vec3 c1 = vec3(diffusion * (0.1+abs(mX)-abs(mY*0.2)) - (mX/2.0) + (u_theme.r*.25), diffusion - (0.1+abs(mX)) + colorIntensity_7,.2 + diffusion * abs(mX) + (u_theme.b*.25));
   vec3 c2 = vec3(reaction * abs(mX) - (mX/5.0), diffusion, reaction * abs(mX));
   vec3 c_fin = mix(c1, c1, sin(pt.x * 2.0 + rate));
 
@@ -393,9 +393,9 @@ void main(){
   } 
 
   vec3 c1 = vec3(
-    length(uv + vec2(colorIntensity, colorIntensity)), 
-    length(uv + vec2(0.2 + colorIntensity, -0.3)),
-    length(uv + vec2(0.4 + colorIntensity, -0.2))
+    (length(uv + vec2(colorIntensity, colorIntensity))*.75) + (u_theme.r*.25), 
+    (length(uv + vec2(0.2 + colorIntensity, -0.3))*.75) + (u_theme.g*.25),
+    (length(uv + vec2(0.4 + colorIntensity, -0.2))*.75) + (u_theme.b*.25)
   );
 
   vec3 c2 = mk_cp2(uv2, 25.0, rate2);
