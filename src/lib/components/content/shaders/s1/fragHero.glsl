@@ -168,7 +168,7 @@ vec3 mk_cp2(vec2 pt, float len, float rate) {
     vec3(0.000, 0.500, 0.500), vec3(0.000, 0.500, 0.500), vec3(0.000, 0.500, 0.333), vec3(0.000, 0.500, 0.667)
   );
 
-  return c + c_dillute;
+  return (c + c_dillute);
 }
 
 float fbm(vec2 pt, float len, float rate) {
@@ -261,7 +261,7 @@ vec3 mk_cp5(vec2 pt, float len, float rate) {
   );
 
   vec3 c3 = vec3(0.9098/rate, 0.898/rate, 0.7216/rate);
-  vec3 c4 = vec3(0.898, 0.2627, 0.051);
+  vec3 c4 = vec3(0.898, 0.2627, 0.051) + u_theme;
 
   float f = 0.0;
   float g = 0.0;
@@ -425,7 +425,7 @@ void main(){
 
     // c1,c7,c4,c2,c5,c6b
   vec3 a1[6] = vec3[6](
-  c2,c6b,c7,c4,c2,c5
+  c1,c6b,c7,c4,c2,c5
   );
   vec3 a_out1 = a1[int(u_shader_idx)];
 
