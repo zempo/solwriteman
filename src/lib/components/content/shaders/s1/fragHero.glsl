@@ -281,7 +281,7 @@ vec3 mk_cp5(vec2 pt, float len, float rate) {
 
   vec3 c1c = vec3(f*c3+g*c4+vec3(h));
 
-  vec3 cp_out = ((c1c)+(p1*c1)+(c1c-0.2));  
+  vec3 cp_out = ((c1c)+(p1*c1)+(c1c-0.52));  
 
   return cp_out;
 }
@@ -347,7 +347,7 @@ void main(){
  vec2 uv2 = uv * 2.0;
  vec2 uv3 = uv * vec2(2.0+(0.1*sin(u_time*.5)), 2.0+(1.0*-cos(u_time*.5)));
  vec2 uv4 = uv * vec2(12.0, 10.0);
- vec2 uv5 = .40 * uv;
+ vec2 uv5 = .70 * uv;
  vec2 uv6 = 10.0 * uv;
  vec2 uv6b = 1.0 * uv;
  vec2 uv6b2 = 1.35 * uv;
