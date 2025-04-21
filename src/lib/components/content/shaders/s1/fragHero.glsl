@@ -151,16 +151,20 @@ vec3 mk_cp2(vec2 pt, float len, float rate) {
   float cInt = smoothstep(0.0, 1.0, u_audio);
   float colorIntensity_2 = smoothstep(0.0, 1.0, u_audio); // Map audio value [0,1]
   colorIntensity_2 *= .75;
+
+    vec2 mouseNorm = u_mouse;
+  float mX = mouseNorm.x * 2.0 - 1.0;
+  float mY = mouseNorm.y * 2.0 - 1.0;
  
   vec3 c = vec3(0.0);
   for(float i = 0.0; i < len; i++){
     float t = 1. * TAU * i / 100.0 * rate;
-    float x = tan(3.0*t);
-    float y = sin(4.0*t);
+    float x = tan(3.0*t)+(mX*0.1);
+    float y = sin(4.0*t)+(mY*0.1);
     vec2 uv_out = 0.5 * vec2(x,y);
-    float r = fract(x)+colorIntensity_2;
-    float g = 0.6 - r + colorIntensity_2;
-    c += 0.01 / (length(pt-uv_out)) * vec3(r,g,0.9-colorIntensity_2*2.0);
+    float r = fract(x)+colorIntensity_2 + (u_theme.r*2.5);
+    float g = 0.6 - r + colorIntensity_2 + (u_theme.g*2.5);
+    c += 0.01 / (length(pt-uv_out)) * vec3(r,g,0.9+(u_theme.b*2.5)-colorIntensity_2*2.0);
   }
 
   vec3 c_dillute = c_palette(
@@ -232,6 +236,7 @@ vec3 mk_cp4(vec2 pt, float len, float rate) {
   colorIntensity_4 *= 1.;
 
   float l;
+
   for(float i = 0.0; i < len; i++){
     l = length(vec2(pt.x, pt.y));
 
@@ -409,10 +414,14 @@ void main(){
   vec3 c5 = mk_cp5(uv5, 5.0, rate5);
   vec3 c6 = mk_cp5(uv6, 8.0, rate5) + (mk_cp6(uv6b*2.5, rate6) * 0.2);
 
+    vec2 mouseNorm = u_mouse;
+  float mX = mouseNorm.x * 2.0 - 1.0;
+  float mY = mouseNorm.y * 2.0 - 1.0;
+
   vec2 gradient = vec2(1.0, 1.0);
   float n = psrdnoise(vec2(3.) * uv7 + (colorIntensity * 0.25), vec2(0.), .2 * rate7 * PI, gradient);
   uv7 = fract(uv7 * 4.0 * n) - 0.5;
-  float p7 = cos((uv7.x + n * 0.1 + exp(uv7.y + 2.0 * uv7.x) + 0.2) * PI);
+  float p7 = cos((uv7.x + n * 0.1 + exp(uv7.y + 2.0 * uv7.x) + 0.2 + abs(mX + mY)) * PI);
   // vec3 c7_1 = vec3(0.3098, 0.7373, 0.5255);
   // vec3 c7_1 = vec3(0.651, 0.3725, 0.7804);
   // vec3 cc = vec3(0.3725, 0.7059, 0.7804)
