@@ -335,7 +335,7 @@ float diffusion = smoothstep(-0.2, 0.2 + sin(pt.x * 3.0 + rate) + sin(pt.x * 20.
   // vec3 c_out = mix(c1, , );
   vec3 c1 = vec3(diffusion * (0.1+abs(mX)-abs(mY*0.2)) - (mX/2.0) + (u_theme.r*.25), diffusion - (0.1+abs(mX)) + colorIntensity_7,.2 + diffusion * abs(mX) + (u_theme.b*.25));
   vec3 c2 = vec3(reaction * abs(mX) - (mX/5.0), diffusion, reaction * abs(mX));
-  vec3 c_fin = mix(c1, c1, sin(pt.x * 2.0 + rate));
+  vec3 c_fin = mix(c1,c1 + (u_theme * .25), sin(pt.x * 3.0 + rate));
 
   return c_fin;
 }
