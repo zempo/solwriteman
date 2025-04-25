@@ -1,0 +1,11 @@
+---
+title: "Audio Player"
+created_at: "2025-01-22"
+topics: ["svelte","ux_ui","browser"]
+excerpt: "Tabs component"
+seo_type: "article"
+---
+
+## Overview 
+
+Put it on my tab

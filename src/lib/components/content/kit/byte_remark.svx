@@ -1,8 +1,8 @@
 ---
 title: "Remarkable Bytes"
 created_at: "2025-04-12"
-topics: ["config","mdsvex","remark","ux_ui"]
-excerpt: "An overview of my style ecosystem: Mdsvex linting and more!"
+topics: ["config","mdsvex","linting"]
+excerpt: "Overview of my blog ecosystem: Mdsvex linting and more!"
 pinned: true
 seo_type: "article"
 ---
