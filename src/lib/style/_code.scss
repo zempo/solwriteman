@@ -28,7 +28,8 @@ $code_sv: rgb(235, 124, 87);
 $code_sv_punc: rgb(248, 77, 20);
 $code_comment: rgb(65, 132, 89);
 
-p code {
+p code,
+li code {
 	background-color: var(--appFig);
 	color: $code_0;
 	font-weight: bold;

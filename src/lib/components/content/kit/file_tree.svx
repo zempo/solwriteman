@@ -41,7 +41,7 @@ seo_type: "article"
 
 ## Overview
 
-Let's build a Svelte component that recursively displays a file tree structure. It can handle nested folders and files, allowing for an expandable and collapsible view of the directory structure. We'll use powerful new Svelte 5 features (such as snippets, runes, and reactive styling).
+Let's build a Svelte component that recursively displays a file tree object. It can handle nested folders and files, allowing for an expandable and collapsible view of the directory structure. We'll use powerful new Svelte 5 features (such as snippets, runes, and reactive styling).
 
 Here's what it looks like: 
 
@@ -98,7 +98,7 @@ Now that's FLEXY! Some, no copyright infringement intended, might say _svelte_.
 
 ```svelte
 {#snippet folderHeader(name, isOpen, toggle)}
-	<button class="folder-header" onclick={toggle}>
+	<button class="folder_header" onclick={toggle}>
 		<span class="icon">{isOpen ? '📂' : '📁'}</span>
 		<span class="name">{name}</span>
 	</button>
@@ -118,16 +118,22 @@ Similarly, we have the `fileItem` snippet. This renders each file with its name 
 
 ## Main Markup
 
+Alright then, let's recursively render the snippets, above. When the user clicks on a folder header, it toggles the open/closed state of that folder. If the folder is open, we render its contents, which can include more folders or files. And if the item in our file/folder tree is a file, we'll want to render the `fileItem` snippet. 
+
+It looks a bit like this:
+
 ```svelte
 <div class="folder" style={`--depth: ${depth}`}>
 	{@render folderHeader(name, isOpen, (e) => {
-		console.log('Folder header clicked');
 		e.stopPropagation();
 		isOpen = !isOpen;
 	})}
 
 	{#if isOpen}
-		<div class="folder-contents">
+		<div class="folder_wrap">
+			{#if items.length === 0}
+				<p class="empty">This folder is empty.</p>
+			{/if}
 			{#each items as item}
 				{#if item.type === 'folder'}
 					<Folder
@@ -137,16 +143,63 @@ Similarly, we have the `fileItem` snippet. This renders each file with its name 
 						path={`${path}/${item.name}`}
 					/>
 				{:else}
-					{@render fileItem(item.name, path, depth + 1)}
+					<div class="file_wrap">
+						{@render fileItem(item.name, path, depth + 1)}
+					</div>
 				{/if}
 			{/each}
 		</div>
 	{/if}
 </div>
 ```
-## Adding Styles
 
-Finally, let's add some styles to make our file tree look nice. We'll use CSS variables to set the depth-based colors and some basic styling for the folder and file items.
+## Usage
+
+To use this component, simply import it and pass the file structure as a prop. Here's an example of how to use it in your Svelte application. We don't need to set `depth` or `path`, as they will be calculated automatically by the component. With `path`, you can link to files if you want, or just use it for display purposes (like I will be doing in this example).
+
+```svelte
+<script>
+	import Folder from '$lib/components/content/bloc/Folder.svelte';
+
+  const fileStructure = {
+		name: 'Root',
+		type: 'folder',
+		items: [
+			{
+				name: 'Docs',
+				type: 'folder',
+				items: [
+					{ name: 'Resume.pdf', type: 'file' },
+					{ name: 'CoverLetter.docx', type: 'file' }
+				]
+			},
+			{
+				name: 'Media',
+				type: 'folder',
+				items: [
+					{ name: 'Vacation.jpg', type: 'file' },
+					{
+						name: 'Family',
+						type: 'folder',
+						items: [{ name: 'Trip2023.jpg', type: 'file' }]
+					}
+				]
+			},
+			{ name: 'README.txt', type: 'file' }
+		]
+	};
+</script>
+
+<Folder name={fileStructure.name} items={fileStructure.items} />
+```
+
+## Add some Zusch
+
+Finally, let's style our folder/file tree look nice. We'll use CSS variables to set the depth-based colors and indentation.
+
+*Update folderHeader():*
+
+We can use svelte's reactive styling to set the background color based on the depth of the folder. We'll also use a CSS variable for the depth to control the indentation of the folder header.
 
 ```svelte
 {#snippet folderHeader(name, isOpen, toggle)}
@@ -154,7 +207,6 @@ Finally, let's add some styles to make our file tree look nice. We'll use CSS va
 		class="folder_header"
 		onclick={toggle}
 		style:--depth={depth}
-		style:--isOpen={isOpen ? 1 : 0}
 		style:background-color={depthColors[depth] ?? depthColors.default}
 	>
 		<span class="icon">{isOpen ? '📂' : '📁'}</span>
@@ -162,3 +214,28 @@ Finally, let's add some styles to make our file tree look nice. We'll use CSS va
 	</button>
 {/snippet}
 ```
+
+*Add Zusch:*
+
+We can indent the folder and file items based on their depth in the tree. We'll use the `--depth` CSS variable to control the left margin of each of those items.
+ 
+```svelte
+<style lang="scss">
+	.folder,
+	.file {
+		margin-left: calc(var(--depth) * 1rem);
+	}
+</style>
+```
+
+Overall, if you need to file things away `||` call it a day, this is how you do it. This component is flexible and can be adapted to fit various use cases, such as displaying project structures, documentation, or any hierarchical data.
+
+*Possible Enhancements*
+
+- Add file icons based on file extension.
+- Implement drag-and-drop functionality to rearrange files and folders.
+- Implement search functionality to filter files and folders.
+- Add svelte animations for expanding/collapsing folders.
+- Add context menus for file operations (rename, delete, etc.).
+
+Have fun!

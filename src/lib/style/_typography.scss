@@ -447,7 +447,8 @@ td,
 .content_aside li,
 .pub,
 .tag_item .tag_btn,
-.byte_bio_list a {
+.byte_bio_list a,
+.body_wrap li {
 	@include font-size($sub_font_sizes);
 	@include mq('phablet', 'min') {
 		@include font-size($sub_font_sizes);
@@ -455,7 +456,8 @@ td,
 }
 
 pre code,
-p code {
+p code,
+.body_wrap li code {
 	@include font-size($sub_font_sizes);
 	@include mq('phablet', 'min') {
 		@include font-size($sub_sub_font_sizes);
