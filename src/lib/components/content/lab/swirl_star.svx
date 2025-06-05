@@ -27,7 +27,43 @@ seo_type: "article"
   let psnip2 = {
     link: 'https://i.imgur.com/FMCeSvY.png',
     alt: 'Black and white, hard edged fractal spiral pattern.',
-    caption: `We end up with our initial shape with a hard edge.<br>This is great, but I want to give this a more organic / softer feel.`
+    caption: `We end up with our initial shape with a distinct edge.<br>This is great, but I want to give this a more organic / softer feel. And more dimension!`,
+  }
+
+  let psnip3 = {
+    link: 'https://i.imgur.com/Onbu2RA.png',
+    alt: 'Black and white, noisy / grainy edged fractal spiral pattern.',
+    caption: `Adding some noise to the edge gives it a more organic feel.<br>Let's make a note of this pattern when we add color.`,
+  }
+
+  let psnip4 = {
+    link: 'https://i.imgur.com/aicWiUp.jpeg',
+    alt: '6 permutations of the "Swirl Star" shader with different brightness / blur.',
+    caption: `Here are six permutations of the "Swirl Star" shader with different brightness and blur settings.<br>These are all great starting points for further experimentation. I decided to explore the bottom right two.`,
+  }
+
+  let psnip5 = {
+    link: 'https://i.imgur.com/luxXg0l.png',
+    alt: 'A blurred swirl star with a bright fuzzy tone.',
+    caption: `This is "Swirl Star #1". It has a soft, fuzzy feel with a bright tone.`,
+  }
+
+  let psnip6 = {
+    link: 'https://i.imgur.com/1C52lWn.png',
+    alt: 'A groovy swirl star with distinct, colored edges.',
+    caption: `This is "Swirl Star #2". It's simple, yet groovy.`,
+  }
+
+  let psnip7 = {
+    link: 'https://i.imgur.com/R6RFfMf.png',
+    alt: 'A grainy swirl star with noisy / grainy edges.',
+    caption: `This is "Swirl Star #3". It's supposed to look this grainy.<br> Your monitor isn't dusty, I promise!`,
+  }
+  
+  let psnip8 = {
+    link: 'https://i.imgur.com/i8zHMcy.png',
+    alt: 'A layered swirl star with negative space between the arms.',
+    caption: `This is "Swirl Star #4". It has even more dimension to it.<br> The uv layers and the distored gradient to create a textured effect.`,
   }
 </script>
 
@@ -37,9 +73,9 @@ Today, I will share my process behind this shader, **"Swirl Star"**. From the in
 
 <PSnip imgData={psnip0} />
 
-## Setup: Golden UV Space
+## Setup: Our Golden UV Space
 
-I'll initialize a "hot to go" shader with my `initmainmin` VS code snippet. This is my personal [template](bytes/kit/glsl_snippets) for starting shaders, which includes the necessary uniforms, constants, and a basic uv setup for the main function. But you can use any setup you prefer. I've written an even simpler one below. 
+I'll initialize a "hot to go" shader with my `initmainmin` VS code snippet. This is my personal [template](/bytes/kit/glsl_snippets) for starting shaders, which includes the necessary uniforms, constants, and a basic uv setup for the main function. But you can use any setup you prefer. I've written an even simpler one below. 
 
 ```glsl
 #version 460
@@ -106,14 +142,123 @@ Then, we can set a new angle for the spiral by adding the `rateh` and a logarith
 
 <PSnip imgData={psnip1} />
 
-## Shaping: Edge & Dimension
+## Shaping: Edge, Softness & Dimension
 
+After some tweaking, I found a good place to start with our color. I multiplied the `uvGold.x` by 10 to create a distinct edge. This will give us a nice base shape for our spiral star.
 
+> **Pro Tip:** You can adjust the multiplier to change the edge of the spiral. A higher value will create a sharper edge, while a lower value will create a softer edge.
+
+```glsl
+  // * golden ratio color
+  vec3 cG = vec3(
+    uvGold.x * 10.
+  );
+
+  vec3 c_out = cG;
+  FragColor = vec4(c_out, 1.0);
+```
 
 <PSnip imgData={psnip2} />
 
+### Texture: Noisy Edge
 
+To add some noise to the spiral edge, we can use a trig function applied to our time uniform. In this example, the `sin()` function creates our effect, while our time float determines speed of the noise.
+
+> **Pro Tip:** Multiplying the `uvGold.y` by a lower value will create more of a whispy/blurred effect, while a higher value will create a more grainy noise.
 
 ```glsl
-
+  //  uvGold.y * 2. + sin(rateq * uvGold.y * 10.),
+  //  uvGold.x * 3. + uvGold.y * 10. + sin(rateq * (uvGold.x + uvGold.y) * 10.)
+  vec3 cG = vec3(
+    uvGold.x * 20. + sin(rateq * uvGold.y * 20.)
+  );
 ```
+
+<PSnip imgData={psnip3} />
+
+### Texture: Layered / Soft / Dimensional
+
+Next, I wanted to add some dimension to the base shape. I also wanted a bit of a softer edge. To do this, I placed the `uvGold` vector inside of a trig function. By multiplying the vector by `10.0` inside of a `cos()` (and that by `0.3`) we get a cool layer effect. The `10.0` float can be adjusted to increase/decrease the layers, while the `0.3` float can be adjusted to change the softness of the edges. Adding `0.37` increases the brightness of the color.
+
+```glsl
+  vec3 cG = vec3(
+    0.37 + 0.3 * cos(uvGold.x * 10.0)
+  );
+```
+
+<PSnip imgData={psnip4} />
+
+Now that I had my base shapes, it was time to add some color. For this, we'll use our uniforms and the `pal()` function to create a vibrant color palette. The `pal()` function takes in a float value `t` and four vec3 colors `a`, `b`, `c`, and `d`. It returns a color based on the input values. I'd highly suggest [reading more](https://www.shadertoy.com/view/ll2GD3). 
+
+> **Resource:** Tweaking `pal()` values can be ~~friggen insane~~ a bit of trial and error. Check out my **[pal() debugger](/bytes/kit/debug_pal)** for some presets and controls to assist you.
+
+## Colors: A "Hue"-ge Difference
+
+Before we use our `pal()`, let's see what we can do without it. I started with soft, yet dimensional spiral arms. I started with the previously used `0.37 + 0.3 * cos(uvGold.x * 1.0)` in the red channel, and alternated combinations of `uvGold.x` and `uvGold.y` in the green and blue channels. I tweaked the values to create colors that would complement each other.
+
+```glsl
+  vec3 cG = vec3(
+    0.37 + 0.3 * cos(uvGold.x * 1.0),
+    0.5 + 0.3 * cos(uvGold.y * 1.0 + PI/2.0),
+    0.3 + 0.3 * sin((uvGold.x + uvGold.y) * 1.0)
+  );
+```
+
+<PSnip imgData={psnip5} />
+
+I also tried a more illustrative effect below:
+
+```glsl
+  vec3 cG = vec3(
+    uvGold.x * 10.,uvGold.y * 10.,uvGold.x * 10. + uvGold.y * 10.
+  );
+```
+<PSnip imgData={psnip6} />
+
+Remember the [noisy edge](#texture-noisy-edge) we created earlier? Let's give it some color! 
+
+```glsl
+  vec3 cG = vec3(
+    uvGold.x * 20. + sin(rateq * uvGold.y * 20.),
+    uvGold.y * 2. + sin(rateq * uvGold.y * 10.),
+    uvGold.x * 3. + uvGold.y * 10. + sin(rateq * (uvGold.x + uvGold.y) * 10.)
+  );
+```
+
+<PSnip imgData={psnip7} />
+
+Okay, now let's use our `pal()`. You'll see why I love this function so much. It takes this shader to a whole new level. For this example, I actually multiplied two `pal()` functions together, multiplied the result by `*= 1. - smoothstep(.8,1.5, newRad)`, and then rendered the palette to the power of `cG`. 
+
+That last part was more art than science, but who cares? It looks pretty!
+
+```glsl
+  vec3 cp1 = pal(
+	smoothstep(-2.5, 2.5, cnoise(vec2(uvGold.x * 4., rateq * .13 + (u_mouse.x *.001)))) + uv.y,
+	vec3(1.00, 0.30, 0.50),
+	vec3(0.30, 0.30, 0.50),
+	vec3(2.00, 0.97, 0.59),
+	vec3(0.10, 0.30, 0.70)
+  ) * pal(
+    uvGold.x,
+	vec3(1.00, 0.30, 0.50),
+	vec3(0.30, 0.30, 0.50),
+	vec3(2.00, 0.97, 0.59),
+	vec3(0.10, 0.30, 0.70)
+  );
+
+   vec3 cG = vec3(
+    0.7 + 0.3 * cos(uvGold.x * 10.0),
+    0.5 + 0.3 * cos(uvGold.y * 10.0 + PI/2.0),
+    0.3 + 0.3 * sin((uvGold.x + uvGold.y) * 5.0)
+  );
+
+  cp1 *= 1. - smoothstep(.8,1.5, newRad);
+
+  vec3 c_out = pow(cp1,cG);
+```
+
+<PSnip imgData={psnip8} />
+
+Finally, I played around some more with the output color. My advice is to drink your favorite caffeinated beverage, put on some music, and just play around with the values.
+
+<PSnip imgData={psnip0} />

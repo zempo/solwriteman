@@ -1,0 +1,47 @@
+---
+title: "Shader Palette Debug"
+created_at: "2025-06-06"
+topics: ["glsl","rgb","debug"]
+excerpt: "A radial pulse used in a music video"
+cover_img: "https://t3.ftcdn.net/jpg/03/26/50/04/360_F_326500445_ZD1zFSz2cMT1qOOjDy7C5xCD4shawQfM.jpg"
+cover_alt: "Behold! This glorious placeholder horse!"
+seo_type: "article"
+---
+<!-- possible topics: noise, rgb, glsl, p3js, d3js, music_linked, data_vis -->
+<!-- https://www.shadertoy.com/view/XsXXDn -->
+<script>
+	import PSnip from '$lib/components/content/custom/PSnip.svelte';
+
+  let psnip1 = {
+		link: 'https://redwoodartgroup.com/wp-content/uploads/2019/09/TardisVG.jpg',
+		alt: 'Tardis from from the show Doctor Who by BBC in a Van Gogh art style',
+		caption: `Image sourced from <a href="https://redwoodartgroup.com/wp-content/uploads/2019/09/TardisVG.jpg" target="_blank" rel="noopener noreferrer" >Redwood Art Group</a>.`,
+	}
+</script>
+
+<PSnip imgData={psnip1} />
+
+
+## Overview
+
+```glsl
+#ifdef GL_ES
+precision mediump float;
+#endif
+
+uniform vec2 u_resolution;
+uniform float u_time;
+
+float circleGEO(vec2 position, float radius){
+    return step(radius, length(position - vec2(0.5)));
+}
+
+void main() {
+  vec2 uv = ((gl_FragCoord.xy - (u_resolution.xy * 0.5)) / u_resolution.y);
+  // shapes, colors, fragments output here
+  float circle = circleGEO(uv, 0.2);
+
+  vec3 color = vec3(circle);
+  gl_FragColor = vec4(color, 1.0);
+} 
+```
