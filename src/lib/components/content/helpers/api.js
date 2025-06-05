@@ -70,7 +70,13 @@ export const formatTimestamp = (dateStr) => {
 };
 
 export const formatTimestampLong = (isoStr) => {
-	const date = new Date(isoStr);
+	// Split the ISO string to get just the date part
+	const datePart = isoStr.split('T')[0];
+	const [year, month, day] = datePart.split('-').map(Number);
+
+	// Create date in local timezone
+	const date = new Date(year, month - 1, day);
+
 	const opts = { month: 'long', day: 'numeric', year: 'numeric' };
 	let dateNumeric = date.toLocaleDateString('en-US', opts);
 	let dateNumericStrs = dateNumeric.split(' ');

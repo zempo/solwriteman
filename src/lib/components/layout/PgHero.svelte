@@ -1,7 +1,5 @@
 <script>
-	import { page } from '$app/state';
 	import { taglines, titles } from '$lib/config';
-	import { dimension } from '$lib/store/dimension.svelte';
 	import { main } from '$lib/store/main.svelte';
 	import { formatTimestampLong } from '../content/helpers/api';
 

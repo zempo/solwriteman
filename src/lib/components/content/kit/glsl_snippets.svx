@@ -1,8 +1,9 @@
 ---
-title: "Radial"
+title: "GLSL Snippets"
 created_at: "2025-01-22"
-topics: ["glsl","rgb"]
-excerpt: "A radial pulse used in a music video"
+topics: ["glsl","workflow"]
+excerpt: "An overview of some GLSL snippets I use in my projects."
+pinned: true
 cover_img: "https://t3.ftcdn.net/jpg/03/26/50/04/360_F_326500445_ZD1zFSz2cMT1qOOjDy7C5xCD4shawQfM.jpg"
 cover_alt: "Behold! This glorious placeholder horse!"
 seo_type: "article"

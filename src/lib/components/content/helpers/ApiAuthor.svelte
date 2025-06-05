@@ -13,10 +13,10 @@
 	</div>
 	<div class="byte_bio_text">
 		<p>
-			I'm Solomon Zelenko, a frontend developer, visual artist, writer, and mentor.<span
+			I'm Solomon Zelenko, a creative coder, visual artist, writer, and mentor.<span
 				class="no_wrap"
 			>
-				I'm based in the OC, California,</span
+				I'm based in Southern California,</span
 			>
 			with my wife, kids, and our Tortie cat, Weasel.<br /> Please enjoy my Bytes & Snippets:
 			<em>On Paper, On Mic, and Online</em>. <br />
@@ -33,7 +33,7 @@
 			</li>
 			<li>
 				<!-- * include slug in query params -->
-				<a href="/">Country Roads, Take Me Home</a>
+				<a href="/">Country roads, take me <em>home</em></a>
 			</li>
 		</ul>
 	</div>
@@ -49,7 +49,7 @@
 			{/each}
 		</ul>
 		<p class="scroll_top_p use_h4">
-			<a href="/bytes/{subtype}/{slug}#pg_top" class="scroll_top_btn">Back to Top</a>
+			<a href="/bytes/{subtype}/{slug}#pg_top" class="scroll_top_btn">👆Back to Top</a>
 		</p>
 	</div>
 </div>

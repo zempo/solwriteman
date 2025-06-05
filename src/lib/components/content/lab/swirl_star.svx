@@ -1,0 +1,119 @@
+---
+title: "Swirl Star"
+created_at: "2025-06-04"
+topics: ["glsl","code_math"]
+excerpt: "A multi-dimensional swirling star fractal made with the golden ratio."
+cover_img: "https://i.imgur.com/mGnguFE.png"
+cover_alt: "A skewed fractal star pattern with swirling golden ratio spirals."
+seo_type: "article"
+---
+<!-- possible topics: noise, rgb, glsl, p3js, d3js, music_linked, data_vis -->
+<!-- https://www.shadertoy.com/view/XsXXDn -->
+<script>
+	import PSnip from '$lib/components/content/custom/PSnip.svelte';
+
+  let psnip0 = {
+		link: 'https://i.imgur.com/mGnguFE.png',
+		alt: 'A skewed fractal star pattern with swirling golden ratio spirals.',
+		caption: `One of my absolute favorite permutations of "Swirl Star".<br> For other cool code bytes, visit my <a href="https://github.com/zempo" target="_blank" rel="noopener noreferrer">GitHub</a> or <a href="https://codepen.io/zemposPen target="_blank" rel="noopener noreferrer">CodePen</a>.`,
+	}
+
+  let psnip1 = {
+		link: 'https://i.imgur.com/NDrY9Lp.jpeg',
+		alt: 'A manga panel of a Fibbonachi spirtal etched into the dirt with a stick.',
+		caption: `A panel from "JoJo's Bizarre Adventure: Steel Ball Run", serialized in <a href="https://www.shueisha.co.jp/en/" target="_blank" rel="noopener noreferrer" >Shueisha Magazine</a>.`,
+	}
+
+  let psnip2 = {
+    link: 'https://i.imgur.com/FMCeSvY.png',
+    alt: 'Black and white, hard edged fractal spiral pattern.',
+    caption: `We end up with our initial shape with a hard edge.<br>This is great, but I want to give this a more organic / softer feel.`
+  }
+</script>
+
+## Overview: Before we _Spiral_ out of Control
+
+Today, I will share my process behind this shader, **"Swirl Star"**. From the initial setup to the final touches, we'll explore how to create a visually appealing spiral star pattern using the golden ratio. This shader is a great example of how mathematical concepts and constants can be applied to create amazing visuals.
+
+<PSnip imgData={psnip0} />
+
+## Setup: Golden UV Space
+
+I'll initialize a "hot to go" shader with my `initmainmin` VS code snippet. This is my personal [template](bytes/kit/glsl_snippets) for starting shaders, which includes the necessary uniforms, constants, and a basic uv setup for the main function. But you can use any setup you prefer. I've written an even simpler one below. 
+
+```glsl
+#version 460
+
+#ifdef GL_ES
+precision mediump float;
+#endif
+
+uniform vec2 u_resolution;
+uniform float u_time;
+uniform vec2 u_mouse;
+out vec4 FragColor;
+
+const float PI = 3.1415926535897932384626433832795;
+const float TAU = PI * 2.;
+const float GOLDEN_RATIO = 1.61803398874989484820458683436564;
+
+// http://dev.thi.ng/gradients/ (Create vibrant shader color palettes)
+vec3 pal( float t, vec3 a, vec3 b, vec3 c, vec3 d) {
+  return a + b * cos(TAU * (c * t + d));
+}
+
+void main(){
+  float zoom = 1.0;
+  vec2 uv = zoom * ((gl_FragCoord.xy - (u_resolution.xy * 0.5)) / u_resolution.y);
+
+  float rate = u_time * 1.0;
+  float rated = u_time * 2.0;
+  float rateh = u_time * .50;
+  float rateq = u_time * .25;
+  
+  vec3 c_out = vec3(1.0);
+  FragColor = vec4(c_out, 1.0);
+}
+```
+
+Next, we'll use `GOLDEN_RATIO` and `TAU` to find the `GOLDEN_ANGLE`, which is the angle between each point in our spiral. This will help us create a visually appealing pattern that follows the golden ratio. `rad` will be the distance from the center of the spiral, and `angle` will be the angle of each point in the spiral. `atan()` gives us the angle in radians based on the `y` and `x` coordinates of our `uv` vector. 
+
+> **Pro Tip:** If you want the spiral to spin in the opposite direction, just swap the `uv.y` and `uv.x` within the `atan()` function.
+
+```glsl
+  // * CALC
+  float GOLDEN_ANGLE = TAU / GOLDEN_RATIO;
+  float rad = length(uv);
+  float angle = atan(uv.y, uv.x);
+```
+
+From there, we'll set a `spiralFactor` of 0.5 which will determine how much the spiral expands as it moves outward. The `newRad` variable will be the new radius of the spiral, which is calculated using the `rad`, `angle`, and `GOLDEN_ANGLE`.
+
+```glsl
+  // * GOLDEN SPIRAL
+  float spiralFactor = .5;
+  float newRad = rad * (1. + spiralFactor * sin(angle * 5. - log(rad) * GOLDEN_ANGLE));
+```
+
+Then, we can set a new angle for the spiral by adding the `rateh` and a logarithmic function of the `newRad` multiplied by the `GOLDEN_ANGLE`. This will create a swirling effect as the spiral expands outward. Our `uvGold` vector will be used to calculate the new position of each point in the spiral.
+
+```glsl
+  // * remap angle from golden ratio
+  float newAngle = angle + rateh + log(newRad + .1) * GOLDEN_ANGLE;
+
+  vec2 uvGold = vec2(cos(newAngle) * newRad, sin(newAngle) * newRad);
+```
+
+<PSnip imgData={psnip1} />
+
+## Shaping: Edge & Dimension
+
+
+
+<PSnip imgData={psnip2} />
+
+
+
+```glsl
+
+```

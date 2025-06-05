@@ -430,6 +430,18 @@ figcaption {
 	}
 }
 
+.byte_pg .body_wrap blockquote p:first-of-type {
+	&::first-letter {
+		line-height: 1.5;
+		float: none;
+		margin: auto;
+		@include font-size($bigp_font_sizes);
+		@include mq('phablet', 'min') {
+			@include font-size($p_font_sizes);
+		}
+	}
+}
+
 td,
 .foot_link a {
 	@include font-size($bigp_font_sizes);

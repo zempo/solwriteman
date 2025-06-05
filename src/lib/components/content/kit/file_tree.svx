@@ -228,7 +228,7 @@ We can indent the folder and file items based on their depth in the tree. We'll 
 </style>
 ```
 
-Overall, if you need to file things away `||` call it a day, this is how you do it. This component is flexible and can be adapted to fit various use cases, such as displaying project structures, documentation, or any hierarchical data.
+Overall, if you need to file things away && call it a day, this is how you do it. This component is flexible and can be adapted to fit various use cases, such as displaying project structures, documentation, or any hierarchical data.
 
 *Possible Enhancements*
 
@@ -237,5 +237,3 @@ Overall, if you need to file things away `||` call it a day, this is how you do 
 - Implement search functionality to filter files and folders.
 - Add svelte animations for expanding/collapsing folders.
 - Add context menus for file operations (rename, delete, etc.).
-
-Have fun!

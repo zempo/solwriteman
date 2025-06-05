@@ -59,6 +59,20 @@ $breakpoints: (
 				// color: var(--appConst);
 			}
 		}
+
+		blockquote {
+			border: 0.1rem solid var(--textFade);
+			border-radius: 0.15rem;
+			border-left: 0.35rem solid var(--rw);
+			padding: 0.5rem 1rem;
+			margin: 1.5rem 0;
+			color: var(--textMain);
+			font-style: italic;
+			background: var(--appTranslucent);
+			p {
+				margin: 0;
+			}
+		}
 	}
 	.byte_bio {
 		// border: 2px solid var(--appOpaque2);
@@ -124,7 +138,7 @@ $breakpoints: (
 				}
 
 				&:nth-child(3)::before {
-					content: '🍊 '; // Third item emoji
+					content: '🏠 '; // Third item emoji
 				}
 			}
 		}
